@@ -21,6 +21,8 @@ jobs:
           node --check scripts/build-account-release.mjs
           node --check tests/account-release.mjs
           node --check tests/static-login.mjs
+          node --check tests/account-secret-diagnostics.mjs
+          node tests/account-secret-diagnostics.mjs
           node --check site/library.js
           node --check site/library-ui.js
           node --check tests/ui.mjs
