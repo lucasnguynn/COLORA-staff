@@ -225,6 +225,14 @@ try{
   assert.equal(await page.locator('body').getAttribute('data-staff-role'),'senior');
   await page.locator('.nav-btn[data-view="jd"]').click();
   await page.frameLocator('#module-frame').locator('#workspaceTitle').waitFor({state:'visible',timeout:15000});
+  // Regression: escaped backslash-n written into <head> is parsed as visible
+  // text before the JD interface, producing an ugly seam in Senior Workspace.
+  const jdEscapedText=await page.frameLocator('#module-frame').locator('body').evaluate(el=>
+    [...el.childNodes].filter(n=>n.nodeType===3).some(n=>n.textContent.includes('\\n')));
+  assert.equal(jdEscapedText,false,'JD frame must not render a literal backslash-n before content');
+  const seniorShellEscapedText=await page.locator('body').evaluate(el=>
+    [...el.childNodes].filter(n=>n.nodeType===3).some(n=>n.textContent.includes('\\n')));
+  assert.equal(seniorShellEscapedText,false,'Senior shell must not contain a visible literal backslash-n');
   assert.equal(await page.frameLocator('#module-frame').locator('#staticrypt-password').count(),0,'Senior must not see a second JD password prompt');
   assert.equal(await page.locator('#module-open').isVisible(),false,'Senior JD should be integrated instead of opening another login');
     await page.locator('#module-expand').click();
