@@ -36,7 +36,23 @@ try{
   assert.equal(jd>0,role==='senior','Staff role must never see JD navigation');
   if(role==='senior'){
    await wrapper.locator('.nav-btn[data-view="jd"]').click();
-   await wrapper.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:15000});
+   try{await wrapper.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:15000})}
+   catch(error){
+     const diag=await wrapper.locator('#module-frame').evaluate(el=>({
+       frameLoaded:el.dataset.jdLoaded||'no',
+       frameVisibility:getComputedStyle(el).visibility,
+       moduleView:document.getElementById('module')?.dataset.activeModule,
+       bridge:!!window.COLORA_JD_WORKSPACE,
+       frameSrcdoc:!!el.srcdoc,
+       innerBody:!!el.contentDocument?.body,
+       innerEditor:!!el.contentDocument?.getElementById('editorPanel'),
+       innerState:el.contentDocument?.readyState,
+       jsScripts:el.contentDocument?.scripts.length,
+       status:document.getElementById('module-status')?.textContent?.slice(0,90)
+     }));
+     console.error('JD test diagnostics (no passwords or emails):',JSON.stringify(diag));
+     throw error;
+   }
   }
   await page.locator('#workspace-signout').click();
   await page.locator('#signin-form').waitFor({state:'visible'});
