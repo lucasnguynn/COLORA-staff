@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: colora-staff-pages
   cancel-in-progress: false
@@ -30,10 +31,34 @@ jobs:
         run: |
           (cd modules/learning && node scripts/validate.mjs)
           (cd modules/client-care && node tests/publication.cjs && node tests/ops.cjs && node tests/smoke.cjs)
-      - name: Unlock encrypted senior JD source for temporary build
+      - name: Unlock Senior JD source, or preserve prior encrypted deployment
         env:
           SENIOR_JD_PASSWORD: ${{ secrets.SENIOR_JD_PASSWORD }}
-        run: node scripts/jd-source.mjs decrypt modules/jd-source.enc.json .sources/jd
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          if node scripts/jd-source.mjs decrypt modules/jd-source.enc.json .sources/jd; then
+            echo "JD_BUILD_MODE=fresh" >> "$GITHUB_ENV"
+          else
+            # No passwords or plaintext JD files are accessed during fallback.
+            # Use the most recent SUCCESSFUL main-branch Pages artifact as source
+            # of the already encrypted JD HTML + its non-sensitive images.
+            rm -rf .sources/jd
+            echo "::warning::Senior JD archive key differs from the configured key. Preserving the last published encrypted JD (its existing password remains unchanged)."
+            RUN_ID=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/pages.yml/runs?status=success&branch=main&per_page=1" --jq '.workflow_runs[0].id')
+            if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+              echo "::error::No previously successful Staff deployment was found. Refusing to publish an unprotected JD."
+              exit 1
+            fi
+            mkdir -p .sources/last-published/site
+            gh run download "$RUN_ID" --repo "$GITHUB_REPOSITORY" --name github-pages --dir .sources/last-published
+            tar -xf .sources/last-published/artifact.tar -C .sources/last-published/site
+            if [ ! -f .sources/last-published/site/apps/jd/index.html ]; then
+              echo "::error::Last published archive lacks protected JD HTML."
+              exit 1
+            fi
+            echo "JD_BUILD_MODE=preserve" >> "$GITHUB_ENV"
+          fi
       - name: Install pinned StatiCrypt and browser test runner
         run: npm install --no-save --no-package-lock staticrypt@3.5.4 playwright@1.56.1 qr-code-styling@1.6.0-rc.1
       - name: Assemble static portal
