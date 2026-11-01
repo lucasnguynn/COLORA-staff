@@ -110,8 +110,13 @@ window.COLORA_MODULE_HOST=(()=>{
     }
     data.listener=()=>{
       if(data.closed)return;
+      // Newly inserted iframes may dispatch an initial about:blank load.
+      // Do not mistake that empty document for our actual app Blob URL.
+      const href=frame.contentWindow?.location?.href||'';
+      if(!href.startsWith('blob:'))return;
       const doc=frame.contentDocument;
       if(!doc)return;
+      frame.removeEventListener('load',data.listener);
       status.hidden=true;
       if(view==='client-care'){
         const original=doc.getElementById('role-select');
@@ -164,7 +169,7 @@ window.COLORA_MODULE_HOST=(()=>{
       setTimeout(schedule,400);
       syncNav();
     };
-    frame.addEventListener('load',data.listener,{once:true});
+    frame.addEventListener('load',data.listener);
     frame.removeAttribute('srcdoc');
     frame.src=url;
     return data;
