@@ -66,7 +66,10 @@
           '<base href="'+new URL('/apps/jd/',location.origin).href+'">').trim();
         $('module-open').hidden=true;
         $('module-hint').hidden=true;
-        $('module-status').hidden=true;
+        // A missing/delayed JD bridge should never leave a silent blank.
+        // A late bridge self-mounts and clears this notice when ready.
+        $('module-status').textContent='Đang khởi tạo JD Library… Nếu nội dung chưa xuất hiện, hãy tải lại trang.';
+        $('module-status').hidden=!!window.COLORA_JD_WORKSPACE?.mount;
       } else {
         const packed=document.getElementById('bundled-'+view);
         if(!packed)throw Error('Missing integrated Staff section: '+view);
