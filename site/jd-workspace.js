@@ -72,6 +72,8 @@ window.COLORA_JD_WORKSPACE=(()=>{
     item.resize.observe(doc.body);
     item.resize.observe(doc.getElementById('editorPanel'));
     item.frame.dataset.jdLoaded='true';
+    const status=$('module-status');
+    if(status)status.hidden=true;
     syncRoles();
     resize();
   }
