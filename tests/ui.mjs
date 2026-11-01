@@ -30,7 +30,7 @@ try{
   assert.equal(await page.locator('.library-card').count(),2);
   await page.locator('.filter-btn[data-filter="Tất cả"]').click();
   await page.locator('.library-card[data-resource="brand-story"]').click();
-  assert(await page.locator('#library-article').isVisible());
+  await page.locator('#library-article').waitFor({state:'visible',timeout:5000});
   await page.locator('#library-back').click();
   await page.locator('[data-view="signature"].nav-btn').click();
   await page.locator('#signature-form [name="name"]').fill('Minh An');
