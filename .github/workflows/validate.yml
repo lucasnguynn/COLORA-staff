@@ -82,6 +82,21 @@ jobs:
           SENIOR_JD_PASSWORD: "Test8!Bb"
           LOGIN_QA_SCREENSHOTS: '1'
         run: node tests/encrypted-login.mjs
+      - name: Verify previously encrypted JD survives Staff rebuild and Senior key rotation
+        env:
+          STAFF_PORTAL_PASSWORD: "Test8!Aa"
+          SENIOR_JD_PASSWORD: "Test8!Cc"
+          JD_BUILD_MODE: preserve
+        shell: bash
+        run: |
+          mkdir -p .sources/last-published/site/apps/jd
+          cp -a dist/apps/jd/. .sources/last-published/site/apps/jd/
+          cp dist/apps/jd/index.html "$RUNNER_TEMP/original-senior-encrypted.html"
+          node scripts/build.mjs
+          node scripts/encrypt.mjs
+          node scripts/verify.mjs
+          cmp dist/apps/jd/index.html "$RUNNER_TEMP/original-senior-encrypted.html"
+          node tests/encrypted-login.mjs
       - name: Save branded login screenshots
         if: always()
         uses: actions/upload-artifact@v4
