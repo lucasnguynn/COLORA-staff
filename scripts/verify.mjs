@@ -8,6 +8,9 @@ for(const rel of pages){
   const html=fs.readFileSync(file,'utf8');
   if(!/staticrypt/i.test(html))throw Error('Missing StatiCrypt marker: '+rel);
   if(html.length<1500)throw Error('Encrypted output too small: '+rel);
+  if(!html.includes('class="brand-logo"') || !html.includes('colora-lettermark.png'))throw Error('Original COLORA logo is missing on login: '+rel);
+  if(!html.includes('Cormorant Garamond') || !html.includes('Open Sans'))throw Error('COLORA font stack is missing from login: '+rel);
+  if(!html.includes('staticrypt-password') || !html.includes('staticrypt-form'))throw Error('Login form is missing: '+rel);
   if(!html.includes('location.replace("https:"+location.href.substring(location.protocol.length))'))throw Error('Missing forced HTTPS redirect in '+rel);
   const forbidden=[
     '<div class="shell">',
