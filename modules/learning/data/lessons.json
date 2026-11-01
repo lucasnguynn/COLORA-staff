@@ -1,0 +1,1135 @@
+[
+  {
+    "id": "01",
+    "title": "DEMI-FINE LÀ GÌ? COLORA ĐANG BÁN GÌ?",
+    "subtitle": "Bắt đầu bằng ngành hàng trước khi học tên thương hiệu.",
+    "points": [
+      "DEMI-FINE 101 | Demi-fine là khái niệm định vị thương mại, thường nằm giữa fashion jewelry (phụ kiện trang sức thời trang) và fine jewelry (thường tập trung vàng, bạch kim và đá quý với giá trị vật liệu cao). Không có một tỷ lệ kim loại, loại đá hay mức giá thống nhất cho mọi thương hiệu demi-fine.",
+      "PHÂN BIỆT | Fashion jewelry có thể dùng nhiều loại vật liệu và tập trung vào yếu tố thời trang; fine jewelry thường sử dụng kim loại quý ở dạng đặc và đá quý; demi-fine thường tìm cách kết hợp vật liệu có chất lượng được công bố, thiết kế và giá dễ tiếp cận hơn fine jewelry. Đây là mô tả phổ biến, không phải thang đo chất lượng tuyệt đối.",
+      "KHÔNG SUY DIỄN | Nhãn demi-fine không bảo đảm “không xỉn”, “không dị ứng”, “giữ giá”, độ bền nhất định, đá không xử lý hoặc một loại bạc cố định. Những thuộc tính ấy phải chứng minh bằng thông số và bằng chứng của sản phẩm.",
+      "COLORA LỰA CHỌN DEMI-FINE | COLORA muốn làm trang sức đá màu có thiết kế riêng, hoàn thiện chỉn chu và có thể hiện diện cả trong ngày thường lẫn những dịp đáng nhớ. Phải giải thích được cả lý do khách muốn đeo và điều họ thật sự mua.",
+      "COLORA KHÔNG PHẢI | Không phải thương hiệu kinh doanh đá quý rời, cửa hàng vàng đầu tư, nhãn “bạc cao cấp” thuần vật liệu hay hãng chỉ làm phụ kiện theo xu hướng ngắn hạn.",
+      "SẢN PHẨM HOÀN THIỆN | Nhẫn, hoa tai, dây chuyền, vòng tay là những nhóm trang sức thương hiệu phát triển. Đá màu là điểm nhấn và thuộc tính thiết kế/sản phẩm, không phải một ngành hàng đá rời bán độc lập.",
+      "VÌ SAO KHÁCH MUA | Khách có thể quan tâm trước hết vì màu đá, kiểu dáng và sự phù hợp; sau đó cần thông số, nguồn gốc, giá trị, cách sử dụng và dịch vụ để yên tâm quyết định online.",
+      "CÂU GIỚI THIỆU MẪU | “COLORA là thương hiệu trang sức demi-fine Việt Nam, lấy đá quý màu và ngôn ngữ giác cắt làm tâm điểm thiết kế. Chúng tôi hướng đến những món trang sức có thể đeo và lưu giữ theo cách riêng của mỗi người.”",
+      "PHÂN BIỆT MỨC ĐỘ CHẮC CHẮN | Triết lý, định vị và định hướng ngành hàng là kiến thức nền; thông số vật liệu và chính sách theo từng SKU cần hồ sơ duyệt; kế hoạch kinh doanh và các ý tưởng chưa triển khai không tự thành thông tin bán hàng.",
+      "TỰ KIỂM TRA | Nếu một người hỏi “demi-fine có phải chỉ là trang sức bạc mạ không?”, nhân viên phải có thể giải thích: không; đây là cách định vị sản phẩm, còn vật liệu/độ bền phải xem từng món."
+    ],
+    "url": "https://colora.vn/pages/cau-chuyen-colora",
+    "origin": "Tổng hợp từ các định hướng/khẳng định nội bộ của COLORA và kiến thức ngành phù hợp; link chỉ là tài liệu tham khảo bổ sung, không thay thế hồ sơ nội bộ.",
+    "teachback": {
+      "prompt": "Giải thích bằng lời của bạn: demi-fine là gì, khác fashion/fine jewelry ở điểm nào và COLORA bán giá trị gì?",
+      "sample": "Demi-fine là cách định vị thương mại, không là chuẩn hợp kim. COLORA làm trang sức demi-fine Việt Nam, đá màu là tâm điểm, kết hợp thiết kế có bản sắc, chất lượng được chứng minh, dễ đeo và ý nghĩa do người đeo chọn. Không bán đá rời."
+    },
+    "visual": {
+      "kicker": "SO SÁNH NGÀNH HÀNG",
+      "title": "Fashion, demi-fine và fine khác nhau ở định vị, không phải một thang điểm chất lượng",
+      "layout": "compare",
+      "cards": [
+        {
+          "title": "Fashion jewelry",
+          "detail": "Thường thiên về phụ kiện và xu hướng. Vật liệu và độ hoàn thiện có thể rất đa dạng."
+        },
+        {
+          "title": "Demi-fine jewelry",
+          "detail": "Tìm sự cân bằng giữa vật liệu, thiết kế, giá trị sử dụng và khả năng tiếp cận. Không có một công thức bạc hay ngưỡng giá bắt buộc."
+        },
+        {
+          "title": "Fine jewelry",
+          "detail": "Thường chú trọng kim loại quý và giá trị vật liệu cao; cũng có nhiều mức thiết kế, giá và trải nghiệm."
+        }
+      ],
+      "note": "Sơ đồ khái niệm để nhân viên hiểu phân khúc, không phải tiêu chuẩn kỹ thuật hay phân hạng chất lượng tuyệt đối."
+    },
+    "essential_point_indices": [
+      0,
+      1,
+      3,
+      5,
+      6,
+      8
+    ],
+    "learning_objective": "Giải thích demi-fine trong 45 giây, phân biệt với fashion/fine mà không hứa độ bền hoặc vật liệu theo một chuẩn không tồn tại."
+  },
+  {
+    "id": "02",
+    "title": "COLORA, NGUỒN GỐC & COLOR YOUR AURA",
+    "subtitle": "Giải thích vì sao có thương hiệu và ý nghĩa lời mời thể hiện bản sắc.",
+    "points": [
+      "NGUỒN GỐC | COLORA khởi nguồn từ Việt Nam, với mong muốn của những người trẻ Việt Nam tạo nên một thương hiệu trang sức có bản sắc riêng, chất lượng và ngôn ngữ thiết kế đủ tốt để có thể đi xa; không phải tái tạo nguyên mẫu của một thương hiệu quốc tế.",
+      "ĐỘNG CƠ SÁNG LẬP | Không chỉ muốn bán một món trang sức đẹp: nhóm sáng lập muốn tạo trải nghiệm gắn với cảm xúc và những dấu mốc cá nhân, nhưng món trang sức cũng phải thực sự đeo được, có kỹ thuật và hoàn thiện đáng tin.",
+      "TÊN THƯƠNG HIỆU | Trong ngôn ngữ nội bộ, COLORA gắn Color và Aura: màu sắc và sắc thái/khí chất riêng mà người đeo thể hiện. Đừng biến cách giải thích biểu tượng này thành một câu chuyện lịch sử đặt tên nếu chưa có văn bản xác nhận.",
+      "TAGLINE CHÍNH THỨC | “COLORA - COLOR YOUR AURA” (không thêm dấu chấm, không thay bằng tên chiến dịch). Đây là lời mời chọn sắc màu để thể hiện một phần con người mình, không phải lời hứa đá thay đổi vận mệnh.",
+      "AURA KHÔNG PHẢI | Chỉ số năng lượng, cơ chế chữa lành hoặc vật thể có thể đo được. Aura ở đây là khí chất, sắc thái và cảm nhận bản thân; nhân viên không được bán như sản phẩm điều trị hay phong thủy có hiệu quả bảo đảm.",
+      "KHÔNG CÓ MỘT MÀU ĐÚNG | Màu xanh không bắt buộc là bình yên; đỏ không bắt buộc là tình yêu. Người đeo có quyền thấy một màu chỉ đơn giản là đẹp. Trải nghiệm thực sự bắt đầu từ ý nghĩa do họ tự chọn.",
+      "ĐẠI DIỆN NGÀNH HÀNG | Thương hiệu bắt đầu từ sản phẩm hoàn thiện bằng vật liệu thật và thiết kế riêng. Không hứa rằng mọi sản phẩm đều có công nghệ, lớp mạ hoặc dịch vụ giống nhau khi chưa có hồ sơ SKU.",
+      "THIẾT KẾ VÀ CHĂM SÓC | Từ tỷ lệ của món trang sức đến lời tư vấn, thông tin, đóng gói và hỗ trợ sau mua đều phải cùng phản ánh sự tôn trọng và chỉn chu. Đó là cách bản sắc trở nên hữu hình.",
+      "HIỆN TRẠNG | COLORA đang vận hành theo mô hình online-first, website trên Haravan và kênh tư vấn trực tuyến. Không mặc định đã có showroom, cửa hàng hoặc dịch vụ chỉ nằm trong bản kế hoạch.",
+      "NÓI 30 GIÂY | Nhân viên phải nối được “COLORA là ai” với “vì sao thương hiệu tồn tại” và “món trang sức đem lại điều gì”, không chỉ đọc khẩu hiệu."
+    ],
+    "url": "https://colora.vn/pages/cau-chuyen-colora",
+    "origin": "Tổng hợp từ các định hướng/khẳng định nội bộ của COLORA và kiến thức ngành phù hợp; link chỉ là tài liệu tham khảo bổ sung, không thay thế hồ sơ nội bộ.",
+    "teachback": {
+      "prompt": "Nói trong 30 giây: COLORA vì sao được tạo ra và COLOR YOUR AURA nghĩa là gì?",
+      "sample": "COLORA bắt đầu từ khát vọng tạo một thương hiệu Việt Nam có thiết kế riêng, chất lượng và trải nghiệm tốt. COLOR YOUR AURA mời mỗi người thể hiện khí chất/sắc thái cá nhân bằng màu sắc, không phải viên đá thay đổi vận mệnh."
+    },
+    "visual": {
+      "kicker": "BẢN SẮC COLORA",
+      "title": "COLORA là điểm khởi đầu. Ý nghĩa thuộc về người đeo.",
+      "layout": "sequence",
+      "photos": [
+        {
+          "src": "assets/colora-identity-reference.png",
+          "alt": "Tư liệu nhận diện COLORA màu xanh navy trên nền ivory",
+          "label": "Tư liệu nhận diện COLORA",
+          "credit": "Ảnh từ thư viện COLORA, chỉ sử dụng làm ví dụ học nhận diện."
+        }
+      ],
+      "cards": [
+        {
+          "title": "COLOR",
+          "detail": "Sắc màu và cảm xúc đa dạng"
+        },
+        {
+          "title": "AURA",
+          "detail": "Khí chất, bản sắc và cách mỗi người hiện diện"
+        },
+        {
+          "title": "YOUR",
+          "detail": "Người đeo là người chọn và định nghĩa câu chuyện"
+        }
+      ],
+      "note": "Tư liệu nhận diện không thay thế logo master hoặc brand guideline mới nhất."
+    },
+    "essential_point_indices": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      8
+    ],
+    "learning_objective": "Giới thiệu COLORA và tagline đúng nguyên văn; diễn đạt Aura như bản sắc cá nhân, không như hiệu quả trị liệu hay phong thủy."
+  },
+  {
+    "id": "03",
+    "title": "FACETS OF FEELING | TRIẾT LÝ VÀ CÁCH HIỂU",
+    "subtitle": "Đủ cụ thể để giải thích bằng một chiếc nhẫn, không phải bài triết học.",
+    "points": [
+      "BA CÂU CHÍNH THỨC | “Every feeling has a color. Every facet holds a spectrum of feelings. Every life unfolds through many facets.” Không rút gọn bằng phiên bản cũ khi trích dẫn như nguyên văn chính thức.",
+      "BẢN TIẾNG VIỆT | “Mỗi cảm xúc đều mang một sắc màu. Mỗi giác cắt hé mở một tầng cảm xúc riêng. Và mỗi cuộc đời được viết nên từ muôn vàn lát cắt và sắc màu.”",
+      "GEMSTONE / COLOR | Đá quý màu là tâm điểm; sắc màu gợi cảm xúc hoặc gu thẩm mỹ hiện tại. Không tự gán ý nghĩa màu sắc cho khách.",
+      "FACET | Về vật lý, facet là các mặt giác cắt của đá hoặc mặt phẳng tạo hình trên kim loại, ảnh hưởng cách ánh sáng phản chiếu. Trong ngôn ngữ thương hiệu, facet gợi những lát cắt, trải nghiệm và góc nhìn tạo nên mỗi con người.",
+      "LIGHT | Cùng một thiết kế thay đổi cảm nhận khi nhìn dưới các góc sáng khác nhau. Ánh sáng là yếu tố thẩm mỹ và một ẩn dụ về sự thay đổi, không phải năng lượng huyền bí.",
+      "WEARER / MEMORY | Người đeo tự gắn ý nghĩa và ký ức vào món trang sức trong quá trình sử dụng; thương hiệu không cần biết hoặc áp đặt toàn bộ câu chuyện riêng của họ.",
+      "MỘT THIẾT KẾ CỤ THỂ | Khi nhìn nhẫn đá màu: viên đá là điểm nhấn trước mắt; các mặt kim loại chuyển ánh sáng có chủ đích; phom tổng thể đủ mềm và tiện dụng để chiếc nhẫn trở thành một phần đời sống. Đây là cách chuyển triết lý thành thiết kế.",
+      "SAI LẦM HAY GẶP | Nhân viên thuộc “Gemstone = feeling, Facet = journey” nhưng không chỉ được viên đá, cấu trúc facet, góc sáng và lợi ích đeo thật trong ảnh sản phẩm.",
+      "BA LỚP KHÔNG TÁCH RỜI | Câu chuyện có chiều sâu khi dựa vào visual thật, cấu tạo thật và ngữ cảnh thật. Không biến toàn bộ thiết kế thành ẩn dụ trong khi thiếu bằng chứng về món hàng.",
+      "KIỂM TRA | Một khách chỉ chọn đá vì màu hợp tủ đồ vẫn hoàn toàn phù hợp với triết lý COLORA."
+    ],
+    "url": "https://colora.vn/pages/cau-chuyen-colora",
+    "origin": "Tổng hợp từ các định hướng/khẳng định nội bộ của COLORA và kiến thức ngành phù hợp; link chỉ là tài liệu tham khảo bổ sung, không thay thế hồ sơ nội bộ.",
+    "teachback": {
+      "prompt": "Nhìn một chiếc nhẫn COLORA: hãy giải thích gemstone, facet, light và cảm xúc mà không ép người đeo kể chuyện.",
+      "sample": "Gemstone là tâm điểm màu sắc; facet là những mặt hình học bắt sáng và gợi lát cắt trải nghiệm; light tạo thay đổi theo góc nhìn; ý nghĩa cuối cùng tùy người đeo, kể cả khi họ chỉ thích màu."
+    },
+    "visual": {
+      "kicker": "ẢNH THẬT • ĐÁ MÀU",
+      "title": "Một bảng màu có nhiều sắc độ, không có một ý nghĩa duy nhất",
+      "layout": "sequence",
+      "photos": [
+        {
+          "src": "assets/gemstones-spectrum-real.webp",
+          "alt": "Ảnh chụp thật khay đá màu nhiều sắc độ dùng trong buổi khảo sát nguồn đá",
+          "label": "Nhiều màu, nhiều sắc độ",
+          "credit": "Ảnh tư liệu khảo sát đá COLORA, 10/2026"
+        }
+      ],
+      "cards": [
+        {
+          "title": "Gemstone",
+          "detail": "Vật thể thật, màu và giác cắt được lựa chọn"
+        },
+        {
+          "title": "Facet",
+          "detail": "Hình học và cách ánh sáng phản chiếu"
+        },
+        {
+          "title": "Feeling",
+          "detail": "Cảm nhận riêng do mỗi người gắn vào"
+        }
+      ],
+      "note": "Ảnh chụp thật từ thư viện tư liệu khảo sát đá COLORA (10/2026). Đây là đá rời dùng để nghiên cứu, không phải SKU hoặc mẫu trang sức đã mở bán."
+    },
+    "essential_point_indices": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      8
+    ],
+    "learning_objective": "Giải thích vai trò gemstone, facet và cảm xúc; thể hiện quyền tự chọn ý nghĩa màu sắc của người đeo."
+  },
+  {
+    "id": "04",
+    "title": "SỨ MỆNH, TẦM NHÌN, GIÁ TRỊ & ĐỊNH VỊ",
+    "subtitle": "Định vị được chuyển thành lựa chọn thiết kế và cách phục vụ.",
+    "points": [
+      "DIỄN GIẢI SỨ MỆNH (CHỜ DUYỆT NGUYÊN VĂN) | “Đưa sắc màu của cảm xúc vào đời sống mỗi ngày” là câu tóm tắt đang dùng trong tài liệu đào tạo. Cần founder phê duyệt riêng nếu sử dụng như sứ mệnh chính thức nguyên văn trong brand manual.",
+      "DIỄN GIẢI TẦM NHÌN (CHỜ DUYỆT NGUYÊN VĂN) | “Từ Việt Nam, đủ riêng để được nhận ra và đủ tốt để đi xa” tóm tắt tham vọng thương hiệu Việt mang bản sắc thiết kế ra quốc tế; không phải bằng chứng thương hiệu đã có hiện diện quốc tế.",
+      "BA TRỤ CỘT ĐÁNH GIÁ NỘI BỘ | Design, Wearability, Experience là khung thực hành phục vụ thiết kế và dịch vụ. Không tự khẳng định đây là câu chữ nguyên văn của bộ giá trị thương hiệu chính thức nếu chưa có phê duyệt.",
+      "ĐỊNH VỊ | Trang sức demi-fine có đá quý màu và câu chuyện riêng; theo đuổi hiện đại, nữ tính, modern-heritage và quiet luxury, không dùng “bạc cao cấp” làm nhãn định vị chính.",
+      "VỊ TRÍ GIÁ | Khoảng 2,3–8 triệu đồng/món là định hướng giá mới nhất do người sáng lập cập nhật. Đây là dải kế hoạch, KHÔNG phải giá live của mọi SKU hoặc phép suy ra thu nhập mục tiêu.",
+      "ĐIỀU KHÁCH NHỚ | Không chỉ chất liệu, mà tổ hợp màu đá, dáng trang sức, giác cắt, cảm giác đeo và cách thương hiệu tôn trọng câu chuyện riêng của họ.",
+      "ĐIỀU KHÔNG ĐƯỢC HỨA | Sản phẩm không xỉn, không gây dị ứng, đá giữ giá, thiết kế “đầu tiên tại Việt Nam”, chứng thư lab cho mọi SKU hoặc dịch vụ chưa triển khai nếu không có bằng chứng.",
+      "VẬN HÀNH ONLINE | Giá trị thương hiệu phải được nhìn thấy ngay từ ảnh, thông số, tư vấn đúng, chính sách rõ và chăm sóc sau mua; trải nghiệm số không phải phần phụ của nhận diện.",
+      "TÍNH NHẤT QUÁN | Một câu chuyện xúc động không biện minh được cho thông số sai hoặc thiết kế khó đeo. Không phải cứ tăng giá, hộp quà hay chữ “luxury” là tăng chất lượng.",
+      "CÂU HỎI CỐT LÕI | Nếu bỏ tên và logo, khách còn nhận ra tính COLORA nhờ đặc điểm thiết kế và trải nghiệm nào?"
+    ],
+    "url": "https://colora.vn/pages/cau-chuyen-colora",
+    "origin": "Brand philosophy, định vị và các quyết định được chia sẻ nội bộ; câu tóm tắt mission/vision/values đang ở trạng thái bản diễn giải huấn luyện, cần founder phê duyệt bản chữ chính thức.",
+    "teachback": {
+      "prompt": "Tự phân biệt một câu sứ mệnh, một câu tầm nhìn và ba giá trị cần giữ khi thiết kế sản phẩm.",
+      "sample": "Sứ mệnh: đưa sắc màu cảm xúc vào đời sống mỗi ngày. Tầm nhìn: từ Việt Nam, đủ riêng được nhận ra và đủ tốt đi xa. Giá trị: Design, Wearability, Experience. Đó là định hướng, không phải thành tựu đã hoàn thành."
+    },
+    "visual": {
+      "kicker": "CHIẾN LƯỢC THƯƠNG HIỆU",
+      "title": "Bản sắc phải hiện diện trong từng quyết định, không chỉ slogan",
+      "layout": "compare",
+      "cards": [
+        {
+          "title": "Design",
+          "detail": "Tỷ lệ, đá chủ đạo, ngôn ngữ facet riêng"
+        },
+        {
+          "title": "Wearability",
+          "detail": "Có thể đeo, phối và chăm sóc trong đời sống thực"
+        },
+        {
+          "title": "Experience",
+          "detail": "Ảnh, thông số, tư vấn, đặt hàng, chăm sóc online minh bạch"
+        }
+      ],
+      "note": "Ba lớp là khung kiểm tra nội bộ: một bài quảng cáo đẹp không thể thay thế cấu trúc sản phẩm đúng."
+    },
+    "essential_point_indices": [
+      0,
+      1,
+      3,
+      4,
+      6,
+      7
+    ],
+    "learning_objective": "Phân biệt định vị đã chốt, dải giá dự kiến và sứ mệnh/tầm nhìn đang chờ duyệt; không biến diễn giải thành công bố chính thức."
+  },
+  {
+    "id": "05",
+    "title": "DNA THIẾT KẾ | THẤY COLORA TRÊN SẢN PHẨM",
+    "subtitle": "Thiết kế không được học như bảy khẩu hiệu rời rạc.",
+    "points": [
+      "NGUYÊN TẮC 1–2 | Đá màu là điểm nhấn (gemstone-first); hướng tới cấu trúc có tỷ lệ thấp và ôm cơ thể, đặc biệt với nhẫn, trong giới hạn kết cấu thật.",
+      "NGUYÊN TẮC 3–4 | Facet rộng và ít đường, ưu tiên mặt phẳng kite/rhombus có chủ đích thay cho rãnh nhỏ và tam giác lặp đi lặp lại.",
+      "NGUYÊN TẮC 5–7 | Phom mềm từ xa nhưng hình học chính xác khi nhìn gần; pavé dùng có chọn lọc; tính tiện dụng và dễ đeo là yêu cầu của sản phẩm.",
+      "SOFT FROM AFAR / STRONG UP CLOSE | Xa nhìn silhouette gọn, mềm, nữ tính; gần thấy bề mặt giác cắt, chi tiết giữ đá, hoàn thiện và chuyển ánh sáng có cấu trúc. Không có nghĩa thiết kế phải dày, sắc hoặc nam tính.",
+      "NEGATIVE SPACE | Khoảng thoáng có thể tạo điểm nhấn và giúp form nhẹ về thị giác, nhưng phải cùng tồn tại với kết cấu đủ chắc và dễ vệ sinh.",
+      "ÁNH SÁNG | Mặt phẳng lớn tạo chuyển vùng sáng, tối khi xoay; camera hoặc ánh đèn không được bóp méo màu đá và hình dáng mẫu thật.",
+      "MỘT HỆ NGÔN NGỮ | Cùng DNA đi sang nhẫn, hoa tai, dây chuyền, vòng tay qua tỷ lệ và cấu trúc thích ứng, không phải copy đầu nhẫn gắn lên mọi loại trang sức.",
+      "KỸ THUẬT PHẢI XÁC NHẬN | Chấu, ổ đá, under-gallery, mối nối, cao độ, độ dày thành và trọng lượng cần CAD/xưởng xác nhận theo mẫu; đây không phải những số cố định cho mọi SKU.",
+      "KHI REVIEW DESIGN | Hỏi lần lượt: viên đá có là tâm điểm? form có mềm? facet có vai trò? đeo có thoải mái? kết cấu có thể làm? có nhận ra COLORA khi bỏ logo?",
+      "KHI ĐÁNH GIÁ NỘI DUNG | Chọn ảnh tổng thể, góc nghiêng và macro để chứng minh sản phẩm đúng DNA, không chỉ moodboard hoặc ảnh render đẹp."
+    ],
+    "url": "https://colora.vn/pages/colora-house",
+    "origin": "Tổng hợp từ các định hướng/khẳng định nội bộ của COLORA và kiến thức ngành phù hợp; link chỉ là tài liệu tham khảo bổ sung, không thay thế hồ sơ nội bộ.",
+    "teachback": {
+      "prompt": "Tại sao một mẫu nhẫn nhiều đá nhỏ, sắc cạnh, cồng kềnh dù đẹp vẫn có thể không đúng COLORA?",
+      "sample": "Vì DNA cần đá màu có thứ bậc, phom mềm, facet rộng có chủ đích, pavé tiết chế, cấu trúc dùng được hằng ngày. Đẹp trên ảnh chưa chứng minh vừa, không vướng hay chế tác khả thi."
+    },
+    "visual": {
+      "kicker": "DESIGN DNA • TƯ LIỆU THẬT",
+      "title": "Gemstone-first: nhìn viên đá trước, rồi mới xét kiến trúc kim loại",
+      "layout": "sequence",
+      "photos": [
+        {
+          "src": "assets/gemstones-selection-real.webp",
+          "alt": "Khay đá màu chụp thật từ trên xuống, nhiều dáng và giác cắt trong quá trình tham khảo",
+          "label": "Quan sát hình dáng và ánh sáng của đá",
+          "credit": "Tư liệu khảo sát đá COLORA, 10/2026"
+        }
+      ],
+      "cards": [
+        {
+          "title": "01 • Đá là chủ thể",
+          "detail": "Trọng tâm thị giác cần được bảo vệ"
+        },
+        {
+          "title": "02 • Dáng mềm",
+          "detail": "Soft from afar, strong up close"
+        },
+        {
+          "title": "03 • Facet tiết chế",
+          "detail": "Ít mặt rộng, hình học rõ, khoảng thở có chủ đích"
+        },
+        {
+          "title": "04 • Dễ đeo",
+          "detail": "Bo cạnh, setting và tỷ lệ phù hợp sử dụng"
+        }
+      ],
+      "note": "Ảnh thể hiện các viên đá được khảo sát, không thể thay thế ảnh thiết kế hoàn chỉnh, CAD hoặc chứng từ từng SKU."
+    },
+    "essential_point_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      7
+    ],
+    "learning_objective": "Nhận diện thiết kế đúng hoặc lệch Design DNA từ thông số và góc nhìn; giải thích điểm khác nhau giữa phom mềm và mặt giác chính xác."
+  },
+  {
+    "id": "06",
+    "title": "PRODUCT FUNCTIONAL | KHÁCH DÙNG ĐƯỢC GÌ?",
+    "subtitle": "Lợi ích thực tế, nhìn thấy và cảm nhận khi đeo.",
+    "points": [
+      "FUNCTIONAL LÀ GÌ | Các lợi ích công năng: vừa vặn, thoải mái, cân bằng trọng lượng, ít vướng, dễ đóng mở, phù hợp sinh hoạt, dễ phối và có thể chăm sóc theo hướng dẫn.",
+      "NHẪN | Cần xem ni và độ rộng thân, vùng tiếp xúc, đầu nhẫn/setting cao hay thấp, nguy cơ vướng áo và mức vận động của tay.",
+      "HOA TAI | Đánh giá trọng lượng, vị trí chốt, độ cân bằng, phần cọ sát, cảm giác đeo lâu và mức phù hợp với dái tai.",
+      "DÂY CHUYỀN | Chiều dài và cách dây nằm trên cổ, vị trí trọng tâm mặt, khả năng rối và thao tác khóa đều ảnh hưởng trải nghiệm.",
+      "VÒNG TAY | Chu vi, độ rủ, cơ chế khóa, thao tác tự đeo một tay và độ chắc của các mắt nối quan trọng hơn một ảnh mặt trước đẹp.",
+      "LOW-PROFILE | Cấu trúc thấp có thể giảm vướng, nhưng không bảo đảm hoàn toàn; cần kiểm tra chấu, mặt cạnh và góc tiếp xúc của sản phẩm thật.",
+      "KHẢ NĂNG PHỐI ĐỒ | Một màu đá chủ thể có thể tạo điểm nhấn vừa phải cho trang phục trung tính. Đây là lợi ích sử dụng, không chỉ một cảm xúc.",
+      "GIỚI HẠN WEARABILITY | “Đeo hằng ngày” không có nghĩa đeo khi bơi, dùng chất tẩy, va chạm mạnh hoặc làm việc nặng. Loài đá, cấu trúc, lớp hoàn thiện và thói quen quyết định mức phù hợp.",
+      "MUA ONLINE | Ảnh on-body giải thích tỷ lệ; ảnh macro giải thích hoàn thiện; side view giải thích cao độ; thông số mm/size giải thích kích thước. Không bỏ một loại ảnh rồi hứa khách sẽ hình dung đúng.",
+      "VÍ DỤ | Nhẫn có đá màu vừa tầm và setting hợp lý: functional là cảm giác đeo và phối đồ, không phải “đá giúp bạn hạnh phúc”."
+    ],
+    "url": "https://colora.vn/pages/size-resizing",
+    "origin": "Tổng hợp từ các định hướng/khẳng định nội bộ của COLORA và kiến thức ngành phù hợp; link chỉ là tài liệu tham khảo bổ sung, không thay thế hồ sơ nội bộ.",
+    "teachback": {
+      "prompt": "Nêu ba chi tiết chức năng cần kiểm tra cho một nhẫn, một hoa tai và một dây chuyền bán online.",
+      "sample": "Nhẫn: ni, bề rộng, chiều cao setting/cạnh. Hoa tai: trọng lượng, chốt, cân bằng. Dây chuyền: độ dài, độ rủ và khóa. Cần on-body + macro + mm đã xác nhận để khách hiểu khi chưa được cầm thử."
+    },
+    "visual": {
+      "kicker": "PRODUCT FUNCTIONAL",
+      "title": "Khách mua online cần hình dung chiếc trang sức hoạt động trên cơ thể thế nào",
+      "layout": "compare",
+      "cards": [
+        {
+          "title": "Fit & Size",
+          "detail": "Ni nhẫn, tỷ lệ on-body, vị trí lỗ xỏ tai, chiều dài dây"
+        },
+        {
+          "title": "Comfort",
+          "detail": "Khối lượng, độ vướng, bề mặt tiếp xúc và độ cân bằng"
+        },
+        {
+          "title": "Usability",
+          "detail": "Độ chắc khóa, thao tác đeo và cách phối đồ"
+        },
+        {
+          "title": "Care",
+          "detail": "Cách làm sạch và giới hạn sử dụng theo loại đá/SKU"
+        }
+      ],
+      "note": "Chưa dùng ảnh render làm bằng chứng về độ thoải mái. Phần này nên bổ sung ảnh đeo thật đã chốt khi COLORA có bộ ảnh sản phẩm chính thức."
+    },
+    "essential_point_indices": [
+      0,
+      1,
+      2,
+      3,
+      7,
+      8
+    ],
+    "learning_objective": "Chỉ ra các yếu tố fit, comfort và usability của nhẫn, hoa tai, vòng tay, dây chuyền trước khi tư vấn sử dụng."
+  },
+  {
+    "id": "07",
+    "title": "PRODUCT TECHNICAL | VẬT LIỆU, ĐÁ, CHẾ TÁC",
+    "subtitle": "Phân biệt kiến thức kim hoàn nói chung với vật liệu COLORA đã xác nhận.",
+    "points": [
+      "TECHNICAL LÀ GÌ | Bản chất vật liệu, tỷ lệ hợp kim, lớp hoàn thiện, loại đá và xử lý, giác cắt, chấu/setting, kết cấu, sản xuất, QC và chứng từ.",
+      "SILVER 925 VÀ Ag 930‰ | 925 nghĩa là 92,5% bạc theo khối lượng; 930 nghĩa là 93,0%. Đây là hai mác hợp kim khác nhau, không thể nói chúng là cùng một thông số.",
+      "VẬT LIỆU LAUNCH ĐÃ CHỐT | Đợt ra mắt COLORA: 100% các sản phẩm launch dùng hợp kim GENIA276 Ag 930‰ do COLORA nhập và cấp cho xưởng (quyết định P0.7 ngày 19/09/2026). Tên hệ kim loại thương hiệu là COLORA SILVER, với công nghệ mạ phủ độc quyền theo thông tin người sáng lập cập nhật. Thông số finish và hồ sơ QC thành phẩm vẫn cần kiểm tra theo SKU.",
+      "NGUỒN TÁI CHẾ VÀ RJC | Theo xác nhận nội bộ của COLORA, bạc tái chế GENIA276 Ag 930‰ có chứng nhận liên quan RJC ở nguồn nguyên liệu. Progold công bố RJC Chain of Custody cho bạc. RJC CoC nói về truy xuất và nguồn cung kim loại quý; nội dung '100% recycled' phải đối chiếu loại giấy, phạm vi nguyên liệu, chứng từ lô. Không khẳng định RJC đã chứng nhận toàn bộ sản phẩm COLORA.",
+      "HỆ THỐNG TÊN GỌI | Homepage/campaign/cart giới thiệu COLORA SILVER. PDP/Certificate/QC launch phải phản ánh đúng GENIA276 Ag 930‰. Công nghệ mạ phủ độc quyền là lớp hoàn thiện, không tự là tên chứng nhận hay bằng sáng chế. Chứng từ RJC của nguồn kim loại phải nêu đúng phạm vi.",
+      "NICKEL | Định hướng và thông tin vật liệu đã xác nhận: không dùng nickel trong lựa chọn hợp kim và quá trình chế tác COLORA. Điều đó KHÔNG cho phép tự ghi “hypoallergenic”, “100% không dị ứng” hoặc an toàn tuyệt đối khi chưa có thử nghiệm và phạm vi chứng cứ phù hợp.",
+      "VẬT LIỆU NỀN VÀ CÔNG NGHỆ PHỦ | Bạc tái chế GENIA276 Ag 930‰ là hợp kim nền; công nghệ mạ phủ độc quyền của COLORA là giải pháp hoàn thiện bề mặt. Mỗi lớp phủ, chỉ tiêu kỹ thuật, khả năng chống xỉn và giới hạn bảo hành phải theo hồ sơ đã phê duyệt; không mặc định công thức Rh/Pd/nano nào cho mọi SKU.",
+      "ĐÁ TỰ NHIÊN | Đá tự nhiên hình thành tự nhiên; đá tổng hợp được con người tạo ra với tính chất có thể tương tự; đá mô phỏng chỉ có vẻ ngoài giống. Tự nhiên không đồng nghĩa không xử lý, không bao thể hoặc có chứng thư lab độc lập.",
+      "ĐỘ BỀN ĐÁ | Mohs là chống trầy tương đối; toughness là chống mẻ vỡ; stability là phản ứng với nhiệt, ánh sáng, hóa chất. Không suy độ bền hằng ngày chỉ từ một con số Mohs.",
+      "SETTING & FACET | Chấu/ổ đá giữ viên đá; facet tạo bề mặt và khả năng phản chiếu. Một mẫu có nhiều facet đẹp vẫn cần thiết kế giữ đá chắc và đủ êm khi tiếp xúc.",
+      "KHÔNG BÁN ĐÁ RỜI | Kiến thức gemology của COLORA phục vụ lựa chọn và sử dụng trang sức hoàn thiện. Giá đá, xử lý và giấy tờ phải luôn gắn với món hàng/SKU cụ thể.",
+      "KIỂM SOÁT CAM KẾT | Giá, vật liệu, kích thước, xử lý đá, độ bền, chứng thư, bảo hành đều phải căn cứ SKU và chính sách đã phê duyệt, không lấy ảnh mẫu website thử nghiệm để suy ra mọi sản phẩm.",
+      "CÁCH GIẢI THÍCH GIÁ | Nhân viên nên hiểu vì sao viên đá màu và kết cấu, vật liệu, finishing, thiết kế và chăm sóc cùng làm nên giá trị; không xem trọng lượng bạc là thước đo duy nhất."
+    ],
+    "url": "https://colora.vn/",
+    "origin": "Nội dung có thông tin nội bộ, giả định kinh doanh và các khái niệm ngành; chỉ áp dụng claim theo hồ sơ SKU/giá live đã duyệt.",
+    "teachback": {
+      "prompt": "Giới thiệu COLORA SILVER cho người chưa biết trang sức: tên hệ kim loại, Ag 930‰, công nghệ mạ phủ độc quyền và phạm vi RJC khác nhau thế nào?",
+      "sample": "COLORA SILVER là hệ kim loại riêng của COLORA, với nền bạc tái chế GENIA276 Ag 930‰ và công nghệ mạ phủ độc quyền. RJC liên quan chứng nhận nguồn nguyên liệu/chuỗi cung ứng theo chứng từ, không tự động chứng nhận cả món trang sức. Kết cấu lớp phủ thực tế cần kiểm tra từng SKU."
+    },
+    "visual": {
+      "kicker": "PRODUCT TECHNICAL • ẢNH THẬT",
+      "title": "Phân biệt đá tự nhiên, kim loại nền và công nghệ phủ bề mặt",
+      "layout": "sequence",
+      "photos": [
+        {
+          "src": "assets/gemstones-blue-real.webp",
+          "alt": "Ảnh thật khay các viên đá xanh trong buổi tìm hiểu nguồn đá",
+          "label": "Đá màu: mỗi viên có đặc điểm riêng",
+          "credit": "Tư liệu khảo sát đá COLORA, 10/2026"
+        },
+        {
+          "src": "assets/gemstones-selection-real.webp",
+          "alt": "Ảnh thật các viên đá nhiều màu và hình dáng ở xưởng đá",
+          "label": "Hình dáng, giác cắt, màu và biến thiên",
+          "credit": "Tư liệu khảo sát đá COLORA, 10/2026"
+        }
+      ],
+      "cards": [
+        {
+          "title": "Nền bạc",
+          "detail": "GENIA276 Ag 930‰ từ bạc tái chế"
+        },
+        {
+          "title": "Hoàn thiện",
+          "detail": "Công nghệ mạ phủ độc quyền COLORA SILVER"
+        },
+        {
+          "title": "Đá màu",
+          "detail": "Tên đá, kích thước, xử lý và chất lượng theo SKU"
+        },
+        {
+          "title": "Bằng chứng",
+          "detail": "Chứng từ RJC đúng phạm vi nguyên liệu; hồ sơ SKU cho thành phẩm"
+        }
+      ],
+      "note": "Ảnh chụp thật từ thư viện tư liệu khảo sát đá COLORA (10/2026). Đây là đá rời dùng để nghiên cứu, không phải SKU hoặc mẫu trang sức đã mở bán. Ảnh không thể chứng minh lớp mạ độc quyền hoặc chứng nhận RJC."
+    },
+    "essential_point_indices": [
+      0,
+      2,
+      3,
+      5,
+      6,
+      7,
+      11
+    ],
+    "learning_objective": "Phân biệt hợp kim GENIA276 Ag 930‰, lớp phủ COLORA SILVER, chứng nhận nguồn bạc và bằng chứng riêng SKU."
+  },
+  {
+    "id": "08",
+    "title": "PRODUCT EMOTIONAL | VÌ SAO KHÁCH GẮN BÓ?",
+    "subtitle": "Cảm xúc có ý nghĩa khi đi cùng sản phẩm dùng được và đáng tin.",
+    "points": [
+      "EMOTIONAL LÀ GÌ | Quyền biểu đạt bản sắc, sở thích, cảm xúc, ký ức và các cột mốc do chính người đeo gắn vào trang sức; không phải công dụng chữa lành.",
+      "SELF-PURCHASE | Một người có thể mua vì thích màu, thích kiểu dáng, muốn phối đồ hoặc muốn đánh dấu giai đoạn mới. Không bắt khách phải kể một câu chuyện xúc động.",
+      "GIFTING | Người mua và người đeo là hai vai trò khác nhau: người mua chọn phù hợp ngân sách/dịp, người nhận quyết định có đeo và tạo ý nghĩa riêng hay không.",
+      "TRÁNH GÁN MÀU | Một viên đỏ không “là tình yêu” với mọi người; thương hiệu có thể đưa ví dụ diễn giải nhưng không kết luận tính cách của khách từ màu họ chọn.",
+      "VALUE TRONG THỜI GIAN | Sản phẩm đeo được trong nhiều hoàn cảnh có nhiều cơ hội trở thành một phần ký ức. Wearability và chất lượng hoàn thiện giúp giá trị cảm xúc tồn tại lâu hơn.",
+      "BA LỚP GIÁ TRỊ | Functional là dùng như thế nào; Technical là món đó được làm từ gì và vì sao đáng tin; Emotional là người đeo cảm thấy và nhớ gì. Ba lớp hỗ trợ nhau.",
+      "PHỤC VỤ KHÁCH | Khi khách muốn hiểu đá/kỹ thuật, không ép chuyển sang storytelling; khi khách muốn chọn quà, không dùng thông số chuyên môn để bỏ qua hoàn cảnh người nhận.",
+      "GIỚI HẠN | Không hứa món trang sức sẽ chữa lành, đổi vận, làm khách trở nên tự tin hoặc chứng minh tình yêu. Khách tự quyết định ý nghĩa và giá trị.",
+      "VÍ DỤ | Một nhẫn đá xanh: functional = vừa, thấp, dễ phối; technical = đá/hợp kim/chấu và độ hoàn thiện được chứng minh; emotional = sắc xanh gắn với câu chuyện riêng nếu người đeo muốn.",
+      "GẮN BÓ | Mối quan hệ với COLORA nên đến từ việc sản phẩm được sử dụng và được hỗ trợ tốt, không phải thúc ép khách mua thêm theo lịch."
+    ],
+    "url": "https://colora.vn/pages/cau-chuyen-colora",
+    "origin": "Tổng hợp từ các định hướng/khẳng định nội bộ của COLORA và kiến thức ngành phù hợp; link chỉ là tài liệu tham khảo bổ sung, không thay thế hồ sơ nội bộ.",
+    "teachback": {
+      "prompt": "Chọn một chiếc nhẫn đá màu và trình bày đủ ba lớp Functional, Technical, Emotional cho người chưa biết COLORA.",
+      "sample": "Functional là vừa/thoải mái/phối đồ; Technical là loại đá, vật liệu, chấu, hoàn thiện và hồ sơ; Emotional là sở thích, bản sắc, tự thưởng hoặc ký ức riêng nếu người đeo muốn. Câu chuyện không thay bằng chứng."
+    },
+    "visual": {
+      "kicker": "PRODUCT EMOTIONAL",
+      "title": "Cùng một viên đá, nhiều câu chuyện khác nhau",
+      "layout": "sequence",
+      "photos": [
+        {
+          "src": "assets/gemstones-spectrum-real.webp",
+          "alt": "Khay đá nhiều màu chụp thật, minh họa sự lựa chọn cá nhân về sắc màu",
+          "label": "Mỗi người có một lựa chọn màu sắc",
+          "credit": "Tư liệu khảo sát đá COLORA, 10/2026"
+        }
+      ],
+      "cards": [
+        {
+          "title": "Self-purchase",
+          "detail": "Vì thích thẩm mỹ, phối đồ hay muốn có một món cho bản thân"
+        },
+        {
+          "title": "Milestone",
+          "detail": "Đánh dấu cột mốc do người mua tự lựa chọn"
+        },
+        {
+          "title": "Gifting",
+          "detail": "Người tặng chọn món; người đeo tạo ý nghĩa riêng"
+        }
+      ],
+      "note": "Không gán sẵn 'màu đỏ = yêu' hoặc 'màu xanh = bình yên' cho tất cả mọi người."
+    },
+    "essential_point_indices": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      7
+    ],
+    "learning_objective": "Giới thiệu một sản phẩm bằng ba lớp Functional, Technical và Emotional mà không lấy câu chuyện thay chứng cứ."
+  },
+  {
+    "id": "09",
+    "title": "TARGET CUSTOMER | AI, LỐI SỐNG, NHU CẦU",
+    "subtitle": "Không dạy nhân viên một persona tự tưởng tượng là chân lý.",
+    "points": [
+      "AI LÀ NHÓM ƯU TIÊN | Định hướng COLORA chủ yếu hướng đến nữ khoảng 22–38 tuổi, phong cách hiện đại; điều này KHÔNG loại trừ các nhóm khác và KHÔNG khẳng định mọi người cùng tuổi mua giống nhau.",
+      "BỐI CẢNH GỢI Ý | Người đi làm trẻ, quan tâm hình ảnh cá nhân, phối đồ hằng ngày, chọn món quà có suy nghĩ hoặc tự thưởng là những nhóm đáng kiểm chứng. “Làm văn phòng”, “sống đô thị” và “thường dùng mạng xã hội” là giả thuyết/đặc điểm có thể có, không phải điều kiện bắt buộc.",
+      "BUYER VÀ WEARER | Người mua có thể là chính người đeo, bạn đời, bạn bè, gia đình. Tình huống mua quà yêu cầu hiểu gu người nhận, size, mốc giao và khả năng thay đổi lựa chọn.",
+      "ĐỘNG CƠ 1 | Thích sản phẩm/đá màu/thiết kế và cách phối. Không cần cột mốc, ý nghĩa đá hay nghi thức cảm xúc mới hợp COLORA.",
+      "ĐỘNG CƠ 2 | Tự thưởng và đánh dấu sự kiện: hoàn thành việc, sinh nhật, chuyển giai đoạn sống. Người đeo có quyền giữ câu chuyện riêng tư.",
+      "ĐỘNG CƠ 3 | Mua quà: vừa muốn món có ý nghĩa, vừa cần giảm rủi ro người nhận không thích, sai size hoặc không nhận kịp ngày.",
+      "RÀO CẢN | Nhìn đẹp nhưng sợ thực tế nhỏ/khác ảnh, không hiểu giá, không tin nguồn đá, lo độ bền/lớp phủ, chưa biết size, sợ mua sai trên website thương hiệu mới.",
+      "KHÁCH QUAN TÂM KỸ THUẬT | Họ có thể hỏi rất sâu vì không muốn bị mất tiền vô ích, đã từng mua sai hoặc đơn giản là có kiến thức. Không tự gán họ là “khó tính” hay thu nhập cao.",
+      "PHÂN KHÚC THỰC DỤNG | Nên nhóm theo nhu cầu, ngân sách, bối cảnh mua, phong cách, độ nhạy cảm với rủi ro và khả năng nhận thông tin chứ không chỉ theo tuổi.",
+      "CÁCH THU THẬP INSIGHT | Dùng câu hỏi mở, quan sát đường đi website, bình luận có ngữ cảnh và đơn hàng; một bình luận viral không đại diện thị trường.",
+      "ĐẠO ĐỨC THƯƠNG HIỆU | Tìm Gap Nhận Thức nhằm giúp khách hiểu sản phẩm chính xác hơn, không khai thác điều họ không biết để bán đắt hoặc gây áp lực."
+    ],
+    "url": "https://colora.vn/pages/gift-guide",
+    "origin": "Tổng hợp từ các định hướng/khẳng định nội bộ của COLORA và kiến thức ngành phù hợp; link chỉ là tài liệu tham khảo bổ sung, không thay thế hồ sơ nội bộ.",
+    "teachback": {
+      "prompt": "Cùng ngân sách, một khách mua trang sức để tự thưởng sau chuyển việc và một khách mua quà sinh nhật. Hãy nêu nhu cầu khác nhau, hai câu hỏi không dẫn dắt và bằng chứng cần dùng ở từng trường hợp.",
+      "sample": "Khách tự thưởng có thể ưu tiên thẩm mỹ, khả năng đeo và cảm giác cá nhân; khách mua quà cần gu người nhận, độ vừa và hạn giao. Không suy đoán khả năng chi tiêu từ tuổi. Hỏi ngữ cảnh thực và kiểm chứng bằng ảnh trên người, thông số SKU và chính sách hiện hành."
+    },
+    "visual": {
+      "kicker": "TARGET CUSTOMER",
+      "title": "Khách mục tiêu không phải một gương mặt mẫu, mà là các nhu cầu khác nhau",
+      "layout": "compare",
+      "cards": [
+        {
+          "title": "Người tự mua",
+          "detail": "Thẩm mỹ, ngân sách tùy nghi và sự phù hợp khi đeo"
+        },
+        {
+          "title": "Người mua quà",
+          "detail": "Gu người nhận, size, dịp tặng và kỳ vọng giao hàng"
+        },
+        {
+          "title": "Người thích đá màu",
+          "detail": "Quan tâm màu, tính tự nhiên, hồ sơ và biến thiên"
+        },
+        {
+          "title": "Người ưu tiên dễ đeo",
+          "detail": "Cấu trúc gọn, phù hợp công việc và cách chăm sóc"
+        }
+      ],
+      "note": "Đây là nhóm động cơ để nghiên cứu, không phải bốn persona được khảo sát đại diện; không dùng ảnh mẫu để khẳng định nghề nghiệp hay mức thu nhập."
+    },
+    "essential_point_indices": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      10
+    ],
+    "learning_objective": "Xác định người mua, người đeo, nhu cầu, bối cảnh và điều chưa rõ; hỏi thêm mà không suy đoán thu nhập hoặc áp đặt ý nghĩa.",
+    "practice_lab": [
+      {
+        "title": "Khách chưa hiểu kim loại, không phải đang phản đối giá",
+        "scenario": "Tình huống giả định: khách hỏi 'Bạc COLORA 930 khác bạc 925 thế nào, có phải cứ 930 là không xỉn?'",
+        "task": "Xác định điều khách đang suy diễn, một câu hỏi làm rõ và bằng chứng cần kiểm tra trước khi trả lời.",
+        "guide": "Khoảng thiếu: nhầm hàm lượng bạc nền với khả năng chống xỉn của thành phẩm. Giải thích Ag 930‰ là mác hợp kim, lớp phủ là lớp khác; độ bền phụ thuộc sản phẩm và sử dụng. Tra hồ sơ hoàn thiện SKU và care guide, không hứa chống xỉn tuyệt đối."
+      },
+      {
+        "title": "Màu sắc do khách tự quyết định",
+        "scenario": "Tình huống giả định: người mua muốn tặng đá đỏ vì 'bạn ấy rất mạnh mẽ' nhưng chưa biết người nhận có thích màu đỏ.",
+        "task": "Hãy tôn trọng câu chuyện của người tặng và xác minh gu người nhận mà không áp một ý nghĩa màu cố định.",
+        "guide": "Đón nhận cách người mua diễn giải màu đỏ; hỏi người nhận thường đeo màu sắc, kiểu dáng nào. Nếu chưa rõ, ưu tiên ảnh thật, khả năng đổi theo chính sách và nhóm sản phẩm ít phụ thuộc size. Không phủ nhận cảm xúc khách."
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "title": "INCOME, NGÂN SÁCH, GIÁ & GIÁ TRỊ CẢM NHẬN",
+    "subtitle": "Dạy logic chi tiêu thật, không bịa một con số thu nhập.",
+    "points": [
+      "INCOME LÀ GÌ | Thu nhập tháng là dòng tiền cá nhân nhận được, chưa nói lên thu nhập khả dụng, nghĩa vụ gia đình, tài sản, khả năng tiết kiệm hay ưu tiên mua trang sức.",
+      "DISCRETIONARY BUDGET | Khoản tiền một người chủ động dành cho sở thích hoặc quà tặng sau các nhu cầu quan trọng. Hai người có cùng income vẫn có thể có ngân sách trang sức rất khác nhau.",
+      "WILLINGNESS TO PAY | Mức khách sẵn lòng trả cho món phù hợp ở thời điểm cụ thể; phụ thuộc sở thích, niềm tin, dịp mua, lựa chọn thay thế và nguồn lực tài chính.",
+      "PERCEIVED VALUE | Khách thấy món có “đáng tiền” không: thiết kế, đá, chất liệu, hoàn thiện, cảm giác đeo, thông tin, uy tín, quà tặng, hậu mãi cùng đóng góp.",
+      "GIÁ DỰ KIẾN COLORA | Dải 2,3–8 triệu đồng/món là vùng giá dự kiến mới nhất do người sáng lập xác nhận. Đây là khung kế hoạch, không phải cam kết toàn bộ SKU sẽ bán trong dải ấy.",
+      "THU NHẬP TARGET | Chưa có khoảng lương tháng tối thiểu hoặc thu nhập trung bình của khách COLORA được kiểm chứng và phê duyệt làm tiêu chuẩn bắt buộc. Đừng tự đặt “thu nhập 20–40 triệu” hoặc suy trực tiếp từ giá món hàng.",
+      "CHÂN DUNG ĐƯỢC PHÉP DẠY | “Nhóm khách chính ưu tiên phụ nữ trẻ trưởng thành có nhu cầu và mức sẵn sàng chi tiêu phù hợp món trang sức trong khoảng giá dự kiến 2,3–8 triệu đồng” là giả thuyết thị trường, cần nghiên cứu thực tế.",
+      "HÀNH VI TỰ MUA VS TẶNG QUÀ | Một người có thể chi nhiều vào quà kỷ niệm nhưng ít cho món tự mua, hoặc ngược lại; không dùng thu nhập làm thước đo cảm xúc.",
+      "PHẢN ĐỐI “ĐẮT” | Có thể là không đủ ngân sách, chưa hiểu kỹ thuật, không phù hợp gu, thiếu tin thương hiệu mới, hoặc đã có lựa chọn khác. Phải xác định nguyên nhân trước khi giải thích.",
+      "NGHIÊN CỨU THU NHẬP | Nếu cần xây target income, hãy thu thập dữ liệu tự nguyện, đủ cỡ mẫu, xem nghề nghiệp, ngân sách, giá đã mua, mức sẵn trả và phân khúc thực tế. Không dùng số không có căn cứ làm đáp án.",
+      "GIẢI THÍCH GIÁ | Nói về giá trị thật của từng SKU, không hạ thấp đối thủ, không tuyên bố trang sức mua để đầu tư có thể tăng giá chắc chắn."
+    ],
+    "url": "https://colora.vn/pages/cau-chuyen-colora",
+    "origin": "Nội dung có thông tin nội bộ, giả định kinh doanh và các khái niệm ngành; chỉ áp dụng claim theo hồ sơ SKU/giá live đã duyệt.",
+    "teachback": {
+      "prompt": "Một người thu nhập 30 triệu nói chiếc nhẫn 3 triệu quá đắt; giải thích vì sao không thể kết luận họ không đủ tiền.",
+      "sample": "Income khác discretionary budget và willingness to pay. Họ có thể ưu tiên chi tiêu khác, chưa thấy giá trị, chưa tin chứng cứ hoặc mẫu chưa hợp. Dải giá kế hoạch của COLORA cũng không chứng minh mức lương target. Khoảng giá dự kiến hiện là 2,3–8 triệu đồng/món, không phải thước đo thu nhập khách."
+    },
+    "visual": {
+      "kicker": "GIÁ DỰ KIẾN • KHÁC VỚI INCOME",
+      "title": "2,3–8 triệu đồng là khoảng giá sản phẩm dự kiến của COLORA",
+      "layout": "compare",
+      "metric": {
+        "from": "2,3 triệu",
+        "to": "8 triệu",
+        "label": "Khoảng giá dự kiến / món"
+      },
+      "cards": [
+        {
+          "title": "Income",
+          "detail": "Thu nhập cá nhân, chưa nói lên ngân sách mua trang sức"
+        },
+        {
+          "title": "Budget",
+          "detail": "Khoản có thể chủ động chi cho một món ở thời điểm mua"
+        },
+        {
+          "title": "Willingness to pay",
+          "detail": "Mức khách sẵn trả khi cảm thấy sản phẩm phù hợp"
+        }
+      ],
+      "note": "Không suy ra mức thu nhập khách mục tiêu từ khoảng giá 2,3–8 triệu. Giá chính thức cần xem theo từng SKU."
+    },
+    "essential_point_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      8
+    ],
+    "learning_objective": "Phân biệt income, ngân sách, willingness to pay và perceived value; chẩn đoán phản đối giá bằng câu hỏi không dẫn dắt.",
+    "practice_lab": [
+      {
+        "title": "'Đẹp nhưng đắt' là khoảng thiếu nào?",
+        "scenario": "Tình huống giả định: khách xem nhẫn giá 3,8 triệu đồng, nói 'đẹp nhưng mình chưa thấy đáng'. Giá chỉ dùng để mô phỏng, không phải giá bán SKU thật.",
+        "task": "Đưa ra tối thiểu ba giả thuyết khác nhau và một câu hỏi không dẫn dắt để tìm điều khách đang cân nhắc.",
+        "guide": "Có thể là chưa hiểu chất liệu/đá/hoàn thiện, không thích cách đeo, thiếu niềm tin thương hiệu hoặc có lựa chọn thay thế. Hỏi 'Điều gì khiến bạn còn cân nhắc nhất về mẫu này?' rồi cung cấp bằng chứng đúng SKU khi có. Không suy ra thu nhập hoặc đẩy voucher ngay."
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "title": "CUSTOMER JOURNEY ONLINE | KHÁCH ĐI TỪ ĐÂU ĐẾN ĐÂU?",
+    "subtitle": "Một hành trình quyết định, không phải chiếc phễu bán hàng áp đặt.",
+    "points": [
+      "DISCOVERY | Khách biết COLORA qua nội dung social, lời giới thiệu, công cụ tìm kiếm hoặc quảng cáo. Họ cần nhận ra sản phẩm và phong cách trước khi bị yêu cầu đặt hàng.",
+      "DESIRE / INTEREST | Khách lưu hình, theo dõi, quay lại xem màu và cách phối. Họ đang hình dung món trang sức trong đời sống của mình.",
+      "EXPLORATION | Khách xem sản phẩm trên website: hình thật, scale, thông số, vật liệu, đá, size, phối đồ, giá, sự khác biệt với lựa chọn khác.",
+      "TRUST | Khách cần chứng cứ: đá nào, nguồn/giấy tờ, hình đeo, chất lượng hoàn thiện, chính sách, tư vấn và cách giải quyết khi mua sai.",
+      "CONSULTATION | Khách có thể hỏi Zalo/Messenger hoặc kênh hỗ trợ. Tư vấn nên tập trung giải quyết thông tin còn thiếu, không biến mỗi câu hỏi thành tình huống ép chốt.",
+      "PURCHASE | Khách chọn sản phẩm, size, biến thể, nhận chi phí và thời gian giao, phương thức thanh toán; checkout rõ ràng giúp giảm bỏ giỏ hàng.",
+      "OWNERSHIP | Sau khi nhận, khách cần hướng dẫn bảo quản, cách đeo, đối chiếu quyền lợi và một kênh hỗ trợ khi cần. Đây là lúc lời hứa thật được kiểm nghiệm.",
+      "RELATIONSHIP | Khi thương hiệu tiếp tục hữu ích và có sản phẩm đáng nhớ, khách có thể giới thiệu, mua lại hoặc quay về. Không giả định một lịch mua bắt buộc.",
+      "OMNICHANNEL | Khách có thể đi Instagram → website → Zalo → website. Mô tả và dữ liệu SKU phải nhất quán giữa các kênh, và việc lưu thông tin khách phải hợp pháp/cần thiết.",
+      "KHÁC CỬA HÀNG TRỰC TIẾP | COLORA hiện online-first, nên niềm tin phải được xây qua bằng chứng số và hỗ trợ từ xa, không dựa trên showroom hay thử món thật tại cửa hàng.",
+      "PHÂN BIỆT ROADMAP | CRM tự động, product passport dạng NFC, hệ thống cá nhân hóa sâu và các touchpoint offline có thể nằm trong chiến lược nhưng không dạy như tính năng đã triển khai nếu chưa xác minh."
+    ],
+    "url": "https://colora.vn/",
+    "origin": "Tổng hợp từ các định hướng/khẳng định nội bộ của COLORA và kiến thức ngành phù hợp; link chỉ là tài liệu tham khảo bổ sung, không thay thế hồ sơ nội bộ.",
+    "teachback": {
+      "prompt": "Một khách lưu video vì thích màu đá, sau đó hỏi vì sao nhẫn đáng giá vài triệu và rồi quay lại vào dịp kỷ niệm. Phân loại Desire, Trust và Relationship; chọn bằng chứng phù hợp, không ép chốt.",
+      "sample": "Social khơi gợi thẩm mỹ và nhu cầu; PDP cho thông số và ảnh tỷ lệ; tư vấn giải đáp điều còn thiếu; checkout phải rõ giá/giao/đổi trả; sau mua hỗ trợ sử dụng/care. Tất cả kênh phải nói nhất quán về cùng SKU."
+    },
+    "visual": {
+      "kicker": "CUSTOMER JOURNEY • ONLINE FIRST",
+      "title": "Từ lần đầu biết COLORA đến chăm sóc sau mua",
+      "layout": "flow",
+      "cards": [
+        {
+          "title": "Discover",
+          "detail": "Social, tìm kiếm, nội dung ngắn"
+        },
+        {
+          "title": "Desire",
+          "detail": "Cảm thấy thích màu và thiết kế"
+        },
+        {
+          "title": "Explore",
+          "detail": "Xem trang sản phẩm, ảnh thật, giá, size"
+        },
+        {
+          "title": "Trust",
+          "detail": "Xem hồ sơ đá, vật liệu, chính sách"
+        },
+        {
+          "title": "Consult",
+          "detail": "Hỏi Client Care nếu còn phân vân"
+        },
+        {
+          "title": "Purchase",
+          "detail": "Đặt hàng trên kênh online"
+        },
+        {
+          "title": "Own",
+          "detail": "Nhận hàng, đeo và chăm sóc"
+        },
+        {
+          "title": "Relationship",
+          "detail": "Bảo dưỡng, giới thiệu và quay lại"
+        }
+      ],
+      "note": "Đây là mô hình hành trình học tập, không phải mọi khách đều đi đủ hoặc đúng thứ tự tám bước."
+    },
+    "essential_point_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "learning_objective": "Xác định nhu cầu theo Discovery, Desire, Trust, Purchase, Ownership và Relationship; chọn đúng bằng chứng tại điểm chạm.",
+    "practice_lab": [
+      {
+        "title": "Không biến lượt xem thành kết luận",
+        "scenario": "Tình huống giả định: Reels được lưu nhiều, khách vào PDP rồi thoát sau khi xem Size Guide. Chưa có phỏng vấn khách hoặc log lỗi.",
+        "task": "Nêu các giả thuyết về Desire, Trust và Functional; loại dữ liệu nào cần thu thập trước khi đề xuất thử nghiệm?",
+        "guide": "Desire: khách thích nhưng chưa có dịp sở hữu. Trust: thiếu ảnh thật/nguồn đá. Functional: lo size/độ cao; cũng có thể lỗi tải hoặc UX. Đối chiếu funnel, mobile performance, thông tin PDP, phản hồi hỗ trợ. Không gán nguyên nhân cho giá khi chưa có chứng cứ."
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "title": "PRODUCT PROOF, CHÍNH SÁCH & SỰ THẬT NỘI BỘ",
+    "subtitle": "Khách và nhân viên cần biết đâu là bằng chứng, đâu là ý tưởng.",
+    "points": [
+      "5 CÂU HỎI CỦA KHÁCH | Trông ra sao ngoài đời? Mình mua gì? Vì sao mức giá phù hợp? Có hợp người đeo? Nếu mua sai hoặc sản phẩm có vấn đề thì sao?",
+      "VISUAL PROOF | Ảnh thật, macro, video đeo, ảnh tỷ lệ, góc bên, ánh sáng có kiểm soát; đừng để render hoặc AI làm khách tin màu đá/độ lớn không đúng.",
+      "PRODUCT PROOF | Tên loại đá, màu, kích thước, xử lý, mác hợp kim, lớp phủ, trọng lượng, chấu và đặc tính sử dụng phải theo thông số được phê duyệt cho SKU.",
+      "MATERIAL PROOF | Nền bạc tái chế GENIA276 Ag 930‰ được COLORA xác nhận cho đợt ra mắt. Khẳng định recycled, loại nguồn tái chế (post-consumer hay pre-consumer), tỷ lệ và phạm vi RJC phải đối chiếu đúng chứng từ hợp kim/lô trước khi công bố. Không mặc nhiên suy ra toàn bộ thành phẩm được RJC chứng nhận hoặc chống dị ứng tuyệt đối.",
+      "SERVICE PROOF | Thời gian làm/giao, đổi trả, chăm sóc và bảo hành phải đối chiếu chính sách live cùng đơn hàng cụ thể, không thuộc lòng con số cũ rồi hứa ngoài quy trình.",
+      "EMOTIONAL PROOF | Câu chuyện thương hiệu, ảnh trên người đeo và trải nghiệm thật giúp khách hình dung việc sở hữu, nhưng không thay thế bằng chứng kỹ thuật.",
+      "PHÂN LOẠI THÔNG TIN | “ĐÃ XÁC LẬP” là quyết định nội bộ/brand; “THEO SKU” cần hồ sơ mẫu/lô; “GIẢ THUYẾT” cần nghiên cứu; “ROADMAP” chưa phải dịch vụ đang chạy; “LIVE POLICY” cần kiểm tra lại.",
+      "TRANG DEMO | Nếu website còn trang thử giao diện, giá/thông số ở trang đó không được nhân viên dùng làm ví dụ sản phẩm bán chính thức.",
+      "KHÔNG BÁN ĐÁ RỜI | Mọi dữ kiện đá được giải thích trong mối liên hệ với thành phẩm trang sức, không giới thiệu COLORA như nhà bán gemstone độc lập.",
+      "BẢO MẬT | Không đem giá vốn, thỏa thuận xưởng, dữ liệu khách, thu nhập cá nhân hoặc tài liệu supplier nhạy cảm lên website/repository công khai.",
+      "KIỂM TRA TRƯỚC KHI CÔNG BỐ | Nhân viên cần đọc đúng Product Passport, phiên bản hình ảnh SKU, giá và chính sách hiệu lực, thay vì nhớ số liệu từ một câu trắc nghiệm."
+    ],
+    "url": "https://colora.vn/pages/colora-house",
+    "origin": "Tổng hợp từ các định hướng/khẳng định nội bộ của COLORA và kiến thức ngành phù hợp; link chỉ là tài liệu tham khảo bổ sung, không thay thế hồ sơ nội bộ.",
+    "teachback": {
+      "prompt": "Khách hỏi “Viên đá này untreated và có giấy GIA không?” nhưng hồ sơ SKU chưa rõ: bạn làm gì và cần nguồn nào?",
+      "sample": "Không tự hứa. Kiểm tra hồ sơ loại đá và xử lý, chứng thư độc lập nếu có, Product Passport đã duyệt; nếu chưa có, nói rõ điểm đang xác minh. COA thương hiệu không mặc nhiên tương đương giấy lab."
+    },
+    "visual": {
+      "kicker": "PRODUCT PROOF • ONLINE",
+      "title": "Một lời hứa đáng tin cần gắn với bằng chứng mà khách kiểm tra được",
+      "layout": "sequence",
+      "cards": [
+        {
+          "title": "Ảnh thật",
+          "detail": "Tỷ lệ, màu sắc, mặt trước và mặt sau rõ ràng"
+        },
+        {
+          "title": "Thông số thật",
+          "detail": "Đá, bạc, lớp phủ và giới hạn theo SKU"
+        },
+        {
+          "title": "Chính sách rõ",
+          "detail": "Giao hàng, đổi trả, bảo hành đúng bản hiện hành"
+        },
+        {
+          "title": "Care minh bạch",
+          "detail": "Tư vấn hữu ích và hướng dẫn sử dụng sau mua"
+        }
+      ],
+      "note": "Không dùng ảnh tư liệu đá rời để thay cho ảnh sản phẩm bán thật. Trước khi công bố COLORA SILVER hoặc RJC, đối chiếu đúng chứng từ."
+    },
+    "essential_point_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      10
+    ],
+    "learning_objective": "Tra dữ liệu và nguồn được duyệt trước khi công bố chất liệu, xử lý đá, ảnh thật, chính sách và quyền lợi từng SKU."
+  },
+  {
+    "id": "13",
+    "title": "GEMSTONE 101 | ĐÁ QUÝ, BÁN QUÝ & THÔNG SỐ",
+    "subtitle": "Tìm hiểu đá màu một cách chính xác: tên đá, nguồn gốc, độ cứng, độ dai, độ ổn định, màu, kích thước và xử lý.",
+    "origin": "Kiến thức ngành tham chiếu GIA; không tự suy ra tiêu chuẩn kiểm định hay giấy tờ của mọi SKU COLORA.",
+    "url": "https://4cs.gia.edu/en-us/blog/more-than-mohs-scale-gem-durability/",
+    "points": [
+      "ĐÁ QUÝ / BÁN QUÝ LÀ GÌ? | 'Precious' và 'semi-precious' là cách gọi lịch sử/thương mại, không phải bảng xếp hạng chất lượng hay độ bền theo một chuẩn khoa học thống nhất. COLORA nên nêu tên khoáng vật/đá cụ thể và đặc tính của viên thay vì để hai nhãn này quyết định giá trị.",
+      "NATURAL VS SYNTHETIC VS SIMULANT | Đá tự nhiên hình thành trong tự nhiên; đá tổng hợp do con người tạo nhưng có thể cùng thành phần/cấu trúc với đá tự nhiên; đá mô phỏng chỉ giống vẻ ngoài. Không đồng nhất synthetic với 'nhựa' và không gọi simulant là đá tự nhiên.",
+      "NATURAL KHÔNG ĐỒNG NGHĨA UNTREATED | Đá tự nhiên có thể qua gia nhiệt, chiếu xạ, phủ màu, nhuộm, tẩm dầu hoặc lấp khe nứt. Mỗi xử lý có ảnh hưởng riêng đến giá trị, cách chăm sóc và lời công bố.",
+      "THANG ĐỘ CỨNG MOHS | Xếp hạng tương đối khả năng chống trầy: không tuyến tính. Mohs 9 không có nghĩa 'bền gấp 9 lần Mohs 1'. Diamond 10 vẫn có thể mẻ/vỡ khi va đập.",
+      "3 THÀNH TỐ ĐỘ BỀN | Hardness = chống trầy, toughness = chống mẻ/vỡ, stability = chịu tác động nhiệt, ánh sáng, hóa chất. Khi chọn nhẫn đeo thường xuyên phải xét cả 3 cùng setting và thói quen sử dụng.",
+      "MÀU - HUE / TONE / SATURATION | Hue là gam màu, tone là độ sáng/tối, saturation là mức đậm/thuần màu. Đá cùng tên, cùng kích thước vẫn có thể khác giá nhiều vì màu và độ cắt.",
+      "CLARITY / INCLUSIONS | Bao thể có thể là đặc điểm hình thành tự nhiên, nhưng bao thể sát chấu, khe nứt chạy tới bề mặt hay điểm mẻ có thể ảnh hưởng an toàn. 'Eye-clean' phụ thuộc tiêu chí quan sát; không thể dùng như cam kết mọi loài đá đều không có bao thể.",
+      "CUT, SHAPE, CARAT, MILLIMET | Shape là biên dạng (oval, pear, cushion); cut style là tổ chức mặt giác (brilliant, step, mixed, cabochon); carat là khối lượng 0,2 g/ct, còn mm là kích thước vật lý. Đá 1 ct các loại có thể kích thước không giống nhau.",
+      "WINDOWING / EXTINCTION | Đá cắt quá nông có thể tạo vùng xuyên thấu ở giữa (window); cắt quá sâu hoặc bố trí mặt không hợp lý có thể tạo vùng tối (extinction). Đánh giá khi nhìn trực diện và khi nghiêng dưới ánh sáng phù hợp.",
+      "TREATMENT & CARE | Không kết luận 'mọi đá tự nhiên đều rửa siêu âm được'. Cách chăm sóc phụ thuộc loài đá, khe nứt, chất lấp, lớp phủ và cấu trúc món trang sức.",
+      "PRODUCT CONTEXT | COLORA bán trang sức hoàn chỉnh có đá màu, không bán đá rời. Giá trị phải gắn đúng với khả năng sử dụng, thiết kế, vật liệu và câu chuyện người đeo.",
+      "PHẠM VI CÔNG BỐ | Tên đá, natural/synthetic, xử lý, màu, số lượng, kích thước và tài liệu xác thực phải thống nhất trong hồ sơ từng SKU; không chứng minh nguồn gốc chỉ bằng ảnh."
+    ],
+    "visual": {
+      "kicker": "GEMOLOGY • ẢNH THẬT",
+      "title": "Một khay đá thật có thể chứa nhiều loại, nhiều chất lượng và cách cắt",
+      "photos": [
+        {
+          "src": "assets/gemstones-spectrum-real.webp",
+          "alt": "Ảnh thật nhiều viên đá màu trong khay phục vụ khảo sát nguồn đá",
+          "label": "Quan sát gam màu thực tế",
+          "credit": "Ảnh khảo sát nguồn đá COLORA, 10/2026"
+        },
+        {
+          "src": "assets/gemstones-selection-real.webp",
+          "alt": "Khay đá thật cho thấy độ biến thiên màu và kích thước giữa các viên",
+          "label": "Đá cùng dáng vẫn khác chất lượng",
+          "credit": "Ảnh khảo sát nguồn đá COLORA, 10/2026"
+        }
+      ],
+      "cards": [
+        {
+          "title": "Tên & nguồn gốc",
+          "detail": "Loài đá, natural / synthetic / simulant"
+        },
+        {
+          "title": "Màu & cắt",
+          "detail": "Hue, tone, saturation, clarity, cut"
+        },
+        {
+          "title": "Độ bền",
+          "detail": "Mohs, toughness, stability, treatment"
+        },
+        {
+          "title": "Thông số",
+          "detail": "L × W × D, ct, tỷ lệ, hồ sơ SKU"
+        }
+      ],
+      "note": "Tư liệu đá thật trong thư viện khảo sát COLORA (10/2026). Chỉ minh họa đặc điểm đá trong giai đoạn tìm hiểu; không xác nhận đá trong ảnh là SKU được bán."
+    },
+    "teachback": {
+      "prompt": "Giải thích cho một nhân viên mới vì sao đá tự nhiên chưa chắc là đá không xử lý, Mohs cao chưa chắc chống va đập tốt và carat không đồng nghĩa với kích thước mm.",
+      "sample": "Natural là nguồn gốc hình thành; treatment là can thiệp sau hình thành. Mohs chủ yếu đo chống trầy, không bao trọn khả năng mẻ/vỡ hoặc độ ổn định. Carat đo khối lượng, còn kích thước để lắp CAD phải đo L × W × D bằng mm."
+    },
+    "essential_point_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      7,
+      10
+    ],
+    "learning_objective": "Phân biệt natural, synthetic, simulant và treatment; chỉ dùng các claim về đá khi có bằng chứng phù hợp."
+  },
+  {
+    "id": "14",
+    "title": "BẢNG ĐÁ MÀU | CÁC LOẠI ĐÁ QUÝ VÀ BÁN QUÝ",
+    "subtitle": "Nhận diện các nhóm khoáng vật và đặc tính quan trọng khi chọn đá cho trang sức màu COLORA.",
+    "origin": "Thông số Mohs và lưu ý sử dụng được tổng hợp từ GIA. Đây là danh mục để học và sàng lọc, KHÔNG phải tuyên bố tất cả loại đá đang được COLORA bán.",
+    "url": "https://4cs.gia.edu/en-us/blog/colored-gemstone-engagement-rings-buying-guide/",
+    "points": [
+      "CORUNDUM - RUBY / SAPPHIRE | Cùng họ corundum, Mohs 9. Ruby thuộc dải đỏ; sapphire có xanh và nhiều màu khác. Nhìn chung phù hợp sử dụng thường xuyên nếu chất lượng, xử lý và setting phù hợp. Gia nhiệt và các dạng xử lý khác phải phân biệt, đặc biệt ruby lấp thủy tinh.",
+      "SPINEL | Mohs 8, độ dai nhìn chung tốt, màu đỏ/hồng/tím/xanh. Không được gọi spinel đỏ là ruby chỉ vì sắc đỏ tương tự; spinel là loài đá riêng. Nhiệt và các xử lý có thể tồn tại.",
+      "TOPAZ | Mohs 8 nhưng có tính cát khai rõ, có thể tách/mẻ khi va đập mạnh. Một số topaz xanh được chiếu xạ/gia nhiệt, một số topaz màu phủ bề mặt. Không thể chỉ nhìn số Mohs 8 mà nói đeo nhẫn va chạm thoải mái.",
+      "TOURMALINE | Mohs 7–7,5, nhiều màu kể cả xanh, hồng và đa sắc. Độ dai vừa phải; tránh sốc nhiệt và không mặc định phù hợp máy siêu âm. Một số viên có gia nhiệt hoặc chiếu xạ.",
+      "BERYL - EMERALD | Emerald là beryl xanh lục, Mohs 7,5–8, nhưng thường có khe nứt và có thể được tẩm dầu/chất lấp. Đá đẹp nhưng nhiều mẫu cần bảo vệ góc và chăm sóc cẩn thận.",
+      "BERYL - AQUAMARINE / MORGANITE | Aquamarine xanh lam nhạt/xanh lục lam và morganite hồng thuộc beryl, Mohs thường 7,5–8. Cần xét độ sạch, màu, setting; không đánh đồng độ bền emerald với mọi viên beryl.",
+      "QUARTZ - AMETHYST / CITRINE | Cùng nhóm quartz, Mohs 7. Amethyst tím, citrine vàng/cam. Có nguy cơ trầy do bụi/cát chứa quartz và một số màu có thể nhạy với nhiệt/ánh sáng; citrine trên thị trường thường liên quan gia nhiệt amethyst.",
+      "GARNET | Là nhóm khoáng vật, không chỉ có màu đỏ; Mohs khoảng 6,5–7,5 tùy loại. Có garnet đỏ/cam/xanh; độ dai và giá trị thay đổi theo loài/giống, không áp chung.",
+      "PERIDOT | Mohs 6,5–7, xanh lục đặc trưng, cần tránh va đập và sốc nhiệt; lựa chọn sản phẩm phải xét mức độ đeo và bảo vệ đá.",
+      "OPAL | Mohs khoảng 5–6,5, độ dai thấp đến vừa, nhạy với nhiệt/thay đổi môi trường ở một số dạng. Có thể phù hợp hoa tai/mặt dây hoặc đeo thận trọng, không tự hứa mọi nhẫn opal lý tưởng cho đeo liên tục.",
+      "MÀU KHÔNG QUY ĐỊNH LOÀI | Sapphire có thể nhiều màu; spinel, garnet và tourmaline cũng có phổ màu rộng. Không xác định tên đá dựa trên một ảnh hoặc tên màu marketing.",
+      "ƯU TIÊN THEO SỬ DỤNG | Đối với nhẫn đeo thường xuyên: ưu tiên đá có khả năng chịu trầy, chống mẻ và ổn định phù hợp; với hoa tai/mặt dây: có thể cân nhắc đa dạng hơn nếu thông tin chăm sóc rõ ràng.",
+      "KHOẢNG GIÁ KHÔNG QUY ĐỊNH LOÀI | Dải giá dự kiến COLORA 2,3–8 triệu đồng cho sản phẩm hoàn thiện; chi phí viên đá chỉ là một phần, không tự xác định loại đá 'mặc định' cho mọi mẫu.",
+      "REFRACTIVE INDEX (RI) | Chỉ số khúc xạ đo cách ánh sáng truyền và bị bẻ hướng trong khoáng vật; là thông số hỗ trợ định danh khi được đo bằng thiết bị phù hợp, không là điểm số chất lượng cao-thấp. Ví dụ tham chiếu GIA: sapphire RI 1,762–1,770; spinel khoảng 1,718; topaz 1,619–1,627.",
+      "SPECIFIC GRAVITY (SG) | Tỷ trọng/khối lượng riêng tương đối giải thích vì sao hai viên cùng carat có thể khác thể tích. Ví dụ GIA: sapphire SG khoảng 4,00; spinel 3,60; topaz 3,53; aquamarine 2,72; quartz 2,66.",
+      "KHÚC XẠ KÉP & PLEOCHROISM | Một số đá có birefringence và thể hiện màu theo hướng quan sát khác nhau. Ví dụ tourmaline RI khoảng 1,624–1,644, birefringence 0,018–0,040; một viên quay góc có thể cho màu và độ sáng khác.",
+      "KHÔNG CHẨN ĐOÁN BẰNG MỘT CHỈ SỐ | RI, SG, màu, Mohs, độ trong, kính hiển vi và các phép thử hỗ trợ định danh; không tự kết luận natural/untreated/origin chỉ từ một ảnh hoặc con số. Thông số từng viên phải được người có chuyên môn xác nhận khi cần."
+    ],
+    "visual": {
+      "kicker": "GEMSTONE PROFILES • ẢNH THẬT",
+      "title": "So màu, kích thước và hình dáng trước khi nói về tên đá",
+      "photos": [
+        {
+          "src": "assets/gemstones-blue-real.webp",
+          "alt": "Ảnh thật các viên đá xanh có độ đậm và sáng khác nhau",
+          "label": "Nhóm đá xanh trong khảo sát",
+          "credit": "Ảnh khảo sát nguồn đá COLORA, 10/2026"
+        },
+        {
+          "src": "assets/gemstones-spectrum-real.webp",
+          "alt": "Ảnh thật khay nhiều viên đá màu phục vụ so sánh màu sắc",
+          "label": "Đá màu đa sắc",
+          "credit": "Ảnh khảo sát nguồn đá COLORA, 10/2026"
+        }
+      ],
+      "cards": [
+        {
+          "title": "Mohs 9",
+          "detail": "Ruby / Sapphire (corundum)"
+        },
+        {
+          "title": "Mohs 8",
+          "detail": "Spinel; Topaz (lưu ý cát khai)"
+        },
+        {
+          "title": "Mohs 7–8",
+          "detail": "Tourmaline, Beryl, Quartz (theo loại)"
+        },
+        {
+          "title": "Mohs 5–7,5",
+          "detail": "Opal, Peridot, Garnet (theo loại)"
+        }
+      ],
+      "note": "Các nhóm Mohs dùng để học, không phải phân hạng thương mại. Ảnh thật không chứng minh tên khoáng vật của từng viên khi chưa có hồ sơ nhận dạng."
+    },
+    "teachback": {
+      "prompt": "So sánh sapphire, spinel, topaz, emerald và opal để tư vấn sử dụng trong nhẫn hoặc mặt dây. Vì sao không thể chỉ xếp theo Mohs?",
+      "sample": "Sapphire 9 có độ dai tốt và phù hợp nhiều kiểu nhẫn; spinel 8 có độ dai tốt; topaz 8 nhưng có cát khai nên va đập vẫn rủi ro; emerald 7,5–8 thường có khe nứt và xử lý; opal 5–6,5 cần bảo vệ hơn. Cần xét setting, treatment và hành vi đeo."
+    },
+    "essential_point_indices": [
+      0,
+      1,
+      2,
+      4,
+      9,
+      11
+    ],
+    "learning_objective": "Giải thích độ cứng, độ dai và độ ổn định; không suy diễn sự an toàn của trang sức từ riêng Mohs."
+  },
+  {
+    "id": "15",
+    "title": "HÌNH DÁNG & GIÁC CẮT | ƯU, NHƯỢC ĐIỂM",
+    "subtitle": "Phân biệt shape và faceting style; biết tại sao oval, pear, cushion, marquise và step / brilliant / mixed cho cảm giác khác nhau.",
+    "origin": "Kiến thức hình học và ánh sáng dựa trên GIA Gem Cutting Styles. Ví dụ CAD COLORA là concept đã thảo luận, không phải kích thước chuẩn mọi SKU.",
+    "url": "https://www.gia.edu/gia-news-research-value-factors-gem-cutting-styles-definitions",
+    "points": [
+      "SHAPE ≠ CUT STYLE | Oval, round, pear, cushion, emerald outline, marquise, princess, radiant là hình dạng/kiểu thương mại; brilliant, step, mixed, rose, cabochon mô tả cách tổ chức mặt. Một oval có thể được cắt brilliant, step hoặc mixed.",
+      "ROUND / BRILLIANT | Dáng tròn dễ đối xứng, cho hiệu ứng sáng mạnh khi tỷ lệ chuẩn; thường lãng phí nhiều vật liệu thô hơn một số dáng khác, và không nhất thiết tạo cảm giác thon dài như oval.",
+      "OVAL | Mềm, kéo dài thị giác, linh hoạt với ngôn ngữ nữ tính. Có thể xuất hiện vùng tối hình 'bow-tie' ở giữa hoặc độ méo/asymmetry; cần kiểm tra ánh sáng khi xoay đá.",
+      "PEAR / TEARDROP | Tạo hướng chuyển động và điểm nhấn bất đối xứng; đầu nhọn dễ mẻ hơn nếu chấu không bảo vệ, cân đối hai vai khó hơn dáng tròn/oval.",
+      "CUSHION | Góc bo và dáng vuông/chữ nhật mềm, có thể tập trung màu tốt. Độ phản quang thay đổi mạnh theo tỷ lệ và brilliant/mixed faceting; cần tránh mặt đá quá sâu làm ổ đá cao.",
+      "MARQUISE | Dáng thon dài, tạo hiệu ứng kéo dài mạnh; hai đầu nhọn cần bảo vệ, có thể gặp bow-tie và lệch đối xứng. Trong nhiều thiết kế đá tấm nhỏ, thao tác đặt chấu phức tạp hơn oval.",
+      "EMERALD / STEP CUT | Các mặt hình bậc chạy song song làm nổi màu, độ trong và hiệu ứng 'hall of mirrors'. Ít nhấp nháy hơn brilliant; khe nứt/bao thể dễ thấy hơn, yêu cầu vật liệu phù hợp và hoàn thiện chính xác.",
+      "BRILLIANT CUT | Nhiều mặt nhỏ phối hợp để tạo phản chiếu và độ lấp lánh cao. Có thể hỗ trợ che một số bao thể khi nhìn; không có nghĩa mọi brilliant tốt hơn step cho mọi loài đá màu.",
+      "MIXED CUT | Kết hợp cấu trúc brilliant và step (ví dụ crown brilliant, pavilion step) nhằm cân bằng sáng và màu, phổ biến ở oval/cushion; vẫn phải kiểm tra window và tỷ lệ.",
+      "ROSE CUT | Đáy tương đối phẳng, mặt trên vòm gồm các facet, cho cảm giác cổ điển mềm; thường không tạo brilliance và chiều sâu phản xạ như full brilliant, nhưng có thể hữu dụng cho thiết kế thấp.",
+      "CABOCHON | Bề mặt vòm trơn không có facet truyền thống, hợp đá đục/bán trong hoặc hiệu ứng sao/mắt mèo. Độ lấp lánh mặt giác ít hơn; vẫn phải kiểm tra chiều cao vòm, bề mặt và độ bền.",
+      "WINDOW / EXTINCTION | Không chọn đá chỉ vì tên cut. Nhìn trực diện và nghiêng: vùng giữa nhìn xuyên mất màu là window; vùng tối lớn không đổi theo ánh sáng là dấu hiệu cần xem xét tỷ lệ, chất lượng.",
+      "ĐỘ SÂU TÁC ĐỘNG CAD | Hai viên cùng L×W có thể khác D (depth), girdle, pavilion. Nếu viên sâu hơn setting dự kiến, đá có thể bị đội cao, vướng hoặc làm yếu kết cấu.",
+      "COLORA DESIGN FIT | Ưu tiên silhouette mềm, broad facets trên kim loại, đá là hero, low-profile hợp lý. Dáng oval 8,1×5,4 mm hay pear 7×5 mm từng được thảo luận chỉ là ví dụ concept; phải duyệt riêng từng mẫu."
+    ],
+    "visual": {
+      "kicker": "CUTS & SHAPES • SƠ ĐỒ HÌNH HỌC",
+      "title": "Hình dạng không đồng nghĩa kiểu giác cắt",
+      "diagram": "cuts",
+      "photos": [
+        {
+          "src": "assets/gemstones-selection-real.webp",
+          "alt": "Ảnh thật nhiều viên đá có hình dạng và tỷ lệ khác nhau ở khay khảo sát",
+          "label": "Đối chiếu các dáng đá thật",
+          "credit": "Ảnh khảo sát nguồn đá COLORA, 10/2026"
+        }
+      ],
+      "cards": [
+        {
+          "title": "Shape",
+          "detail": "Round • Oval • Pear • Cushion • Marquise"
+        },
+        {
+          "title": "Faceting",
+          "detail": "Brilliant • Step • Mixed • Rose • Cabochon"
+        },
+        {
+          "title": "Lợi ích",
+          "detail": "Ánh sáng, màu, phong cách, độ sâu"
+        },
+        {
+          "title": "Trade-off",
+          "detail": "Góc dễ mẻ, window, bow-tie, setting"
+        }
+      ],
+      "note": "Sơ đồ dạng đá là minh họa khái niệm, không phải bản vẽ kỹ thuật để gia công hoặc ảnh của SKU. Đối chiếu mẫu thật về đối xứng, độ sâu và girdle."
+    },
+    "teachback": {
+      "prompt": "Giải thích sự khác nhau giữa viên pear có mặt brilliant, viên emerald step-cut và viên oval mixed-cut; mỗi dạng mang đến ưu điểm và giới hạn nào cho thiết kế COLORA?",
+      "sample": "Pear là dáng giọt nước, đầu nhọn cần bảo vệ; brilliant là sắp xếp mặt tạo độ lấp lánh. Emerald step thường làm nổi độ trong và màu nhưng cũng dễ lộ bao thể. Oval mixed kết hợp phản chiếu và biểu hiện màu, vẫn phải kiểm tra bow-tie/window, độ sâu và khả năng đặt đá theo CAD."
+    },
+    "essential_point_indices": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      12
+    ],
+    "learning_objective": "Phân biệt outline shape và cutting style; nêu một lợi thế và rủi ro khi dùng oval, pear, marquise hoặc step-cut."
+  },
+  {
+    "id": "16",
+    "title": "COLORA GEM SELECTION | TIÊU CHÍ CHỌN & QC ĐÁ",
+    "subtitle": "Từ design brief đến kiểm tra nguồn đá, thông số CAD và quyền phê duyệt; phân biệt nguyên tắc đã xác lập với các ngưỡng QC còn đề xuất.",
+    "origin": "Nguyên tắc nội bộ: gemstone-first, đá tự nhiên là ưu tiên trong thiết kế đang phát triển, kích thước CAD cố định và sourcing theo yêu cầu được thảo luận. Các ngưỡng kiểm định cụ thể/chứng thư/lô vẫn là ĐỀ XUẤT, CHƯA CHỐT thành SOP chính thức.",
+    "url": "https://www.gia.edu/gem-treatment",
+    "points": [
+      "NGUYÊN TẮC ĐÃ XÁC LẬP | COLORA là thương hiệu trang sức demi-fine gemstone-first; màu đá là nhân vật chính, kết cấu low-profile và sự thoải mái quan trọng. COLORA không bán đá rời.",
+      "ƯU TIÊN VẬT LIỆU ĐÁ | Những thiết kế người sáng lập đang phát triển ưu tiên đá tự nhiên. Tuy nhiên, phải chứng minh tính tự nhiên của từng loại/lô và công bố xử lý; không tự biến 'ưu tiên' thành khẳng định 'mọi SKU, mọi viên đá đều untreated'.",
+      "COLORA KHÔNG CHỌN THEO LOÀI ĐÁ MỘT CÁCH MÁY MÓC | Chọn dựa trên màu, độ bền tương thích tình huống đeo, sự phù hợp với ngôn ngữ hình khối, khả năng tìm nguồn, chi phí và kỹ thuật gia công.",
+      "DESIGN-LED SOURCING | Từng thảo luận cách khách chọn loại đá và tông màu trong biên dạng, kích thước CAD đã khóa; không hứa thiết kế bespoke hoàn toàn hoặc mọi màu đá đều có sẵn. Trạng thái vận hành thực tế cần được xác nhận trước khi quảng bá.",
+      "KÍCH THƯỚC CALIBRATED | Không đủ ghi 'oval 5 mm': cần chiều dài, rộng, sâu, độ dày girdle và dung sai được kỹ thuật/nhà cung cấp thỏa thuận. Không tự lấy mẫu 8,1×5,4 mm hoặc pear 7×5 mm làm chuẩn mọi mẫu.",
+      "MÀU - MASTER RANGE (ĐỀ XUẤT QC) | Tạo mẫu màu chấp nhận cho từng SKU hoặc khoảng màu: sáng nhất, mục tiêu, tối nhất trong ánh sáng được quy định. Đây là phương pháp kiểm soát biến thiên, chưa có bằng chứng COLORA đã phê duyệt dải thông số chính thức.",
+      "LOẠI ĐÁ / NATURAL / TREATMENT (ĐỀ XUẤT QC) | Hợp đồng/phiếu nhận nên yêu cầu tên đá, natural/synthetic, dạng xử lý, màu, kích thước, số lượng và hồ sơ nguồn. Không đánh đồng lời nhà cung cấp với giám định độc lập.",
+      "CUT QUALITY (ĐỀ XUẤT QC) | Quan sát chính diện, góc nghiêng, đối xứng, polish, window/extinction, bow-tie, tỷ lệ depth. Không có một kiểu giác cắt tối ưu cho tất cả loài đá.",
+      "DEFECT GATE (ĐỀ XUẤT QC) | Đánh giá chips, vết nứt tới bề mặt, bao thể sát vùng chấu, vết trầy, girdle quá mỏng. Khuyết tật khác nhau về mức nguy hiểm; cần tiêu chí chấp nhận theo SKU, không từ chối mọi bao thể tự nhiên.",
+      "WEARABILITY & SETTING | Mẫu nhẫn đeo nhiều cần chịu va đập tốt hơn mặt dây ít tiếp xúc; pear/marquise cần bảo vệ đầu nhọn; viên sâu có thể mâu thuẫn thiết kế low-profile. Quyết định trên cả viên và ổ đá.",
+      "SUPPLIER TRACEABILITY (ĐỀ XUẤT QC) | Mã lô, ảnh viên thực tế, thông số, đơn giá, chứng từ và quyền kiểm tra/đổi trả là các cơ chế hữu ích để tránh mua sai; mức áp dụng còn cần chủ sở hữu quy trình phê duyệt.",
+      "GIÁ & KHẢ NĂNG NGUỒN CUNG | Dải giá thành phẩm dự kiến COLORA là 2,3–8 triệu đồng, không phải ngân sách cho đá. Mỗi concept có dự toán viên đá riêng trong brief nội bộ, cần so với nguồn hàng, chất lượng, thời gian và khả năng hoàn thiện. Không công khai chi phí đầu vào hoặc điều khoản nhà cung cấp trên website học công khai.",
+      "CHỨNG THƯ & QUYỀN CÔNG BỐ | Product COA và gem lab report có phạm vi khác nhau. Yêu cầu chứng thư, testing/lấy mẫu, phân loại xử lý theo giá trị và rủi ro cần được duyệt. Không hứa mọi viên nhỏ đều có chứng thư GIA.",
+      "THANG QUYẾT ĐỊNH ĐỀ XUẤT | 1) Đúng loài đá và chứng từ; 2) đúng màu/thẩm mỹ; 3) đúng L×W×D và cấu trúc giữ đá; 4) không có lỗi nghiêm trọng; 5) nguồn cung/giá/lead time phù hợp; 6) được duyệt và lưu phiên bản. Đây là checklist đề nghị để nhân viên học, chưa là tiêu chuẩn mua hàng chính thức."
+    ],
+    "visual": {
+      "kicker": "COLORA QC • PHƯƠNG PHÁP ĐỀ XUẤT",
+      "title": "Một viên đá đẹp chưa chắc là viên đá phù hợp với thiết kế",
+      "diagram": "qc",
+      "photos": [
+        {
+          "src": "assets/gemstones-blue-real.webp",
+          "alt": "Ảnh thật khay đá xanh với những sắc độ khác nhau",
+          "label": "Dải sắc của đá tự nhiên",
+          "credit": "Ảnh khảo sát nguồn đá COLORA, 10/2026"
+        },
+        {
+          "src": "assets/gemstones-selection-real.webp",
+          "alt": "Ảnh thật nhiều đá màu để nghiên cứu mẫu sourcing",
+          "label": "Cần kiểm từng viên trước khi chọn",
+          "credit": "Ảnh khảo sát nguồn đá COLORA, 10/2026"
+        }
+      ],
+      "cards": [
+        {
+          "title": "01 • Identity",
+          "detail": "Tên đá, natural/synthetic, treatment"
+        },
+        {
+          "title": "02 • Appearance",
+          "detail": "Màu, face-up, symmetry, cut/polish"
+        },
+        {
+          "title": "03 • Fit",
+          "detail": "L×W×D, girdle, depth, setting"
+        },
+        {
+          "title": "04 • Proof",
+          "detail": "Mã lô, hồ sơ, QC, người duyệt"
+        }
+      ],
+      "note": "Các bước QC nêu là khung đề xuất từ những lần thảo luận nguồn đá. Không coi đây là SOP/tiêu chuẩn nghiệm thu đã được COLORA ban hành."
+    },
+    "teachback": {
+      "prompt": "Bạn nhận được 20 viên pear 7×5 mm cùng màu từ một nhà cung cấp cho thiết kế nhẫn COLORA. Hãy trình bày 6 bước kiểm tra trước khi đề xuất chọn viên và nêu điều gì cần người có thẩm quyền duyệt.",
+      "sample": "Đối chiếu tên đá, natural/synthetic, xử lý; so dải màu dưới ánh sáng chuẩn; đo L×W×D, girdle và depth so CAD; kiểm window, đối xứng, chips, bao thể sát chấu; đánh giá độ bền và đầu pear; cuối cùng kiểm giá, lead time, chứng từ/lô và trình người phụ trách duyệt theo tiêu chuẩn SKU chính thức."
+    },
+    "essential_point_indices": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      9,
+      12
+    ],
+    "learning_objective": "So sánh lựa chọn đá dựa vào màu, kích thước thật, khuyết tật, setting và chứng từ; phân biệt chuẩn đã duyệt với QC đề xuất."
+  },
+  {
+    "id": "17",
+    "title": "PRODUCT CARE | CHĂM SÓC COLORA SILVER & ĐÁ MÀU",
+    "subtitle": "Khách hàng cần làm gì trước, trong và sau khi đeo; vệ sinh an toàn, chăm từng loại đá và liên hệ Client Care khi có dấu hiệu bất thường.",
+    "origin": "Tổng hợp hướng dẫn chăm sóc đang công bố trên colora.vn với kiến thức GIA về vệ sinh trang sức. Công nghệ mạ phủ độc quyền của COLORA SILVER chưa có tiêu chuẩn vệ sinh kỹ thuật được cung cấp đầy đủ để áp một công thức làm sạch chung cho mọi SKU.",
+    "url": "https://www.gia.edu/gia-news-research-tips-caring-jewelry",
+    "points": [
+      "MỤC TIÊU CHĂM SÓC | Giữ bề mặt COLORA SILVER, đá màu, chấu/ổ đá và các mối nối ở trạng thái phù hợp với sử dụng. Không hứa 'không xỉn', 'không trầy' hay 'đeo 24/7' chỉ vì có công nghệ mạ phủ độc quyền.",
+      "QUY TẮC ĐEO HẰNG NGÀY | Tháo trang sức trước khi vận động mạnh, tập gym, bơi, dọn dẹp dùng hóa chất và các hoạt động dễ va đập. Low-profile giảm nguy cơ vướng ở một số thiết kế, không loại bỏ hoàn toàn rủi ro.",
+      "NƯỚC HOA, MỸ PHẨM & CHẤT TẨY | Tránh để nước hoa, kem dưỡng, xịt tóc, cồn, chất tẩy và chlorine tiếp xúc trực tiếp với trang sức; ưu tiên hoàn tất các bước chăm sóc cá nhân, đợi sản phẩm khô rồi mới đeo.",
+      "SAU MỖI LẦN ĐEO | Tháo bằng cách cầm thân/khóa, dùng khăn mềm sạch, khô, không xơ lau nhẹ mồ hôi, dầu và bụi trên bề mặt; không dùng giấy ráp, kem đánh răng, baking soda hoặc khăn đánh bạc mài mòn trực tiếp lên lớp phủ nếu chưa được COLORA duyệt.",
+      "BẢO QUẢN RIÊNG TỪNG MÓN | Đặt vào túi/hộp có lót mềm và khoang riêng, tránh đá cứng cọ vào bạc/đá mềm; đóng khóa, xếp dây nằm phẳng và không treo vật nặng lên mối nối. Cất nơi ổn định, tránh nguồn nhiệt, ẩm cao và ánh nắng trực tiếp kéo dài.",
+      "COLORA SILVER - HỢP KIM VÀ LỚP PHỦ | COLORA SILVER là hệ kim loại COLORA sử dụng nền bạc tái chế GENIA276 Ag 930‰ cùng công nghệ mạ phủ độc quyền. Hợp kim và lớp phủ là hai phần khác nhau; bảo quản phải tính cả tương tác với bề mặt phủ, không mặc định mọi phương pháp làm sạch bạc trần đều phù hợp.",
+      "THAY ĐỔI ĐỘ BÓNG / OXY HÓA | Môi trường, mồ hôi, chất tẩy, ma sát và cách bảo quản có thể ảnh hưởng độ sáng hoặc bề mặt bạc/lớp phủ theo thời gian. Không tự kết luận 'bị xỉn là lỗi nhà sản xuất', cũng không mặc định mọi hiện tượng đều là hao mòn bình thường nếu chưa kiểm tra.",
+      "LAU NHẸ LÀ BƯỚC AN TOÀN MẶC ĐỊNH | Với SKU chưa có hướng dẫn vệ sinh chi tiết, ưu tiên khăn mềm sạch và khô. Nếu còn bẩn hoặc không rõ loại đá/xử lý/lớp phủ, liên hệ Client Care trước khi sử dụng chất tẩy, ngâm, bàn chải hay dung dịch chuyên dụng.",
+      "NƯỚC ẤM & XÀ PHÒNG DỊU | GIA ghi nhận cách này thường phù hợp nhiều đá màu nhưng có ngoại lệ đáng kể: vật liệu xốp, đá xử lý, đá có vết nứt/chất lấp, và các loại nhạy nước/nhiệt. Với COLORA SILVER phủ độc quyền phải xác minh cả đá lẫn lớp phủ theo hồ sơ SKU trước khi hướng dẫn ngâm/rửa tại nhà.",
+      "SIÊU ÂM / HƠI NƯỚC | Không hướng dẫn khách tự dùng máy siêu âm hoặc hơi nước cho món trang sức COLORA khi chưa kiểm tra loại đá, xử lý, keo, chấu và lớp hoàn thiện. Rung, nhiệt, dung dịch có thể gây tổn hại hoặc làm đá lỏng; đây không phải phương pháp chăm sóc mặc định tại nhà.",
+      "SAPPHIRE / RUBY / SPINEL | Nhóm này thường có khả năng chống trầy tốt, nhưng vẫn có thể mẻ khi va đập; xử lý lấp nứt hoặc kết cấu chấu yếu có thể hạn chế cách vệ sinh. Không suy ra đá Mohs 8–9 an toàn cho mọi phương pháp làm sạch.",
+      "EMERALD / ĐÁ ĐÃ TẨM LẤP | Emerald thường có khe nứt và xử lý cải thiện độ trong bằng dầu/resin. Nên tránh máy siêu âm, hơi nước, hóa chất mạnh và sốc nhiệt; đề nghị lau ẩm nhẹ hoặc cách được xác nhận riêng thay vì ngâm/rửa tùy ý.",
+      "TOPAZ / TOURMALINE | Topaz có cát khai nên dễ tổn thương do va đập và rung; tourmaline có thể nhạy nhiệt/sốc nhiệt. Tránh siêu âm/hơi nóng mặc định; phương pháp vệ sinh cụ thể cần theo treatment và SKU.",
+      "OPAL / ĐÁ NHẠY CẢM | Opal có thể nhạy với va đập, nhiệt và thay đổi môi trường; không siêu âm/hấp hơi, tránh để gần nguồn nhiệt hoặc nơi khô nóng bất thường. Không tự khuyên ngâm lâu hay làm khô quá mức; nên hỏi cách chăm theo loại opal và kết cấu sản phẩm.",
+      "QUARTZ VÀ SẮC MÀU | Amethyst/citrine có thể nhạy với nhiệt hoặc ánh sáng quá mạnh trong thời gian dài. Độ cứng Mohs 7 không đồng nghĩa chống nứt hay không đổi màu; kiểm tra thông tin đúng viên để hướng dẫn bảo quản.",
+      "SỰ CỐ & CLIENT CARE ONLINE | Nếu thấy chấu nhô/rụng, đá lắc, khóa mất độ chắc, móp/biến dạng hoặc sau va đập mạnh: ngừng đeo, cất sản phẩm an toàn, chụp ảnh/video hiện trạng và liên hệ COLORA qua kênh Client Care. Không tự nắn chấu, bóp khóa hay dán keo.",
+      "CHĂM SÓC VÀ BẢO HÀNH KHÁC NHAU | Chính sách COLORA hiện công bố kiểm tra tổng thể/tư vấn và vệ sinh cơ bản miễn phí; mạ lại, sửa biến dạng, thay đá, phục hồi bề mặt chuyên sâu cần kiểm tra và báo phí theo tình trạng. Kiểm tra lại bản chính sách đang hiệu lực trước khi cam kết quyền lợi.",
+      "KỊCH BẢN HƯỚNG DẪN ONLINE | Hỏi mã SKU, ảnh rõ mặt trước, mặt sau, vùng đá/chấu/khóa và mô tả hoạt động trước sự cố; phân biệt yêu cầu lau sạch thông thường với vấn đề cấu trúc. Tư vấn bằng cách nói dễ hiểu, không kết luận nguyên nhân hoặc quy trách nhiệm từ một ảnh.",
+      "CHĂM SÓC SAU TẶNG QUÀ | Gửi hướng dẫn ngắn giúp người nhận biết cách lau, cất, tháo lúc nào và liên hệ Client Care ra sao. Cảm giác được đồng hành sau mua quan trọng hơn ép khách mua thêm sản phẩm chăm sóc."
+    ],
+    "visual": {
+      "kicker": "CLIENT CARE • DAILY OWNERSHIP",
+      "title": "Chăm sóc trang sức: đeo đúng - lau nhẹ - cất riêng - kiểm tra khi bất thường",
+      "layout": "flow",
+      "photos": [
+        {
+          "src": "assets/gemstones-selection-real.webp",
+          "alt": "Ảnh thật các viên đá màu trong tư liệu khảo sát của COLORA minh họa rằng mỗi nhóm đá có cách chăm sóc khác nhau",
+          "label": "Mỗi loại đá cần hướng dẫn phù hợp",
+          "credit": "Tư liệu khảo sát đá COLORA, 10/2026"
+        }
+      ],
+      "cards": [
+        {
+          "title": "01 • Trước khi đeo",
+          "detail": "Hoàn tất nước hoa, mỹ phẩm; đeo sau khi khô"
+        },
+        {
+          "title": "02 • Khi sử dụng",
+          "detail": "Tháo trước hoạt động dễ va đập, hóa chất hoặc bơi"
+        },
+        {
+          "title": "03 • Sau khi đeo",
+          "detail": "Lau nhẹ bằng khăn sạch, mềm và khô"
+        },
+        {
+          "title": "04 • Khi cất",
+          "detail": "Cất riêng từng món, đóng khóa và giữ dây thẳng"
+        },
+        {
+          "title": "05 • Khi có dấu hiệu lạ",
+          "detail": "Ngừng đeo, chụp tình trạng và liên hệ Client Care"
+        }
+      ],
+      "note": "Ảnh chỉ minh họa sự đa dạng của đá màu, không phải minh chứng quy trình chăm sóc hoặc sản phẩm đang bán. Các lưu ý áp dụng cần kiểm tra loại đá, xử lý và cấu trúc COLORA SILVER theo SKU."
+    },
+    "teachback": {
+      "prompt": "Hãy hướng dẫn một khách mới mua nhẫn COLORA SILVER đính đá màu cách chăm trong 60 giây: đeo, lau, cất, tránh gì và khi nào cần nhắn Client Care. Bạn sẽ xử lý thế nào nếu khách chưa rõ loại đá hay lớp phủ?",
+      "sample": "Em khuyên mình đeo sau khi dùng nước hoa/kem dưỡng, tháo trước bơi, hóa chất hoặc vận động dễ va chạm. Sau khi đeo lau bằng khăn mềm sạch, khô và cất riêng. Không dùng kem đánh răng, chất đánh bạc mạnh, siêu âm/hơi nóng khi chưa rõ đá và xử lý/lớp phủ. Nếu đá lỏng, chấu vướng, khóa bất thường, mình ngừng đeo, gửi ảnh và mã sản phẩm cho COLORA kiểm tra. Khi chưa rõ SKU, chỉ hướng dẫn lau khô nhẹ và xác minh trước các bước khác."
+    },
+    "essential_point_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      9,
+      15,
+      16
+    ],
+    "learning_objective": "Hướng dẫn chăm tại nhà ở mức an toàn, biết khi nào ngừng đeo/chuyển kiểm tra và không tự suy đoán phương pháp vệ sinh."
+  }
+]

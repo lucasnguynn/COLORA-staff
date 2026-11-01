@@ -1,0 +1,4554 @@
+[
+  {
+    "id": "FN-001",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "COLORA là ai & nguồn gốc",
+    "chapter": "01",
+    "q": "Một nhân viên mới được hỏi “Demi-fine jewelry là gì?”. Cách giải thích nào đầy đủ và chính xác nhất?",
+    "a": [
+      "Một chuẩn chứng nhận xác định tỷ lệ kim loại quý và lớp phủ của trang sức",
+      "Một phân khúc thương mại giữa fashion và fine, không có chuẩn vật liệu chung",
+      "Tên một kỹ thuật xử lý bạc để sản phẩm có bề mặt bền màu",
+      "Nhãn phân cấp vật liệu dựa trên độ cứng của đá và trọng lượng kim loại"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Nhãn demi-fine giúp định vị trên thị trường chứ không chứng nhận tiêu chuẩn hợp kim, loại đá hay độ bền.",
+    "apply": "Trong lời giới thiệu, nêu định vị trước, sau đó chỉ rõ thông số của mẫu đang được tư vấn.",
+    "source": "BRAND",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-002",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "COLORA là ai & nguồn gốc",
+    "chapter": "01",
+    "q": "Điểm khác nhau phổ biến giữa fashion jewelry, demi-fine và fine jewelry là gì?",
+    "a": [
+      "Fashion tập trung xu hướng; demi-fine chủ yếu dùng bạc; fine được quyết định bởi kim cương",
+      "Fashion nhấn phụ kiện; demi-fine cân bằng; fine thường chú trọng kim loại quý",
+      "Ba nhóm được phân biệt chủ yếu bởi khoảng giá của sản phẩm",
+      "Phân nhóm dựa trên độ bền sử dụng thay vì định vị hay vật liệu"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Ba nhãn mô tả hướng định vị phổ biến, không phải thứ hạng chất lượng tuyệt đối hoặc tiêu chuẩn pháp lý.",
+    "apply": "Nếu được hỏi so sánh, tránh khẳng định sản phẩm thuộc nhóm nào thì luôn tốt hơn.",
+    "source": "BRAND",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-003",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "COLORA là ai & nguồn gốc",
+    "chapter": "01",
+    "q": "Nếu khách hỏi “Demi-fine có đồng nghĩa bạc mạ vàng không?”, câu trả lời nào đúng?",
+    "a": [
+      "Không; demi-fine là định vị, không phải công thức bạc mạ",
+      "Không; demi-fine bắt buộc dùng vàng đặc 14K hoặc 18K",
+      "Đúng; mọi thương hiệu demi-fine dùng một loại bạc mạ vàng giống nhau",
+      "Đúng nếu viên đá là tự nhiên, dù phần kim loại là vật liệu bất kỳ"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Demi-fine không quy định một loại kim loại duy nhất hay một cách phủ bề mặt duy nhất.",
+    "apply": "Giải thích vật liệu theo hồ sơ SKU thay vì suy từ tên phân khúc.",
+    "source": "BRAND",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-004",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "COLORA là ai & nguồn gốc",
+    "chapter": "01",
+    "q": "Vì sao COLORA chọn phân khúc demi-fine thay vì chỉ định vị là cửa hàng bán bạc?",
+    "a": [
+      "Vì khách mua trang sức đá màu thường chỉ tính giá theo trọng lượng bạc",
+      "Vì thương hiệu hướng đến thiết kế có bản sắc, đá màu, sự thoải mái và giá trị sở hữu, trong đó bạc là vật liệu nền",
+      "Vì COLORA muốn các lựa chọn màu sắc được giải nghĩa cố định cho người đeo",
+      "Vì demi-fine là chứng nhận đủ để thay việc công bố vật liệu và chất lượng"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Định vị COLORA nằm ở tổng thể giá trị, không dùng “bạc cao cấp” làm category chính.",
+    "apply": "Khi giới thiệu, nói “trang sức demi-fine đá màu” trước, vật liệu sau.",
+    "source": "BRAND",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-005",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "COLORA là ai & nguồn gốc",
+    "chapter": "01",
+    "q": "Một món trang sức đã được gọi là demi-fine thì nhân viên có được hứa điều gì mà không cần kiểm tra?",
+    "a": [
+      "Được hứa chống xỉn tuyệt đối nếu đó là thương hiệu phân khúc affordable luxury",
+      "Không được suy ra lời hứa cụ thể; vẫn phải xem vật liệu, đá, lớp phủ và bảo hành từng SKU",
+      "Được hứa chất liệu sẽ không gây dị ứng với bất kỳ người nào",
+      "Được bảo đảm tất cả đá màu trong sản phẩm đều không xử lý"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Category label không thay bằng chứng về chất lượng, độ bền, giấy tờ hoặc công năng.",
+    "apply": "Dùng bảng Product Passport khi chuyển từ giới thiệu phân khúc sang sản phẩm cụ thể.",
+    "source": "BRAND",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-006",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "COLORA là ai & nguồn gốc",
+    "chapter": "01",
+    "q": "Đối với COLORA, điều gì quan trọng hơn việc một chiếc nhẫn “trông sang” trên ảnh?",
+    "a": [
+      "Mẫu phải nổi bật trên video dù người đeo cảm thấy cấn hoặc vướng",
+      "Cần lượng bạc càng lớn càng tốt vì đây là dấu hiệu chính của demi-fine",
+      "Thiết kế, đá màu, độ hoàn thiện và trải nghiệm đeo đều phải có giá trị",
+      "Chỉ cần hộp quà và background bắt mắt để khách nhận ra thương hiệu"
+    ],
+    "key": [
+      2
+    ],
+    "why": "COLORA hướng đến thiết kế và trải nghiệm dùng được, không chỉ hiệu ứng hình ảnh.",
+    "apply": "Khi review, yêu cầu so ảnh đeo và thông số thật, không chỉ beauty shot.",
+    "source": "DNA",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-007",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "COLORA là ai & nguồn gốc",
+    "chapter": "01",
+    "q": "Khi nói đến danh mục sản phẩm COLORA, nhận định nào đúng?",
+    "a": [
+      "COLORA chỉ làm nhẫn, mọi thiết kế dây chuyền là đơn hàng riêng không thuộc danh mục",
+      "COLORA là nhà cung cấp hợp kim bạc cho những thương hiệu trang sức khác",
+      "Trang sức hoàn thiện đính đá màu, không kinh doanh đá quý rời",
+      "COLORA bán đá thiên nhiên chưa gia công để khách tự đưa đến xưởng khác"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Gemstone-first không đồng nghĩa bán gemstone rời; trọng tâm là sản phẩm trang sức hoàn thiện.",
+    "apply": "Khi viết nội dung đá, luôn nối kiến thức về đá với một món trang sức cụ thể.",
+    "source": "BRAND",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-008",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "COLORA là ai & nguồn gốc",
+    "chapter": "01",
+    "q": "Hiện tại COLORA tiếp cận và bán hàng chủ yếu theo mô hình nào?",
+    "a": [
+      "Bán sỉ cho các tiệm kim hoàn truyền thống là hoạt động cốt lõi.",
+      "Online-first qua website và những kênh thông tin, tư vấn trực tuyến.",
+      "Chỉ thông qua các sự kiện offline riêng tư theo thư mời.",
+      "Chuỗi cửa hàng vật lý có thử sản phẩm tại mọi thành phố."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Mô hình hiện tại đặt trọng tâm vào thông tin và ra quyết định từ xa.",
+    "apply": "Khi viết câu hỏi nhân viên, ưu tiên trải nghiệm website/mobile và kênh tư vấn online.",
+    "source": "JOURNEY",
+    "status": "THỰC TẾ VẬN HÀNH",
+    "stage": 1
+  },
+  {
+    "id": "FN-009",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "COLORA là ai & nguồn gốc",
+    "chapter": "01",
+    "q": "Vì sao một thương hiệu mới không thể chỉ dựa vào ảnh đẹp để xây dựng uy tín?",
+    "a": [
+      "Thiết kế đẹp không bao giờ tạo được sự quan tâm ban đầu.",
+      "Khách cần bằng chứng sản phẩm, thông tin rõ ràng và trải nghiệm sau mua nhất quán.",
+      "Khách chỉ quan tâm số chi nhánh sau khi biết mức giá.",
+      "Mọi thương hiệu mới đều phải ưu tiên quảng cáo giảm giá trước."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Đẹp gây chú ý, nhưng niềm tin cần được hỗ trợ bởi proof và cách thực hiện lời hứa.",
+    "apply": "Kiểm tra thông số, nguồn và hậu mãi ở từng điểm chạm online.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-010",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "COLORA là ai & nguồn gốc",
+    "chapter": "01",
+    "q": "Nếu giới thiệu COLORA trong 30 giây cho đồng nghiệp mới, chuỗi thông tin nào có ích nhất?",
+    "a": [
+      "Tên thương hiệu → các chương trình khuyến mãi → số lượng bài social → quy trình tuyển dụng",
+      "Nhà cung cấp vật liệu → bảng giá xưởng → công thức mạ → giá vốn và biên lợi nhuận",
+      "Bộ slogan → câu chuyện cảm xúc → lời hứa không dị ứng → cam kết giữ giá",
+      "Demi-fine Việt Nam, đá màu, facet, cảm xúc và tính dễ đeo"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Giới thiệu cần kết nối category, bản sắc, đặc tính và người dùng, không lộ thông tin nội bộ nhạy cảm.",
+    "apply": "Tự trình bày mà không cần nhìn đáp án, bằng ngôn ngữ dễ hiểu cho khách.",
+    "source": "BRAND",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-011",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Tên gọi & COLOR YOUR AURA",
+    "chapter": "02",
+    "q": "Trong câu chuyện thương hiệu, ý niệm COLORA gắn với điều gì?",
+    "a": [
+      "Color và Aura, gắn với sắc màu và khí chất cá nhân",
+      "Color và Armor, tức đá có vai trò bảo vệ thể chất trước tác động bên ngoài",
+      "Color và Authority, tức màu đá phản ánh thứ bậc xã hội và thu nhập",
+      "Color và Art, tức COLORA chỉ bán tác phẩm trưng bày thay vì trang sức"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Tài liệu DNA sử dụng Color/Aura như ngôn ngữ biểu đạt, không chứng minh một giai thoại đặt tên chi tiết.",
+    "apply": "Giải thích ý niệm thương hiệu, không tự bịa ngày hoặc câu chuyện đặt tên.",
+    "source": "STORY",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-012",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Tên gọi & COLOR YOUR AURA",
+    "chapter": "02",
+    "q": "Slogan chính thức COLORA và hướng diễn giải phù hợp là cặp nào?",
+    "a": [
+      "“COLORA - FIND YOUR AURA”; mua đúng màu giúp tìm ra tính cách thật",
+      "“COLORA - FEEL THE FACETS”; các mặt giác cắt đại diện một nhóm tính cách cố định",
+      "“COLORA - COLOR YOUR FEELINGS”; đá sẽ làm tâm trạng trở nên tích cực",
+      "“COLORA - COLOR YOUR AURA”; chọn sắc màu để thể hiện khí chất và bản sắc riêng"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Tagline chính thức cần đúng nguyên văn và mang nghĩa tự biểu đạt, không hứa thay đổi khách hàng.",
+    "apply": "Kiểm tra nội dung in ấn và website giữ đúng dấu gạch nối, không dấu chấm cuối.",
+    "source": "STORY",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-013",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Tên gọi & COLOR YOUR AURA",
+    "chapter": "02",
+    "q": "Trong COLOR YOUR AURA, điều nào diễn giải “Aura” sát nhất với COLORA?",
+    "a": [
+      "Khí chất và sắc thái riêng mà người đeo muốn thể hiện",
+      "Vận khí được viên đá thay đổi sau khi tiếp xúc với cơ thể",
+      "Tình trạng tâm lý có thể đo bằng độ sáng của bề mặt bạc",
+      "Một màu được tính tự động dựa trên tháng sinh và tuổi của người mua"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Aura là hình ảnh ẩn dụ về bản sắc; không phải khái niệm y tế hay phong thủy có tác dụng chắc chắn.",
+    "apply": "Dùng ví dụ màu đá hợp phong cách cá nhân, không nêu tác dụng chữa lành.",
+    "source": "STORY",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-014",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Tên gọi & COLOR YOUR AURA",
+    "chapter": "02",
+    "q": "“Aura” trong ngôn ngữ thương hiệu đề cập chủ yếu đến điều gì?",
+    "a": [
+      "Chỉ số sức khỏe có thể đo bằng màu đá quý.",
+      "Một bảng cung mệnh bắt buộc theo năm sinh.",
+      "Khí chất và cảm nhận cá nhân mà người đeo muốn thể hiện.",
+      "Hào quang vật lý tạo ra bởi lớp mạ kim loại."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Brand sử dụng aura như biểu đạt bản sắc, không xem trang sức là sản phẩm y tế.",
+    "apply": "Không hứa lợi ích điều trị hoặc thay đổi vận mệnh.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-015",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Tên gọi & COLOR YOUR AURA",
+    "chapter": "02",
+    "q": "Màu sắc trong COLOR YOUR AURA có phải chỉ biểu thị cảm xúc tích cực không?",
+    "a": [
+      "Có; chỉ niềm vui và thành công mới hợp với trang sức.",
+      "Có; sự buồn bã không được xuất hiện trong brand narrative.",
+      "Không; nhưng mọi cảm xúc tiêu cực phải được chữa lành bằng đá.",
+      "Không; nhiều sắc thái cảm xúc khác nhau đều có thể đáng được ghi nhận."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Tài liệu triết lý không giới hạn color = happiness, mà color = feeling.",
+    "apply": "Không biến thông điệp thành khẩu hiệu cổ vũ cảm xúc tích cực sáo rỗng.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-016",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Tên gọi & COLOR YOUR AURA",
+    "chapter": "02",
+    "q": "Một khách có thể mua COLORA chỉ vì thích màu đá và kiểu dáng, không có cột mốc nào không?",
+    "a": [
+      "Chỉ phù hợp nếu khách mua để tặng một người có ý nghĩa đặc biệt",
+      "Có nhưng nhân viên phải viết giúp một câu chuyện cảm xúc cho hợp thương hiệu",
+      "Không; mỗi món phải được gắn một cột mốc đã được khách xác nhận",
+      "Có; thẩm mỹ và quyền chọn ý nghĩa riêng cũng là một cách thể hiện bản thân"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Triết lý không đặt ra nghĩa vụ phải có ký ức trước khi mua hoặc chia sẻ câu chuyện riêng.",
+    "apply": "Hỏi về mục đích và cách đeo, không ép khách mở lòng.",
+    "source": "CUSTOMER",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-017",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Tên gọi & COLOR YOUR AURA",
+    "chapter": "02",
+    "q": "Ai là người quyết định một màu đá mang ý nghĩa gì trong trải nghiệm COLORA?",
+    "a": [
+      "Người bán dựa trên tuổi và thu nhập người mua.",
+      "Đội ngũ marketing qua bảng nghĩa màu công bố sẵn.",
+      "Một quy tắc chung áp cho mọi người có cùng cung hoàng đạo.",
+      "Người đeo, dựa vào ký ức, cảm nhận và cách sống của họ."
+    ],
+    "key": [
+      3
+    ],
+    "why": "COLORA gợi mở cách hiểu; người sở hữu tự tạo ý nghĩa.",
+    "apply": "Để người đeo định nghĩa màu, kể cả khi họ chọn chỉ vì thấy đẹp.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-018",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Tên gọi & COLOR YOUR AURA",
+    "chapter": "02",
+    "q": "Một khách chọn màu vì hợp trang phục mà không gắn câu chuyện đặc biệt. Có lệch COLOR YOUR AURA không?",
+    "a": [
+      "Có; chỉ người có cột mốc cảm xúc mới nên mua COLORA.",
+      "Có; phải chọn màu bằng một hệ thống ý nghĩa chuẩn.",
+      "Không; gu thẩm mỹ cũng là một cách thể hiện bản thân.",
+      "Không; nhưng nhân viên phải tạo một câu chuyện giúp khách hợp lệ."
+    ],
+    "key": [
+      2
+    ],
+    "why": "COLORA không buộc mỗi khách phải kể kỷ niệm hay một sự kiện riêng tư.",
+    "apply": "Tư vấn theo styling khi đó là nhu cầu thật.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-019",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Tên gọi & COLOR YOUR AURA",
+    "chapter": "02",
+    "q": "Trong đào tạo COLORA, nên phân biệt slogan với một câu giải thích sản phẩm như thế nào?",
+    "a": [
+      "Slogan thay được bất kỳ khi nào có chiến dịch mới; thông số là phần phụ",
+      "Slogan nói về bản sắc; mô tả SKU nói về sản phẩm và công năng",
+      "Câu chuyện cảm xúc đủ để giải thích sản phẩm mà không cần nhắc thiết kế",
+      "Slogan được phép bảo đảm đá tạo năng lượng, mô tả SKU không cần nói loại đá"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Học tagline không thay học sản phẩm; hai loại nội dung phục vụ những câu hỏi khác nhau.",
+    "apply": "Trong caption và product page, tách brand line khỏi technical claim.",
+    "source": "BRAND",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-020",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Tên gọi & COLOR YOUR AURA",
+    "chapter": "02",
+    "q": "Tại sao không nên dịch COLOR YOUR AURA thành “đá sẽ đổi vận khí của bạn”?",
+    "a": [
+      "Vì chỉ thương hiệu fine jewelry mới được nói về vận khí.",
+      "Vì đó là khẳng định công năng siêu nhiên mà định vị COLORA không đưa ra.",
+      "Vì tất cả đá quý đều có hiệu quả giống nhau nên nói vậy không khác biệt.",
+      "Vì màu đá của COLORA không có bất kỳ ý nghĩa cảm xúc nào."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Câu chuyện cảm xúc mang tính biểu đạt, không phải tuyên bố hiệu quả huyền học.",
+    "apply": "Giải thích quyền tự chọn ý nghĩa thay vì gán hiệu quả vật lý.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-021",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Facets of Feeling",
+    "chapter": "03",
+    "q": "Tên triết lý cốt lõi giúp COLORA kết nối màu đá và hành trình người đeo là gì?",
+    "a": [
+      "Color Therapy: màu sắc của đá giúp cải thiện tâm trạng đo lường được",
+      "Facets of Feeling, dùng sắc màu và giác cắt kể hành trình",
+      "Fine Jewelry Heritage: nhấn mạnh tài sản quý kim và giá trị bán lại",
+      "One Color Identity: chọn một màu cố định đại diện cả cuộc đời"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Facets of Feeling vừa là ý nghĩa thương hiệu vừa là cách đặt viên đá, mặt kim loại và ánh sáng vào thiết kế.",
+    "apply": "Giải thích bằng một món trang sức thật, không chỉ học thuộc tên triết lý.",
+    "source": "STORY",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-022",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Facets of Feeling",
+    "chapter": "03",
+    "q": "Câu mở đầu triết lý chính thức bằng tiếng Anh là gì?",
+    "a": [
+      "Every jewel must be forever.",
+      "Every feeling has a color.",
+      "Every color has one meaning.",
+      "Every person has one gemstone."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Một cảm xúc có thể có màu sắc nhưng không có quy tắc màu cố định.",
+    "apply": "Nhớ nguyên văn câu đầu tiên của triết lý.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-023",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Facets of Feeling",
+    "chapter": "03",
+    "q": "Câu thứ hai của triết lý chính thức là gì?",
+    "a": [
+      "Every facet holds a spectrum of feelings.",
+      "Every stone must follow one emotion.",
+      "Every facet proves a higher price.",
+      "Every color reveals a single identity."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Facet được liên hệ với nhiều cảm xúc, không chỉ một nghĩa duy nhất.",
+    "apply": "Không thay câu chính thức bằng một phiên bản campaign cũ.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-024",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Facets of Feeling",
+    "chapter": "03",
+    "q": "Câu cuối cùng của triết lý chính thức là gì?",
+    "a": [
+      "Every life begins at the jewelry store.",
+      "Every life needs a new jewel each year.",
+      "Every life unfolds through many facets.",
+      "Every life has just one color forever."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Cuộc đời con người được viết từ nhiều lát cắt và trải nghiệm.",
+    "apply": "Giữ đủ ba câu khi giới thiệu triết lý đầy đủ.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-025",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Facets of Feeling",
+    "chapter": "03",
+    "q": "Trong công thức thiết kế “Gemstone + Facet + Emotion”, gemstone đóng vai trò gì?",
+    "a": [
+      "Đá màu là tâm điểm thị giác và gợi cảm xúc riêng",
+      "Đá màu chủ yếu tạo trọng lượng và quyết định giá trị vật liệu của nhẫn",
+      "Đá màu là dấu hiệu phân khúc, còn nhận diện thiết kế tập trung vào kim loại",
+      "Đá màu là phần có thể thay tùy xu hướng mà không ảnh hưởng bản sắc"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Đá màu chủ thể là hướng tổ chức thị giác và cảm xúc, không thay tiêu chí kỹ thuật khác.",
+    "apply": "Khi nhìn ảnh, kiểm tra đá có thật sự là tâm điểm không.",
+    "source": "DNA",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-026",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Facets of Feeling",
+    "chapter": "03",
+    "q": "Tại sao facet của COLORA không chỉ là thuật ngữ trang trí?",
+    "a": [
+      "Facet là tên của một loại đá quý nên quan trọng hơn thiết kế kim loại",
+      "Mặt bắt sáng thật và ẩn dụ cho các trải nghiệm cuộc đời",
+      "Facet là hình tam giác bắt buộc xuất hiện đều trên mọi mẫu COLORA",
+      "Facet chỉ là biểu tượng triết học, không liên quan thẩm mỹ vật lý"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Kết cấu mặt phẳng phải có giá trị thị giác thực tế trước khi liên hệ ý nghĩa.",
+    "apply": "Chỉ đúng mặt facet trên ảnh và giải thích tác động của góc sáng.",
+    "source": "DNA",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-027",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Facets of Feeling",
+    "chapter": "03",
+    "q": "Ánh sáng đóng vai trò gì trong Facets of Feeling?",
+    "a": [
+      "Đảm bảo món trang sức luôn có màu y hệt trong mọi hoàn cảnh.",
+      "Quy định mọi mặt facet phải bắt sáng cùng lúc.",
+      "Làm các mặt kim loại và đá biểu hiện khác nhau theo góc nhìn, gợi sự biến chuyển.",
+      "Thay thế việc hoàn thiện bề mặt thật bằng hiệu ứng kỹ thuật số."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Light là yếu tố thiết kế và ẩn dụ của sự thay đổi.",
+    "apply": "Khi quay sản phẩm, thể hiện thay đổi phản chiếu thật thay vì hiệu ứng giả.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-028",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Facets of Feeling",
+    "chapter": "03",
+    "q": "Cặp ý nghĩa “The gemstone holds the feeling, the facets hold the journey” diễn đạt điều gì?",
+    "a": [
+      "Mỗi giác cắt luôn tương ứng chính xác với một tuổi của người đeo.",
+      "Kim loại giữ tiền, viên đá giữ giá trị đầu tư.",
+      "Màu đá quyết định tính cách, facet quyết định vận mệnh.",
+      "Viên đá gợi cảm xúc hiện tại, phần giác cắt gợi hành trình trải nghiệm."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Đây là ẩn dụ thiết kế định hướng gemstone-first cùng kiến trúc kim loại có chủ đích.",
+    "apply": "Giải thích được mối quan hệ hai thành phần, không kể riêng chuyện đá.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-029",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Facets of Feeling",
+    "chapter": "03",
+    "q": "COLORA có bảng quy tắc “xanh = bình yên, đỏ = tình yêu” bắt buộc cho mọi người đeo không?",
+    "a": [
+      "Không; ý nghĩa màu tùy người đeo, kể cả chỉ vì thấy đẹp",
+      "Không nhưng nhân viên bắt buộc diễn giải một ý nghĩa riêng thay khách",
+      "Có; đó là tiêu chuẩn để thiết kế bộ sưu tập theo phong cách nhất quán",
+      "Có với người tự mua, còn quà tặng mới được tùy chọn cách hiểu"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Brand có thể gợi ví dụ, không chuyển thành quy định tính cách, cảm xúc hoặc quyết định mua.",
+    "apply": "Dùng câu hỏi mở nếu khách quan tâm ý nghĩa; không ép storytelling.",
+    "source": "STORY",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-030",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Facets of Feeling",
+    "chapter": "03",
+    "q": "Câu “Every life unfolds through many facets” nên được hiểu gần thực tế nào nhất?",
+    "a": [
+      "Cuộc đời có nhiều giai đoạn; trang sức có thể đồng hành với một số dấu mốc",
+      "Mỗi dấu mốc cuộc sống nên ứng với một màu đá riêng được thương hiệu quy định",
+      "Mỗi mặt giác tương ứng một sự kiện riêng trong hồ sơ khách hàng",
+      "Triết lý chủ yếu miêu tả số lượng mặt cắt có thể gia công trên một viên đá"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Triết lý mở về trải nghiệm cuộc sống, không áp tần suất mua hay một danh sách cảm xúc.",
+    "apply": "Giải thích bằng ngữ cảnh tự mua, nhận quà, đeo hằng ngày mà không bắt khách khai đời tư.",
+    "source": "STORY",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-031",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Facets of Feeling",
+    "chapter": "03",
+    "q": "Điều nào phân biệt rõ ý nghĩa emotional và tính năng technical của facet?",
+    "a": [
+      "Facet tạo mặt bắt sáng thật; đồng thời là ẩn dụ cho lát cắt đời sống.",
+      "Facet chỉ là kỹ thuật tạo màu cho đá quý.",
+      "Facet thực tế có khả năng lưu trữ ký ức dưới dạng dữ liệu.",
+      "Facet chỉ có ý nghĩa triết học, không ảnh hưởng thiết kế."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Một thành phần có thể vừa là hình học vật lý vừa chứa diễn giải thương hiệu.",
+    "apply": "Trong đào tạo phải giải thích cả phần nhìn thấy và phần gợi cảm xúc.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-032",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Định vị, giá trị & tầm nhìn",
+    "chapter": "04",
+    "q": "Trong chiến lược đã thảo luận, COLORA được định vị như thế nào?",
+    "a": [
+      "Nhà bán đá tự nhiên rời cho nhu cầu đầu tư và tích trữ",
+      "Fine jewelry chỉ sử dụng vàng 18K và kim cương kích thước lớn",
+      "Trang sức demi-fine lấy đá màu làm trọng tâm, với thiết kế mang bản sắc riêng của COLORA.",
+      "Thương hiệu bạc giá rẻ cạnh tranh bằng số gram kim loại"
+    ],
+    "key": [
+      2
+    ],
+    "why": "COLORA theo định vị demi-fine đá màu với DNA thiết kế đặc trưng, không có nghĩa mọi sản phẩm được đặt làm riêng theo yêu cầu từng khách. Bespoke/cá nhân hóa chỉ được nhắc khi dịch vụ tương ứng đã xác nhận.",
+    "apply": "Sử dụng đúng nhãn “trang sức demi-fine” trong giới thiệu chính thức.",
+    "source": "BRAND",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-033",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Định vị, giá trị & tầm nhìn",
+    "chapter": "04",
+    "q": "Bản diễn giải phục vụ đào tạo đang tóm tắt điều COLORA hướng tới mỗi ngày như thế nào?",
+    "a": [
+      "Thay thế mọi loại trang sức vàng trên thị trường bằng bạc mạ",
+      "Đưa sắc màu cảm xúc vào đời thường qua trang sức dễ đeo",
+      "Tập trung vào bộ sưu tập phục vụ riêng ngày cưới và sự kiện",
+      "Trở thành sàn giao dịch đá quý rời có nhiều chứng thư quốc tế nhất"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Sứ mệnh định hướng điều COLORA làm mỗi ngày; không đồng nghĩa mục tiêu lợi nhuận hoặc ngôi vị trên thị trường. Câu chữ phục vụ học nội bộ, chưa có bằng chứng rằng đây là tuyên ngôn đã ban hành nguyên văn.",
+    "apply": "Nhân viên phải kết nối sứ mệnh với một thiết kế, ảnh đeo hoặc cách phục vụ thật.",
+    "source": "STORY",
+    "status": "DIỄN GIẢI CHIẾN LƯỢC - CHỜ DUYỆT CÂU CHỮ",
+    "stage": 1
+  },
+  {
+    "id": "FN-034",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Định vị, giá trị & tầm nhìn",
+    "chapter": "04",
+    "q": "Bản diễn giải phục vụ đào tạo thể hiện tham vọng dài hạn của COLORA bằng cách nào?",
+    "a": [
+      "Từ Việt Nam, đủ riêng để được nhận ra và đủ tốt để đi xa",
+      "Trở thành thương hiệu quốc tế đã có cửa hàng ở nhiều nước",
+      "Định giá mọi sản phẩm cao hơn thị trường nhằm tạo hình ảnh luxury",
+      "Chiếm vị trí số một Việt Nam về khối lượng bạc bán mỗi năm"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Tầm nhìn nêu tham vọng về bản sắc, chất lượng và khả năng vươn xa; không biến thành thành tựu đã đạt. Câu chữ phục vụ học nội bộ, chưa có bằng chứng rằng đây là tuyên ngôn đã ban hành nguyên văn.",
+    "apply": "Khi giới thiệu brand, phân biệt “muốn trở thành” với “đã là”.",
+    "source": "STORY",
+    "status": "DIỄN GIẢI CHIẾN LƯỢC - CHỜ DUYỆT CÂU CHỮ",
+    "stage": 1
+  },
+  {
+    "id": "FN-035",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Định vị, giá trị & tầm nhìn",
+    "chapter": "04",
+    "q": "Nhóm tiêu chí nào phù hợp dùng để kiểm tra quyết định sản phẩm và dịch vụ COLORA?",
+    "a": [
+      "Showroom - Franchise - Resale: chỉ cần cửa hàng, nhượng quyền và thanh khoản",
+      "Discount - Viral - Speed: ưu tiên khuyến mãi, hiệu ứng nhanh và ra mẫu liên tục",
+      "Gem Weight - Price - Scarcity: viên đá càng nặng, giá càng cao và càng hiếm",
+      "Design - Wearability - Experience trong cả sản phẩm lẫn dịch vụ"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Giá trị được chuyển thành quyết định thiết kế, sự tiện dụng và hỗ trợ thực, không chỉ lời quảng cáo. Câu chữ phục vụ học nội bộ, chưa có bằng chứng rằng đây là tuyên ngôn đã ban hành nguyên văn.",
+    "apply": "Dùng ba tiêu chí này khi review một concept hoặc nội dung.",
+    "source": "BRAND",
+    "status": "DIỄN GIẢI CHIẾN LƯỢC - CHỜ DUYỆT CÂU CHỮ",
+    "stage": 1
+  },
+  {
+    "id": "FN-036",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Định vị, giá trị & tầm nhìn",
+    "chapter": "04",
+    "q": "Khi một sản phẩm có thiết kế hấp dẫn nhưng đeo vướng và khó vệ sinh, giá trị nào của COLORA chưa được thực hiện?",
+    "a": [
+      "Visual Identity: chỉ cần sửa màu nền của website là đủ",
+      "Scarcity: chưa giới hạn số sản phẩm để tăng giá trị sở hữu",
+      "Wearability: tiện dụng, thoải mái và có thể sống cùng sản phẩm",
+      "Brand Awareness: sản phẩm chưa được giới thiệu với đủ người xem"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Thiết kế đẹp nhưng khó sống cùng không đạt mục tiêu trải nghiệm sử dụng của brand.",
+    "apply": "Khi duyệt mẫu, yêu cầu ảnh nhiều góc và phản hồi sử dụng thật.",
+    "source": "DNA",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-037",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Định vị, giá trị & tầm nhìn",
+    "chapter": "04",
+    "q": "Khoảng giá dự kiến mới nhất của COLORA là bao nhiêu, và cần hiểu thế nào?",
+    "a": [
+      "Dải giá phổ biến trên thị trường demi-fine được COLORA dùng làm chuẩn đầu vào",
+      "Dải kế hoạch 2,3–8 triệu, không phải giá niêm yết mọi SKU.",
+      "Ngưỡng chi tiêu tối thiểu đã được xác nhận của khách hàng mục tiêu",
+      "Kết quả khảo sát khách xác nhận mức sẵn lòng chi bình quân của nhóm tuổi chính"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Định hướng giá được người sáng lập cập nhật thành 2,3–8 triệu đồng mỗi sản phẩm. Đây là vùng giá kế hoạch, còn giá bán chính thức xác định theo từng SKU.",
+    "apply": "Khi viết nội dung về giá, luôn đối chiếu giá SKU đang bán; đừng dùng dải dự kiến thay giá niêm yết.",
+    "source": "PRICE",
+    "status": "ĐÃ CẬP NHẬT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-038",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Định vị, giá trị & tầm nhìn",
+    "chapter": "04",
+    "q": "Vì sao “bạc cao cấp” không được chọn làm category headline của COLORA?",
+    "a": [
+      "Vì mức tinh khiết của bạc không phải yếu tố kỹ thuật có thể chứng minh",
+      "Vì khách thường nhận biết thương hiệu trước hết từ trọng lượng bạc",
+      "Vì demi-fine đá màu và thiết kế mới là định vị, bạc là vật liệu",
+      "Vì COLORA muốn loại hoàn toàn thông tin kim loại khỏi trang sản phẩm"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Không bỏ thông tin bạc: chuyển nó từ định vị chính sang phần product/material proof đúng vị trí.",
+    "apply": "Đọc mô tả sản phẩm: ngành hàng trước, thông số hợp kim sau.",
+    "source": "BRAND",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-039",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Định vị, giá trị & tầm nhìn",
+    "chapter": "04",
+    "q": "Điều gì khiến định vị COLORA khác một thương hiệu trang sức chỉ cạnh tranh bằng giá và vật liệu?",
+    "a": [
+      "Mỗi thiết kế đều phải có số gram bạc cao nhất trong nhóm sản phẩm",
+      "Mọi viên đá phải được quảng cáo như một khoản đầu tư an toàn",
+      "Đá màu, facet, khả năng đeo và quyền tạo ý nghĩa riêng",
+      "Sản phẩm phải được bán trong showroom để thể hiện định vị premium"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Positioning có giá trị khi được chứng minh bằng thiết kế và trải nghiệm sử dụng thật.",
+    "apply": "Chỉ rõ ít nhất một chi tiết thiết kế và một lợi ích khi giải thích sản phẩm.",
+    "source": "BRAND",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-040",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "DNA thiết kế COLORA",
+    "chapter": "05",
+    "q": "Trong bảy nguyên tắc Design DNA, đâu là trọng tâm thị giác đầu tiên?",
+    "a": [
+      "Bề mặt pavé dày là yếu tố nhận diện nhất quán ở tất cả nhóm sản phẩm",
+      "Viên đá màu là chủ thể; phần kim loại hỗ trợ thị giác",
+      "Bản vẽ có nhiều tam giác nhỏ để tạo độ phức tạp thị giác",
+      "Khối kim loại chiếm diện tích lớn để tạo cảm giác vững chắc cho thiết kế"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Gemstone-first yêu cầu viên đá có vai trò rõ trong tổng thể, không chỉ là một phụ kiện gắn lên.",
+    "apply": "Khi review top view, hỏi mắt nhìn thấy điều gì đầu tiên.",
+    "source": "DNA",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-041",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "DNA thiết kế COLORA",
+    "chapter": "05",
+    "q": "“Soft from afar, strong up close” muốn nói tới điều gì của thiết kế?",
+    "a": [
+      "Đầu nhẫn cần cao để sự lấp lánh xuất hiện ngay từ xa",
+      "Mọi mặt ngoài phải nhẵn tròn và không có bất kỳ cạnh facet nào",
+      "Kim loại phải được làm thật dày để khiến chiếc nhẫn nặng hơn",
+      "Phom mềm nhìn xa, facet rõ và chính xác nhìn gần"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Đó là tương quan giữa dáng tổng thể và hình học vi mô, không phải quảng cáo độ cứng vật lý.",
+    "apply": "Đối chiếu ảnh toàn cảnh và macro trên cùng sản phẩm.",
+    "source": "DNA",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-042",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "DNA thiết kế COLORA",
+    "chapter": "05",
+    "q": "Theo DNA, facet lý tưởng có xu hướng như thế nào?",
+    "a": [
+      "Mặt phẳng rộng, ít đường, chuyển góc có chủ đích.",
+      "Facet chỉ nằm ở hộp quà chứ không trên sản phẩm.",
+      "Càng nhiều rãnh nhỏ và tam giác lặp lại càng tốt.",
+      "Phải dùng mặt rỗ để che phản xạ ánh sáng."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Facet COLORA ưu tiên broad polished planes, không tạo vân trang trí rối.",
+    "apply": "Trên CAD nên so sự thay đổi ánh sáng qua các góc.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-043",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "DNA thiết kế COLORA",
+    "chapter": "05",
+    "q": "Kiểu hình học nào thường được ưu tiên hơn dãy tam giác lặp lại?",
+    "a": [
+      "Hình tròn đặc đồng tâm cho toàn bộ danh mục.",
+      "Các tam giác nhỏ đều nhau trên mọi mặt của sản phẩm.",
+      "Kite hoặc rhombus được kéo dài và làm mềm có kiểm soát.",
+      "Mọi họa tiết phải thành hình trái tim."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Kite/rhombus là gợi ý tạo hình, không phải nghĩa vụ mọi SKU phải giống nhau.",
+    "apply": "Đừng biến một motif cố định thành công thức thiết kế máy móc.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-044",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "DNA thiết kế COLORA",
+    "chapter": "05",
+    "q": "Negative space được dùng để làm gì trong thiết kế COLORA?",
+    "a": [
+      "Thay cho toàn bộ chấu giữ đá.",
+      "Tạo khoảng thở, giảm cảm giác nặng và hỗ trợ thứ bậc thị giác khi phù hợp.",
+      "Giảm kim loại bằng mọi giá dù cấu trúc bị yếu.",
+      "Giữ bụi bẩn phía sau đá để tăng độ sáng."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Khoảng âm phải có mục đích thẩm mỹ và không phá kết cấu.",
+    "apply": "Review khoảng trống cùng góc nghiêng và độ chắc, không chỉ nhìn từ trên.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-045",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "DNA thiết kế COLORA",
+    "chapter": "05",
+    "q": "Vì sao COLORA hướng đến low-profile ở nhiều mẫu nhẫn?",
+    "a": [
+      "Để giảm yêu cầu thiết kế chấu và kết cấu giữ đá",
+      "Để đặt đá sát thân nhẫn mà không cần xem cấu trúc viên đá",
+      "Để ưu tiên hình ảnh mặt trên thay cho sự thoải mái khi sử dụng",
+      "Đầu nhẫn thấp có thể giảm vướng, còn cần bảo đảm kết cấu"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Low-profile là mục tiêu về ergonomic và thẩm mỹ, không phải lời hứa không vướng tuyệt đối.",
+    "apply": "Khi duyệt thiết kế, xem cả side view lẫn mặt trên.",
+    "source": "DNA",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-046",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "DNA thiết kế COLORA",
+    "chapter": "05",
+    "q": "Selective pavé nghĩa là gì?",
+    "a": [
+      "Không bao giờ được sử dụng đá phụ trong COLORA.",
+      "Mọi mặt kim loại được phủ kín đá nhỏ.",
+      "Đá phụ được dùng có chọn lọc để hỗ trợ viên đá chính và bố cục.",
+      "Chỉ dùng một viên đá có màu duy nhất cho mọi sản phẩm."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Pavé không phải thước đo chất lượng khi dùng càng nhiều càng tốt.",
+    "apply": "Kiểm tra pavé có làm mất điểm nhấn đá màu hay không.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-047",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "DNA thiết kế COLORA",
+    "chapter": "05",
+    "q": "Khi đã có ảnh front view đẹp, vì sao COLORA vẫn cần hình side/back/under-gallery?",
+    "a": [
+      "Vì ảnh nhiều góc tạo cảm giác sản phẩm có nhiều chi tiết thiết kế hơn",
+      "Vì chỉ hình side-view mới cho phép xác nhận tên loại đá",
+      "Vì góc sau chủ yếu để truyền tải story thương hiệu, không ảnh hưởng công năng",
+      "Góc bên và mặt sau cho thấy cao độ, kết cấu và khả năng vệ sinh"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Wearability và craftsmanship không thể suy đầy đủ chỉ từ một góc nhìn.",
+    "apply": "Kiểm tra ảnh side/underside hoặc hồ sơ CAD đã duyệt trước khi ghi tính năng.",
+    "source": "DNA",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-048",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "DNA thiết kế COLORA",
+    "chapter": "05",
+    "q": "Một collection nhẫn, hoa tai và dây chuyền nên giữ điều gì chung?",
+    "a": [
+      "Nguyên tắc tạo hình và điểm nhấn đá, được chuyển dịch phù hợp anatomy từng loại.",
+      "Cùng kích thước và chiều cao đầu nhẫn bê nguyên sang tất cả sản phẩm.",
+      "Giống nhau hoàn toàn về khối lượng kim loại.",
+      "Chỉ dùng một màu đá cho tất cả mẫu."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Design grammar có thể mở rộng mà không cần nhân bản một silhouette.",
+    "apply": "So motif/structure thành gene chung, rồi thiết kế riêng cho tai, cổ, tay.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-049",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "DNA thiết kế COLORA",
+    "chapter": "05",
+    "q": "Tính “everyday wearability” trong COLORA nên được hiểu như thế nào?",
+    "a": [
+      "Khách phải đeo liên tục thì sản phẩm mới có ý nghĩa.",
+      "Cam kết mọi khách có thể đeo trong tất cả tình huống mà không tháo.",
+      "Cam kết không bao giờ cần vệ sinh hoặc bảo trì.",
+      "Hướng thiết kế ưu tiên thuận tiện, nhưng phải xét đá và cấu trúc của từng mẫu."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Đeo thường ngày là mục tiêu thiết kế, không phải bảo đảm tuyệt đối cho mọi SKU.",
+    "apply": "Tư vấn hoạt động nên tháo trang sức theo loại đá và mẫu.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-050",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Functional",
+    "chapter": "06",
+    "q": "Trong Product Mastery, giá trị Functional được hiểu như thế nào?",
+    "a": [
+      "Độ vừa, thoải mái, trọng lượng, khóa và sự phù hợp sử dụng",
+      "Một loạt tính từ như “premium”, “signature”, “timeless” trên website",
+      "Nguồn hợp kim, giấy chứng nhận đá và cấu trúc xử lý nhiệt",
+      "Cảm xúc và ký ức riêng mà người sở hữu gắn với sản phẩm"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Functional trả lời “dùng như thế nào”; khác Technical và Emotional.",
+    "apply": "Với mỗi SKU, nêu được ít nhất hai lợi ích chức năng có thể kiểm tra.",
+    "source": "PRODUCT",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-051",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Functional",
+    "chapter": "06",
+    "q": "Cùng một viên đá oval 7 × 5 mm, ảnh macro và ảnh đeo giúp khách biết những điều khác nhau như thế nào?",
+    "a": [
+      "Macro cho chi tiết; on-body và số mm cho tỷ lệ khi đeo",
+      "Macro là bằng chứng tuyệt đối về cảm giác nặng khi đeo",
+      "Kích thước viên đá quyết định hoàn toàn chiều cao ổ đá và độ vừa",
+      "Ảnh đeo chỉ có giá trị cảm xúc, không giúp hiểu kích thước"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Sản phẩm online cần phối hợp ảnh cận, ảnh tỷ lệ và kích thước được công bố.",
+    "apply": "Yêu cầu visual có ảnh đeo thật và số đo rõ ràng khi giới thiệu.",
+    "source": "PRODUCT",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-052",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Functional",
+    "chapter": "06",
+    "q": "Một chiếc nhẫn bản rộng có thể khác cảm giác đeo nhẫn mảnh ở điểm nào?",
+    "a": [
+      "Kích cỡ ngón tay không còn cần đo.",
+      "Tất cả nhẫn bản rộng phải tự động tăng hai size.",
+      "Độ ôm, ma sát và cảm giác vừa dù cùng size danh nghĩa.",
+      "Nhẫn bản rộng luôn nặng và kém chất lượng."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Bề rộng thân ảnh hưởng trực tiếp fit và comfort.",
+    "apply": "Tư vấn theo Product ID và bảng size hiện hành.",
+    "source": "SIZE",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-053",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Functional",
+    "chapter": "06",
+    "q": "Tại sao cần kiểm tra cạnh và góc tiếp xúc trong thiết kế?",
+    "a": [
+      "Vì cạnh sắc giúp lớp mạ bền vĩnh viễn.",
+      "Vì cạnh có thể cấn da hoặc vướng khi sử dụng.",
+      "Vì khách không thể cảm nhận nếu chỉ mua online.",
+      "Vì độ cấn làm đá nhìn lớn hơn."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Độ mềm mại của đường chuyển liên quan sự thoải mái và an toàn.",
+    "apply": "Đừng kết luận dễ đeo chỉ từ hình render.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-054",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Functional",
+    "chapter": "06",
+    "q": "Đối với hoa tai COLORA, yếu tố Functional nào quan trọng hơn việc chỉ xem ảnh mặt trước?",
+    "a": [
+      "Chỉ số facet trên phần kim loại và màu nền ảnh sản phẩm",
+      "Chỉ tiêu tương tác video giới thiệu sản phẩm của editor",
+      "Tên màu cảm xúc được gắn vào viên đá theo chiến dịch",
+      "Trọng lượng, kiểu chốt, điểm tiếp xúc và độ cân bằng"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Tính thoải mái của hoa tai phụ thuộc kết cấu và vị trí đeo, không chỉ beauty shot.",
+    "apply": "Khi chuẩn bị trang SKU, cần ảnh góc nghiêng/chốt và trọng lượng nếu được duyệt.",
+    "source": "PRODUCT",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-055",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Functional",
+    "chapter": "06",
+    "q": "Đối với dây chuyền, thông số nào giúp khách quyết định có phù hợp khi đeo?",
+    "a": [
+      "Số lượng câu caption cảm xúc dành cho bộ sưu tập",
+      "Kích thước hộp quà và chất giấy chứng nhận đi kèm",
+      "Chỉ loại đá màu, vì mọi dây cùng chiều dài đều rủ giống nhau",
+      "Độ dài, trọng lượng mặt, điểm cân bằng, khóa và độ rủ"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Functional phải giải thích cách món trang sức nằm trên cơ thể và thao tác đeo.",
+    "apply": "Kết hợp video đeo với thông số dây và mặt pendant theo SKU.",
+    "source": "PRODUCT",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-056",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Functional",
+    "chapter": "06",
+    "q": "Với vòng tay, tại sao cấu trúc khóa và chiều dài quan trọng?",
+    "a": [
+      "Vì chiều dài luôn bằng chu vi cổ tay không cần độ dư.",
+      "Vì khách không cần đo cổ tay nếu có đá màu.",
+      "Vì khóa chỉ là yếu tố trang trí không ảnh hưởng sử dụng.",
+      "Ảnh hưởng khả năng tự thao tác, độ vừa và an toàn khi đeo."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Khóa và dây là một phần của cả chức năng lẫn thiết kế.",
+    "apply": "Cung cấp hướng dẫn chọn chiều dài và ảnh khóa thực tế khi có.",
+    "source": "SIZE",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-057",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Functional",
+    "chapter": "06",
+    "q": "Tại sao hình chụp macro không đủ để đánh giá độ lớn khi đeo?",
+    "a": [
+      "Vì ảnh macro thiếu mốc tỷ lệ thực và khoảng cách so sánh.",
+      "Vì ảnh macro không thể thể hiện chi tiết chấu.",
+      "Vì khách mua online chỉ quan tâm hình ảnh hộp.",
+      "Vì ảnh macro luôn có màu đá giả dù không chỉnh sửa."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Ảnh close-up hỗ trợ chi tiết nhưng cần scale và on-body.",
+    "apply": "Nêu mm và ảnh theo tỷ lệ trên người nếu có.",
+    "source": "SIZE",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-058",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Functional",
+    "chapter": "06",
+    "q": "Khả năng phối đồ thuộc nhóm lợi ích nào?",
+    "a": [
+      "Cam kết tính tăng giá của viên đá theo thời gian.",
+      "Bằng chứng mọi sản phẩm có thể sửa ni vô hạn.",
+      "Một chứng chỉ độc lập xác nhận nguồn gốc đá.",
+      "Lợi ích functional/aesthetic về việc sử dụng trong nhiều trang phục và dịp."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Cách phối gắn trực tiếp với utility mà khách nhận được sau mua.",
+    "apply": "Làm nội dung How to Wear theo hoàn cảnh thật.",
+    "source": "SEO",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-059",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Functional",
+    "chapter": "06",
+    "q": "Với người mua quà online chưa biết size, lợi ích Functional nào quan trọng nhất khi lựa chọn?",
+    "a": [
+      "Khả năng vừa với người nhận hoặc chọn nhóm trang sức ít phụ thuộc size",
+      "Tăng câu chuyện cảm xúc để người mua bớt lo rủi ro sai ni",
+      "Chọn nhẫn dễ chỉnh ni dựa vào hình dáng, không cần xem chính sách",
+      "Chọn kích thước theo nhóm tuổi thay vì hỏi người nhận"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Chọn quà cần giảm rủi ro không sử dụng được, chứ không chỉ tạo ấn tượng khi mở hộp.",
+    "apply": "Cân nhắc hoa tai/dây chuyền theo sở thích người nhận, và xác minh khả năng chỉnh size.",
+    "source": "GIFT",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-060",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Technical",
+    "chapter": "07",
+    "q": "Trong ba lớp giá trị sản phẩm, Technical khác Functional ở điểm nào?",
+    "a": [
+      "Technical là slogan, còn Functional là câu chuyện bộ sưu tập",
+      "Technical chỉ là giấy kiểm định độc lập; Functional là giá bán",
+      "Technical là cấu tạo; Functional là lợi ích sử dụng của người đeo",
+      "Technical là màu cảm xúc, còn Functional là ký ức của người đeo"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Technical là nguyên nhân/chứng cứ vật liệu-kết cấu; Functional là lợi ích sử dụng tạo ra.",
+    "apply": "Khi giải thích SKU, đưa một cặp “chi tiết kỹ thuật → lợi ích thực tế”.",
+    "source": "PRODUCT",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-061",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Technical",
+    "chapter": "07",
+    "q": "Bạc 925 và bạc 930 được phân biệt chính xác như thế nào?",
+    "a": [
+      "925 là 92,5% bạc; 930 là 93,0% bạc theo khối lượng",
+      "Bạc 930 có nghĩa độ bền chống xước cao hơn 930 lần bạc 925",
+      "Bạc 930 chỉ là bạc 925 được phủ một lớp rhodium dày hơn",
+      "Bạc 925 chỉ dùng làm chấu còn bạc 930 chỉ dùng làm thân nhẫn"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Hai con số là tỷ lệ bạc tương ứng, không phải lớp mạ hay chỉ số độ bền.",
+    "apply": "Khi thấy hồ sơ 925 và 930 khác nhau, kiểm tra SKU/lô chứ không nói như đồng nghĩa.",
+    "source": "MATERIAL",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-062",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Technical",
+    "chapter": "07",
+    "q": "COLORA SILVER được COLORA xác định là gì?",
+    "a": [
+      "Bạc tái chế GENIA276 Ag 930‰ với công nghệ mạ phủ độc quyền.",
+      "Một tên khác của bạc 925 thông thường, không có khác biệt ở vật liệu hoặc lớp phủ",
+      "Tên một chứng nhận RJC được cấp trực tiếp cho toàn bộ trang sức COLORA",
+      "Tên gọi cho mọi loại đá màu tự nhiên mà COLORA lựa chọn để chế tác"
+    ],
+    "key": [
+      0
+    ],
+    "why": "COLORA SILVER là tên hệ kim loại/hoàn thiện được thương hiệu xác lập: nền bạc tái chế GENIA276 Ag 930‰ và công nghệ mạ phủ độc quyền. Không đồng nhất thương hiệu kim loại với tên nhà cung cấp hoặc giấy chứng nhận. Trong tài liệu chốt vật liệu ngày 19/09/2026, toàn bộ sản phẩm thuộc launch range dùng GENIA276 Ag 930‰; thông số hoàn thiện và QC từng mẫu vẫn phải đối chiếu.",
+    "apply": "Giới thiệu đúng cấu trúc COLORA SILVER; mọi claim về tuổi thọ lớp phủ và thông số SKU phải đối chiếu hồ sơ kỹ thuật.",
+    "source": "MATERIAL",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-063",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Technical",
+    "chapter": "07",
+    "q": "Trong COLORA SILVER, công nghệ mạ phủ độc quyền khác vật liệu GENIA276 Ag 930‰ ở điểm nào?",
+    "a": [
+      "Lớp phủ quyết định hàm lượng bạc tinh khiết của hợp kim nền",
+      "GENIA276 Ag 930‰ là nền; mạ phủ độc quyền là công nghệ bề mặt.",
+      "GENIA276 là tên lớp phủ; Ag 930‰ chỉ màu hoàn thiện bên ngoài",
+      "Lớp phủ độc quyền thay thế nhu cầu hướng dẫn chăm sóc và kiểm tra hao mòn"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Cấu trúc kim loại nền và công nghệ hoàn thiện bề mặt là hai lớp khái niệm khác nhau. 'Độc quyền' là mô tả định vị kỹ thuật do thương hiệu xác nhận, không tự chứng minh bằng sáng chế hay bảo đảm độ bền tuyệt đối.",
+    "apply": "Khi tư vấn, dùng tên COLORA SILVER và thông số đã duyệt; không hứa lớp phủ không xỉn hoặc không trầy mãi mãi.",
+    "source": "MATERIAL",
+    "status": "ĐÃ CHỐT NỘI BỘ / CẦN HỒ SƠ QUY TRÌNH",
+    "stage": 1
+  },
+  {
+    "id": "FN-064",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Technical",
+    "chapter": "07",
+    "q": "COLORA nói bạc tái chế GENIA276 Ag 930‰ có chứng nhận RJC. Nhân viên cần hiểu phạm vi tuyên bố thế nào?",
+    "a": [
+      "RJC CoC của nguồn bạc đủ chứng minh cả đá và bao bì đạt chuẩn tái chế",
+      "RJC là tên của quy chuẩn hàm lượng bạc Ag 930‰",
+      "RJC CoC liên quan nguồn kim loại, không chứng nhận toàn bộ thành phẩm.",
+      "Chứng nhận của nhà cung cấp có thể dùng trực tiếp để công bố thành phẩm được RJC chứng nhận"
+    ],
+    "key": [
+      2
+    ],
+    "why": "RJC Chain-of-Custody xác minh truy xuất và nguồn cung kim loại quý theo phạm vi chứng nhận; nội dung tái chế cần chứng từ tương ứng. Không đánh đồng chứng nhận của nhà cung cấp/nguyên liệu với chứng nhận toàn bộ sản phẩm COLORA.",
+    "apply": "Khi truyền thông, nói bạc tái chế GENIA276 Ag 930‰ với chứng nhận RJC thuộc nguồn nguyên liệu theo hồ sơ; xác minh chứng từ trước khi công bố chi tiết.",
+    "source": "MATERIAL",
+    "status": "ĐÃ XÁC NHẬN NỘI BỘ / KIỂM CHỨNG TỪ RJC",
+    "stage": 1
+  },
+  {
+    "id": "FN-065",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Technical",
+    "chapter": "07",
+    "q": "Thông tin COLORA không sử dụng nickel trong hợp kim/chế tác cho phép khẳng định điều gì?",
+    "a": [
+      "Không dùng nickel đồng nghĩa bề mặt phủ kháng mọi tác động mồ hôi và mỹ phẩm",
+      "Công bố không dùng nickel đúng phạm vi, không hứa không dị ứng",
+      "Thông tin nickel-free được dùng để xác nhận độ phù hợp với tất cả loại da nhạy cảm",
+      "Không dùng nickel cho phép bỏ bước hướng dẫn chăm sóc với khách hàng"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Không dùng nickel giảm một loại rủi ro, không loại trừ mọi nguyên nhân kích ứng khác.",
+    "apply": "Xác minh phạm vi claim, không thay bằng lời hứa y tế hoặc tuyệt đối.",
+    "source": "MATERIAL",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-066",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Technical",
+    "chapter": "07",
+    "q": "Một viên đá tự nhiên và một viên đá tổng hợp có màu giống nhau: sự khác biệt khái niệm quan trọng nhất là gì?",
+    "a": [
+      "Đá tự nhiên không thể có bao thể hoặc dấu vết xử lý nhiệt",
+      "Hai viên giống màu nên được xem là cùng loại đá bất kể hồ sơ",
+      "Tự nhiên hình thành trong tự nhiên; tổng hợp do người tạo",
+      "Đá tổng hợp chắc chắn là thủy tinh giả có độ cứng thấp"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Origin tự nhiên và phương pháp tạo thành cần được giải thích tách biệt với màu, độ sạch và xử lý.",
+    "apply": "Khi khách hỏi, nêu đúng loại đá và hồ sơ của SKU đang bán.",
+    "source": "GIA",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-067",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Technical",
+    "chapter": "07",
+    "q": "Thông tin nào cần kiểm tra trước khi gọi đá tự nhiên trong sản phẩm “không xử lý”?",
+    "a": [
+      "Ảnh macro có bao thể, được cho là dấu hiệu viên đá chưa từng được xử lý",
+      "Tên đá và dải màu trên phiếu nhập kho của nhà cung cấp",
+      "Kiểm hồ sơ xử lý đá; natural không suy ra untreated",
+      "Giá nhập và vùng khai thác được mô tả trong brief thiết kế"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Natural/untreated/certified là ba thuộc tính khác nhau; phải công bố đúng bằng chứng.",
+    "apply": "Không tự quảng cáo tất cả đá COLORA đều untreated.",
+    "source": "GIA",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-068",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Technical",
+    "chapter": "07",
+    "q": "Độ cứng Mohs của đá quý nói nhiều nhất về điều gì?",
+    "a": [
+      "Độ bền giữ đá của chấu và phần kim loại nền",
+      "Mohs đo chống trầy, không đủ để dự đoán nguy cơ mẻ",
+      "Trọng lượng của viên đá trên cùng một kích thước mm",
+      "Mức độ thay đổi màu dưới ánh sáng và hóa chất"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Hardness khác toughness và stability; chọn đá cho nhu cầu đeo cần kết hợp nhiều yếu tố.",
+    "apply": "Tư vấn theo thói quen hoạt động và mẫu setting cụ thể.",
+    "source": "GIA",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-069",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Technical",
+    "chapter": "07",
+    "q": "Đá có Mohs cao vẫn có thể mẻ khi va đập mạnh vì sao?",
+    "a": [
+      "Toughness chống mẻ khác hardness chống trầy",
+      "Vì Mohs chỉ đo độ sáng của mặt facet trong ánh sáng studio",
+      "Vì mọi loại đá tự nhiên đều được phủ một lớp chất liệu mềm",
+      "Vì lượng bạc nền quyết định toàn bộ độ bền của viên đá"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Toughness không thể suy từ hardness; chấu và cách đeo cũng ảnh hưởng nguy cơ.",
+    "apply": "Khi tư vấn nhẫn đeo thường xuyên, giải thích được điều kiện sử dụng phù hợp.",
+    "source": "GIA",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-070",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Technical",
+    "chapter": "07",
+    "q": "Trong một chiếc nhẫn, “setting/chấu” và “facet” khác nhau chủ yếu ở đâu?",
+    "a": [
+      "Setting là tên gọi lớp mạ; facet là trọng lượng phần bạc nền",
+      "Setting giữ đá, facet tạo bề mặt và phản chiếu sáng",
+      "Setting chỉ có tác dụng trang trí, facet dùng để giữ đá cố định",
+      "Setting và facet là hai từ đồng nghĩa cho cùng một chi tiết chạm đá"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Kỹ thuật giữ đá và tạo hình phản sáng là hai chức năng khác nhau dù cùng nằm trong thiết kế.",
+    "apply": "Giải thích bằng ảnh mặt bên và macro của mẫu thật.",
+    "source": "PRODUCT",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-071",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Technical",
+    "chapter": "07",
+    "q": "Certificate of Authenticity của thương hiệu có đồng nghĩa chứng thư giám định đá độc lập không?",
+    "a": [
+      "Có; tên thương hiệu trên hộp thay cho kiểm định.",
+      "Không; vì trang sức demi-fine không cần bất kỳ hồ sơ nào.",
+      "Có; mọi chứng thư đều được phòng lab độc lập ký.",
+      "Không mặc nhiên; phải xác định phạm vi mỗi tài liệu đi cùng SKU."
+    ],
+    "key": [
+      3
+    ],
+    "why": "COA thương hiệu và báo cáo lab là hai loại hồ sơ khác nhau.",
+    "apply": "Kiểm tra SKU trước khi nói giấy tờ cụ thể.",
+    "source": "AUTH",
+    "status": "CHỜ HỒ SƠ SKU",
+    "stage": 1
+  },
+  {
+    "id": "FN-072",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Emotional",
+    "chapter": "08",
+    "q": "Đâu là ví dụ đúng về ba lớp giá trị của nhẫn đá màu COLORA?",
+    "a": [
+      "Functional: giá vốn; Technical: lượt xem; Emotional: phí giao hàng",
+      "Functional: slogan; Technical: cảm xúc; Emotional: số đo mm",
+      "Functional: tỷ lệ bạc; Technical: ký ức; Emotional: chính sách size",
+      "Dễ đeo; hợp kim/đá/chấu; màu gợi ký ức riêng"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Ba lớp trả lời ba câu hỏi khác nhau: dùng thế nào, làm từ gì/vì sao đáng tin, có ý nghĩa gì.",
+    "apply": "Chọn một SKU thật và nêu ba giá trị không trùng ý.",
+    "source": "PRODUCT",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-073",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Emotional",
+    "chapter": "08",
+    "q": "Một khách tự mua nhẫn COLORA vì thích màu sắc và hình dáng. Đây là động cơ mua nào?",
+    "a": [
+      "Nhu cầu cải thiện cảm xúc bằng hiệu quả trị liệu của đá",
+      "Tự mua vì gu, không cần một cột mốc đặc biệt",
+      "Động cơ tặng quà vì chọn màu sắc hợp thời trang",
+      "Lý do tích lũy tài sản dựa trên trọng lượng bạc và đá màu"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Mua theo sở thích là nhu cầu thật; câu chuyện không phải điều kiện đủ để trở thành khách COLORA.",
+    "apply": "Tập trung sản phẩm và cách phối khi khách không cần storytelling.",
+    "source": "CUSTOMER",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-074",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Emotional",
+    "chapter": "08",
+    "q": "Giá trị của trang sức làm quà có nhất thiết dừng ở lúc mở hộp không?",
+    "a": [
+      "Có; quà chỉ quan trọng trong ngày sinh nhật.",
+      "Có; sau khi mở hộp, sản phẩm chỉ còn giá trị vật liệu.",
+      "Không; nhưng món quà phải được nâng cấp mỗi năm.",
+      "Không; nó còn ở những lần người nhận muốn mang và gắn ý nghĩa về sau."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Câu chuyện COLORA coi giá trị sở hữu là chuỗi trải nghiệm dài hạn.",
+    "apply": "Tạo nội dung về đeo và chăm sóc sau dịp tặng.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-075",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Emotional",
+    "chapter": "08",
+    "q": "Ai quyết định ý nghĩa cuối cùng của món COLORA sau khi được tặng?",
+    "a": [
+      "Người đeo được tự gắn hoặc thay đổi ý nghĩa của món quà",
+      "Giấy chứng nhận tự quy định cảm xúc chuẩn cho mỗi sản phẩm",
+      "Người tặng luôn có quyền ấn định ý nghĩa cho toàn bộ thời gian sử dụng",
+      "Marketing quyết định dựa trên màu đá của chiến dịch quà tặng"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Người nhận vẫn có quyền thể hiện bản sắc cá nhân; điều này là cốt lõi emotional value.",
+    "apply": "Tư vấn món quà theo gu người nhận và để họ có tự do diễn giải.",
+    "source": "GIFT",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-076",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Emotional",
+    "chapter": "08",
+    "q": "Một khách muốn mua vì thích màu đá mà không muốn kể lý do. Điều nào đúng?",
+    "a": [
+      "Đó vẫn là động lực mua phù hợp, nhân viên không cần biết câu chuyện riêng.",
+      "Cần hỏi thêm thông tin riêng tư rồi mới được tư vấn.",
+      "COLORA chỉ bán cho người có một cột mốc cảm xúc.",
+      "Phải gợi ý khách đổi màu đá sang màu có ý nghĩa rõ hơn."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Khách không cần chia sẻ đời tư để được tôn trọng và tư vấn tốt.",
+    "apply": "Bắt đầu từ màu, phong cách, bối cảnh sử dụng.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-077",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Emotional",
+    "chapter": "08",
+    "q": "Vì sao storytelling cảm xúc không được dùng để thay thế kiến thức Technical và Functional?",
+    "a": [
+      "Vì khách vẫn cần biết vật liệu, cách dùng và chăm sóc",
+      "Vì nhân viên không nên hỏi mục đích sử dụng khi tư vấn một món quà",
+      "Vì cảm xúc không có vai trò trong lựa chọn trang sức mua online",
+      "Vì chỉ cần giấy xác nhận vật liệu là khách không quan tâm kiểu dáng"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Câu chuyện có giá trị khi đứng cùng bằng chứng sản phẩm và lợi ích thật cho người đeo.",
+    "apply": "Trong một đoạn tư vấn, liên kết một lợi ích và một yếu tố kỹ thuật trước khi kể chuyện.",
+    "source": "PRODUCT",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-078",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Emotional",
+    "chapter": "08",
+    "q": "Vì sao cùng một món trang sức có thể có ý nghĩa khác nhau với hai người?",
+    "a": [
+      "Vì tên đá có định nghĩa pháp lý khác cho mỗi người.",
+      "Vì một người luôn mua để tặng, còn một người để đầu tư.",
+      "Vì tiêu chuẩn kỹ thuật thay đổi theo tính cách khách.",
+      "Mỗi người có bối cảnh, trải nghiệm và cách tự diễn giải riêng."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Ý nghĩa cá nhân không phải thuộc tính vật lý đo được của viên đá.",
+    "apply": "Dùng nội dung gợi mở thay vì “màu này nghĩa là...”.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-079",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Product Emotional",
+    "chapter": "08",
+    "q": "Tại sao Wearability có thể hỗ trợ giá trị cảm xúc của trang sức COLORA về lâu dài?",
+    "a": [
+      "Vì dễ đeo giúp món trang sức xuất hiện trong nhiều khoảnh khắc",
+      "Vì thiết kế nhẹ nghĩa là tất cả mẫu đều bất biến theo thời gian",
+      "Vì bất kỳ món đeo hằng ngày nào cũng có giá trị bán lại cao hơn",
+      "Vì dễ đeo khiến đá tự nhiên tự tạo ra ký ức trong cơ thể"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Tính tiện dụng giúp sử dụng thường xuyên; việc gắn ý nghĩa vẫn thuộc về mỗi người.",
+    "apply": "Kết nối lợi ích đeo với bối cảnh sống thực của khách.",
+    "source": "PRODUCT",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-080",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Target Customer",
+    "chapter": "09",
+    "q": "Nhóm khách hàng nào đang được ưu tiên trong định hướng nghiên cứu của COLORA?",
+    "a": [
+      "Bất kỳ khách nào mua bạc dưới 500.000 đồng dù nhu cầu khác nhau",
+      "Tất cả nam giới yêu cầu trang sức phong thủy chuyên biệt",
+      "Phụ nữ trẻ trưởng thành khoảng 22–38 tuổi, nhiều nhóm nhu cầu",
+      "Chỉ nữ trên 40 tuổi có thói quen đầu tư vàng và đá quý"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Độ tuổi là trọng tâm định hướng, không phải một bản chân dung đủ mọi đặc điểm.",
+    "apply": "Dùng nhóm tuổi làm điểm bắt đầu rồi hỏi mục đích, gu và ngân sách.",
+    "source": "CUSTOMER",
+    "status": "ĐỊNH HƯỚNG KHÁCH",
+    "stage": 1
+  },
+  {
+    "id": "FN-081",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Target Customer",
+    "chapter": "09",
+    "q": "Có thể kết luận gì từ việc COLORA ưu tiên phụ nữ 22–38 tuổi?",
+    "a": [
+      "Mọi người trong nhóm đều có mức lương trên 30 triệu và mua một món mỗi quý",
+      "Đó là tuổi ưu tiên nghiên cứu, chưa phải chân dung đủ chi tiết",
+      "Những người khác tuổi không thể cảm nhận được triết lý Facets of Feeling",
+      "Chỉ người thuộc nhóm mới được COLORA bán trang sức"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Không dùng một nhãn tuổi để gán tính cách, thu nhập hay hành vi cho mọi người.",
+    "apply": "Khi làm persona, cần có bằng chứng về nhu cầu và ngân sách.",
+    "source": "CUSTOMER",
+    "status": "ĐỊNH HƯỚNG KHÁCH",
+    "stage": 1
+  },
+  {
+    "id": "FN-082",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Target Customer",
+    "chapter": "09",
+    "q": "Trong chiến lược khách hàng COLORA, “buyer” và “wearer” có phải luôn là một người?",
+    "a": [
+      "Có nếu cả hai người cùng thuộc nhóm 22–38 tuổi",
+      "Không; người tặng và người thực sự đeo có thể khác nhau",
+      "Chỉ khác nhau khi đặt hàng trên sàn, không khác với website",
+      "Có; vì người thanh toán luôn là người sử dụng hàng hóa"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Khách tặng quà cần cân bằng kỳ vọng người mua với gu, size và trải nghiệm người nhận.",
+    "apply": "Với khách mua quà, hỏi về người đeo trước khi gợi sản phẩm.",
+    "source": "CUSTOMER",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-083",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Target Customer",
+    "chapter": "09",
+    "q": "Đâu là hai bối cảnh mua hàng quan trọng COLORA đang hướng tới?",
+    "a": [
+      "Mua đá quý rời để đầu tư và mua vàng tích trữ",
+      "Mua đi bán lại theo giá bạc và mua trang sức cưới hàng loạt",
+      "Tự mua (vì thích hoặc dấu mốc) và mua để tặng người khác",
+      "Chỉ mua cho sự kiện nổi bật và đặt may trang phục cưới"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Tự mua và mua quà có tiêu chí lựa chọn khác nhau; cả hai đều phù hợp sản phẩm demi-fine.",
+    "apply": "Trong phân khúc khách, ghi rõ buyer/wearer và mục đích mua.",
+    "source": "CUSTOMER",
+    "status": "ĐÃ CHỐT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-084",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Target Customer",
+    "chapter": "09",
+    "q": "Khi tìm hiểu một khách muốn trang sức đeo đi làm, nhóm dữ kiện nào hữu ích nhất?",
+    "a": [
+      "Chỉ mức lương tháng rồi suy ra phong cách và khả năng mua",
+      "Thói quen dùng tay, style, ngân sách và độ chăm sóc chấp nhận",
+      "Ngành học phổ thông và cung hoàng đạo, không cần hỏi cách đeo",
+      "Chỉ số lượt theo dõi mạng xã hội để quyết định kiểu đá cần gợi ý"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Hành vi thực tế có liên hệ với yêu cầu công năng và kiểu dáng tốt hơn định kiến nhân khẩu học.",
+    "apply": "Dùng câu hỏi về cách dùng, không yêu cầu thông tin riêng tư không liên quan.",
+    "source": "CUSTOMER",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-085",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Target Customer",
+    "chapter": "09",
+    "q": "Rào cản nào đặc biệt quan trọng với người mới mua trang sức màu trên website COLORA?",
+    "a": [
+      "Rủi ro tỷ lệ/màu, thông số, giá, size, niềm tin và hậu mãi",
+      "Khách thiếu ảnh lifestyle theo mùa để quyết định theo xu hướng",
+      "Thiếu số liệu về cửa hàng offline trong các khu vực khách đang sinh sống",
+      "Khó lựa chọn vì không biết các màu đá có ý nghĩa bắt buộc gì"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Online jewelry có rủi ro cảm nhận cao vì thiếu trải nghiệm chạm và thử. Cần visual proof và product/service proof.",
+    "apply": "Nhìn trang SKU dưới góc khách mới, kiểm tra đã trả lời đủ nỗi lo chưa.",
+    "source": "JOURNEY",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-086",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Target Customer",
+    "chapter": "09",
+    "q": "Với khách mua quà, đâu là khác biệt nhu cầu so với người tự mua?",
+    "a": [
+      "Người mua quà chủ yếu cần chọn sản phẩm nổi bật hơn gu người nhận",
+      "Người mua quà nên dùng trực giác riêng về size thay cho thông số sản phẩm",
+      "Gu người nhận, size, dịp tặng, thời hạn giao và ngân sách",
+      "Người mua quà chỉ cần tập trung thông điệp thiệp, còn tính phù hợp có thể xử lý sau"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Người mua quà đưa quyết định cho một người khác; rủi ro chọn không hợp tăng lên.",
+    "apply": "Cung cấp Gift Guide, ảnh đeo và hướng dẫn size phù hợp điều kiện thực tế.",
+    "source": "GIFT",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-087",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Target Customer",
+    "chapter": "09",
+    "q": "Tại sao có người quan tâm rất sâu đến stone origin, treatment và certificate?",
+    "a": [
+      "Họ đang đánh giá tính xác thực, giá trị và rủi ro thiếu thông tin trước mua.",
+      "Họ chủ yếu tìm nội dung giáo dục về ngành mà chưa quan tâm quyết định mua",
+      "Họ muốn chứng minh tính thẩm mỹ qua tên phòng lab hơn qua thiết kế",
+      "Họ quan tâm giấy tờ hơn cách đeo, nên không cần tư vấn tính tiện dụng"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Câu hỏi kỹ thuật là tín hiệu nhu cầu thông tin, không nên suy ra nghề hoặc động cơ.",
+    "apply": "Tạo nội dung chứng minh từ hồ sơ SKU đã duyệt.",
+    "source": "CUSTOMER",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-088",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Target Customer",
+    "chapter": "09",
+    "q": "Một khách nhắn “đẹp nhưng đắt”, điều gì nhân viên chưa được phép tự kết luận?",
+    "a": [
+      "Có thể ghi nhận một rào cản đang tồn tại trong quyết định mua",
+      "Có thể hỏi điều nào đang khiến khách còn cân nhắc",
+      "Có thể đưa thông tin so sánh trung thực theo SKU khi khách muốn",
+      "Chưa thể suy lý do: ngân sách, niềm tin hay độ phù hợp"
+    ],
+    "key": [
+      3
+    ],
+    "why": "“Đắt” không trực tiếp xác định thu nhập khách; cần tìm nguyên nhân bằng câu hỏi không áp đặt.",
+    "apply": "Bắt đầu bằng câu hỏi về điều khách còn phân vân, không hạ thấp đối thủ.",
+    "source": "CUSTOMER",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-089",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Target Customer",
+    "chapter": "09",
+    "q": "Khách hàng mục tiêu có đồng nghĩa mọi khách nữ 22–38 đều phải được truyền thông như nhau không?",
+    "a": [
+      "Không; cần chia theo nhu cầu, sở thích, mục đích và bước hành trình.",
+      "Có; nếu cùng xem một kênh TikTok thì nhu cầu bằng nhau.",
+      "Không; vì marketing chỉ nên hướng tới khách trên 40 tuổi.",
+      "Có; mọi người cùng tuổi đều hiểu một thông điệp theo cách giống nhau."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Một nhân khẩu học chỉ là khung ưu tiên, không phải persona hoàn chỉnh.",
+    "apply": "Chọn creative theo self-gifting, workwear, gifting, quality seekers.",
+    "source": "CUSTOMER",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-090",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Target Customer",
+    "chapter": "09",
+    "q": "Việc khách sống ở đô thị, dùng nhiều social và mua online nên được hiểu thế nào?",
+    "a": [
+      "Là điều kiện bắt buộc để được mua COLORA.",
+      "Là giả thuyết hành vi hợp mô hình D2C cần kiểm chứng bằng dữ liệu thật.",
+      "Là tiêu chí để từ chối hỗ trợ khách ở địa phương khác.",
+      "Là bằng chứng khách có thu nhập trên 30 triệu mỗi tháng."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Định hướng người dùng online không cho phép khẳng định phân bố dân cư hay income.",
+    "apply": "Phân tích dữ liệu kênh, đơn hàng và khảo sát để xác thực.",
+    "source": "CUSTOMER",
+    "status": "GIẢ THUYẾT CẦN KIỂM CHỨNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-091",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Target Customer",
+    "chapter": "09",
+    "q": "Nếu COLORA muốn hiểu khách mua đá màu ở Việt Nam, nguồn insight nào đáng tin hơn một bài đăng viral đơn lẻ?",
+    "a": [
+      "Chỉ dựa vào gu màu được đề xuất bởi đội ngũ nội bộ",
+      "Đưa số lượt thích bình luận viral thành tỷ lệ đại diện toàn quốc",
+      "Kết hợp phỏng vấn, phản hồi CS và dữ liệu website/đơn",
+      "Dùng thông tin thu nhập từ những người không thuộc nhóm khách mục tiêu"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Insight là giả thuyết cần kiểm chứng trước khi biến thành chiến lược target và content.",
+    "apply": "Đánh dấu rõ nguồn mẫu, cách thu thập và mức độ chắc chắn.",
+    "source": "CUSTOMER",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-092",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Income, ngân sách & giá trị",
+    "chapter": "10",
+    "q": "Hiện COLORA đã xác nhận mức thu nhập tháng tối thiểu bắt buộc cho mọi khách hàng mục tiêu chưa?",
+    "a": [
+      "Có, chỉ nhân viên văn phòng lương cố định mới phù hợp COLORA",
+      "Có, mọi khách phải thu nhập từ 20 triệu đồng mới là target chính",
+      "Có, mức giá sản phẩm 3 triệu đồng tự động suy ra thu nhập 30 triệu",
+      "Chưa có dải income được kiểm chứng và phê duyệt"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Giá sản phẩm không thể quy đổi trực tiếp thành ngưỡng lương; chưa có nghiên cứu thu nhập được xác nhận.",
+    "apply": "Nếu cần persona, dùng trạng thái giả thuyết và có kế hoạch thu thập dữ liệu.",
+    "source": "CUSTOMER",
+    "status": "CHƯA CÓ DẢI INCOME CHỐT",
+    "stage": 1
+  },
+  {
+    "id": "FN-093",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Income, ngân sách & giá trị",
+    "chapter": "10",
+    "q": "Hai khách cùng thu nhập 25 triệu đồng/tháng có thể khác nhau thế nào trong khả năng mua COLORA?",
+    "a": [
+      "Mức sẵn sàng chi tiền luôn bằng nhau vì thu nhập giống nhau",
+      "Ngân sách tùy nghi và ưu tiên chi tiêu có thể rất khác nhau",
+      "Khả năng mua chỉ phụ thuộc số tiền trong tài khoản ngày nhận lương",
+      "Người có nhiều người phụ thuộc chắc chắn sẵn trả nhiều hơn"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Income chưa phải budget hay willingness to pay; hành vi tiêu dùng cần dữ liệu hơn.",
+    "apply": "Không dùng salary như thước đo duy nhất để chọn mẫu hoặc tiếp cận khách.",
+    "source": "CUSTOMER",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-094",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Income, ngân sách & giá trị",
+    "chapter": "10",
+    "q": "Trong nghiên cứu khách hàng COLORA, dải giá dự kiến 2,3–8 triệu đồng/món được dùng như thế nào?",
+    "a": [
+      "Như dải thu nhập cá nhân mà COLORA đặt làm tiêu chí tuyển khách mục tiêu",
+      "Như mức chi tiêu trung bình đã ghi nhận qua khách mua thực tế",
+      "Như ước tính mức sẵn lòng trả của toàn bộ phân khúc khách nữ 22–38",
+      "Dải giá kế hoạch, không phải mức thu nhập của khách."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Khung giá dự kiến 2,3–8 triệu đồng dùng để xây giả thuyết phân khúc, không thay dữ liệu thu nhập, willingness to pay hoặc giá của từng SKU.",
+    "apply": "Khi phân tích target customer, tách giá dự kiến, ngân sách khách tự cho biết và thu nhập đã được khảo sát.",
+    "source": "PRICE",
+    "status": "ĐÃ CẬP NHẬT NỘI BỘ",
+    "stage": 1
+  },
+  {
+    "id": "FN-095",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Income, ngân sách & giá trị",
+    "chapter": "10",
+    "q": "Người có thu nhập tương đối cao có chắc chắn sẵn mua một mẫu nhẫn COLORA 4 triệu đồng không?",
+    "a": [
+      "Không; người thu nhập cao chỉ mua fine jewelry bằng vàng nguyên khối",
+      "Không; còn phụ thuộc gu, nhu cầu, niềm tin và mức sẵn trả",
+      "Có; thu nhập cao luôn đồng nghĩa ưu tiên mua trang sức đá màu",
+      "Có; nếu đã từng tương tác với một video quảng cáo về nhẫn"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Khả năng mua và mức sẵn sàng trả là hai biến khác nhau.",
+    "apply": "Tránh quyết định persona chỉ bằng lương hoặc nghề nghiệp.",
+    "source": "CUSTOMER",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-096",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Income, ngân sách & giá trị",
+    "chapter": "10",
+    "q": "Một người dành 3 triệu mua quà và một người dành 3 triệu tự thưởng có nhu cầu giống nhau không?",
+    "a": [
+      "Có; chỉ cần lọc sản phẩm cùng giá rồi gửi.",
+      "Có; cả hai đều cần cùng một kịch bản về cột mốc tình yêu.",
+      "Không; người mua quà không quan tâm chất liệu và size.",
+      "Không nhất thiết; cùng ngân sách nhưng bối cảnh, người đeo và rủi ro chọn khác nhau."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Budget không thay thế occasion và wearer context.",
+    "apply": "Hỏi ai đeo và tình huống nhận/đeo để tư vấn phù hợp.",
+    "source": "GIFT",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-097",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Income, ngân sách & giá trị",
+    "chapter": "10",
+    "q": "Trong phân tích mục tiêu, ngân sách mua dự kiến khác mức giá niêm yết thế nào?",
+    "a": [
+      "Giá niêm yết tự động tiết lộ thu nhập người mua.",
+      "Ngân sách là giới hạn/sự sẵn sàng của khách; giá niêm yết thuộc từng SKU.",
+      "Ngân sách và giá luôn là một vì khách không so lựa chọn.",
+      "Ngân sách chỉ nên hỏi khách làm quà, không cần với tự mua."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Price, affordability và willingness to pay là những khái niệm riêng.",
+    "apply": "Cho khách lọc theo ngân sách nhưng không suy đoán income cá nhân.",
+    "source": "CUSTOMER",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-098",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Income, ngân sách & giá trị",
+    "chapter": "10",
+    "q": "Một khách có đủ tiền nhưng vẫn nói “không đáng”, điều này phản ánh vấn đề nào?",
+    "a": [
+      "Khách không thể thuộc nhóm mục tiêu vì không đồng ý giá",
+      "Nhân viên cần tăng giá để tạo hiệu ứng hàng sang",
+      "Giá trị cảm nhận chưa đủ so với các lựa chọn và nhu cầu",
+      "Khách không đủ khả năng thanh toán cho đơn hàng"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Perceived value là đánh giá chủ quan có lý do; không đồng nghĩa thu nhập thấp.",
+    "apply": "Tìm điều khách cần thấy rõ hơn, không áp giá trị cảm xúc thay họ.",
+    "source": "CUSTOMER",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-099",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Income, ngân sách & giá trị",
+    "chapter": "10",
+    "q": "Để xác lập dải income mục tiêu chính thức cho COLORA, bước nào có cơ sở nhất?",
+    "a": [
+      "Nghiên cứu mức chi thực tế và hành vi với mẫu phù hợp",
+      "Hỏi năm người trong team rồi chọn khoảng thu nhập phổ biến nhất",
+      "Chỉ sao chép dải lương từ persona của hãng trang sức quốc tế",
+      "Lấy mức giá món đắt nhất nhân 10 rồi coi là lương tối thiểu"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Income segmentation phải bắt đầu từ dữ liệu và mục tiêu phân khúc, không phải phép suy ngược giá bán.",
+    "apply": "Thiết kế khảo sát ngắn và kiểm tra dữ liệu thật trước khi chốt.",
+    "source": "CUSTOMER",
+    "status": "CHƯA CÓ DẢI INCOME CHỐT",
+    "stage": 1
+  },
+  {
+    "id": "FN-100",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Customer Journey Online",
+    "chapter": "11",
+    "q": "Hành trình mua trang sức COLORA hiện nay thường bắt đầu từ đâu trong mô hình online-first?",
+    "a": [
+      "Trải nghiệm showroom trước khi được quyền xem giá trên website",
+      "Từ social, tìm kiếm hoặc giới thiệu đến website và sản phẩm",
+      "Một bảng đo vòng tay tại điểm bán offline bắt buộc cho mọi khách",
+      "Thử trang sức tại cửa hàng vật lý rồi nhân viên lập phiếu tư vấn"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Digital journey thường không tuyến tính; online proof là nền tảng để hình thành niềm tin.",
+    "apply": "Ở Discovery, nội dung cần thu hút đúng gu mà không ép mua ngay.",
+    "source": "JOURNEY",
+    "status": "THỰC TẾ ONLINE",
+    "stage": 1
+  },
+  {
+    "id": "FN-101",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Customer Journey Online",
+    "chapter": "11",
+    "q": "Ở giai đoạn Discovery, khách cần hiểu điều gì trước?",
+    "a": [
+      "Tất cả điều kiện sourcing theo từng loại đá hiếm.",
+      "Mọi điều khoản bảo hành chi tiết trước khi biết sản phẩm.",
+      "COLORA là ai, kiểu thiết kế ra sao và vì sao đáng khám phá thêm.",
+      "Lịch sử giao dịch với cửa hàng vật lý chưa có."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Awareness cần nhận diện và hứng thú ban đầu, không đẩy ngay mọi dữ kiện kỹ thuật.",
+    "apply": "Đưa hình sản phẩm thật và thông điệp thương hiệu rõ.",
+    "source": "JOURNEY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-102",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Customer Journey Online",
+    "chapter": "11",
+    "q": "Ở giai đoạn khách đã thích thiết kế và bắt đầu tìm hiểu trên website, họ cần những thông tin gì?",
+    "a": [
+      "Chỉ bình luận khen, còn ảnh/chi tiết kỹ thuật phải chờ tư vấn",
+      "Chỉ thêm slogan để tránh làm mất cảm giác luxury",
+      "Chỉ thông tin lịch sử sáng lập, không cần thông số SKU",
+      "Ảnh thật, tỷ lệ, vật liệu, size, giá và các điều kiện mua"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Exploration cần giúp khách hình dung đúng món hàng và tự đánh giá mức phù hợp.",
+    "apply": "Kiểm tra product detail page có trả lời được câu hỏi “tôi đang mua gì” không.",
+    "source": "JOURNEY",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-103",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Customer Journey Online",
+    "chapter": "11",
+    "q": "Một thương hiệu mới như COLORA nên xây niềm tin trong hành trình online bằng điều gì?",
+    "a": [
+      "Dùng ảnh sản phẩm đã chỉnh màu quá mạnh để trông bắt mắt",
+      "Chỉ tăng số lượng lượt theo dõi và bài quảng cáo",
+      "Ảnh thật, hồ sơ vật liệu/đá, chính sách và hỗ trợ rõ ràng",
+      "Tuyên bố mọi sản phẩm đều có chứng thư GIA để khách bớt hỏi"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Trust cần bằng chứng tương ứng nỗi lo của khách, không phải một tuyên bố chung về sang trọng.",
+    "apply": "Liên kết đúng nguồn product/aftercare từ mỗi trang SKU.",
+    "source": "JOURNEY",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-104",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Customer Journey Online",
+    "chapter": "11",
+    "q": "Khách ở giai đoạn Consideration thường có hành vi nào?",
+    "a": [
+      "So sánh mẫu, đọc size/care/policy và cân nhắc ngân sách, rủi ro.",
+      "Chắc chắn đã quyết định mua và chỉ cần mã giảm giá.",
+      "Luôn phải gặp nhân viên tại cửa hàng vật lý.",
+      "Không thể quay lại giai đoạn Discovery."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Customer journey không phải đường thẳng và khách có thể lặp nhiều bước.",
+    "apply": "Đưa nội dung so sánh và giải đáp theo nhu cầu.",
+    "source": "JOURNEY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-105",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Customer Journey Online",
+    "chapter": "11",
+    "q": "Trong bối cảnh COLORA bán qua website và tư vấn online, “assisted conversion” nghĩa là gì?",
+    "a": [
+      "Giải quyết băn khoăn về đá, size, giao hàng để khách tự quyết",
+      "Chỉ chăm sóc khách đã thanh toán, không hỗ trợ khách cân nhắc",
+      "Dùng một kịch bản giảm giá giống nhau cho mọi người rời giỏ",
+      "Yêu cầu khách buộc phải chuyển khoản sau khi đặt câu hỏi về kích thước"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Advisor là nguồn xác minh, không phải người bắt khách quyết định ngay.",
+    "apply": "Cung cấp thông tin hoặc liên kết checkout sau khi đã giải quyết rào cản.",
+    "source": "JOURNEY",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-106",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Customer Journey Online",
+    "chapter": "11",
+    "q": "Tại sao hành trình có thể đi TikTok → website → Zalo → website?",
+    "a": [
+      "Vì khách không thể mua hàng nếu không đổi kênh nhiều lần.",
+      "Vì chỉ marketing có thể xử lý mua hàng.",
+      "Khách kết hợp khám phá, kiểm chứng, hỏi thêm và tự hoàn tất quyết định.",
+      "Vì các kênh phải có thông tin SKU khác nhau."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Đa kênh là hành vi tự nhiên, không phải lỗi của khách.",
+    "apply": "Thông tin phải nhất quán khi đổi kênh.",
+    "source": "JOURNEY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-107",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Customer Journey Online",
+    "chapter": "11",
+    "q": "Ngay sau khi giao hàng, điều gì quan trọng ngoài việc chốt doanh thu?",
+    "a": [
+      "Ngừng mọi liên hệ và bỏ qua câu hỏi hậu mãi.",
+      "Gửi liên tục gợi ý mua thêm để tăng tần suất.",
+      "Giúp khách xác nhận sản phẩm, biết cách đeo, bảo quản và nhận hỗ trợ khi cần.",
+      "Chuyển trách nhiệm sản phẩm hoàn toàn sang khách."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Ownership là phần kéo dài giá trị sử dụng và niềm tin.",
+    "apply": "Đưa care guide và đường liên hệ hỗ trợ dễ tìm.",
+    "source": "JOURNEY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-108",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Customer Journey Online",
+    "chapter": "11",
+    "q": "Vì sao bộ hành trình không nên đo chỉ bằng số người xem quảng cáo?",
+    "a": [
+      "Vì số người nhìn thấy quảng cáo có thể được coi gần bằng số người muốn mua",
+      "Vì reach giúp phân biệt người đã thanh toán với người chưa mở trang sản phẩm",
+      "Vì chỉ cần lượt xem quảng cáo và lượt truy cập là đủ đo trải nghiệm sau mua",
+      "Mỗi giai đoạn cần chỉ số riêng: tương tác, xem PDP, hỏi tư vấn, đặt đơn, sử dụng và quay lại."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Reach là tín hiệu đầu phễu, không cho biết mức độ hiểu hay tin tưởng.",
+    "apply": "Kết nối dữ liệu từ social tới PDP và đơn hàng trong khả năng có được.",
+    "source": "JOURNEY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-109",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Customer Journey Online",
+    "chapter": "11",
+    "q": "Customer Relationship sau mua khác với việc chỉ thúc đẩy đơn mua tiếp như thế nào?",
+    "a": [
+      "Hữu ích sau mua, hướng dẫn care và xây quan hệ không ép mua",
+      "Chỉ chạy quảng cáo sản phẩm mới ba ngày sau khi giao",
+      "Đo quan hệ chỉ bằng số lần khách thêm giỏ hàng",
+      "Khuyến khích khách đổi màu đá liên tục để tăng doanh thu"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Giá trị sở hữu gồm hỗ trợ sau bán và trải nghiệm lâu dài, không chỉ đơn tiếp theo.",
+    "apply": "Có nội dung hướng dẫn care và kênh liên hệ rõ ràng, theo đúng chính sách.",
+    "source": "JOURNEY",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-110",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Niềm tin & thông tin sản phẩm",
+    "chapter": "12",
+    "q": "Một trang SKU trên website COLORA cần giải đáp trước tiên các câu hỏi nào?",
+    "a": [
+      "Tên mọi đối thủ, toàn bộ giá nhập đá và quy trình nội bộ CAD",
+      "Đã dùng bao nhiêu hiệu ứng chỉnh ảnh và ngân sách quảng cáo cho mẫu",
+      "Thương hiệu đăng bao nhiêu bài mỗi tuần, ai quản lý website và có bao nhiêu nhà cung cấp",
+      "Hình thật, thông số, độ hợp, giá trị và hỗ trợ nếu gặp vấn đề"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Khách không cầm sản phẩm trước khi mua cần đủ proof trực quan, kỹ thuật và dịch vụ.",
+    "apply": "Đối chiếu năm câu hỏi này với từng product page trước khi chạy ads.",
+    "source": "SKU",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-111",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Niềm tin & thông tin sản phẩm",
+    "chapter": "12",
+    "q": "Visual proof giúp khách vượt rào cản online nào?",
+    "a": [
+      "Không biết đội xưởng muốn đặt tên bộ sưu tập gì.",
+      "Không hình dung màu đá, kích thước thật, độ nhô và cách đeo.",
+      "Không biết tổng nhân sự của doanh nghiệp.",
+      "Không biết hiệu ứng ánh sáng có thể tạo ra khi xử lý ảnh quá mức."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Ảnh on-body, scale shot, macro và nhiều góc giải quyết nhu cầu hình dung.",
+    "apply": "Dùng ảnh thật, thông số và chú thích nguồn sáng đúng.",
+    "source": "JOURNEY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-112",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Niềm tin & thông tin sản phẩm",
+    "chapter": "12",
+    "q": "“Product proof” và “Service proof” khác nhau ở điểm nào trên website COLORA?",
+    "a": [
+      "Product proof nói món gì; Service proof nói quyền lợi/hỗ trợ",
+      "Hai khái niệm giống nhau vì đều có thể diễn đạt bằng cảm xúc",
+      "Product proof chỉ là slogan; Service proof là màu nền navy",
+      "Product proof là lời khen khách; Service proof là hình ảnh studio của viên đá"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Khách cần biết cả món hàng lẫn cách thương hiệu hỗ trợ; không được lấy dịch vụ bù cho thông số không rõ.",
+    "apply": "Tạo hai liên kết tách biệt: chi tiết sản phẩm và chính sách liên quan.",
+    "source": "SKU",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "FN-113",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Niềm tin & thông tin sản phẩm",
+    "chapter": "12",
+    "q": "Vì sao COLORA SILVER vẫn cần hồ sơ kỹ thuật từng SKU, dù thương hiệu đã chốt GENIA276 Ag 930‰ và công nghệ mạ phủ độc quyền?",
+    "a": [
+      "Từng SKU/lô cần xác minh vật liệu, lớp phủ và chứng từ.",
+      "Vì chỉ những sản phẩm trên 8 triệu mới có thể sử dụng COLORA SILVER",
+      "Vì mỗi thiết kế bắt buộc phải dùng một nhà cung cấp bạc khác nhau",
+      "Vì công nghệ mạ phủ không thể áp dụng lên hợp kim bạc tái chế"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Tên hệ kim loại là tiêu chuẩn thương hiệu; hồ sơ vật liệu, lớp phủ và kiểm tra chất lượng từng mẫu/lô vẫn cần đầy đủ để công bố chính xác.",
+    "apply": "Từ tài liệu COLORA SILVER cấp thương hiệu, đối chiếu Product Passport trước khi xuất mô tả sản phẩm.",
+    "source": "MATERIAL",
+    "status": "ĐÃ CHỐT NỘI BỘ / THEO SKU",
+    "stage": 1
+  },
+  {
+    "id": "FN-114",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Niềm tin & thông tin sản phẩm",
+    "chapter": "12",
+    "q": "Bảo hành trên website có thể được hiểu là cam kết mọi hư hỏng đều miễn phí không?",
+    "a": [
+      "Không; COLORA không hỗ trợ sau mua.",
+      "Có; chỉ cần trong thời hạn là đủ.",
+      "Có; mọi hư hỏng ngoại lực đều do nhà sản xuất.",
+      "Không; quyền lợi phụ thuộc phạm vi lỗi, tình trạng và chính sách hiện hành."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Cần phân biệt bảo hành lỗi chế tác với chăm sóc hoặc sửa chữa có điều kiện.",
+    "apply": "Khi khách hỏi, dùng bản chính sách mới nhất thay vì thuộc một câu cũ.",
+    "source": "WARRANTY",
+    "status": "KIỂM TRA CHÍNH SÁCH LIVE",
+    "stage": 1
+  },
+  {
+    "id": "FN-115",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Niềm tin & thông tin sản phẩm",
+    "chapter": "12",
+    "q": "Nhân viên có thể tự viết “đá tự nhiên, untreated, chứng thư GIA” cho một SKU chưa rõ hồ sơ không?",
+    "a": [
+      "Không; natural, untreated và chứng thư là ba dữ kiện khác nhau",
+      "Có khi mức giá vượt 3 triệu đồng vì được xem là demi-fine",
+      "Có nếu viên đá có bao thể trong ảnh macro",
+      "Có nếu marketing cần tăng niềm tin trong lần ra mắt"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Không tự gộp ba lời hứa khi chưa có hồ sơ cụ thể, dù là viên đá tự nhiên.",
+    "apply": "Lưu phiên bản thông tin đá đã phê duyệt và dẫn đúng nguồn.",
+    "source": "GIA",
+    "status": "THEO SKU",
+    "stage": 1
+  },
+  {
+    "id": "FN-116",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Niềm tin & thông tin sản phẩm",
+    "chapter": "12",
+    "q": "Giá trang chủ, trang SKU và khi tư vấn online phải được kiểm tra thế nào?",
+    "a": [
+      "Mỗi kênh cần tự chọn giá theo cảm xúc khách.",
+      "Cùng Product ID, biến thể và điều kiện bán áp dụng phải nhất quán.",
+      "Giá trong quảng cáo luôn phải thấp hơn giá trên web.",
+      "Giá chỉ cần nhất quán nếu khách đã thanh toán."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Mâu thuẫn dữ liệu làm giảm tin tưởng và tạo lỗi giao dịch.",
+    "apply": "Đối chiếu nguồn giá chính thức trước khi trả lời khách.",
+    "source": "WEBSITE",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 1
+  },
+  {
+    "id": "FN-117",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Niềm tin & thông tin sản phẩm",
+    "chapter": "12",
+    "q": "Trong công việc, câu trả lời trắc nghiệm về giá và chính sách có được dùng thay hồ sơ SKU/policy hiện hành không?",
+    "a": [
+      "Có miễn mọi nhân viên đã làm cùng bộ câu hỏi",
+      "Có vì câu hỏi đã được đưa lên GitHub đồng nghĩa được phê duyệt vĩnh viễn",
+      "Có nếu nhân viên làm bài đạt hơn 80%",
+      "Không; bài học không thay hồ sơ SKU hoặc chính sách đang áp dụng"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Sản phẩm, giá và điều kiện quyền lợi biến động theo thời gian; trắc nghiệm không phải hệ thống hồ sơ sản phẩm.",
+    "apply": "Trước khi gửi thông tin cho khách, kiểm tra SKU và trang chính sách đúng ngày.",
+    "source": "SKU",
+    "status": "NỀN TẢNG",
+    "stage": 1
+  },
+  {
+    "id": "ON-001",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Bản sắc",
+    "q": "Khách vào website lần đầu và hỏi COLORA bán dòng trang sức gì. Cách giới thiệu nào rõ nhất?",
+    "a": [
+      "Một dịch vụ chọn đá cá nhân theo yêu cầu, không giới hạn bất cứ loại đá nào.",
+      "COLORA là thương hiệu demi-fine Việt Nam lấy thiết kế và đá màu làm tâm điểm trải nghiệm",
+      "Trang sức đá quý chuyên sưu tầm, tập trung vào giá trị của đá hơn kiểu đeo.",
+      "Trang sức bạc với các mẫu đang được phát triển; vật liệu là điểm khác biệt chính."
+    ],
+    "key": [
+      1
+    ],
+    "why": "COLORA định vị demi-fine, gemstone-first và có ngôn ngữ thiết kế, không bán đá rời hay cam kết mọi dạng cá nhân hóa.",
+    "apply": "Trong phần giới thiệu ngắn, nêu bản sắc và dẫn khách đến nhóm sản phẩm phù hợp.",
+    "source": "BRAND",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 2,
+    "chapter": "04"
+  },
+  {
+    "id": "ON-002",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Triết lý",
+    "q": "Bài giới thiệu viết “Màu xanh đại diện cho bình yên với mọi người đeo”. Điều gì cần sửa?",
+    "a": [
+      "Bỏ toàn bộ nội dung màu sắc, chỉ nói về hàm lượng bạc và giá đá.",
+      "Chỉ dùng thông điệp ấy trong quảng cáo, còn website viết trung lập.",
+      "Để người đeo tự diễn giải sắc màu, không áp một ý nghĩa cố định",
+      "Giữ câu đó nhưng chuyển thành tiêu đề cho bộ sưu tập màu xanh."
+    ],
+    "key": [
+      2
+    ],
+    "why": "COLORA không gán cố định một cảm xúc cho mọi sắc màu hay mọi người đeo.",
+    "apply": "Biên tập nội dung sắc màu với cách nói “có thể”, “với bạn” thay vì định nghĩa.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 2,
+    "chapter": "03"
+  },
+  {
+    "id": "ON-003",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Brand promise",
+    "q": "Một ảnh rất đẹp nhưng khiến đầu nhẫn trông thấp hơn thiết kế thực tế. Cách xử lý đúng với thương hiệu?",
+    "a": [
+      "Đăng vì ảnh theo phong cách luxury vốn phải đẹp hơn thực tế.",
+      "Giữ ảnh chính; chỉ giải thích chiều cao khi khách chủ động hỏi.",
+      "Chỉ dùng hình render để tránh đối chiếu với ảnh vật lý có góc khác.",
+      "Sửa ảnh cho đúng tỷ lệ, thêm góc ngang thể hiện đầu nhẫn"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Độ trung thực của hình ảnh là một phần lời hứa COLORA đối với người mua online.",
+    "apply": "Duyệt ảnh sản phẩm bằng cả ảnh cận, góc ngang và tỷ lệ đeo.",
+    "source": "BRAND",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 2,
+    "chapter": "04"
+  },
+  {
+    "id": "ON-004",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Triết lý",
+    "q": "Giá trị cảm xúc của một món COLORA xuất phát từ đâu?",
+    "a": [
+      "Từ việc mọi khách hàng đều phải mua trong một dịp đáng nhớ.",
+      "Từ tên gọi từng viên đá, không cần xem thiết kế hoặc cách sử dụng.",
+      "Từ thiết kế gợi mở và ý nghĩa người đeo tự đặt vào",
+      "Từ bảng quy định trước mỗi màu phải đại diện cho một tính cách."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Facets of Feeling là định hướng diễn giải mở, không phải bộ đáp án tâm lý người mua.",
+    "apply": "Để khách chọn ý nghĩa riêng, không suy đoán đời tư từ màu đá.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 2,
+    "chapter": "03"
+  },
+  {
+    "id": "ON-005",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Sản phẩm và cảm xúc",
+    "q": "Hai nhân viên giới thiệu cùng một mẫu: A kể chuyện cột mốc; B chỉ mô tả chất liệu và kiểu đeo. Phương án nào phù hợp hơn?",
+    "a": [
+      "Tùy nhu cầu khách, giải thích công năng và ý nghĩa phù hợp",
+      "Luôn dùng A vì cảm xúc là điểm khác biệt duy nhất của COLORA.",
+      "Luôn dùng B vì thông tin kỹ thuật cần thay thế hoàn toàn câu chuyện.",
+      "Thống nhất một bài nói nguyên văn để mọi khách nhận cùng nội dung."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Cả giá trị cảm xúc và giá trị sử dụng đều cần có chỗ, nhưng thứ tự phụ thuộc nhu cầu khách.",
+    "apply": "Hỏi khách đang quan tâm tới kiểu dáng, đá, giá hay quà tặng trước khi giới thiệu sâu.",
+    "source": "BRAND",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 2,
+    "chapter": "04"
+  },
+  {
+    "id": "ON-006",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Ngôn ngữ thiết kế",
+    "q": "Một mẫu có đá màu đẹp. Những điều nào phải xem thêm trước khi gọi là đúng DNA COLORA? (Chọn tất cả ý đúng)",
+    "a": [
+      "Tỷ lệ silhouette và đường chuyển mềm",
+      "Thứ bậc đá màu, facet và khoảng thở",
+      "Độ lớn logo trên hộp bán hàng",
+      "Sự thoải mái theo kết cấu thiết kế"
+    ],
+    "key": [
+      0,
+      1,
+      3
+    ],
+    "why": "Gemstone-first cần đi cùng hình học, tỷ lệ và khả năng đeo; không phải chỉ có đá màu.",
+    "apply": "Khi review thiết kế, dùng ảnh mặt trước, nghiêng và mặt sau.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 2,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-007",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Đá tự nhiên",
+    "q": "Khách hỏi “đá tự nhiên có nghĩa không qua xử lý đúng không?”. Câu nào chính xác?",
+    "a": [
+      "Không; nguồn gốc tự nhiên vẫn có thể đi kèm xử lý, cần hồ sơ riêng",
+      "Đúng với mọi loại đá sử dụng trong trang sức demi-fine của COLORA.",
+      "Nếu đá có chứng thư của thương hiệu thì chắc chắn không qua xử lý.",
+      "Chỉ đá có màu xanh mới có thể được xử lý tăng màu trước khi bán."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Đá có thể hình thành tự nhiên và vẫn được xử lý; phải xét hồ sơ từng viên/SKU.",
+    "apply": "Không suy ra tình trạng xử lý chỉ từ chữ “natural”.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH",
+    "stage": 2,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-008",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Thông số sản phẩm",
+    "q": "Cùng là nhẫn bạc, một mẫu có thân bản rộng hơn. Điều gì cần lưu ý khi tư vấn size online?",
+    "a": [
+      "Hỏi size khách thường mua là đủ vì bản nhẫn không ảnh hưởng.",
+      "Nhẫn bản rộng luôn phải tăng cố định hai size so với nhẫn mảnh.",
+      "Chỉ cần xem ảnh chụp mặt trên vì không thể đánh giá nhẫn từ xa.",
+      "Độ rộng bản nhẫn và kết cấu có thể khiến cùng một size tạo cảm giác vừa khác nhau"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Hướng dẫn size của COLORA ưu tiên từng sản phẩm, không chọn cứng theo một số đo.",
+    "apply": "Dùng đường kính/chu vi đo tại nhà và Product ID cụ thể khi tư vấn.",
+    "source": "SIZE",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 2,
+    "chapter": "06"
+  },
+  {
+    "id": "ON-009",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Vật liệu",
+    "q": "Khi đọc mô tả sản phẩm, tại sao cần phân biệt kim loại nền và lớp phủ?",
+    "a": [
+      "Vì lớp phủ là tên khác của chứng nhận kiểm định vật liệu.",
+      "Vì có lớp phủ nghĩa là sản phẩm không còn chứa kim loại quý.",
+      "Vì vật liệu nền và lớp phủ khác vai trò khi dùng",
+      "Vì lớp phủ quyết định loại đá tự nhiên gắn trên nhẫn."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Vật liệu nền và lớp hoàn thiện không đồng nghĩa; công bố phải đúng theo SKU.",
+    "apply": "Không dùng thuật ngữ bạc, rhodium và mác hợp kim thay thế lẫn nhau.",
+    "source": "MATERIAL",
+    "status": "KIẾN THỨC NGÀNH",
+    "stage": 2,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-010",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Hình ảnh online",
+    "q": "Khách chỉ nhìn ảnh macro trên trang sản phẩm. Thông tin nào nên bổ sung để dễ chọn online? (Chọn tất cả ý đúng)",
+    "a": [
+      "Kích thước mm đã được xác nhận",
+      "Ảnh đeo hoặc hình tỷ lệ có nguồn rõ",
+      "Góc nghiêng thể hiện độ cao nếu có",
+      "Câu chuyện cảm xúc dài hơn để thay thông số"
+    ],
+    "key": [
+      0,
+      1,
+      2
+    ],
+    "why": "Ảnh macro là ảnh chi tiết, không thể thay tỷ lệ đeo và thông số.",
+    "apply": "Kiểm tra ảnh và kích thước ở giao diện mobile.",
+    "source": "SIZE",
+    "status": "KIẾN THỨC NGÀNH",
+    "stage": 2,
+    "chapter": "06"
+  },
+  {
+    "id": "ON-011",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Độ bền đá",
+    "q": "Đá có độ cứng Mohs cao có đồng nghĩa không thể mẻ hoặc vỡ không?",
+    "a": [
+      "Không; Mohs chỉ thể hiện giá trị thương mại của từng loại đá.",
+      "Không; độ cứng chống trầy khác độ dai chống mẻ vỡ",
+      "Có, độ cứng cao bảo đảm độ bền dưới mọi va đập.",
+      "Có, khi viên đá được đặt trong ổ đá thấp hơn thân nhẫn."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Mohs chủ yếu mô tả chống trầy, không thay thế đánh giá mẻ vỡ và môi trường.",
+    "apply": "Giải thích độ bền theo đúng loại đá và hoàn cảnh sử dụng.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH",
+    "stage": 2,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-012",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Hồ sơ xác thực",
+    "q": "Certificate of Authenticity của COLORA có đồng nghĩa báo cáo giám định đá quý độc lập?",
+    "a": [
+      "Có, chỉ cần COA có chữ ký của người bán.",
+      "Có, với các món trang sức có viên đá nhỏ hơn 5 mm.",
+      "Không; trang sức demi-fine không thể có chứng thư độc lập.",
+      "Không, phải xem COA của COLORA và có hay không tài liệu giám định độc lập"
+    ],
+    "key": [
+      3
+    ],
+    "why": "COA là hồ sơ thương hiệu; phòng giám định độc lập là một mức chứng cứ khác.",
+    "apply": "Khi khách hỏi giấy kiểm định, kiểm tra tài liệu được công bố cho sản phẩm.",
+    "source": "AUTH",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 2,
+    "chapter": "06"
+  },
+  {
+    "id": "ON-013",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Chân dung",
+    "q": "Nhóm phụ nữ 22–38 tuổi là định hướng chính của COLORA. Điều gì không nên suy ra?",
+    "a": [
+      "Mọi người cùng độ tuổi có cùng gu và khả năng chi trả",
+      "Cần tìm hiểu những yếu tố làm họ yên tâm khi mua online.",
+      "Có thể nghiên cứu sở thích phối trang sức trong nhóm tuổi này.",
+      "Có thể thử nội dung tự thưởng và quà tặng với các nhóm con."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Nhân khẩu học là điểm xuất phát; nhu cầu và hành vi phải được xác minh.",
+    "apply": "Chia nhóm theo mục đích mua, không chỉ theo tuổi.",
+    "source": "CUSTOMER",
+    "status": "GIẢ THUYẾT MỤC TIÊU",
+    "stage": 2,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-014",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Người mua và người đeo",
+    "q": "Một người mua quà cho mẹ. Thông tin nào cần ưu tiên ngoài ngân sách người mua?",
+    "a": [
+      "Màu đá đang bán chạy trên website trong tháng này.",
+      "Gu, thói quen đeo và mức rủi ro sai size người nhận",
+      "Ý nghĩa màu đá được phổ biến trên mạng xã hội của thương hiệu.",
+      "Trang sức gần nhất người mua đã đeo trong một sự kiện."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Buyer và wearer có thể khác nhau; món quà phù hợp cần nhìn từ người đeo.",
+    "apply": "Nếu không biết size, ưu tiên xem nhóm ít phụ thuộc ni.",
+    "source": "GIFT",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 2,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-015",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Rào cản mua",
+    "q": "Khách nhắn “đẹp nhưng hơi đắt” rồi dừng. Điều gì có thể kết luận ngay?",
+    "a": [
+      "Khách thiếu tiền và không thuộc đối tượng mục tiêu.",
+      "Khách chắc chắn đang chờ một mã giảm giá mới.",
+      "Khách không muốn nghe mô tả cảm xúc nên mới phản đối giá.",
+      "Chưa rõ; cần phân biệt giá, niềm tin và mức độ phù hợp"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Một câu về giá có thể chứa nhiều rào cản; phải tìm nguyên nhân trước khi phản hồi.",
+    "apply": "Không mặc định phải giảm giá hoặc gửi nhiều tin nhắn.",
+    "source": "CUSTOMER",
+    "status": "GIẢ THUYẾT MỤC TIÊU",
+    "stage": 2,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-016",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Niềm tin khi mua online",
+    "q": "Thông tin nào giúp một khách mới đánh giá COLORA đáng tin hơn khi mua online? (Chọn tất cả ý đúng)",
+    "a": [
+      "Chính sách, kênh hỗ trợ và điều kiện rõ",
+      "Một lời hứa mọi viên đá giữ giá mãi mãi",
+      "Ảnh sản phẩm có thể đối chiếu với thông số",
+      "Hồ sơ chất liệu/đá đúng phạm vi được cung cấp"
+    ],
+    "key": [
+      0,
+      2,
+      3
+    ],
+    "why": "Khách cần bằng chứng để tự quyết; không nên thay bằng lời cam kết quá mức.",
+    "apply": "Dẫn link chính sách và thông tin của đúng sản phẩm.",
+    "source": "WEBSITE",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 2,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-017",
+    "role": "CORE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Giá trị cảm nhận",
+    "q": "Vì sao hai người cùng có ngân sách 4 triệu có thể đánh giá khác nhau một sản phẩm 3 triệu?",
+    "a": [
+      "Vì mọi khách hàng chỉ so trọng lượng bạc khi xem trang sức đá màu.",
+      "Vì cùng ngân sách nhưng khác nhu cầu, so sánh và mức độ tin vào thương hiệu",
+      "Vì một người chắc chắn mua để làm quà, còn người kia để đầu tư.",
+      "Vì giá trị trang sức luôn được cảm nhận như nhau trong cùng độ tuổi."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Khả năng chi trả và cảm nhận đáng tiền là hai khái niệm khác nhau.",
+    "apply": "Giải thích bằng đặc tính khách quan, không chỉ nhấn cảm xúc.",
+    "source": "CUSTOMER",
+    "status": "GIẢ THUYẾT MỤC TIÊU",
+    "stage": 2,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-018",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Kênh mua online",
+    "q": "Khách biết COLORA qua TikTok, xem sản phẩm trên website rồi hỏi ở Zalo. Điều gì phải nhất quán?",
+    "a": [
+      "Chỉ cần dùng một bài caption tương tự ở toàn bộ các kênh.",
+      "Thông tin SKU, giá và điều kiện giữa các kênh phải khớp",
+      "Chỉ cần tone hình ảnh, còn thông số có thể thay đổi theo kênh.",
+      "Mỗi kênh cần tư vấn lại từ đầu để tránh nhầm dữ liệu cũ."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Hành trình đa kênh cần dữ kiện chính xác, không phải copy cùng một thông điệp.",
+    "apply": "Kiểm tra SKU và chính sách trước khi phản hồi tại kênh mới.",
+    "source": "JOURNEY",
+    "status": "ĐỊNH HƯỚNG KÊNH",
+    "stage": 2,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-019",
+    "role": "CORE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Website",
+    "q": "Khách mở trang sản phẩm rồi sang Size Guide. Điều gì có thể suy ra hợp lý nhất?",
+    "a": [
+      "Khách đã quyết định loại đá và không còn băn khoăn về giá.",
+      "Khách chắc chắn sẽ mua nếu trang size có thêm mã giảm giá.",
+      "Đó có thể là dấu hiệu muốn tìm hiểu size, nhưng một lượt xem chưa chứng minh sẽ mua",
+      "Khách đang muốn mua một sản phẩm khác với mẫu họ vừa xem."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Một lần chuyển trang là tín hiệu nhu cầu thông tin, không xác nhận lý do hoặc ý định mua.",
+    "apply": "Theo dõi câu hỏi phổ biến để cải thiện thông tin sản phẩm online.",
+    "source": "SIZE",
+    "status": "GIẢ THUYẾT HÀNH VI",
+    "stage": 2,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-020",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Thông điệp",
+    "q": "Khi viết nội dung về màu đá, lựa chọn nào gần cách nói COLORA hơn?",
+    "a": [
+      "“Màu này dành cho người có tính cách mạnh mẽ, không dành cho ai khác.”",
+      "“Chọn đúng sắc đá sẽ khiến tâm trạng bạn trở nên tích cực mỗi ngày.”",
+      "“Đeo màu phù hợp đồng nghĩa bạn đã tìm đúng câu chuyện của mình.”",
+      "“Mỗi sắc màu có thể gợi nhiều cảm nhận khác nhau tùy người đeo và thời điểm.”"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Brand voice gợi mở và tôn trọng khách thay vì phân loại họ bằng màu.",
+    "apply": "Rà từng caption xem có claim tâm lý tuyệt đối không.",
+    "source": "BRAND",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 2,
+    "chapter": "03"
+  },
+  {
+    "id": "ON-021",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Giới hạn kiến thức",
+    "q": "Trang sản phẩm chưa có thông tin về một loại lớp phủ. Nhân viên nên làm gì?",
+    "a": [
+      "Bỏ qua câu hỏi kỹ thuật và hướng khách xem lookbook.",
+      "Dùng nội dung chung về mạ rhodium vì nhóm demi-fine hay sử dụng.",
+      "Suy ra lớp phủ từ tên hợp kim trên một trang sản phẩm khác.",
+      "Kiểm tra hồ sơ đúng SKU; chưa xác nhận thì không khẳng định"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Dữ liệu một SKU không tự áp dụng cho SKU khác; thiếu thông tin không được tự điền.",
+    "apply": "Đánh dấu câu hỏi chưa có bằng chứng để cập nhật nội dung online.",
+    "source": "SKU",
+    "status": "CHỜ HỒ SƠ SKU",
+    "stage": 2,
+    "chapter": "04"
+  },
+  {
+    "id": "ON-022",
+    "role": "CORE",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Đặc tính phù hợp",
+    "q": "Một sản phẩm có thiết kế nổi bật nhưng đá nhô cao. Có thể quảng bá “không vướng khi đeo hằng ngày” không?",
+    "a": [
+      "Có, miễn hình hero là ảnh thật với ánh sáng trung tính.",
+      "Chỉ nói khả năng dễ đeo khi có bằng chứng về thiết kế thực tế và điều kiện sử dụng",
+      "Không được giới thiệu sản phẩm này trong bất kỳ nội dung nào.",
+      "Có, vì thiết kế demi-fine mặc định được tạo cho mọi hoạt động."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Đặc tính chức năng phải phù hợp từng thiết kế; triết lý everyday không là giấy bảo đảm.",
+    "apply": "Chuyển mô tả sang bối cảnh đã kiểm chứng, không tuyệt đối hóa.",
+    "source": "DNA",
+    "status": "KIẾN THỨC NGÀNH",
+    "stage": 2,
+    "chapter": "04"
+  },
+  {
+    "id": "ON-023",
+    "role": "BASIC",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Ảnh sản phẩm",
+    "q": "Trang nhẫn đang có cả ảnh studio và ảnh đeo thật. Hai loại ảnh giúp khách hiểu gì? (Chọn tất cả ý đúng)",
+    "a": [
+      "Ảnh góc nghiêng có thể thay thế hoàn toàn bảng size",
+      "Một ảnh bất kỳ là đủ để khẳng định màu tuyệt đối",
+      "Ảnh cận hỗ trợ xem cấu trúc và hoàn thiện",
+      "Ảnh đeo hỗ trợ ước lượng tỷ lệ trên tay"
+    ],
+    "key": [
+      2,
+      3
+    ],
+    "why": "Ảnh cận, ảnh đeo và ảnh góc nghiêng có vai trò khác nhau; không ảnh nào thay được toàn bộ thông số.",
+    "apply": "Chọn đúng bộ ảnh theo câu hỏi khách đang hỏi.",
+    "source": "WEBSITE",
+    "status": "KIẾN THỨC NGÀNH",
+    "stage": 3,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-024",
+    "role": "BASIC",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Typography",
+    "q": "Một video dọc cần phụ đề tiếng Việt hai dòng. Cách dùng font nào phù hợp hơn?",
+    "a": [
+      "Dùng Cormorant Garamond cho mọi phụ đề để đúng font thương hiệu.",
+      "Open Sans cho phụ đề, Cormorant cho tiêu đề điểm nhấn",
+      "Dùng font khác toàn bộ nếu hiệu ứng dựng video yêu cầu.",
+      "Dùng chữ hoa liên tục cho phụ đề vì giống nhận diện editorial."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Brand guideline phân vai heading và body/UI; phụ đề mobile cần dễ đọc.",
+    "apply": "Kiểm tra độ lớn và tương phản chữ trên màn hình điện thoại.",
+    "source": "VISUAL",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 3,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-025",
+    "role": "BASIC",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Bố cục",
+    "q": "Layout trang chủ có nhiều pattern COLORA đè lên viên đá và nút xem sản phẩm. Sửa theo hướng nào?",
+    "a": [
+      "Thay màu ivory thành navy toàn trang để tăng tương phản.",
+      "Bỏ ảnh sản phẩm, chuyển sang một minh họa facet trừu tượng.",
+      "Giảm pattern, giữ ảnh sản phẩm và nút xem rõ ràng",
+      "Giữ vì dùng pattern là cách nhận diện mạnh nhất."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Pattern hỗ trợ nhận diện nhưng không được che sản phẩm và hành động mua.",
+    "apply": "Kiểm tra cả desktop và mobile, nhất là vùng ảnh hero.",
+    "source": "VISUAL",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 3,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-026",
+    "role": "BASIC",
+    "pillar": "SẢN PHẨM",
+    "topic": "Design DNA",
+    "q": "Designer đề xuất thêm nhiều đá tấm để nhẫn “có giá trị hơn”. Điều gì cần cân nhắc?",
+    "a": [
+      "Chọn theo giá nguyên liệu thay vì tỷ lệ và độ tiện dụng.",
+      "Nên xem đá phụ có giúp tôn viên đá màu chính hay làm tổng thể trở nên rối mắt",
+      "Đổi tất cả đá phụ sang màu trắng sẽ giải quyết vấn đề.",
+      "Thêm nhiều đá sẽ phù hợp vì COLORA tập trung đá màu."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Selective pavé là nguyên tắc thiết kế; không dùng số lượng đá làm thước đo giá trị.",
+    "apply": "So hai sketch ở tỷ lệ thật, không chỉ khi zoom.",
+    "source": "DNA",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 3,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-027",
+    "role": "BASIC",
+    "pillar": "SẢN PHẨM",
+    "topic": "Thiết kế và thực tế",
+    "q": "Một mockup nhẫn có đường nét rất mềm, nhưng CAD làm phần đuôi thô hơn. Nhận xét nào hữu ích?",
+    "a": [
+      "Chỉ nói mẫu CAD chưa đẹp và yêu cầu xưởng tự chỉnh.",
+      "Chỉ rõ điểm CAD lệch mockup theo góc và tỷ lệ cụ thể",
+      "Chỉnh ảnh mockup lại cho giống CAD để đỡ thêm vòng làm việc.",
+      "Giữ CAD nếu các thông số khối lượng và kích thước đá không đổi."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Phản hồi thiết kế hiệu quả phải mô tả phần sai lệch, không chỉ đánh giá cảm tính.",
+    "apply": "So top/front/side/back khi những góc đó ảnh hưởng thiết kế.",
+    "source": "DNA",
+    "status": "NỘI BỘ DESIGN",
+    "stage": 3,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-028",
+    "role": "BASIC",
+    "pillar": "SẢN PHẨM",
+    "topic": "Kết cấu",
+    "q": "Tại sao một ảnh mặt trước đẹp chưa đủ để xác nhận thiết kế có thể đeo thoải mái?",
+    "a": [
+      "Vì chỉ số bán online phụ thuộc chủ yếu vào hình bao bì.",
+      "Vì ảnh mặt trước không thể xác nhận loại đá có phải tự nhiên.",
+      "Vì thiết kế chỉ được đánh giá sau khi sản xuất hàng loạt.",
+      "Vì cạnh tiếp xúc, mặt sau và độ cao tác động độ đeo"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Comfort và wearability cần nhìn đủ cấu trúc, không chỉ front view.",
+    "apply": "Designer đánh giá bản kỹ thuật; editor không suy ra chức năng từ render.",
+    "source": "DNA",
+    "status": "NỘI BỘ DESIGN",
+    "stage": 3,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-029",
+    "role": "BASIC",
+    "pillar": "SẢN PHẨM",
+    "topic": "Thông số hiển thị",
+    "q": "Trang sản phẩm ghi đá oval 7×5 mm nhưng ảnh đồ họa làm nó trông dài hơn đáng kể. Nên làm gì?",
+    "a": [
+      "Đối chiếu hình với CAD hoặc mẫu thật theo đúng phiên bản rồi mới sửa ảnh công bố",
+      "Giảm số mm trong mô tả để gần với hình, không cần hỏi Product.",
+      "Chỉ thêm chữ “tham khảo” trong mọi trường hợp là đủ.",
+      "Giữ ảnh vì người xem ưu tiên hình đẹp hơn kích thước."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Thông số, đồ họa và SKU phải đồng nhất; hình sai tỷ lệ làm tăng trả hàng.",
+    "apply": "QA hình ảnh với thông số đã phê duyệt.",
+    "source": "SKU",
+    "status": "CHỜ HỒ SƠ SKU",
+    "stage": 3,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-030",
+    "role": "BASIC",
+    "pillar": "SẢN PHẨM",
+    "topic": "Màu đá",
+    "q": "Editor quay một viên đá dưới đèn màu khiến nó khác hẳn màu trong điều kiện thường. Có thể dùng làm ảnh chính không?",
+    "a": [
+      "Có, vì mọi màn hình đều khác nhau nên màu thực không quan trọng.",
+      "Có, miễn người xem có thể nhận ra viên đá trong cảnh quay.",
+      "Dùng ảnh/clip ánh sáng trung tính để khách đối chiếu màu đá thực",
+      "Có, nếu câu chuyện cảm xúc đòi hỏi màu mạnh hơn thực tế."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Hình ảnh online phải giúp khách nhận biết màu thật trong giới hạn kỹ thuật hiển thị.",
+    "apply": "Tách shot nghệ thuật và shot sản phẩm làm chuẩn so sánh.",
+    "source": "WEBSITE",
+    "status": "KIẾN THỨC NGÀNH",
+    "stage": 3,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-031",
+    "role": "BASIC",
+    "pillar": "SẢN PHẨM",
+    "topic": "Hình từ CAD",
+    "q": "Marketing muốn dùng render CAD làm ảnh chứng minh kết cấu sản phẩm hoàn thiện. Designer nên phản hồi thế nào?",
+    "a": [
+      "Dùng render nhưng bỏ tên sản phẩm để tránh bị so sánh.",
+      "Đồng ý vì render CAD luôn thể hiện chính xác hoàn thiện sau đúc.",
+      "Từ chối mọi cách sử dụng render dù là giới thiệu quá trình thiết kế.",
+      "Phân biệt render minh họa với ảnh mẫu thật đã hoàn thiện"
+    ],
+    "key": [
+      3
+    ],
+    "why": "CAD hữu ích cho ý tưởng nhưng không là bằng chứng chất lượng thành phẩm.",
+    "apply": "Phân biệt concept image và finished product photography.",
+    "source": "DNA",
+    "status": "NỘI BỘ DESIGN",
+    "stage": 3,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-032",
+    "role": "BASIC",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Phong cách visual",
+    "q": "Bài đăng có nhiều biểu tượng phép thuật và hiệu ứng cầu vồng để minh họa “Aura”. Rủi ro thương hiệu?",
+    "a": [
+      "Chỉ cần thay nền bằng navy là sẽ đúng hoàn toàn guideline.",
+      "Chỉ thiếu thêm thông điệp màu sắc để người xem hiểu đúng.",
+      "Không liên quan thương hiệu vì chỉ là đồ họa trang trí.",
+      "Có thể lệch quiet luxury và trải nghiệm sản phẩm đời thực"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Aura là biểu đạt cá tính, không mặc định mỹ thuật huyền bí hoặc fantasy.",
+    "apply": "Dùng hình trang sức thật, ánh sáng tinh tế và khoảng thở.",
+    "source": "VISUAL",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 3,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-033",
+    "role": "BASIC",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Viết caption",
+    "q": "Caption “Viên đá này khiến mọi người tự tin hơn” nên đổi ra sao?",
+    "a": [
+      "“Viên đá này chắc chắn làm khách đẹp và hạnh phúc hơn.”",
+      "“Nếu không chọn viên đá này, bạn có thể mất cơ hội tự tin.”",
+      "“Một điểm màu để bạn thể hiện phong cách theo cách riêng, không cần một dịp đặc biệt.”",
+      "“Mọi đá màu đều phù hợp với mọi tính cách và hoàn cảnh.”"
+    ],
+    "key": [
+      2
+    ],
+    "why": "Không hứa tác động tâm lý đồng nhất; viết về biểu đạt cá nhân.",
+    "apply": "Rà caption có lời hứa cảm xúc không thể chứng minh hay không.",
+    "source": "BRAND",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 3,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-034",
+    "role": "BASIC",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Slogan",
+    "q": "Đội ngũ tạo poster bằng câu slogan nào đúng chuẩn?",
+    "a": [
+      "“COLORA - COLORS OF YOUR AURA” để rõ nghĩa hơn.",
+      "“COLORA - COLOR YOUR AURA”, đúng nguyên văn và không có dấu kết",
+      "“COLORA - COLOR YOUR AURA.” và đặt dấu chấm kết.",
+      "“COLOR YOUR FEELINGS WITH COLORA” làm slogan mới."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Slogan chính thức cần được dùng nguyên văn và nhất quán.",
+    "apply": "Kiểm tra nội dung slogan trước khi xuất bản.",
+    "source": "BRAND",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 3,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-035",
+    "role": "BASIC",
+    "pillar": "SẢN PHẨM",
+    "topic": "Trọng lượng",
+    "q": "Ảnh thiết kế đồ họa ghi trọng lượng dự kiến của mẫu trước khi sản xuất. Có thể dùng trên website như thông số bán không?",
+    "a": [
+      "Có, nếu khối lượng đẹp và phù hợp giá bán mong muốn.",
+      "Có, nếu thêm chữ “dự kiến” mà không cần kiểm tra.",
+      "Không cần thông số trọng lượng ở bất cứ loại trang sức nào.",
+      "Chỉ dùng số liệu phê duyệt cho sản phẩm đúng phiên bản"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Thông số công bố phải có chủ thể phê duyệt và phiên bản rõ.",
+    "apply": "Lấy dữ liệu từ hồ sơ SKU, không lấy từ file mockup.",
+    "source": "SKU",
+    "status": "CHỜ HỒ SƠ SKU",
+    "stage": 3,
+    "chapter": "05"
+  },
+  {
+    "id": "ON-036",
+    "role": "BASIC",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Thông tin giúp quyết định",
+    "q": "Một người xem hoa tai muốn biết chúng có nặng tai không. Content nào hữu ích?",
+    "a": [
+      "Chỉ thông tin kích thước viên đá tính theo milimet.",
+      "Ảnh hộp quà cùng hashtag “sang trọng mỗi ngày”.",
+      "Ảnh phóng lớn đá và lời mô tả vẻ nữ tính của sản phẩm.",
+      "Trọng lượng một bên, chiều dài và ảnh đeo có tỷ lệ"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Khách đang tìm lợi ích sử dụng và tỷ lệ, không chỉ vẻ ngoài.",
+    "apply": "Đưa thông số mỗi bên và ảnh tai thật khi SKU đã xác nhận.",
+    "source": "SIZE",
+    "status": "KIẾN THỨC NGÀNH",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-037",
+    "role": "BASIC",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Ngữ cảnh mua",
+    "q": "Một người tìm “nhẫn đá màu đeo đi làm” đến trang COLORA. Nội dung nào giúp họ hơn?",
+    "a": [
+      "Một danh sách đá rời chưa chắc có thể đặt vào thiết kế.",
+      "Một trang kể lịch sử dài của đá màu trên thế giới.",
+      "Ảnh đeo thực tế, cách phối đồ và độ nhô của thiết kế trên người",
+      "Một bộ ảnh quà kỷ niệm với nhiều lời chúc dài."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Thông tin nên giải quyết cách sử dụng khách đang tìm, không ép họ theo chuyện quà.",
+    "apply": "Kết nối How to Wear với trang sản phẩm có dữ kiện thực.",
+    "source": "SEO",
+    "status": "ĐỊNH HƯỚNG NỘI DUNG",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-038",
+    "role": "BASIC",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Tính xác thực hình ảnh",
+    "q": "Designer thấy ảnh quảng cáo của đối thủ rất hợp mood. Cách sử dụng reference hợp lý?",
+    "a": [
+      "Dùng ảnh không có watermark vì ảnh đó mặc nhiên được dùng tự do.",
+      "Đưa ảnh đối thủ vào trang sản phẩm kèm dòng “tương tự”.",
+      "Chỉnh màu đá và thay logo để dùng như ảnh COLORA.",
+      "Học nguyên lý bố cục nhưng làm ảnh mới cho COLORA"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Tham khảo nguyên lý không đồng nghĩa sao chép asset hoặc thiết kế của thương hiệu khác.",
+    "apply": "Lưu moodboard với ghi chú điều học và điều sẽ làm khác.",
+    "source": "VISUAL",
+    "status": "KIẾN THỨC NGÀNH",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-039",
+    "role": "BASIC",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Hình ảnh mobile",
+    "q": "Một trang sản phẩm mobile làm mất một phần đá chính. Khi QA cần kiểm tra gì? (Chọn tất cả ý đúng)",
+    "a": [
+      "Truy cập size/thông số và nút mua",
+      "Crop ảnh và phần sản phẩm được nhìn thấy",
+      "Hiệu ứng cuộn bắt mắt quan trọng hơn kích thước chữ",
+      "Chỉ việc số lượng pattern theo guideline"
+    ],
+    "key": [
+      0,
+      1
+    ],
+    "why": "Trên mobile, ưu tiên nhìn rõ sản phẩm và thao tác cần thiết trước các hiệu ứng trang trí.",
+    "apply": "Thử ít nhất vài kích thước màn hình trước khi publish.",
+    "source": "WEBSITE",
+    "status": "ĐỊNH HƯỚNG KÊNH",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-040",
+    "role": "BASIC",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Kiến thức nội bộ",
+    "q": "Editor không biết viên đá trong ảnh là loại nào và cần viết alt text. Nên làm gì?",
+    "a": [
+      "Dùng một tên đá cố định cho mọi sản phẩm cùng màu.",
+      "Bỏ alt text để khỏi tạo sai thông tin về sản phẩm.",
+      "Hỏi Product hoặc dùng nhãn trung tính, không đoán đá từ ảnh chụp",
+      "Dùng tên loại đá phổ biến có màu giống ảnh vì chỉ là alt text."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Alt text cũng là thông tin công khai; không được đoán loại đá từ màu.",
+    "apply": "Lấy loại đá từ trường thông tin SKU hoặc nội dung đã được duyệt.",
+    "source": "SKU",
+    "status": "CHỜ HỒ SƠ SKU",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-041",
+    "role": "CARE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Hỏi thông tin online",
+    "q": "Khách gửi ảnh chụp từ Instagram và hỏi “Mẫu này còn không?”. Phản hồi nào thiết thực nhất?",
+    "a": [
+      "Nói “còn hàng” nếu ảnh đang hiển thị trên social của COLORA.",
+      "Gửi luôn bảng size nhẫn vì đa số khách tìm trang sức trên Instagram.",
+      "Giới thiệu 3 mẫu tương tự trước rồi mới kiểm tra mẫu khách hỏi.",
+      "Kiểm tra Product ID, trạng thái bán và tồn kho thực tế"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Hình quảng cáo không chứng minh hàng đang sẵn hay variant đã chốt.",
+    "apply": "Dùng link sản phẩm và trạng thái tồn kho được xác minh.",
+    "source": "SITE",
+    "status": "KIỂM TRA HỆ THỐNG",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-042",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Tư vấn bằng ảnh",
+    "q": "Khách hỏi nhẫn này “lên tay to không” nhưng chỉ gửi tên mẫu. Cách hỗ trợ từ xa tốt nhất?",
+    "a": [
+      "Nói nhẫn sẽ nổi bật với mọi bàn tay vì có viên đá màu.",
+      "Gửi ảnh tỷ lệ và thông số, hỏi khách mức độ nổi mong muốn",
+      "Chỉ gửi ảnh macro vì cận cảnh thể hiện được cả tỷ lệ thật.",
+      "Yêu cầu khách tự đến xưởng để nhìn kích thước thật trước khi tư vấn."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Không có trải nghiệm thử tại showroom, cần dùng dữ kiện giúp hình dung tỷ lệ.",
+    "apply": "Ưu tiên ảnh đang có, không hứa ảnh on-hand nếu chưa được chuẩn bị.",
+    "source": "SIZE",
+    "status": "KIẾN THỨC NGÀNH",
+    "stage": 3,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-043",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Hướng dẫn đo size",
+    "q": "Khách chưa biết size nhẫn và cần tư vấn từ xa. Thông tin nào giúp chọn chính xác hơn? (Chọn tất cả ý đúng)",
+    "a": [
+      "Sự chênh lệch đáng kể giữa gốc và khớp ngón",
+      "Lấy ni trung bình của nữ giới để thay đo",
+      "Ngón đeo, bên tay và cấu trúc mẫu đang chọn",
+      "Số đo đường kính nhẫn đang vừa hoặc chu vi ngón"
+    ],
+    "key": [
+      0,
+      2,
+      3
+    ],
+    "why": "Size online cần dữ liệu đo cụ thể; không chọn theo tuổi/giới tính.",
+    "apply": "Đối chiếu hướng dẫn trên website và Product ID.",
+    "source": "SIZE",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-044",
+    "role": "CARE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Khách mua quà",
+    "q": "Người mua cần quà bất ngờ, không biết ni nhẫn. Lựa chọn hỗ trợ nào ít rủi ro hơn?",
+    "a": [
+      "Gợi hoa tai hoặc dây chuyền dựa trên thói quen của người nhận",
+      "Tự chọn ni nhẫn theo tuổi người nhận để giữ bí mật.",
+      "Chuyển sang trang sản phẩm đắt hơn để khách thấy xứng đáng.",
+      "Khẳng định mọi nhẫn COLORA có thể chỉnh ni không giới hạn."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Gift Guide khuyên ưu tiên loại ít phụ thuộc ni, không buộc khách đoán.",
+    "apply": "Hỏi người nhận hay đeo kiểu nào trước khi gợi mẫu.",
+    "source": "GIFT",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-045",
+    "role": "CARE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Cảm xúc khi tặng",
+    "q": "Khách mua quà nói: 'Tôi chọn đá đỏ vì bạn ấy mạnh mẽ', nhưng chưa biết người nhận có thích màu đỏ. Cách tư vấn nào tôn trọng cả ý nghĩa của người tặng và sở thích người đeo?",
+    "a": [
+      "Khẳng định đá đỏ đại diện cho sự mạnh mẽ của bất cứ ai đeo nó.",
+      "Trân trọng lý do chọn màu đỏ của người mua, rồi hỏi thêm gu màu và kiểu đeo thường ngày của người nhận.",
+      "Đề nghị bỏ ý nghĩa người mua đã chọn vì COLORA không ấn định ý nghĩa màu.",
+      "Chỉ hỏi thời điểm giao quà, bỏ qua sở thích của người nhận để giữ bất ngờ."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Ý nghĩa thuộc về mỗi người. Cần tôn trọng câu chuyện người mua chủ động chia sẻ và đồng thời xác minh màu sắc, form, độ vừa có phù hợp người nhận hay không; không áp đặt hoặc phủ định cảm xúc.",
+    "apply": "Gợi mở: 'Màu đỏ gắn với một câu chuyện rất riêng của bạn. Người nhận thường thích tông màu nào để món quà cũng hợp gu họ?'",
+    "source": "GIFT",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-046",
+    "role": "CARE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Rào cản giá",
+    "q": "Khách so giá COLORA với một món bạc trơn. Những điểm nào có thể so nếu có căn cứ? (Chọn tất cả ý đúng)",
+    "a": [
+      "Thiết kế, cấu trúc và hoàn thiện cụ thể",
+      "Dịch vụ và mức phù hợp với cách dùng của khách",
+      "Đặc điểm đá và vật liệu của mẫu đang bán",
+      "Giả định sản phẩm đối thủ có chất lượng thấp"
+    ],
+    "key": [
+      0,
+      1,
+      2
+    ],
+    "why": "So giá trị dựa trên thông tin có thể kiểm chứng, không chê đối thủ.",
+    "apply": "Chỉ nêu phần COLORA có dữ liệu rõ ràng.",
+    "source": "CUSTOMER",
+    "status": "GIẢ THUYẾT MỤC TIÊU",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-047",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Đá tự nhiên",
+    "q": "Khách hỏi “Viên đá này đã xử lý chưa?” nhưng trang sản phẩm không ghi. Nên làm gì?",
+    "a": [
+      "Giải thích đá thiên nhiên rất đẹp để chuyển khỏi câu hỏi xử lý.",
+      "Nói đá màu của COLORA đều xử lý như nhau nên không cần kiểm tra.",
+      "Xác nhận không xử lý vì viên đá được quảng bá là tự nhiên.",
+      "Tra hồ sơ SKU/viên đá rồi mới xác nhận cách xử lý"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Chất lượng đá không được suy đoán từ ảnh hoặc thuật ngữ natural.",
+    "apply": "Dùng hồ sơ Product ID và chuyển Product khi thiếu dữ kiện.",
+    "source": "GIA",
+    "status": "CHỜ HỒ SƠ SKU",
+    "stage": 3,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-048",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Bạc, mạ và bề mặt",
+    "q": "Khách hỏi trang sức có xỉn màu không. Phản hồi phù hợp hơn?",
+    "a": [
+      "Bạc được chăm sóc đúng cách sẽ không thay đổi bề mặt suốt đời.",
+      "Nếu có mạ thì trang sức không thể bị oxy hóa hay xuống màu.",
+      "Chỉ cần khuyên khách không đeo hàng ngày là sẽ không bao giờ xỉn.",
+      "Giải thích bề mặt có thể xuống sáng theo cách sử dụng"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Website mô tả bạc và lớp phủ có thể thay đổi độ sáng theo môi trường.",
+    "apply": "Dùng nội dung đã được duyệt cho SKU, không hứa chống xỉn tuyệt đối.",
+    "source": "WARRANTY",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-049",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Da nhạy cảm",
+    "q": "Khách nói từng bị ngứa với trang sức và hỏi COLORA “chắc chắn không dị ứng” không. Nên trả lời?",
+    "a": [
+      "Có, vì bạc luôn là vật liệu phù hợp tất cả làn da nhạy cảm.",
+      "Không cần nói vật liệu nếu khách chỉ hỏi cảm giác khi đeo.",
+      "Có, nếu sản phẩm mô tả nickel-free là đủ bảo đảm.",
+      "Cung cấp vật liệu xác nhận, tránh hứa tuyệt đối về da"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Nickel-free không có nghĩa không thể có phản ứng với thành phần khác.",
+    "apply": "Tư vấn thông tin đã xác minh, tránh hứa hẹn y tế.",
+    "source": "MATERIAL",
+    "status": "CHỜ HỒ SƠ SKU",
+    "stage": 3,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-050",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Màu thực tế",
+    "q": "Khách muốn viên đá trùng chính xác màu trên video TikTok. Điều gì cần nói?",
+    "a": [
+      "Chỉ cần tăng độ sáng màn hình để mọi màu đá giống nhau.",
+      "Đổi tên màu trên website cho đúng mong muốn khách là đủ.",
+      "Màu thay đổi theo ánh sáng, nên gửi hình thực tế khi có dữ liệu",
+      "Video là cơ sở duy nhất nên màu thực tế luôn phải giống 100%."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Đá màu và hiển thị ảnh có biến thiên; không tự hứa độ trùng tuyệt đối.",
+    "apply": "Đối chiếu hình ở điều kiện sáng khác nhau và thông số SKU.",
+    "source": "SITE",
+    "status": "KIẾN THỨC NGÀNH",
+    "stage": 3,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-051",
+    "role": "CARE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Mã đơn và liên hệ",
+    "q": "Khách mua trên website rồi nhắn Zalo hỏi tình trạng đơn. Thông tin nên dùng để tra cứu trước?",
+    "a": [
+      "Dùng mã đơn và kiểm tra quyền truy cập trước khi trả lời",
+      "Yêu cầu khách gửi ảnh CCCD trước mọi trường hợp tra cứu.",
+      "Hỏi lại toàn bộ địa chỉ và ngân sách dù khách đã thanh toán.",
+      "Dùng tên hiển thị trên Zalo để gửi tất cả thông tin đơn bất kỳ."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Tư vấn online phải xác minh đúng đơn nhưng không thu thập quá mức.",
+    "apply": "Chỉ xem trạng thái trong hệ thống có thẩm quyền truy cập.",
+    "source": "PRIVACY",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-052",
+    "role": "CARE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Thông tin giữa kênh",
+    "q": "Khách đã xem mẫu trên website, rồi gửi ảnh sản phẩm qua Messenger. Nhân viên nên kiểm tra gì?",
+    "a": [
+      "Khuyên khách chuyển kênh liên tục cho đến khi có người biết mẫu.",
+      "Chỉ dùng caption social để trả lời tất cả câu hỏi về đá và vật liệu.",
+      "Giá đúng theo trang chủ dù chưa chắc ảnh và variant trùng nhau.",
+      "Xác nhận mã, biến thể, giá và điều kiện áp dụng ở thời điểm hiện tại"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Một ảnh có thể là phiên bản cũ; phải đối chiếu dữ kiện thực tế.",
+    "apply": "Gửi link đúng mẫu thay vì dựa riêng ảnh chụp.",
+    "source": "SITE",
+    "status": "KIỂM TRA HỆ THỐNG",
+    "stage": 3,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-053",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Giao hàng",
+    "q": "Trước khi báo thời gian giao cho một đơn online, cần biết gì? (Chọn tất cả ý đúng)",
+    "a": [
+      "Thời gian chuẩn bị hoặc chế tác tương ứng",
+      "Đúng sản phẩm/variant và tình trạng sẵn có",
+      "Địa chỉ/khu vực nhận để xét thời gian vận chuyển",
+      "Chỉ số lượt xem sản phẩm trên website"
+    ],
+    "key": [
+      0,
+      1,
+      2
+    ],
+    "why": "ETA không chỉ là thời gian vận chuyển; cần kiểm tra cả chuẩn bị.",
+    "apply": "Xác nhận thông tin đủ trước khi hứa ngày nhận.",
+    "source": "SHIPPING",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-054",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Quà cần đến đúng ngày",
+    "q": "Khách muốn nhận quà trước sinh nhật nhưng thời gian giao chưa được xác nhận. Làm gì?",
+    "a": [
+      "Đề xuất chỉ mua quà không khắc tên vì luôn đến kịp.",
+      "Cho khách hiểu đơn sẽ được ưu tiên tự động nếu ghi là quà.",
+      "Cam kết ngày đến theo mong muốn để khách chốt đơn.",
+      "Kiểm tra vận chuyển trước khi hứa ngày khách cần nhận"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Delivery Support là kiểm tra khả năng, không phải bảo đảm mọi deadline.",
+    "apply": "Đưa mốc dự kiến và phương án khác nếu không kịp.",
+    "source": "GIFT",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-055",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Đổi trả",
+    "q": "Khách nói “Tôi có thể trả mọi sản phẩm trong 14 ngày nếu đổi ý, đúng không?”. Phản hồi chính xác?",
+    "a": [
+      "Mốc 14 ngày không đồng nghĩa mọi đơn được trả vì đổi ý",
+      "Không; COLORA không có bất cứ quy trình đổi trả nào.",
+      "Có, nếu hộp quà còn nguyên, không cần xét loại đơn.",
+      "Có, vì đây là chính sách chung cho tất cả mua online."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Mốc 14 ngày trong chính sách không đồng nghĩa đổi ý vô điều kiện.",
+    "apply": "Dẫn trang chính sách, kiểm tra trường hợp thực tế.",
+    "source": "RETURNS",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-056",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Nhận hàng sai/thiếu",
+    "q": "Khách báo thiếu phụ kiện trong hộp sau khi nhận. Việc đầu tiên nên làm?",
+    "a": [
+      "Nhận mã đơn và bằng chứng để kiểm tra theo chính sách",
+      "Từ chối nếu khách không có video mở hộp hoàn chỉnh.",
+      "Cam kết hoàn tiền toàn bộ ngay khi khách gửi tin.",
+      "Chỉ báo khách khiếu nại với hãng vận chuyển, không cần COLORA hỗ trợ."
+    ],
+    "key": [
+      0
+    ],
+    "why": "COLORA nhận thông tin đơn, ảnh/video hỗ trợ nhưng không mặc nhiên cần một loại chứng cứ.",
+    "apply": "Kiểm tra đơn đã xác nhận và thời điểm nhận để hướng dẫn.",
+    "source": "RETURNS",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-057",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Bảo hành",
+    "q": "Một khách còn trong hạn bảo hành báo nhẫn móp sau va chạm. Những điều nào đúng? (Chọn tất cả ý đúng)",
+    "a": [
+      "Cam kết đổi mới ngay để giữ thiện cảm",
+      "Phân biệt hạn bảo hành với phạm vi áp dụng",
+      "Có thể báo phí cố định ngay trước bước kiểm tra",
+      "Tiếp nhận thông tin và ảnh tình trạng hiện tại"
+    ],
+    "key": [
+      1,
+      3
+    ],
+    "why": "Chỉ nhận yêu cầu và phân biệt điều kiện trước khi kết luận về bảo hành hoặc phí.",
+    "apply": "Không đưa kết luận nguyên nhân khi chưa có đánh giá.",
+    "source": "WARRANTY",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-058",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Chăm sóc sau mua",
+    "q": "Khách hỏi vệ sinh cơ bản sau thời gian sở hữu. Làm sao phân biệt với phục hồi?",
+    "a": [
+      "Vệ sinh cơ bản đồng nghĩa có thể xóa mọi vết xước trên bề mặt.",
+      "Mọi dịch vụ chăm sóc đều miễn phí theo chính sách hiện tại.",
+      "Không tiếp nhận bất cứ yêu cầu chăm sóc nào sau thời hạn bảo hành.",
+      "Vệ sinh cơ bản miễn phí, mạ/phục hồi có thể được báo phí"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Chăm sóc cơ bản và sửa/phục hồi chuyên sâu có phạm vi khác nhau.",
+    "apply": "Đọc hướng dẫn hiện hành trước khi hướng khách gửi sản phẩm.",
+    "source": "WARRANTY",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-059",
+    "role": "CARE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Sau mua",
+    "q": "Khách đã nhận hàng và hỏi bảo quản. Nhân viên nên ưu tiên điều gì?",
+    "a": [
+      "Dùng hướng dẫn care đúng loại đá và lớp phủ của mẫu",
+      "Khuyến khích khách đeo liên tục để giữ bề mặt luôn sáng.",
+      "Gửi ngay gợi ý mua một món khác trong collection.",
+      "Nói mọi đá màu có thể ngâm nước ấm và làm sạch siêu âm."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Aftercare tốt giúp sở hữu an tâm, không mặc định là lúc để upsell.",
+    "apply": "Dùng hướng dẫn theo SKU nếu có; khác loại đá cần lưu ý riêng.",
+    "source": "WARRANTY",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-060",
+    "role": "CARE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Phản hồi giá trị",
+    "q": "Khách hỏi “Nhẫn này đáng tiền không?” nhưng chưa rõ họ muốn sử dụng thế nào. Câu hỏi tiếp theo hữu ích?",
+    "a": [
+      "“Bạn có muốn xem mẫu cao giá hơn để so sánh không?”",
+      "“Bạn muốn đeo thường xuyên, phối đồ hay tặng ai vậy?”",
+      "“Bạn có muốn chốt để giữ ưu đãi trước không?”",
+      "“Bạn có nghe đến triết lý Facets of Feeling của COLORA chưa?”"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Điểm phù hợp cần được xác định trước khi so giá trị sản phẩm.",
+    "apply": "Tư vấn dựa hoàn cảnh mua và bằng chứng, không yêu cầu chuyện riêng.",
+    "source": "CUSTOMER",
+    "status": "GIẢ THUYẾT MỤC TIÊU",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-061",
+    "role": "CARE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Khách chưa phản hồi",
+    "q": "Khách đã hỏi size rồi im lặng. Hướng tiếp theo nào phù hợp với thương hiệu online?",
+    "a": [
+      "Chuyển danh sách khách cho mọi nhân viên cùng nhắc.",
+      "Có thể nhắn hỗ trợ một lần, nhưng không gây áp lực mua",
+      "Tạo đơn nháp có tên khách rồi gửi link thanh toán ngay.",
+      "Gửi tin nhắc vài giờ một lần cho đến khi có quyết định."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Một lượt hỏi không đồng nghĩa đồng ý nhận nhiều tin nhắn bán hàng.",
+    "apply": "Tránh theo đuổi quá mức; khi khách từ chối thì dừng.",
+    "source": "PRIVACY",
+    "status": "ĐỊNH HƯỚNG DỊCH VỤ",
+    "stage": 3,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-062",
+    "role": "CARE",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Bảo mật thông tin",
+    "q": "Một người nhắn từ tài khoản khác để xin địa chỉ nhận hàng của một đơn. Nên làm gì?",
+    "a": [
+      "Gửi địa chỉ nếu họ biết tên người mua và màu đá.",
+      "Yêu cầu mọi khách gửi ảnh CCCD công khai trong cuộc trò chuyện.",
+      "Không chia sẻ dữ liệu trước khi xác minh quyền truy cập",
+      "Gửi địa chỉ rút gọn kèm số điện thoại để xác nhận."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Bảo vệ thông tin nhận hàng quan trọng hơn việc trả lời thật nhanh.",
+    "apply": "Chuyển yêu cầu xác minh qua kênh chính thức có phân quyền.",
+    "source": "PRIVACY",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-063",
+    "role": "CARE",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Tự thưởng",
+    "q": "Khách nói “Tôi mua chỉ vì thích màu đá, chẳng có dịp gì cả”. Nhân viên nên làm gì?",
+    "a": [
+      "Thuyết phục khách phải chọn một cột mốc để món đồ có ý nghĩa.",
+      "Công nhận gu màu cá nhân, tư vấn thêm cách đeo nếu khách muốn",
+      "Chỉ gợi những sản phẩm nằm trong Gift Guide cho dịp đặc biệt.",
+      "Đề nghị chọn màu khác gắn với một ý nghĩa cảm xúc cụ thể."
+    ],
+    "key": [
+      1
+    ],
+    "why": "COLORA không yêu cầu khách phải có một câu chuyện lớn mới được mua.",
+    "apply": "Tập trung điều khách muốn biết thay vì dựng một câu chuyện cho họ.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-064",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Sản phẩm không rõ cấu hình",
+    "q": "Khách hỏi: 'COLORA SILVER khác bạc 925 như thế nào? Đợt ra mắt dùng chất liệu gì và tôi cần xác minh gì ở chiếc nhẫn cụ thể?'",
+    "a": [
+      "Giải thích COLORA SILVER dùng bạc tái chế GENIA276 Ag 930‰ trên toàn bộ launch range; kiểm tra hoàn thiện và hồ sơ đúng SKU",
+      "Nêu GENIA276 Ag 930‰ là chất liệu của mọi sản phẩm tương lai, bất kể xưởng và bộ sưu tập",
+      "Dùng chứng nhận RJC của nguồn bạc để khẳng định chất lượng, độ bền của toàn bộ thành phẩm",
+      "Chỉ nói chung về đá màu, không cần cung cấp vật liệu hay thông tin kỹ thuật"
+    ],
+    "key": [
+      0
+    ],
+    "why": "Hồ sơ P0.7 đã chốt GENIA276 Ag 930‰ cho toàn bộ sản phẩm launch. COLORA SILVER là tên brand-facing, còn hồ sơ lớp phủ, QC và thông số sản phẩm vẫn theo SKU; chứng nhận nguồn nguyên liệu không tự xác nhận toàn bộ thành phẩm.",
+    "apply": "Tư vấn đúng quyết định vật liệu launch, sau đó tra Product Master và hồ sơ hoàn thiện của mẫu khách đang xem.",
+    "source": "SKU",
+    "status": "ĐÃ CHỐT NỘI BỘ / THEO SKU",
+    "stage": 3,
+    "chapter": "07"
+  },
+  {
+    "id": "ON-065",
+    "role": "MKT",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Định vị",
+    "q": "Nội dung đầu trang chủ nên giúp khách mới hiểu COLORA trước hết ở điểm nào?",
+    "a": [
+      "Chỉ trình bày bảng giá vì mọi người truy cập đều đã hiểu thương hiệu.",
+      "Thông tin về xưởng sản xuất chi tiết hơn mọi ảnh sản phẩm.",
+      "Một câu chuyện dài về đá quý trước khi cho người dùng xem danh mục.",
+      "Demi-fine đá màu có thiết kế riêng và dễ khám phá trên web"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Trang chủ là điểm bắt đầu hành trình online, phải rõ định vị và dẫn tới sản phẩm.",
+    "apply": "Kiểm tra vài giây đầu trên mobile: người mới hiểu ngay COLORA bán gì không?",
+    "source": "SITE",
+    "status": "ĐỊNH HƯỚNG NỘI DUNG",
+    "stage": 3,
+    "chapter": "04"
+  },
+  {
+    "id": "ON-066",
+    "role": "MKT",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Giọng thương hiệu",
+    "q": "Bài viết nói “Không mua viên đá này là bỏ lỡ phiên bản tốt nhất của mình”. Vấn đề chính?",
+    "a": [
+      "Không có giá niêm yết trong câu kêu gọi mua.",
+      "Văn phong chưa có đủ từ khóa trang sức cho SEO.",
+      "Thiếu một biểu tượng màu rõ ràng trong thông điệp.",
+      "Thông điệp dùng áp lực cảm xúc, không tôn trọng quyết định của khách"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Giọng thương hiệu nên ấm, gần gũi và không thao túng cảm xúc.",
+    "apply": "Thay bằng lời gợi ý cách chọn màu/kiểu đeo phù hợp.",
+    "source": "BRAND",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 3,
+    "chapter": "04"
+  },
+  {
+    "id": "ON-067",
+    "role": "MKT",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Storytelling",
+    "q": "Campaign “mỗi màu là một kiểu người” có hợp COLORA không?",
+    "a": [
+      "Phù hợp vì dễ segment người mua theo tính cách trên mạng xã hội.",
+      "Không áp một ý nghĩa cố định lên người thích cùng màu",
+      "Phù hợp nếu các nhóm tính cách không trùng nhau.",
+      "Chỉ phù hợp khi mọi viên đá của collection có chứng thư độc lập."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Triết lý chính thức cho phép cùng một màu chứa nhiều cảm xúc.",
+    "apply": "Thử nội dung từ khoảnh khắc đời sống, không tự nhận chẩn đoán người xem.",
+    "source": "STORY",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 3,
+    "chapter": "04"
+  },
+  {
+    "id": "ON-068",
+    "role": "MKT",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Visual thật",
+    "q": "Một Reel có đá rất đẹp nhưng màu được filter xanh đậm hơn viên đá thật. Quyết định phù hợp?",
+    "a": [
+      "Giữ video và cho nhân viên CS giải thích sau khi khách nhận hàng.",
+      "Đổi tên màu viên đá trong caption để phù hợp filter.",
+      "Dùng màu đúng đá thật, hoặc ghi rõ hình chỉ mang tính ý tưởng",
+      "Tiếp tục dùng vì quảng cáo cho phép màu sắc giàu cảm xúc hơn thực tế."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Online-first đòi khả năng đối chiếu hình ảnh với sản phẩm thật.",
+    "apply": "Rà footage với sản phẩm chuẩn trước khi đưa vào quảng cáo SKU.",
+    "source": "SITE",
+    "status": "KIẾN THỨC NGÀNH",
+    "stage": 3,
+    "chapter": "04"
+  },
+  {
+    "id": "ON-069",
+    "role": "MKT",
+    "pillar": "SẢN PHẨM",
+    "topic": "Bằng chứng kỹ thuật",
+    "q": "Trước khi nói “đá tự nhiên không xử lý” trên trang bán, cần gì? (Chọn tất cả ý đúng)",
+    "a": [
+      "Tên/chủng loại đá chính xác của từng SKU",
+      "Dữ liệu xử lý trong hồ sơ viên đá có căn cứ",
+      "Một bức ảnh macro đẹp thay giấy tờ kỹ thuật",
+      "Dùng một bộ mô tả chưa xử lý cho mọi collection"
+    ],
+    "key": [
+      0,
+      1
+    ],
+    "why": "Tên đá và tình trạng xử lý là dữ kiện từng SKU; không dùng một mô tả chung.",
+    "apply": "Đưa claim vào checklist duyệt sản phẩm.",
+    "source": "SKU",
+    "status": "CHỜ HỒ SƠ SKU",
+    "stage": 3,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-070",
+    "role": "MKT",
+    "pillar": "SẢN PHẨM",
+    "topic": "Claim về lớp phủ",
+    "q": "Đội ngũ viết “mạ rhodium nên không bao giờ xỉn”. Cách sửa phù hợp?",
+    "a": [
+      "Dùng câu mạnh hơn để khách nhận biết điểm khác biệt.",
+      "Đổi “không bao giờ” thành “gần như không bao giờ” mà không cần kiểm tra.",
+      "Chỉ dùng lời hứa đó trên story 24 giờ vì nội dung biến mất nhanh.",
+      "Bỏ cam kết tuyệt đối; ghi lớp phủ và hướng care có căn cứ"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Độ bền lớp phủ phụ thuộc sử dụng; claim phải có phạm vi và bằng chứng.",
+    "apply": "Kiểm tra đúng vật liệu của từng SKU trước khi quảng cáo.",
+    "source": "MATERIAL",
+    "status": "CHỜ HỒ SƠ SKU",
+    "stage": 3,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-071",
+    "role": "MKT",
+    "pillar": "SẢN PHẨM",
+    "topic": "Nội dung mua online",
+    "q": "Bài How to Wear chỉ có 3 ảnh macro, không thấy kiểu đeo. Thiếu gì?",
+    "a": [
+      "Thêm hình đeo thật, tỷ lệ, và cách phối dễ hình dung",
+      "Thêm lịch sử và tên tiếng Anh của từng loại đá để tăng chiều sâu.",
+      "Chỉ cần thêm một đoạn quote cảm xúc ở đầu bài viết.",
+      "Đổi sang ảnh sản phẩm trên nền tối để tạo cảm giác luxury."
+    ],
+    "key": [
+      0
+    ],
+    "why": "How to Wear phải giúp khách hình dung cách dùng, không chỉ ca ngợi sản phẩm.",
+    "apply": "Tạo brief ảnh theo câu hỏi “đeo với gì, trông thế nào trên người?”.",
+    "source": "SEO",
+    "status": "ĐỊNH HƯỚNG NỘI DUNG",
+    "stage": 3,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-072",
+    "role": "MKT",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Động cơ mua",
+    "q": "Hai người cùng tuổi có thể xem cùng một mẫu: một để tự thưởng, một để tặng. Vì sao cần nội dung khác?",
+    "a": [
+      "Bởi người mua quà và người tự mua thường có lo ngại rất khác nhau",
+      "Vì mỗi người phải có một ý nghĩa màu đá cố định mới mua.",
+      "Vì thuật toán bắt buộc hiển thị màu đá khác theo từng tuổi.",
+      "Vì người mua quà luôn có ngân sách gấp đôi người tự thưởng."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Segmentation theo job-to-be-done và buyer/wearer hữu ích hơn chỉ tuổi.",
+    "apply": "Thiết kế hai lối vào “Cho bạn” và “Cho người bạn thương”.",
+    "source": "CUSTOMER",
+    "status": "GIẢ THUYẾT MỤC TIÊU",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-073",
+    "role": "MKT",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Target segment",
+    "q": "Nhóm tuổi nữ 22–38 được ghi trong chiến lược. Bước cần làm để hiểu thực tế người mua?",
+    "a": [
+      "Giữ nguyên suy đoán về tính cách của từng nhóm tuổi mà không cần số liệu.",
+      "Viết một persona đại diện và dùng cho mọi chiến dịch lâu dài.",
+      "Chọn influencer có độ tuổi gần target để thay thế nghiên cứu.",
+      "Phỏng vấn và xem hành vi mua trước khi tin vào persona"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Target cần được nghiên cứu từ hành vi và nhu cầu, không chỉ nhân khẩu học.",
+    "apply": "Dùng insight sheet có cột nguồn và độ tin cậy.",
+    "source": "CUSTOMER",
+    "status": "GIẢ THUYẾT MỤC TIÊU",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-074",
+    "role": "MKT",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Cognitive Gap",
+    "q": "Một khách bình luận 'Sao nhẫn bạc lại vài triệu?' và chưa biết bên trong gồm đá màu tự nhiên, thiết kế, chế tác cùng dịch vụ. Marketing cần tạo nội dung gì để làm rõ khoảng thiếu thông tin mà không khẳng định mọi nhẫn COLORA đều giống nhau?",
+    "a": [
+      "Công khai bảng so sánh giá bạc 925 với vàng 18K và suy ra giá thành phẩm chỉ từ bạc.",
+      "Chỉ kể câu chuyện cảm xúc và khuyến khích khách xem thêm khi muốn hiểu kỹ thuật.",
+      "Giải thích theo một SKU đã duyệt về đá màu, thiết kế, hoàn thiện, sử dụng và hậu mãi, kèm chứng cứ và phạm vi.",
+      "Trả lời rằng đây là phân khúc demi-fine nên giá cao, không cần giải thích từng sản phẩm."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Đây có thể là khoảng thiếu nhận thức về sự khác nhau giữa giá bạc nguyên liệu và tổng giá trị thành phẩm. Nội dung nên dùng SKU/ảnh thật/thông số/giải thích dễ hiểu, không lấy category hoặc story thay bằng chứng.",
+    "apply": "Tạo 'What makes this piece?' theo một SKU có Product Passport được duyệt, không đăng giá vốn hoặc tài liệu nguồn cung chưa được phép công bố.",
+    "source": "CUSTOMER",
+    "status": "GIẢ THUYẾT MỤC TIÊU",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-075",
+    "role": "MKT",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Bình luận social",
+    "q": "30 bình luận trên TikTok hỏi độ bền đá chứng minh điều gì?",
+    "a": [
+      "Bình luận là tín hiệu đáng nghiên cứu, không đại diện thị trường",
+      "Tất cả câu hỏi đều do đối thủ tạo ra để làm xấu thương hiệu.",
+      "Khách chắc chắn không hiểu gì về trang sức demi-fine.",
+      "Độ bền là động cơ mua số một của mọi khách Việt Nam."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Bình luận cho biết các vấn đề được nêu, không cho tỷ lệ thị trường.",
+    "apply": "Phân nhóm câu hỏi và đối chiếu với tư vấn, báo cáo thực tế.",
+    "source": "CUSTOMER",
+    "status": "GIẢ THUYẾT MỤC TIÊU",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-076",
+    "role": "MKT",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Nghiên cứu thực tế",
+    "q": "Muốn hiểu khách vì sao chưa mua trang sức đá màu, câu hỏi phỏng vấn nào ít dẫn dắt hơn?",
+    "a": [
+      "“Bạn nghĩ COLORA đáng tiền hơn các hãng bạc khác chứ?”",
+      "“Lần trước cân nhắc mua đá màu, điều gì khiến bạn dừng lại?”",
+      "“Bạn có thường thiếu tự tin khi chọn trang sức online không?”",
+      "“Có phải bạn sợ đá màu sẽ nhanh lỗi mốt không?”"
+    ],
+    "key": [
+      1
+    ],
+    "why": "Hỏi về một trải nghiệm mua thật thường hữu ích hơn câu xác nhận giả thuyết sẵn.",
+    "apply": "Ghi câu trả lời nguyên văn và tách quan sát khỏi kết luận.",
+    "source": "CUSTOMER",
+    "status": "GIẢ THUYẾT MỤC TIÊU",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-077",
+    "role": "MKT",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Thông điệp mua quà",
+    "q": "Nội dung Gift Guide đang hướng đến người mua quà, nhưng chỉ trình bày ý nghĩa của màu. Cần bổ sung gì?",
+    "a": [
+      "Một bảng gán màu theo tính cách người nhận để khách chọn nhanh.",
+      "Một bài dài về lịch sử khoáng vật của đá quý để tăng cảm xúc.",
+      "Chọn theo gu người nhận, loại trang sức, size và hạn giao dự kiến",
+      "Chỉ thêm hình hộp quà vì mọi vấn đề khác có thể hỏi Client Care."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Người mua online cần giảm rủi ro sai quà, không chỉ tìm biểu tượng cảm xúc.",
+    "apply": "Tạo bộ lọc/gợi ý theo hoàn cảnh, dùng dịch vụ có thật trên website.",
+    "source": "GIFT",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-078",
+    "role": "MKT",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Sự phù hợp",
+    "q": "Khách xem nhiều lần mẫu nhẫn mà không mua. Giả thuyết nào là quá vội vàng?",
+    "a": [
+      "Có thể thiếu ảnh đeo hoặc chưa chắc về size.",
+      "Có thể chưa tìm thấy thông tin đá họ cần để yên tâm.",
+      "Có thể đang so giá trị với một lựa chọn khác.",
+      "Khách chắc chắn chỉ chờ có voucher giảm giá, không cần xem thêm thông tin khác"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Xem lại nhiều lần không đủ chứng minh lý do chưa mua.",
+    "apply": "Kiểm tra các bước sau khi xem, không tạo chiến dịch từ một suy luận.",
+    "source": "JOURNEY",
+    "status": "GIẢ THUYẾT HÀNH VI",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-079",
+    "role": "MKT",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Ads -> landing",
+    "q": "CTR cao nhưng khách thoát landing nhanh. Cần kiểm tra gì? (Chọn tất cả ý đúng)",
+    "a": [
+      "Trạng thái link, sản phẩm và variant có đúng không",
+      "Tăng chi phí quảng cáo ngay vì CTR đã đủ tốt",
+      "Nội dung quảng cáo có khớp trang đích không",
+      "Tốc độ và khả năng xem ảnh/thông số trên mobile"
+    ],
+    "key": [
+      0,
+      2,
+      3
+    ],
+    "why": "CTR không đo trải nghiệm sau click; phải xem chuỗi dẫn đến mua.",
+    "apply": "Bắt đầu với QA link, page load và dữ kiện sản phẩm.",
+    "source": "JOURNEY",
+    "status": "GIẢ THUYẾT HÀNH VI",
+    "stage": 3,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-080",
+    "role": "MKT",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Product page",
+    "q": "Trang sản phẩm có nhiều ảnh nghệ thuật nhưng không thấy kích thước, chất liệu và chính sách. Rủi ro chính?",
+    "a": [
+      "Khách sẽ tin thương hiệu hơn vì nội dung cao cấp không nói quá nhiều.",
+      "Khách không đủ thông tin để tự xác định món đồ có hợp",
+      "Sản phẩm chắc chắn sẽ chỉ phù hợp làm quà, không tự mua.",
+      "Giảm nguy cơ trả hàng vì khách không biết trước kỳ vọng."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Online product page phải giảm bất định, không chỉ đẹp.",
+    "apply": "Ưu tiên bổ sung thông tin đã được duyệt và link Size/Care trước ads.",
+    "source": "SITE",
+    "status": "ĐỊNH HƯỚNG KÊNH",
+    "stage": 3,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-081",
+    "role": "MKT",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Giỏ hàng",
+    "q": "Có lượt xem sản phẩm nhưng ít đơn hàng. Có thể kết luận ngay giá quá cao không?",
+    "a": [
+      "Có, nếu ít người để lại bình luận tích cực trên social.",
+      "Không; phải xét cả bằng chứng và hành trình thanh toán",
+      "Có, vì khách không mua luôn là phản ứng với giá.",
+      "Không; chỉ cần tăng quảng cáo đến đúng người là được."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Chuyển đổi thấp có nhiều nguyên nhân và cần dữ liệu thực tế.",
+    "apply": "Kiểm tra funnel từ xem trang đến checkout trước khi kết luận.",
+    "source": "JOURNEY",
+    "status": "GIẢ THUYẾT HÀNH VI",
+    "stage": 3,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-082",
+    "role": "MKT",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Trạng thái sản phẩm",
+    "q": "Website vẫn có nội dung thử nghiệm trên một trang sản phẩm. Marketing nên xử lý trước khi đưa traffic vào?",
+    "a": [
+      "QA trang live, variant và giá trước khi mua quảng cáo",
+      "Chỉ ẩn chữ “mẫu” trên ảnh, giữ nguyên giá và mô tả cũ.",
+      "Để nguyên vì nội dung test không ảnh hưởng người xem nếu hình đẹp.",
+      "Chuyển hướng traffic về trang chủ dù khách muốn xem đúng món."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Kết quả tìm kiếm từng ghi nhận trang mẫu/placeholder; tình trạng live cần kiểm tra lại.",
+    "apply": "Báo Web/Product cập nhật nếu nội dung test còn công khai.",
+    "source": "SITE",
+    "status": "CHỜ QA WEBSITE",
+    "stage": 3,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-083",
+    "role": "MKT",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Content & thương hiệu",
+    "q": "Bài SEO về đá màu có rất nhiều thông tin khoáng vật nhưng không giúp khách chọn trang sức. Nên làm gì?",
+    "a": [
+      "Gắn kiến thức đá vào việc lựa chọn và sử dụng trang sức",
+      "Bỏ mọi thông tin kỹ thuật để chỉ kể chuyện cảm xúc.",
+      "Chuyển sang bán đá rời nếu bài về khoáng vật được tìm kiếm nhiều.",
+      "Giữ vì mục đích lớn nhất của SEO là tối đa hóa số từ chuyên môn."
+    ],
+    "key": [
+      0
+    ],
+    "why": "COLORA bán trang sức hoàn thiện, không phải cửa hàng đá rời.",
+    "apply": "Viết nội dung giúp chọn món trang sức, không chỉ hiểu đá như kiến thức rời.",
+    "source": "SEO",
+    "status": "ĐỊNH HƯỚNG NỘI DUNG",
+    "stage": 3,
+    "chapter": "04"
+  },
+  {
+    "id": "ON-084",
+    "role": "MKT",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Value perception",
+    "q": "Chiến dịch cảm xúc nhận nhiều tương tác, nhưng bình luận hỏi liên tục giá và chất liệu. Nên làm gì?",
+    "a": [
+      "Trả lời rằng người thích câu chuyện không cần quan tâm giá hay vật liệu.",
+      "Giữ câu chuyện nhưng bổ sung thông tin ở điểm chạm đúng",
+      "Bỏ hẳn cảm xúc vì bình luận kỹ thuật chứng minh brand story vô ích.",
+      "Giữ toàn bộ thông điệp, chỉ tăng số lần xuất hiện cho đủ niềm tin."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Cảm xúc thu hút nhưng không thay thế thông tin để đánh giá món hàng.",
+    "apply": "Đặt liên kết sản phẩm, thông số và FAQ ngay dưới creative khi phù hợp.",
+    "source": "CUSTOMER",
+    "status": "GIẢ THUYẾT HÀNH VI",
+    "stage": 3,
+    "chapter": "09"
+  },
+  {
+    "id": "ON-085",
+    "role": "MKT",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Tính nguyên bản",
+    "q": "Đội ngũ đề xuất thay màu đá và logo trên ảnh mẫu của một thương hiệu khác để dùng cho COLORA. Đâu là quyết định đúng?",
+    "a": [
+      "Dùng được ở story vì không hiện lâu như trang website.",
+      "Chỉ đổi tên mẫu, giữ nguyên phần kết cấu kim loại.",
+      "Dùng được nếu thay nền và màu đá đến mức khó nhận ra nguồn.",
+      "Chỉ dùng ảnh do COLORA tạo hoặc có quyền sử dụng"
+    ],
+    "key": [
+      3
+    ],
+    "why": "Ảnh tham khảo không được thay bằng chứng về thiết kế hoặc sản phẩm của COLORA.",
+    "apply": "Dùng reference như gợi ý ánh sáng/bố cục, không sao chép asset.",
+    "source": "VISUAL",
+    "status": "CHUẨN THƯƠNG HIỆU",
+    "stage": 3,
+    "chapter": "04"
+  },
+  {
+    "id": "ON-086",
+    "role": "MKT",
+    "pillar": "THƯƠNG HIỆU",
+    "topic": "Tuyên bố vật liệu",
+    "q": "Content muốn ghi “100% thân thiện môi trường” dựa trên việc bạc có nguồn tái chế. Cần phản biện gì?",
+    "a": [
+      "Bạc tái chế không chứng minh mọi tác động đều tích cực",
+      "Có nguồn bạc tái chế là đủ để khẳng định mọi tác động môi trường của sản phẩm.",
+      "Mọi claim vật liệu đều không được đưa vào marketing dù có chứng từ.",
+      "Chỉ cần đổi chữ “100%” thành “rất” mà không cần nguồn đối chiếu."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Tuyên bố môi trường phải được chứng minh theo phạm vi thực tế, không mở rộng quá bằng chứng.",
+    "apply": "Xin hồ sơ nguyên liệu và duyệt câu chữ chính xác.",
+    "source": "MATERIAL",
+    "status": "CHỜ HỒ SƠ SKU",
+    "stage": 3,
+    "chapter": "04"
+  },
+  {
+    "id": "ON-087",
+    "role": "MKT",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Đo nội dung",
+    "q": "Một bài How to Wear có nhiều lượt xem nhưng ít người sang xem sản phẩm. Điều nên làm?",
+    "a": [
+      "Đổi toàn bộ nội dung thành ưu đãi giá để tăng click ngay.",
+      "Kết luận bài thất bại vì không tạo đơn ngay từ lượt xem đầu tiên.",
+      "Kiểm tra CTA và hành vi sang sản phẩm trước khi kết luận",
+      "Tăng số lượng hashtag và bỏ mọi liên kết đến sản phẩm."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Nội dung hữu ích còn cần đo tiến trình khám phá phù hợp với giai đoạn.",
+    "apply": "Đối chiếu lượt sang sản phẩm và chất lượng traffic, không chỉ view.",
+    "source": "JOURNEY",
+    "status": "GIẢ THUYẾT HÀNH VI",
+    "stage": 3,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-088",
+    "role": "MKT",
+    "pillar": "HÀNH TRÌNH",
+    "topic": "Đồng bộ kênh",
+    "q": "Social và website ghi tên đá khác nhau cho cùng SKU. Bước nào phù hợp? (Chọn tất cả ý đúng)",
+    "a": [
+      "Sửa dữ liệu ở các kênh liên quan và kiểm tra lại",
+      "Tra hồ sơ SKU đã duyệt để tìm thông tin chuẩn",
+      "Giữ mỗi kênh một tên đá cho phù hợp đối tượng",
+      "Tạm ngừng claim chưa đồng nhất khi cần"
+    ],
+    "key": [
+      0,
+      1,
+      3
+    ],
+    "why": "Thông số SKU không được tùy biến theo kênh truyền thông.",
+    "apply": "Có bước đối chiếu tên đá/variant trước khi publish.",
+    "source": "SKU",
+    "status": "CHỜ HỒ SƠ SKU",
+    "stage": 3,
+    "chapter": "11"
+  },
+  {
+    "id": "ON-089",
+    "role": "MKT",
+    "pillar": "KHÁCH HÀNG",
+    "topic": "Kênh nhận tin",
+    "q": "Marketing muốn gửi email quảng cáo cho mọi khách đã đặt hàng. Điều gì cần kiểm tra?",
+    "a": [
+      "Kiểm tra quyền gửi marketing và cơ chế hủy nhận đã công bố",
+      "Chỉ cần tiêu đề email có chữ “COLORA” là đủ thông báo mục đích.",
+      "Chỉ cần khách đã thanh toán thì mặc nhiên cho phép gửi mọi loại quảng cáo.",
+      "Mọi email giao nhận cũng phải dừng nếu khách không thích quảng cáo."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Chính sách bảo mật phân biệt xử lý đơn với nhận nội dung marketing.",
+    "apply": "Không dùng danh sách khách mua hàng như danh sách đã opt-in tự động.",
+    "source": "PRIVACY",
+    "status": "WEB ĐANG CÔNG BỐ",
+    "stage": 3,
+    "chapter": "09"
+  }
+]

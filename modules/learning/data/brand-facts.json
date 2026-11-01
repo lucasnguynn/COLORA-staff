@@ -1,0 +1,42 @@
+{
+  "schema": "colora-brand-facts-v1",
+  "updated_at": "2026-10-30",
+  "authority": "Founder-confirmed internal decisions; separate product-level documentation remains necessary",
+  "positioning": {
+    "category": "Trang sức demi-fine",
+    "price_range_expected_vnd": {
+      "min": 2300000,
+      "max": 8000000,
+      "status": "Định hướng giá, không phải giá niêm yết cho mọi SKU"
+    }
+  },
+  "metal_system": {
+    "brand_name": "COLORA SILVER",
+    "vietnamese_name": "Bạc COLORA",
+    "positioning": "Hệ kim loại của COLORA với công nghệ mạ phủ độc quyền",
+    "substrate": "Bạc tái chế GENIA276 Ag 930‰",
+    "silver_fineness_permille": 930,
+    "recycled_silver": true,
+    "plating_process": "Công nghệ mạ phủ độc quyền của COLORA",
+    "plating_scope": "Thông số lớp phủ và tính năng phải dựa theo hồ sơ kỹ thuật SKU và thử nghiệm phù hợp",
+    "certification_statement": "Theo thông tin người sáng lập: vật liệu bạc tái chế có chứng nhận liên quan Responsible Jewellery Council (RJC); xác định đúng loại/chứng từ/phạm vi trước khi công bố.",
+    "rjc_context": "RJC Chain of Custody là tiêu chuẩn về truy xuất và nguồn cung kim loại quý; không tự chứng nhận toàn bộ thành phẩm COLORA.",
+    "public_sources": [
+      "https://progold.com/sustainability",
+      "https://www.responsiblejewellery.com/standards/chain-of-custody/"
+    ],
+    "launch_material_confirmed": true,
+    "launch_all_products_use_genia276_ag930": true,
+    "launch_decision_date": "2026-09-19",
+    "launch_material_scope": "All launch products; COLORA imports the alloy and supplies it to manufacturing workshop. Does not automatically cover future new lines.",
+    "claim_hierarchy": "Brand-facing COLORA SILVER; SKU/CERT technical GENIA276 · Ag 930‰; finishing data per approved SKU."
+  },
+  "guards": [
+    "Không mô tả COLORA SILVER là bạc 925",
+    "Không đưa mức giá cũ 2,3–5 triệu đồng vào tài liệu hiện hành",
+    "Không diễn giải chứng nhận nguồn nguyên liệu là chứng nhận toàn bộ thành phẩm",
+    "Không khẳng định công nghệ mạ phủ được cấp bằng sáng chế nếu chưa có chứng cứ",
+    "Không tự hứa lớp phủ không trầy/xỉn vĩnh viễn",
+    "Không làm nhân viên hiểu rằng vật liệu nền của các sản phẩm launch còn chưa chốt; cần tách xác nhận vật liệu launch và chứng từ hoàn thiện từng SKU."
+  ]
+}

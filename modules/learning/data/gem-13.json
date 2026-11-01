@@ -1,0 +1,266 @@
+[
+  {
+    "id": "GM-001",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Phân loại",
+    "chapter": "13",
+    "q": "Đá được người bán gọi là 'bán quý' có đương nhiên kém bền hơn mọi đá 'quý' không?",
+    "a": [
+      "Có, mọi đá bán quý đều có Mohs dưới 7.",
+      "Có, vì GIA đã cấp bảng xếp hạng quý/bán quý.",
+      "Không; đó không phải thang đánh giá độ bền.",
+      "Có, vì đá quý luôn là loại không qua xử lý."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Nhóm quý/bán quý là thuật ngữ thị trường, không là thang phẩm chất khoa học.",
+    "apply": "Khi mô tả sản phẩm, nêu chủng loại và đặc tính kiểm chứng thay vì chỉ nói 'bán quý'.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-002",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Nguồn gốc",
+    "chapter": "13",
+    "q": "Hai viên sapphire có cùng cấu trúc khoáng, một hình thành trong tự nhiên, một tạo trong phòng lab. Khác nhau chính ở đâu?",
+    "a": [
+      "Viên synthetic luôn là đá thủy tinh mô phỏng.",
+      "Viên natural luôn có độ cứng cao hơn viên synthetic.",
+      "Viên synthetic không thể mang tên sapphire dù cùng khoáng vật.",
+      "Nguồn gốc hình thành: natural và synthetic."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Đá tổng hợp có thể có thành phần và cấu trúc tương ứng đá tự nhiên; mô phỏng là loại khác.",
+    "apply": "Trên Product Passport, tách natural/lab-grown/simulant.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-003",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Xử lý",
+    "chapter": "13",
+    "q": "Sapphire tự nhiên đã được xử lý nhiệt thì nên mô tả thế nào?",
+    "a": [
+      "Sapphire tự nhiên đã gia nhiệt, khi có căn cứ.",
+      "Sapphire tổng hợp vì đã qua can thiệp sau hình thành.",
+      "Sapphire tự nhiên không xử lý, vì nguồn gốc là tự nhiên.",
+      "Sapphire mô phỏng, vì màu sắc đã có thể thay đổi."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Treatment và natural origin là hai thuộc tính độc lập.",
+    "apply": "Tách trường nguồn gốc đá và phương pháp xử lý trên SKU.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-004",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Mohs",
+    "chapter": "13",
+    "q": "Thang Mohs thể hiện đúng nhất đặc tính nào của đá?",
+    "a": [
+      "Khả năng chống mẻ và chống nứt do lực va đập.",
+      "Mức chống trầy tương đối.",
+      "Khả năng giữ màu trước nhiệt và tia UV.",
+      "Mức giá trị quy đổi theo carat của đá màu."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Mohs là thang chống trầy phi tuyến tính; toughness và stability khác.",
+    "apply": "Không hứa 'không thể vỡ' từ Mohs 8–9.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-005",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Toughness",
+    "chapter": "13",
+    "q": "Độ dai (toughness) có liên quan trực tiếp nhất đến điều gì?",
+    "a": [
+      "Mức độ đậm của màu xanh hoặc đỏ.",
+      "Số mặt giác phản chiếu trên crown.",
+      "Khả năng chống mẻ, nứt và vỡ.",
+      "Độ tinh khiết của bạc dùng trong ổ đá."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Toughness là thành tố bền khác hardness và stability.",
+    "apply": "Xem điểm nhọn và vết nứt khi đặt chấu.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-006",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Stability",
+    "chapter": "13",
+    "q": "Một viên đá bị đổi màu khi chịu nhiệt mạnh. Cần đánh giá nhóm tính chất nào?",
+    "a": [
+      "Chỉ độ cứng chống trầy Mohs.",
+      "Chỉ khối lượng riêng g/cm³.",
+      "Chỉ trọng lượng carat của viên đá.",
+      "Độ ổn định trước nhiệt và môi trường."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Stability phản ánh mức đáp ứng trước nhiệt, ánh sáng và hóa chất.",
+    "apply": "Khi viết care guide, kiểm tra xử lý và độ ổn định.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-007",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Màu sắc",
+    "chapter": "13",
+    "q": "Sự khác nhau giữa hue, tone và saturation của một viên đá là gì?",
+    "a": [
+      "Hue là sắc; tone là sáng/tối; saturation là độ bão hòa.",
+      "Hue là carat; tone là kích thước; saturation là độ cứng.",
+      "Hue là bao thể; tone là mặt giác; saturation là nguồn gốc.",
+      "Hue là lớp phủ; tone là độ trong; saturation là chiều sâu."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Ba tham số mô tả màu khác nhau, không thay thế nhau.",
+    "apply": "Đối chiếu màu đá thực tế thay vì nói 'xanh đậm' chung chung.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-008",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Carat",
+    "chapter": "13",
+    "q": "Hai viên khác loài đá cùng trọng lượng 0,5 ct có nhất thiết cùng kích thước không?",
+    "a": [
+      "Có, 0,5 ct quy định cùng thể tích và chiều dài.",
+      "Không; carat là khối lượng.",
+      "Có, nếu cả hai cắt dáng oval.",
+      "Không, vì carat đo độ đậm màu chứ không đo khối lượng."
+    ],
+    "key": [
+      1
+    ],
+    "why": "1 ct bằng 0,2 gram; mật độ khác nhau làm kích thước thay đổi.",
+    "apply": "CAD cần L×W×D mm, không dùng ct thay số đo.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-009",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Windowing",
+    "chapter": "13",
+    "q": "Nhìn thẳng viên đá thấy vùng giữa xuyên sáng và nhạt màu bất thường. Khái niệm nào cần kiểm tra?",
+    "a": [
+      "Bao thể dạng silk tạo hiệu ứng sao.",
+      "Pleochroism tự động cho biết đá là natural.",
+      "Windowing do tỷ lệ và mặt pavilion.",
+      "Mọi viên đá có step cut đều phải như vậy."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Đá cắt quá nông có thể mất màu ở vùng nhìn xuyên.",
+    "apply": "Quan sát face-up và nghiêng dưới nguồn sáng phù hợp.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-010",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Clarity",
+    "chapter": "13",
+    "q": "Một viên có bao thể ở sát chỗ dự kiến đặt chấu. Cách đánh giá đúng?",
+    "a": [
+      "Bắt buộc loại mọi viên có bất kỳ bao thể nào.",
+      "Chấp nhận vô điều kiện vì bao thể chứng minh đá thật.",
+      "Gọi đó là chứng cứ đá chưa xử lý.",
+      "Kiểm tra nguy cơ nứt và giữ đá."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Bao thể có thể lành tính hoặc gây rủi ro tùy vị trí và bản chất.",
+    "apply": "Chuyển trường hợp sát chấu cho bộ phận kỹ thuật xét.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-011",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Màu thực tế",
+    "chapter": "13",
+    "q": "Ảnh studio cho thấy tourmaline xanh rực. Có thể dùng ảnh ấy để cam kết màu thực mọi điều kiện không?",
+    "a": [
+      "Không; cần đối chiếu ảnh chuẩn sáng và viên thật.",
+      "Có; chỉ cần file ảnh có độ phân giải cao.",
+      "Có; nếu nền ảnh trắng tinh.",
+      "Không; vì tourmaline không thể có màu xanh."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Sắc độ biến thiên theo nguồn sáng, góc và thiết bị.",
+    "apply": "Gửi ảnh/video dưới ánh sáng trung tính khi chọn từ xa.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-012",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Chất lượng",
+    "chapter": "13",
+    "q": "GIA có một hệ grading chuẩn chung cho mọi đá màu giống 4Cs kim cương không?",
+    "a": [
+      "Có; mọi viên đá màu được xếp D–Z và FL–I3.",
+      "Không; đá màu chưa có chuẩn grading chung.",
+      "Có; mọi sapphire có cut grade Excellent đến Poor.",
+      "Không; do đá màu không thể cân trọng lượng carat."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Đánh giá màu/clarity/cut/carat hữu ích, nhưng không đồng nghĩa GIA cấp chuẩn grade phổ quát.",
+    "apply": "Không quảng bá một điểm grade tùy đặt như chứng nhận GIA.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  }
+]

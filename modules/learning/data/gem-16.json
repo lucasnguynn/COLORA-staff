@@ -1,0 +1,310 @@
+[
+  {
+    "id": "GM-040",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Design DNA",
+    "chapter": "16",
+    "q": "Trong hệ tiêu chí lựa chọn đá của COLORA, nguyên tắc thiết kế nào đã được xác lập?",
+    "a": [
+      "Chỉ dùng sapphire xanh trên mọi danh mục.",
+      "Chỉ mua đá có kích thước lớn hơn 1 carat.",
+      "Đá màu chủ đạo, thiết kế dễ đeo.",
+      "Mọi loại đá bắt buộc chưa qua xử lý."
+    ],
+    "key": [
+      2
+    ],
+    "why": "DNA gemstone-first gắn với tỷ lệ, facet và wearability.",
+    "apply": "Đánh giá đá trong ngữ cảnh sản phẩm hoàn chỉnh.",
+    "source": "INTERNAL_QC",
+    "status": "DNA COLORA ĐÃ XÁC LẬP",
+    "stage": 3
+  },
+  {
+    "id": "GM-041",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Natural",
+    "chapter": "16",
+    "q": "Trong những thiết kế đang phát triển ưu tiên đá tự nhiên, nhà cung cấp cần xác nhận những gì?",
+    "a": [
+      "Chỉ tên màu và hình chụp dưới đèn vàng.",
+      "Tên đá, nguồn gốc và xử lý.",
+      "Chỉ cam kết 'đá quý' không kèm loài đá.",
+      "Mọi viên đều untreated dù thiếu chứng thư."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Ưu tiên tự nhiên phải được chứng minh, xử lý công bố riêng.",
+    "apply": "Yêu cầu thông tin trước khi đăng claim trên sản phẩm.",
+    "source": "INTERNAL_QC",
+    "status": "ĐỀ XUẤT QC - CHỜ PHÊ DUYỆT",
+    "stage": 3
+  },
+  {
+    "id": "GM-042",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Calibrated",
+    "chapter": "16",
+    "q": "Hai viên pear đều 7×5 mm nhưng khác chiều sâu; bước kiểm tra kỹ thuật đúng là gì?",
+    "a": [
+      "Đo L×W×D, girdle và dung sai so với CAD mẫu.",
+      "Chọn viên nặng carat hơn mà không cần đo sâu.",
+      "Chỉ xem ảnh chụp thẳng từ trên xuống.",
+      "Chọn viên màu đậm hơn và bỏ qua tỷ lệ."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Kích thước setting phụ thuộc hình học đầy đủ chứ không chỉ L×W.",
+    "apply": "Kiểm kết quả kích thước trước khi phê duyệt nguồn.",
+    "source": "INTERNAL_QC",
+    "status": "ĐỀ XUẤT QC - CHỜ PHÊ DUYỆT",
+    "stage": 3
+  },
+  {
+    "id": "GM-043",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Color QC",
+    "chapter": "16",
+    "q": "'Master color range' trong khung QC đề xuất giúp làm gì?",
+    "a": [
+      "Bảo đảm mọi đá tự nhiên giống hệt một ảnh chỉnh màu.",
+      "Buộc toàn bộ bộ sưu tập sử dụng một sắc xanh duy nhất.",
+      "Thay việc kiểm tra từng viên khi nhận hàng.",
+      "Dải màu chấp nhận theo ánh sáng quy định."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Color master giúp mô tả biến thiên cho từng SKU, chưa phải tiêu chuẩn đã duyệt.",
+    "apply": "Tạo ảnh chuẩn sáng và biên độ sáng/tối nếu được duyệt.",
+    "source": "INTERNAL_QC",
+    "status": "ĐỀ XUẤT QC - CHỜ PHÊ DUYỆT",
+    "stage": 3
+  },
+  {
+    "id": "GM-044",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Cut Gate",
+    "chapter": "16",
+    "q": "Một viên đủ kích thước nhưng có window lớn ở tâm. Điều nào hợp lý?",
+    "a": [
+      "Tự động đạt vì kích thước đã chuẩn.",
+      "Có thể sửa bằng chỉnh ảnh mà không cần kiểm đá.",
+      "Cần so tiêu chí cut của SKU trước khi chọn.",
+      "Cứ chọn vì window chứng minh đá thật."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Cut quality có ảnh hưởng trực tiếp mặt nhìn và màu.",
+    "apply": "Đánh giá face-up rồi ghi lỗi rõ vào checklist.",
+    "source": "INTERNAL_QC",
+    "status": "ĐỀ XUẤT QC - CHỜ PHÊ DUYỆT",
+    "stage": 3
+  },
+  {
+    "id": "GM-045",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Defect Gate",
+    "chapter": "16",
+    "q": "Một viên pear có chip sát đầu nhọn. Cách đánh giá tốt nhất?",
+    "a": [
+      "Chấp nhận ngay nếu chip được che khi chụp ảnh.",
+      "Chuyển kiểm tra kỹ thuật vì điểm yếu.",
+      "Gọi chip là bao thể tự nhiên có giá trị cao.",
+      "Tăng chấu tùy ý mà không cần đối chiếu đá."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Đầu nhọn là vùng dễ mẻ và chịu tác động prong.",
+    "apply": "Yêu cầu hình cận và đánh giá rủi ro trước khi chốt.",
+    "source": "INTERNAL_QC",
+    "status": "ĐỀ XUẤT QC - CHỜ PHÊ DUYỆT",
+    "stage": 3
+  },
+  {
+    "id": "GM-046",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Clarity Gate",
+    "chapter": "16",
+    "q": "Viên đá có bao thể nhỏ không lộ trên mặt nhìn, xa vị trí chấu. Nên làm gì?",
+    "a": [
+      "Đánh giá theo loại đá và chuẩn SKU.",
+      "Loại ngay vì mọi viên tự nhiên phải hoàn toàn sạch.",
+      "Chấp nhận tuyệt đối vì bao thể luôn làm đá tăng giá.",
+      "Tự ghi untreated vì có bao thể."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Bao thể có thể bình thường hoặc bất lợi tùy loại/vị trí.",
+    "apply": "Dùng tiêu chí risk theo SKU thay cho lời phán đoán chung.",
+    "source": "INTERNAL_QC",
+    "status": "ĐỀ XUẤT QC - CHỜ PHÊ DUYỆT",
+    "stage": 3
+  },
+  {
+    "id": "GM-047",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Wearability",
+    "chapter": "16",
+    "q": "Một viên opal đẹp nhưng định dùng trong nhẫn cho khách thường xuyên va chạm tay. Hướng lựa chọn nào hợp lý?",
+    "a": [
+      "Bỏ qua độ dai để ưu tiên câu chuyện cảm xúc.",
+      "Dựa màu sáng để bảo đảm khả năng chống trầy.",
+      "Cam kết mọi nhẫn opal đều phù hợp đeo liên tục.",
+      "Kiểm lại độ bền và setting."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Thiết kế COLORA kết hợp functional, technical và emotional.",
+    "apply": "Chọn đá phải phù hợp mức độ tiếp xúc cơ học của sản phẩm.",
+    "source": "INTERNAL_QC",
+    "status": "ĐỀ XUẤT QC - CHỜ PHÊ DUYỆT",
+    "stage": 3
+  },
+  {
+    "id": "GM-048",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Disclosure",
+    "chapter": "16",
+    "q": "Nhà cung cấp chỉ ghi 'sapphire tự nhiên', không ghi xử lý. Cần làm gì trước khi công bố?",
+    "a": [
+      "Tự ghi unheated vì nhà cung cấp chưa nhắc.",
+      "Đổi tên thành sapphire tổng hợp do thiếu thông tin.",
+      "Yêu cầu làm rõ treatment và chứng cứ phù hợp.",
+      "Dùng mô tả 'đá xanh' để che mọi khác biệt."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Natural và treatment không thay thế nhau.",
+    "apply": "Đặt trạng thái chưa xác minh cho SKU cho đến khi đủ hồ sơ.",
+    "source": "INTERNAL_QC",
+    "status": "ĐỀ XUẤT QC - CHỜ PHÊ DUYỆT",
+    "stage": 3
+  },
+  {
+    "id": "GM-049",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Budget",
+    "chapter": "16",
+    "q": "Một thiết kế COLORA có ngân sách mua đá riêng trong brief nội bộ. Nhân viên cần hiểu điều gì?",
+    "a": [
+      "Mọi viên đá đều phải dưới 700 nghìn.",
+      "Là ngân sách riêng của concept.",
+      "Đó là mức giá bán lẻ đá rời của COLORA.",
+      "Đây là chuẩn giá GIA theo kích thước pear."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Dự toán mua đá theo thiết kế không tự tạo thành tiêu chuẩn thu mua cho toàn danh mục và không phải giá bán lẻ đá rời.",
+    "apply": "Tra brief từng SKU, không tiết lộ giá vốn hoặc thông tin thương mại nhạy cảm.",
+    "source": "INTERNAL_QC",
+    "status": "ĐỀ XUẤT QC - CHỜ PHÊ DUYỆT",
+    "stage": 3
+  },
+  {
+    "id": "GM-050",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Proof",
+    "chapter": "16",
+    "q": "Chứng nhận sản phẩm do COLORA cấp và báo cáo giám định lab độc lập có cùng chức năng không?",
+    "a": [
+      "Không; khác đơn vị phát hành và phạm vi xác nhận.",
+      "Có; COA thương hiệu thay bằng GIA lab report.",
+      "Có; nếu đá có trọng lượng dưới 0,5 ct.",
+      "Không; vì phòng lab không giám định đá màu."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Không hứa giấy kiểm định độc lập cho mọi SKU chỉ từ COA.",
+    "apply": "Liệt kê đúng tài liệu thực tế đi kèm sản phẩm.",
+    "source": "INTERNAL_QC",
+    "status": "ĐỀ XUẤT QC - CHỜ PHÊ DUYỆT",
+    "stage": 3
+  },
+  {
+    "id": "GM-051",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Governance",
+    "chapter": "16",
+    "q": "Tài liệu QC của COLORA từng đề xuất dung sai kích thước và mức bao thể. Nhân viên nên dùng chúng ra sao?",
+    "a": [
+      "Áp ngay ngưỡng ±0,1 mm cho mọi loài và size.",
+      "Công bố trên website như cam kết sẵn có.",
+      "Bỏ mọi bước QC vì chưa có tiêu chuẩn chính thức.",
+      "Chỉ là đề xuất cho tới khi được duyệt."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Phân biệt checklist đề nghị và chính sách QC có người duyệt.",
+    "apply": "Trình chủ sở hữu SOP xác nhận trước khi giao việc.",
+    "source": "INTERNAL_QC",
+    "status": "ĐỀ XUẤT QC - CHỜ PHÊ DUYỆT",
+    "stage": 3
+  },
+  {
+    "id": "GM-052",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Sourcing",
+    "chapter": "16",
+    "q": "Với đá màu tự nhiên, vì sao màu thực có thể không giống 100% ảnh màu tham chiếu?",
+    "a": [
+      "Vì đá tự nhiên luôn biến màu hoàn toàn khi đeo.",
+      "Vì mọi viên đã qua xử lý nhiệt.",
+      "Vì mỗi viên có biến thiên sắc độ và ảnh phụ thuộc ánh sáng.",
+      "Vì carat không đo kích thước đá."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Màu tự nhiên biến thiên; cần điều kiện chụp và approval thực tế.",
+    "apply": "Xác nhận range hoặc ảnh viên trước khi đặt gia công.",
+    "source": "INTERNAL_QC",
+    "status": "ĐỀ XUẤT QC - CHỜ PHÊ DUYỆT",
+    "stage": 3
+  },
+  {
+    "id": "GM-053",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Selection",
+    "chapter": "16",
+    "q": "Khi lọc đá cho một thiết kế COLORA, bộ tiêu chí tích hợp nào sát mục tiêu nhất?",
+    "a": [
+      "Chỉ tên đá, carat và giá thấp.",
+      "Loài đá, màu, kích thước, cut, lỗi và hồ sơ.",
+      "Chỉ màu đẹp và số lượng ảnh studio.",
+      "Chỉ câu chuyện cảm xúc rồi kiểm chứng sau khi bán."
+    ],
+    "key": [
+      1
+    ],
+    "why": "COLORA phải xem vẻ đẹp, kỹ thuật, sử dụng và chứng từ cùng nhau.",
+    "apply": "Đánh giá theo Product Passport và quy tắc QC được phê duyệt.",
+    "source": "INTERNAL_QC",
+    "status": "ĐỀ XUẤT QC - CHỜ PHÊ DUYỆT",
+    "stage": 3
+  }
+]

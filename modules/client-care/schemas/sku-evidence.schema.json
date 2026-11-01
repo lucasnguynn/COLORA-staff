@@ -1,0 +1,403 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lucasnguynn/CSKH-COLORA/blob/main/schemas/sku-evidence.schema.json",
+  "title": "COLORA Product Evidence Record - Template Only",
+  "description": "Public schema for a future access-controlled product information system. NEVER publish internal QC dossiers, supplier costs, customers or unapproved SKU records in this public repository.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sku",
+    "version",
+    "status",
+    "effectiveDate",
+    "owner",
+    "gemstone",
+    "metal",
+    "finish",
+    "construction",
+    "care",
+    "claims",
+    "policyRefs"
+  ],
+  "properties": {
+    "sku": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 80
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "needs_review",
+        "approved",
+        "withdrawn"
+      ]
+    },
+    "effectiveDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewedBy": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "productName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "collection": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "metal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "material",
+        "finenessPerMille",
+        "sourceEvidenceId",
+        "verified"
+      ],
+      "properties": {
+        "material": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "finenessPerMille": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "sourceEvidenceId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "finish": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "layerClaims",
+        "sourceEvidenceId",
+        "verified"
+      ],
+      "properties": {
+        "type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "layerClaims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sourceEvidenceId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "gemstone": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "identity",
+        "treatment",
+        "dimensionsMm",
+        "cut",
+        "evidenceId",
+        "verified"
+      ],
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "identity": {
+          "enum": [
+            "natural",
+            "laboratory-grown",
+            "imitation",
+            "unverified"
+          ]
+        },
+        "treatment": {
+          "type": "string",
+          "description": "Use 'unknown - not verified' when not evidenced. Never infer untreated from natural."
+        },
+        "dimensionsMm": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cut": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidenceId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "construction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "setting",
+        "resizePossible",
+        "careRisks",
+        "qcEvidenceId",
+        "verified"
+      ],
+      "properties": {
+        "setting": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resizePossible": {
+          "enum": [
+            "yes",
+            "no",
+            "requires_assessment",
+            "unknown"
+          ]
+        },
+        "careRisks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qcEvidenceId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "care": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approvedInstruction",
+        "reviewedBy",
+        "verified"
+      ],
+      "properties": {
+        "approvedInstruction": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reviewedBy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "text",
+          "evidenceId",
+          "owner",
+          "status"
+        ],
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "evidenceId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "owner": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "approved",
+              "rejected"
+            ]
+          }
+        }
+      }
+    },
+    "policyRefs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "warrantyVersion",
+        "returnsVersion",
+        "careVersion",
+        "verified"
+      ],
+      "properties": {
+        "warrantyVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "returnsVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "careVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "publicMediaRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Do not store any customer PII, supplier trade secrets, confidential contracts or unapproved claims."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "approved"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "effectiveDate": {
+            "type": "string"
+          },
+          "reviewedBy": {
+            "type": "string"
+          },
+          "metal": {
+            "properties": {
+              "verified": {
+                "const": true
+              }
+            }
+          },
+          "gemstone": {
+            "properties": {
+              "verified": {
+                "const": true
+              }
+            }
+          },
+          "finish": {
+            "properties": {
+              "verified": {
+                "const": true
+              }
+            }
+          },
+          "construction": {
+            "properties": {
+              "verified": {
+                "const": true
+              }
+            }
+          },
+          "care": {
+            "properties": {
+              "verified": {
+                "const": true
+              }
+            }
+          },
+          "policyRefs": {
+            "properties": {
+              "verified": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
