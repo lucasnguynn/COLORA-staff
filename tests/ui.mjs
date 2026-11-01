@@ -108,6 +108,7 @@ try{
   assert((await page.locator('#mail-guide-settings').innerText()).includes('dat.ndq@colora.vn'),'Guide must reflect staff member mailbox');
   await page.locator('[data-mail-platform="apple"]').click();
   assert.equal(new URL(page.url()).hash,'#mail-setup/apple','Apple Mail guide should have a deep link');
+  await page.waitForFunction(()=>document.getElementById('mail-guide-current-app')?.textContent==='Apple Mail');
   assert.equal(await page.locator('#mail-guide-steps .mail-guide-step').count(),6);
   assert((await page.locator('#mail-guide-steps').innerText()).includes('Other Mail Account'),'Apple Mail provider choice is missing');
   await page.locator('[data-mail-zoom="3"]').click();
@@ -117,6 +118,7 @@ try{
   assert.equal(await page.locator('#mail-guide-dialog').evaluate(el=>el.open),false);
   await page.locator('[data-mail-platform="outlook"]').click();
   assert.equal(new URL(page.url()).hash,'#mail-setup/outlook');
+  await page.waitForFunction(()=>document.getElementById('mail-guide-current-app')?.textContent==='Microsoft Outlook');
   assert((await page.locator('#mail-guide-steps').innerText()).includes('Microsoft 365/Exchange'));
   // Existing signature page retains a direct contextual link to setup guide.
   await page.locator('.nav-btn[data-view="signature"]').click();
