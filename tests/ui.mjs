@@ -141,6 +141,8 @@ try{
     }
     if(view==='qr'){
       await embedded.locator('#qrPreview canvas, #qrPreview svg').first().waitFor({state:'attached',timeout:16000});
+      await embedded.locator('#qrPreview svg image').first().waitFor({state:'attached',timeout:16000});
+      assert((await embedded.locator('#logoThumb').getAttribute('src'))?.startsWith('data:image/png;base64,'),'COLORA default mark absent from QR preview');
       assert.equal(await embedded.locator('script[src*="unpkg.com"]').count(),0,'QR engine must be self-hosted');
       assert.equal(await embedded.locator('script[src*="vendor/qr-code-styling.js"]').count(),1,'Local QR library missing');
     }
