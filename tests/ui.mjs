@@ -133,6 +133,13 @@ try{
   assert(await page.locator('body').evaluate(x=>x.classList.contains('module-immersive')));
   await page.keyboard.press('Escape');
   await page.setViewportSize({width:390,height:844});
+  await page.locator('.nav-btn[data-view="client-care"]').click();
+  await page.frameLocator('#module-frame').locator('#main-content').waitFor({state:'visible',timeout:14000});
+  await page.waitForTimeout(650);
+  assert.equal(await page.frameLocator('#module-frame').locator('.app-shell > .sidebar').isVisible(),false,'Client Care mobile should use Staff sidebar only');
+  assert.equal(await page.locator('#module-frame').evaluate(el=>el.contentDocument.documentElement.scrollWidth <= el.clientWidth+2),true,'Client Care has horizontal overflow on mobile');
+  fs.mkdirSync('test-results',{recursive:true});
+  await page.screenshot({path:'test-results/client-care-integrated-mobile.png',fullPage:false});
   await page.locator('#mobile-menu').click();
   assert(await page.locator('#sidebar').evaluate(x=>x.classList.contains('open')));
   assert(await page.locator('#mobile-shade').isVisible());
