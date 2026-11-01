@@ -19,7 +19,7 @@ function copyModule(name,sourceName){
   for(const entry of fs.readdirSync(from,{withFileTypes:true})){
     if(entry.isDirectory()){
       if(['assets','data'].includes(entry.name))fs.cpSync(path.join(from,entry.name),path.join(to,entry.name),{recursive:true});
-    }else if(entry.isFile() && /\\.(?:js|css|json|svg|png|webp|jpe?g)$/i.test(entry.name)){
+    }else if(entry.isFile() && /\.(?:js|css|json|svg|png|webp|jpe?g)$/i.test(entry.name)){
       copyRequired(path.join(from,entry.name),path.join(to,entry.name));
     }
   }
