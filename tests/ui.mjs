@@ -94,7 +94,15 @@ try{
         assert.equal(await embedded.locator('.app-shell > .sidebar').isVisible(),false,'Client Care has a duplicate sidebar');
         assert.equal(await embedded.locator('.workspace > .topbar').isVisible(),false,'Client Care has a second header');
         await page.locator('.workspace-subnav-btn[data-subroute="scripts"]').click();
-        await page.waitForTimeout(250);
+        await page.waitForTimeout(450);
+        const careState=await page.locator('#module-frame').evaluate(el=>({
+          href:el.contentWindow?.location?.href,
+          hash:el.contentWindow?.location?.hash,
+          title:el.contentDocument?.title,
+          content:el.contentDocument?.getElementById('main-content')?.innerText?.slice(0,450),
+          active:el.contentDocument?.querySelector('.nav-link.active')?.getAttribute('data-page')
+        }));
+        console.log('CARE NAV DIAGNOSTIC',JSON.stringify(careState));
         assert((await embedded.locator('body').innerText()).includes('Kịch bản'),'Client Care scripts failed to navigate');
         assert.equal((await embedded.locator('body').innerText()).includes('File not found'),false,'GitHub 404 inside Client Care');
         await page.locator('.workspace-subnav-btn[data-subroute="learn"]').click();
