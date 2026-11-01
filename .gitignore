@@ -1,0 +1,7 @@
+dist/
+.sources/
+node_modules/
+.env
+.env.*
+.staticrypt.json
+.DS_Store
