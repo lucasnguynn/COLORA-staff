@@ -128,6 +128,10 @@
     return [
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;color:#002451;border-collapse:collapse;max-width:520px;">',
       '<tr><td style="padding:5px 0 18px 0;border:0;vertical-align:top;">',
+      // A concise bilingual closing leads into the COLORA lockup. Keep styles
+      // inline so preview, rich clipboard and exported email HTML all match.
+      '<p style="margin:0 0 11px 0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;mso-line-height-rule:exactly;color:#002451;"><strong style="font-weight:700;"><em style="font-style:italic;">Kính thư / Best regards,</em></strong></p>',
+      '<p aria-hidden="true" style="margin:0 0 17px 0;padding:0;width:55px;height:0;font-size:0;line-height:0;border-top:1px solid #B08A5B;"></p>',
       '<img src="https://staff.colora.vn/apps/qr/assets/colora-lettermark.png" alt="COLORA" width="148" style="display:block;border:0;width:148px;height:auto;max-width:100%;">',
       // The PNG wordmark contains a small transparent inset before its first C.
       // Offset the tagline by the same inset so both visible Cs align.
