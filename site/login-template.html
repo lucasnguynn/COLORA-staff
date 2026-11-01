@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Warm up public Staff CSS on the login screen before StatiCrypt swaps HTML. -->
+  <link rel="preload" href="/styles.css" as="style">
+  <link rel="preload" href="/brand-refinements.css" as="style">
   <style>
     :root {
       --ivory: #F4EDE1; --paper:#FFFCF8; --navy:#002451;
@@ -191,9 +194,23 @@
                 const password = document.getElementById("staticrypt-password").value,
                     isRememberChecked = document.getElementById("staticrypt-remember").checked;
 
-                const { isSuccessful } = await staticrypt.handleDecryptionOfPage(password, isRememberChecked);
-
+                // A stable branded loading state bridges password validation
+                // and the protected document's own inline first-paint guard.
+                const content = document.getElementById("staticrypt_content");
+                const loading = document.getElementById("staticrypt_loading");
+                content.classList.add("hidden");
+                loading.classList.remove("hidden");
+                let isSuccessful = false;
+                try {
+                    ({ isSuccessful } = await staticrypt.handleDecryptionOfPage(password, isRememberChecked));
+                } catch (error) {
+                    // Do not expose decryption details or password material.
+                    isSuccessful = false;
+                }
                 if (!isSuccessful) {
+                    loading.classList.add("hidden");
+                    content.classList.remove("hidden");
+                    document.getElementById("staticrypt-password").focus();
                     alert(templateError);
                 }
             });
