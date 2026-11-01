@@ -58,9 +58,10 @@ try{
   assert.equal(await signatureRows.nth(1).locator('td').evaluate(el=>getComputedStyle(el).borderLeftWidth),'3px','Gold line must start at employee name');
   assert.equal(await signatureRows.nth(1).locator('td').evaluate(el=>getComputedStyle(el).borderLeftColor),'rgb(176, 138, 91)','Signature border must use COLORA gold');
   const emailNode=signatureRows.nth(1).locator('a[href="mailto:example%40colora.vn"]');
-  const phoneNode=signatureRows.nth(1).locator('a[href="tel:+84912345678"]');
+  const phoneNode=signatureRows.nth(1).locator('a[href^="tel:"]');
   assert.equal(await emailNode.count(),1,'Email link is missing');
   assert.equal(await phoneNode.count(),1,'Phone link must appear when provided');
+  assert.equal(decodeURIComponent(await phoneNode.getAttribute('href')),'tel:+84912345678','Phone link should contain the correct number');
   const emailTop=await emailNode.evaluate(el=>el.getBoundingClientRect().top);
   const phoneTop=await phoneNode.evaluate(el=>el.getBoundingClientRect().top);
   assert(phoneTop>emailTop+5,'Phone number must be on its own line below email');
