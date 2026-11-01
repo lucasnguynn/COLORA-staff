@@ -45,8 +45,10 @@ try{
     assert(!brandLayout.obsoleteText,'Obsolete BKNS sentence must not appear');
   }
   await page.setViewportSize({width:1280,height:850});
+  assert.equal(await page.locator('#remember-device').isChecked(),false,'Remember me must be opt-in');
   await page.locator('#staff-email').fill(user.email);
   await page.locator('#staff-password').fill(user.password);
+  await page.locator('#remember-device').check();
   await page.locator('#signin-submit').click();
   await page.locator('#workspace:not([hidden])').waitFor({state:'visible',timeout:60000});
   const wrapper=page.frameLocator('#workspace-frame');
@@ -116,9 +118,56 @@ try{
      throw error;
    }
   }
+  // Opt-in remembered sign-in must survive navigation and another tab,
+  // without saving account email/password or raw AES key bytes.
+  const saved=await page.evaluate(async()=>{
+    const db=await new Promise((ok,bad)=>{
+      const r=indexedDB.open('colora-staff-device-access-v1',1);
+      r.onsuccess=()=>ok(r.result);r.onerror=()=>bad(r.error);
+    });
+    const record=await new Promise((ok,bad)=>{
+      const t=db.transaction('sessions','readonly');
+      const r=t.objectStore('sessions').get('remembered-device');
+      r.onsuccess=()=>ok(r.result);r.onerror=()=>bad(r.error);
+    });
+    db.close();
+    return {exists:!!record,version:record?.version,expiresAt:record?.expiresAt,
+      id:record?.entryId,keyIsCryptoKey:record?.key instanceof CryptoKey,
+      extractable:record?.key?.extractable,usages:record?.key?.usages,
+      fields:record?Object.keys(record):[]};
+  });
+  assert(saved.exists&&saved.keyIsCryptoKey,'Device session should store an opaque browser CryptoKey');
+  assert.equal(saved.extractable,false,'Persisted AES key must be nonextractable');
+  assert.deepEqual(saved.usages,['decrypt']);
+  assert(saved.expiresAt>Date.now()+29*86400000,'Remembered session must last about 30 days');
+  assert.deepEqual(saved.fields.sort(),['entryId','expiresAt','key','version'].sort(),'Never store plaintext passwords/email or HTML');
+  await page.reload({waitUntil:'domcontentloaded'});
+  await page.locator('#workspace:not([hidden])').waitFor({state:'visible',timeout:20000});
+  await page.frameLocator('#workspace-frame').locator('body[data-staff-role="'+role+'"][data-staff-ready="true"]').waitFor({state:'attached',timeout:16000});
+  const tab=await context.newPage();
+  await tab.goto(base+'/',{waitUntil:'domcontentloaded'});
+  await tab.locator('#workspace:not([hidden])').waitFor({state:'visible',timeout:20000});
+  await tab.frameLocator('#workspace-frame').locator('body[data-staff-role="'+role+'"]').waitFor({state:'attached',timeout:16000});
+  await tab.close();
+
   await page.locator('#workspace-signout').click();
   await page.locator('#signin-form').waitFor({state:'visible'});
   assert.equal(await page.locator('#workspace').isVisible(),false);
+  await page.reload({waitUntil:'domcontentloaded'});
+  await page.locator('#signin-form').waitFor({state:'visible'});
+  assert.equal(await page.locator('#workspace').isVisible(),false,'Manual logout must clear remembered access');
+  const persistedAfterLogout=await page.evaluate(async()=>{
+    const db=await new Promise((ok,bad)=>{
+      const r=indexedDB.open('colora-staff-device-access-v1',1);
+      r.onsuccess=()=>ok(r.result);r.onerror=()=>bad(r.error);
+    });
+    const value=await new Promise((ok,bad)=>{
+      const r=db.transaction('sessions','readonly').objectStore('sessions').get('remembered-device');
+      r.onsuccess=()=>ok(r.result);r.onerror=()=>bad(r.error);
+    });
+    db.close();return !!value;
+  });
+  assert.equal(persistedAfterLogout,false,'Logout must remove persisted device capability');
   await context.close();
  }
  // Wrong corporate address with an otherwise valid employee password.
@@ -130,5 +179,5 @@ try{
  await page.locator('#signin-submit:not([disabled])').waitFor({state:'attached',timeout:60000});
  assert.equal(await page.locator('#workspace').isVisible(),false,'Wrong email must not enter');
  await context.close();
- console.log('PASS: Encrypted Staff and Senior logins open real Learning Studio, Client Care Academy, QR Generator, and Senior-only JD. Tested module routes, QR output, logout and rejected email.');
+ console.log('PASS: Five-account gateway: Staff/Senior tools, 30-day opt-in CryptoKey IndexedDB persistence, same-browser re-open, multi-tab auto-resume, logout revocation and incorrect email.');
 } finally {await browser.close();await new Promise(resolve=>server.close(resolve));}
