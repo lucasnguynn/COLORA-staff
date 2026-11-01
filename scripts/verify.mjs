@@ -37,7 +37,7 @@ if(typeof gateway.staticryptEncryptedMsgUniqueVariableName!=='string'||
    typeof gateway.staticryptSaltUniqueVariableName!=='string')throw Error('Malformed Senior gateway');
 if(JSON.stringify(gateway).includes('id="workspaceTitle"')||
    JSON.stringify(gateway).includes('Job Description Builder'))throw Error('Senior JD plaintext leaked into gateway');
-const rootLinks=['apps/client-care/styles.css','apps/client-care/content.js','apps/learning/app.js','apps/learning/data/questions.json','apps/qr/assets/colora-logo.png','apps/qr/assets/colora-lettermark.png','apps/qr/assets/colora-symbol.png','apps/qr/vendor/qr-code-styling.js','brand-refinements.css','embedded-apps.css','module-host.js','apps/learning/brand-refinements.css','apps/client-care/brand-refinements.css','app.js','library.js','library-ui.js','mail-guide.js','mail-guide.css','senior-gateway.json','styles.css'];
+const rootLinks=['apps/client-care/styles.css','apps/client-care/content.js','apps/learning/app.js','apps/learning/data/questions.json','apps/qr/assets/colora-logo.png','apps/qr/assets/colora-lettermark.png','apps/qr/assets/colora-symbol.png','apps/qr/vendor/qr-code-styling.js','brand-refinements.css','embedded-apps.css','module-host.js','apps/learning/brand-refinements.css','apps/client-care/brand-refinements.css','app.js','library.js','library-ui.js','mail-guide.js','mail-guide.css','jd-integrated.css','jd-workspace.js','senior-gateway.json','styles.css'];
 for(const rel of rootLinks)if(!fs.existsSync(path.join(dist,rel)))throw Error('Missing integrated dependency: '+rel);
 const qrHTML=fs.readFileSync(path.join('modules','qr','index.html'),'utf8');
  if(/<script[^>]+src=["']https?:\/\//i.test(qrHTML))throw Error('External QR script is not allowed: vendor all QR JavaScript locally.');
@@ -54,5 +54,7 @@ if(!hostJS.includes('URL.createObjectURL') || !hostJS.includes('workspace-subnav
 const buildJS=fs.readFileSync(path.join('scripts','build.mjs'),'utf8');
 if(!buildJS.includes('data-colora-embed') || !buildJS.includes('embedded-apps.css'))throw Error('Build must embed each app with unified Staff presentation');
 if(!fs.readFileSync(path.join('site','index.html'),'utf8').includes('id="mail-guide"'))throw Error('Mailbox guide must be part of encrypted Staff HTML.');
+if(!fs.readFileSync(path.join('site','index.html'),'utf8').includes('id="jd-workspace-controls"'))throw Error('Native Staff JD controls missing.');
+if(!fs.readFileSync(path.join('scripts','build.mjs'),'utf8').includes('data-colora-embed="jd"'))throw Error('Build must tag embedded JD for unified Staff styling.');
 if(encryptedRoot.includes('id="bundled-learning"') || encryptedRoot.includes('id="bundled-qr"'))throw Error('Bundled application templates leaked outside the encrypted payload.');
 console.log('Verified: one encrypted Staff entry with 3 bundled applications; separate encrypted JD; no public child HTML routes.');

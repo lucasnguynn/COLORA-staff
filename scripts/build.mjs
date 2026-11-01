@@ -27,7 +27,7 @@ function copyModule(name,sourceName){
 
 fs.rmSync(dist,{recursive:true,force:true});
 fs.mkdirSync(dist,{recursive:true});
-for(const file of ['index.html','styles.css','brand-refinements.css','mail-guide.css','embedded-apps.css','module-host.js','library.js','library-ui.js','mail-guide.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
+for(const file of ['index.html','styles.css','brand-refinements.css','mail-guide.css','jd-integrated.css','embedded-apps.css','module-host.js','library.js','library-ui.js','mail-guide.js','jd-workspace.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
 
 copyModule('client-care','client-care');
 copyModule('learning','learning');
@@ -131,8 +131,12 @@ const seniorJD=fs.readFileSync(path.join(jdDir,'index.html'),'utf8');
 if(!seniorJD.includes('id="workspaceTitle"')||!seniorJD.includes('</body>')){
   fail('JD source must be a complete unencrypted HTML application before Senior envelope encryption.');
 }
-const seniorEmbedded=seniorJD.replace(/<head([^>]*)>/i,
-  '<head$1>\n<base href="/apps/jd/">');
+// Reuse original JD data model and actions but render its editor as a
+// native Staff section: one sidebar, one heading, one shared action bar.
+const seniorEmbedded=seniorJD
+  .replace(/<html(\s|>)/i,'<html data-colora-embed="jd"$1')
+  .replace(/<head([^>]*)>/i,'<head$1>\n<base href="/apps/jd/">')
+  .replace('</head>','<link rel="stylesheet" href="/jd-integrated.css">\n</head>');
 const seniorBundle=JSON.stringify(seniorEmbedded)
   .replace(/</g,'\\u003c').replace(/>/g,'\\u003e').replace(/&/g,'\\u0026');
 const seniorRole=portal

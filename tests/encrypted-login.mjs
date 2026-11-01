@@ -186,7 +186,11 @@ try{
   assert.equal(await seniorPage.locator('.nav-btn[data-view="jd"]').isVisible(),true);
   assert.equal(await seniorPage.locator('#bundled-jd').count(),1,'Only Senior ciphertext should contain JD');
   await seniorPage.locator('.nav-btn[data-view="jd"]').click();
-  await seniorPage.frameLocator('#module-frame').locator('#workspaceTitle').waitFor({state:'visible',timeout:20000});
+  await seniorPage.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:20000});
+  await seniorPage.locator('#jd-workspace-controls').waitFor({state:'visible'});
+  assert.equal(await seniorPage.frameLocator('#module-frame').locator('.app-shell > .sidebar').isVisible(),false,'Nested JD sidebar must be hidden');
+  assert.equal(await seniorPage.frameLocator('#module-frame').locator('.workspace > .topbar').isVisible(),false,'Nested JD header must be hidden');
+  assert((await seniorPage.locator('#jd-role-select option').count())>0,'Native JD role selector missing');
   const visibleLiteralNewline=await seniorPage.frameLocator('#module-frame').locator('body').evaluate(el=>
     [...el.childNodes].filter(n=>n.nodeType===3).some(n=>n.textContent.includes('\\n')));
   assert.equal(visibleLiteralNewline,false,'Encrypted Senior JD must not show literal backslash-n');
