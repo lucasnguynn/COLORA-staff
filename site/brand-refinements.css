@@ -88,3 +88,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   #module .workspace-subnav-btn{padding:11px 12px;font-size:12px}
   #module .module-heading p{font-size:13px}
 }
+
+/* Keep every Client Care destination visible on desktop, no clipped tabs. */
+@media(min-width:1001px){
+  #module .workspace-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center}
+  #module .workspace-subnav{flex-wrap:wrap;overflow:visible;row-gap:0;column-gap:4px}
+  #module .workspace-subnav-btn{padding:11px 10px}
+}
