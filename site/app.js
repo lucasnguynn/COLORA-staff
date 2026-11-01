@@ -57,7 +57,7 @@
         // No secret is placed into the URL, web storage, iframe, or logs.
         frame.removeAttribute('src');
         frame.srcdoc=markup.replace('<base href="/apps/jd/">',
-          '<base href="'+new URL('/apps/jd/',location.origin).href+'">');
+          '<base href="'+new URL('/apps/jd/',location.origin).href+'">').trim();
         $('module-open').hidden=true;
         $('module-hint').textContent='JD Library · Senior access. Dữ liệu JD được lưu trên chính trình duyệt này.';
         $('module-hint').hidden=false;
