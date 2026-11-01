@@ -12,7 +12,20 @@
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const escapeAttribute = escapeHTML;
   const safeURL = raw => {try {const u = new URL(String(raw), 'https://colora.vn/');return u.protocol === 'https:' ? u.href : 'https://colora.vn/';}catch {return 'https://colora.vn/';}};
-  const sidebar=$('sidebar'), menuButton=$('mobile-menu'), frame=$('module-frame'), shade=$('mobile-shade');
+  const sidebar=$('sidebar'), menuButton=$('mobile-menu'), shade=$('mobile-shade');
+  let frame=$('module-frame');
+  function freshModuleFrame(){
+    // Switching from srcdoc to a normal src on the same iframe can leave
+    // Chromium at about:blank due to overlapping navigation. Use a fresh
+    // browsing context for each module to prevent that race.
+    const next=document.createElement('iframe');
+    next.id='module-frame';
+    next.title='COLORA Application';
+    next.setAttribute('referrerpolicy','no-referrer');
+    next.setAttribute('loading','eager');
+    frame.replaceWith(next);
+    frame=next;
+  }
   function closeMobile(){sidebar.classList.remove('open');shade.hidden=true;document.body.classList.remove('menu-open');menuButton.setAttribute('aria-expanded','false');}
 
   function navigate(view) {
@@ -21,6 +34,7 @@
     const isModule=Object.prototype.hasOwnProperty.call(modules,view);
     if (isModule) {
       const data=modules[view];
+      freshModuleFrame();
       $('module').hidden=false;
       $('module-title').textContent=data.title;
       $('module-eyebrow').textContent=data.eyebrow;
