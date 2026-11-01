@@ -15,6 +15,7 @@ jobs:
       - name: Validate JavaScript
         run: |
           node --check site/app.js
+          node --check site/mail-guide.js
           node --check site/library.js
           node --check site/library-ui.js
           node --check tests/ui.mjs
