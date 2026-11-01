@@ -71,7 +71,7 @@ if(process.env.JD_BUILD_MODE==='preserve')throw Error('Dual-role login requires 
 const seniorPortal=path.join(dist,'senior','index.html');
 encryptFile(seniorPortal,senior,'693d7e80bd9ad117ec37b5f4482e2490',true);
 const seniorEncrypted=fs.readFileSync(seniorPortal,'utf8');
-const configMatch=seniorEncrypted.match(/const staticryptConfig = ([\\s\\S]*?);/);
+const configMatch=seniorEncrypted.match(/const staticryptConfig = ([\s\S]*?);/);
 if(!configMatch)throw Error('Cannot extract encrypted Senior configuration');
 let gateway;
 try {gateway=JSON.parse(configMatch[1]);} catch {throw Error('Senior envelope config is not JSON serializable');}
