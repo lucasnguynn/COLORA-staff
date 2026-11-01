@@ -28,8 +28,8 @@ for(const [index,member] of users.entries()){
  }else if(emails.has(email)){
   issues.push('Account #'+number+': company email repeats another account');
  }else emails.add(email);
- if(typeof password!=='string'||password.length<20){
-  issues.push('Account #'+number+': password must contain at least 20 characters');
+ if(typeof password!=='string'||password.length<8){
+  issues.push('Account #'+number+': password must contain at least 8 characters');
  }else if(password.length>512){
   issues.push('Account #'+number+': password exceeds 512 characters');
  }else if(passwords.has(password)){
