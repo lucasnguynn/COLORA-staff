@@ -55,6 +55,12 @@ const buildJS=fs.readFileSync(path.join('scripts','build.mjs'),'utf8');
 if(!buildJS.includes('data-colora-embed') || !buildJS.includes('embedded-apps.css'))throw Error('Build must embed each app with unified Staff presentation');
 if(!fs.readFileSync(path.join('site','index.html'),'utf8').includes('id="mail-guide"'))throw Error('Mailbox guide must be part of encrypted Staff HTML.');
 if(!fs.readFileSync(path.join('site','index.html'),'utf8').includes('id="jd-workspace-controls"'))throw Error('Native Staff JD controls missing.');
+const staffSource=fs.readFileSync(path.join('site','index.html'),'utf8');
+const bridgeScript=staffSource.indexOf('<script src="./jd-workspace.js" defer>');
+const routerScript=staffSource.indexOf('<script src="./app.js" defer>');
+if(bridgeScript<0 || routerScript<0 || bridgeScript>routerScript){
+  throw Error('JD controller must load before app.js resolves bookmarked Senior #jd.');
+}
 if(!fs.readFileSync(path.join('scripts','build.mjs'),'utf8').includes('data-colora-embed="jd"'))throw Error('Build must tag embedded JD for unified Staff styling.');
 if(encryptedRoot.includes('id="bundled-learning"') || encryptedRoot.includes('id="bundled-qr"'))throw Error('Bundled application templates leaked outside the encrypted payload.');
 console.log('Verified: one encrypted Staff entry with 3 bundled applications; separate encrypted JD; no public child HTML routes.');
