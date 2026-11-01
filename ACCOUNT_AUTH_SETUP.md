@@ -1,50 +1,49 @@
-# COLORA Staff — individual accounts (staged migration)
+# COLORA Staff — 5 individual email/password credentials, without Supabase
 
-**Status: staged / NOT activated.** The existing StatiCrypt Staff and Senior passwords stay live until the operator finishes the checklist and explicitly changes `STAFF_AUTH_MODE` to `accounts`. This feature is implemented in repository source only; it cannot create a Supabase project or its users by itself.
+**STAGED ONLY.** No third-party identity service, backend database, DNS change, or subscription is required for this option. The production website continues using the existing Staff/Senior StatiCrypt passwords until the owner **explicitly** activates it. This implements **static encrypted access**, not a server-authenticated user identity system.
 
-## Approved personnel
+## Who can access which content?
 
-The five company addresses and their roles are provided privately by the COLORA owner: **3 Staff and 2 Senior**. Because this GitHub repository is public, do **not** commit the actual employees' email addresses. Keep the exact five `[email,role]` pairs from the approved roster in the server-side `COLORA_AUTH_ALLOWLIST_JSON` environment secret, not in JavaScript, SQL migrations, README or pull requests.
+The owner-approved roster consists of **3 Staff and 2 Senior**. Their actual company addresses were supplied privately, so do **not** commit them in this public repository.
 
-Each person receives their own Supabase Auth user and sets a **separate Staff Workspace password**, NOT their BKNS mailbox password. There is no public self-signup. `staff` can read `staff.html`; `senior` can read `staff.html` and `senior.html` from the private bucket. RLS evaluates the signed `auth.uid()` and a server-administered membership row — the frontend's role label is not authority.
+Each employee is given ONE **independent, unique, randomly generated Workspace password**; it must not be their BKNS mailbox password. Only the correct email + that password decrypts that employee's encrypted content. Staff envelopes exclude the JD Library source entirely; Senior envelopes include JD. Changing a page URL, role value, or CSS does not make encrypted JD readable with a Staff password.
 
-## Provisioning (one-time, project owner only)
+## How this works (the security boundary)
 
-1. Create a NEW Supabase project owned by COLORA. Do not choose a preexisting project with unrelated broad Storage policies. Record its `https://<project-ref>.supabase.co` URL, **publishable** `sb_publishable_...` key, and server-only **secret** `sb_secret_...` key. Never paste the secret into Git, chat, the browser or the public website.
-2. In Supabase Dashboard **Authentication → Providers**, enable Email, require email verification, and **disable public sign-ups**. Configure a password minimum of at least 12 characters, login rate limits and email enumeration protection. Consider MFA especially for Senior. Under **URL Configuration**, set `https://staff.colora.vn` as Site URL and an allowed redirect.
-3. In SQL Editor apply `supabase/migrations/202611020001_colora_staff_auth.sql` against the project. This creates an initially empty private allowlist table, the `colora_staff_members` role table, a provisioning trigger, and a PRIVATE Storage bucket with **read-only RLS**. Verify that `storage.buckets.public=false` and there are no extra broad policies giving `authenticated` blanket read access to this bucket. Do not add any anonymous policy.
-4. Configure Supabase custom SMTP from a dedicated COLORA/BKNS sender mailbox. Do not reuse staff inbox passwords inside website code. Set up Supabase **Invite User / Recovery email templates**. The frontend supports both normal invite links (implicit token in fragment) and a custom URL such as `https://staff.colora.vn/?token_hash={{ .TokenHash }}&type=invite`. That URL requires the corresponding custom email template.
-5. **Invitation:** when Supabase and SMTP are configured, set `COLORA_AUTH_ALLOWLIST_JSON` to exactly five private `[email, role]` pairs (3 staff, 2 senior), then run `node scripts/invite-colora-staff.mjs` from a trusted admin terminal with `SUPABASE_URL` and `SUPABASE_SECRET_KEY` configured. The script first populates the protected allowlist, then sends invitations. The script invites EXACTLY five approved addresses. Email ownership is established through the invite token. Individual passwords are entered only by the employee on the secure website. Confirm all five accounts become active.
-6. Set **GitHub environment secrets** under `github-pages`: `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY` (public, nevertheless stored here for build consistency), `SUPABASE_SECRET_KEY` (server-only), and keep `SENIOR_JD_PASSWORD` only for temporary archive decryption. Do not expose the secret key in any repo variable or JavaScript. Set the **GitHub repository variable** `STAFF_AUTH_MODE=accounts` ONLY after the above prerequisites are complete.
-7. Run GitHub Actions → **Deploy COLORA individual accounts (opt-in)** → Run workflow. The build creates two unencrypted pages *inside the trusted runner only*, publishes them to **private Supabase Storage**, verifies both are denied to anonymous fetches, wipes plaintext, and publishes only public assets and `index.html` login to GitHub Pages. The old Pages workflow skips deployment when `STAFF_AUTH_MODE=accounts`.
-8. Verify in **two separate browser profiles**: unlisted email/password denied, Staff identities log in to the normal workspace and **cannot download `senior.html`**, each Senior logs in and can open JD without a second shared password. Test signout, invite, reset and revocation; reload and re-login. Only then notify employees.
+GitHub Pages serves an elegant email/password login and a list of five randomly named envelopes with unique salts. A browser derives an AES-256-GCM key from **email + password** using PBKDF2-HMAC-SHA256 (600,000 iterations) and tests the five 16-byte verifiers. Only one matching, authenticated ciphertext is fetched/decrypted in memory; nothing is stored in browser localStorage, URLs, Git files, or cookies. The public manifests contain no employee email addresses or plaintext passwords.
 
-To revoke access, use Supabase Auth admin to ban/delete user and/or set `colora_staff_members.active=false`. Existing browser memory or downloaded/printed content cannot be remotely wiped after it was delivered. Existing local JD drafts are device/browser-origin-local, not migrated to a server. Back up drafts before retiring an older JD app.
+**This is not server authentication.** Because all encrypted files are publicly downloadable, someone can attempt password guesses offline, independently of the login page. Rate limiting, two-factor authentication, email ownership checks, self-service password recovery, per-employee access logs, and immediate revocation of content already downloaded are **not possible on a static site alone**. Use long **random passwords of 20+ characters** generated in a password manager and distribute them individually over a trusted channel. This solution is for a small internal **low-sensitivity** team portal, not confidential personnel/customer/finance data.
 
-## Architecture
+## One-time activation
 
-```text
-Browser / staff.colora.vn (GitHub Pages)
-  └─ account-login.js: company email + individual Staff password
-        ├─ Supabase Auth: password hash, email verification, rate limits
-        ├─ Supabase Postgres: RLS role lookup by signed auth.uid()
-        └─ Supabase Private Storage, JWT + SQL RLS
-              ├─ staff.html  ← active Staff + Senior
-              └─ senior.html ← active Senior ONLY
-  └─ original Staff editor loaded in memory as a same-origin iframe
-       └─ existing JD editor localStorage and PDF features unchanged
-```
+1. In a password manager, generate **five unique, random passwords, 20–32+ characters each**. Collect the five approved email addresses and their exact roles (3 Staff / 2 Senior) in a private JSON array of objects with fields `email», `password», `role». Example schema using **fictional test data only**:
 
-The legacy public StatiCrypt `index.html`, `senior-gateway.json`, and `/apps/jd/index.html` are **not** included in the account-based public Pages artifact. No shared employee password remains embedded in the new public UI. The five users' passwords never touch GitHub. The publishable key and project URL are intentionally public. **The secret key must never be published.**
+   ```json
+   [
+     {"email":"example.employee@colora.vn","password":"REPLACE-WITH-STRONG-RANDOM-PASSWORD","role":"staff"}
+   ]
+   ```
 
-**Security limitations:** The original `COLORA-JD` source repository and historical public commits may still expose previously published JD template content; deploying this gateway does not erase that. Audit and restrict or retire those old sources separately. Training JS, downloadable JSON, logos and unencrypted frontend assets remain public — only private role-specific HTML is gated here. This design protects access to page content **at delivery time**, not confidentiality after an authorized browser has received it. It is not a substitute for a private HR database.
+   **Do not paste actual emails or passwords in GitHub issues, pull requests, chat, tracked files or Actions logs.**
 
-## Rollback
+2. In GitHub → `lucasnguynn/COLORA-staff» → **Settings → Environments → github-pages → Environment secrets**, create `COLORA_ACCOUNT_CREDENTIALS_JSON» and store the complete private five-object JSON as the value. The script enforces five unique addresses, five different passwords at least 20 characters, exactly 3 staff / 2 senior, and addresses under `@colora.vn». Keep the existing `SENIOR_JD_PASSWORD» temporarily: it decrypts the historical JD archive **inside the trusted GitHub Actions runner**, not for employee login. Do not copy that shared password into the user array.
 
-If account deployment fails, set GitHub repository variable `STAFF_AUTH_MODE=legacy` (or remove it) and manually re-run **Deploy COLORA Staff Portal** (`pages.yml`). Existing shared Staff/Senior passwords remain in protected GitHub environment secrets. Private Supabase content remains protected by RLS; remove it separately if abandoning. Do not change DNS, Haravan, MX or BKNS mailbox settings.
+3. Set a GitHub **repository variable** (not secret): `STAFF_AUTH_MODE=static-accounts» under **Settings → Secrets and variables → Actions → Variables**. Do this only after the five credentials are configured. Until then, leave it unset and the current production login stays in place.
 
-## Testing
+4. Open **Actions → Deploy COLORA individual encrypted accounts (opt-in)** and choose **Run workflow** on `main». This builds separate Staff and Senior plaintext only on the temporary runner, encrypts them into five random files, tests wrong emails/passwords and Staff/JD isolation in Chrome, destroys the plaintext staging files and publishes **only the new login and encrypted user blobs** to GitHub Pages. The legacy Pages workflow is skipped while this mode is selected.
 
-PR CI checks that only one public HTML is present, both private HTML role payloads exist outside Pages, JD is absent from Staff HTML, and SQL matches the five approved identities. Production activation requires real browser tests against the provisioned Supabase project with all five invited accounts.
+5. Privately provide each employee their own randomly generated Workspace password. Test login for all 5 in private browser sessions, test switching roles and signout, and test a fake email or wrong password. Do not enable auto-save of passwords on shared devices.
 
-No app connection is required to author this repository code, but account provisioning and publishing are **blocked without the project and environment secrets**.
+## Password changes and departure
+
+There is **no self-service password reset**: the administrator generates a replacement password, edits that user's entry inside the protected `COLORA_ACCOUNT_CREDENTIALS_JSON» GitHub environment secret, and reruns the opt-in deployment. To remove an employee, use a *new* replacement private roster (still exactly five for this initial implementation) or migrate to a server-backed access-control service when headcount changes. Changing a record only prevents access to the **newly published ciphertext**. A former employee who saved old encrypted files and knows the old password can still decrypt those saved copies; browser-local JD drafts/exports and other downloaded content cannot be remotely removed.
+
+## Rollback without losing the existing portal
+
+Set `STAFF_AUTH_MODE=legacy» or remove that repository variable, then manually run **Deploy COLORA Staff Portal** (`.github/workflows/pages.yml»). The existing legacy Staff and Senior secrets remain configured until migration is independently validated. Keep this recovery route ready.
+
+## Important source visibility reminder
+
+The original repositories and previous public commits (including the original JD repository) may still contain publicly accessible job-description templates and assets. Changing the new login cannot unpublish past commits or enforce user authentication on separate old sites. Normal training resource JS/JSON and media are still public; only the Staff/Senior HTML document is password-encrypted in this design.
+
+This implementation intentionally needs no Supabase, Firebase, Google Sheets, Apps Script, Cloudflare or other identity provider.
