@@ -25,6 +25,7 @@ try{
  for(const role of ['staff','senior']){
   const user=users.find(u=>u.role===role);
   const context=await browser.newContext(),page=await context.newPage();
+  page.on('pageerror',err=>console.error('Nested browser error:',String(err.message||'Unknown').slice(0,180).replace(/[a-z0-9._%+-]+@colora\.vn/gi,'[redacted]')));
   await page.goto(base+'/',{waitUntil:'domcontentloaded'});
   await page.locator('#staff-email').fill(user.email);
   await page.locator('#staff-password').fill(user.password);
