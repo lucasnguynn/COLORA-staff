@@ -2,7 +2,7 @@
 
 **COLORA - COLOR YOUR AURA**
 
-A simple integrated COLORA Staff Portal on GitHub Pages. All published HTML entry points are encrypted with StatiCrypt. This is for LOW-SENSITIVITY content only.
+A simple integrated COLORA Staff Portal on GitHub Pages. The Staff entry HTML and separate Senior JD HTML are encrypted with StatiCrypt. This is for LOW-SENSITIVITY content only.
 
 ## Modules
 
@@ -14,7 +14,7 @@ A simple integrated COLORA Staff Portal on GitHub Pages. All published HTML entr
 | QR Generator | /apps/qr/ | QR-V1 | Staff password |
 | JD Library | /apps/jd/ | COLORA-JD | Separate senior password |
 
-The three training/tool modules run embedded in the portal's sidebar workspace. JD is inlined (JS + CSS) into the HTML BEFORE encryption. The deployment artifact does not contain plaintext JD JavaScript.
+The three training/tool modules are copied and bundled into the portal's single encrypted HTML workspace. JD is inlined (JS + CSS) into the HTML BEFORE encryption. The deployment artifact does not contain plaintext JD JavaScript.
 
 ## IMPORTANT SECURITY LIMITATIONS
 
@@ -44,7 +44,7 @@ StatiCrypt encrypts HTML only. JS, CSS, JSON, and images in the normal CSKH/QnA/
 
 ## How integration works
 
-Every staff workflow execution checks out CURRENT main branch of CSKH-COLORA, QnA-COLORA, QR-V1 and COLORA-JD; it copies a whitelist of production files to /dist and encrypts every HTML page. Changes in the component repositories are NOT automatically reflected until the Staff workflow is run again. Review upstream changes before triggering publication.
+Every staff workflow execution checks out CURRENT main branch of CSKH-COLORA, QnA-COLORA, QR-V1 and COLORA-JD; it copies whitelisted production files, bundles the three regular apps' complete HTML inside the encrypted Staff home, and separately encrypts JD. Changes in the component repositories are NOT automatically reflected until the Staff workflow is run again. Review upstream changes before triggering publication.
 
 JD is distributed only as the encrypted JD HTML plus non-sensitive logo images; no external JD scripts or stylesheets are deployed. The password is NOT stored in the repository. Staff pass has optional 7-day remember-me, while senior login is configured without remember-me.
 
@@ -59,6 +59,15 @@ Requires Node 22 and StatiCrypt 3.5.4.
 5. Run: node scripts/encrypt.mjs && node scripts/verify.mjs
 
 CI pull-request validation uses disposable demo passwords and NEVER deploys. Only deploy from main after real secrets are set.
+
+
+## Staff single-login architecture
+
+**Exactly one common staff password** unlocks Dashboard, Resource Library, Learning Studio (full QnA-COLORA app), Client Care Academy (full CSKH-COLORA app), QR Generator (full QR-V1 app), Email Signature, and Website Generator. The three external app **HTML source documents are bundled inside the encrypted root `index.html` at build time** and mounted as `iframe.srcdoc` within the Staff shell, not published at standalone HTML URLs. Their JS/CSS/JSON/images are copied locally to `/apps/<name>/` for compatibility. It is NOT a redirect to other websites.
+
+No staff login or separate Staff password forms should appear when switching between those apps. JD Library remains separately encrypted with the SENIOR_JD_PASSWORD as requested; it is the **only** page that may ask for another password.
+
+The static-hosting security limitation remains: JavaScript, CSS, images and structured training datasets are publicly accessible by URL, and source repositories remain public. Do not enter confidential customer, HR, pricing or token data. This is not server-backed access authorization.
 
 ## V2: Website hoàn thiện trước khi kích hoạt tên miền
 
