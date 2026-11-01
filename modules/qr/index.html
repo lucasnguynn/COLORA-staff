@@ -450,8 +450,19 @@
     };
   }
 
-  const previewQR=new QRCodeStyling(getOptions(420));
-  previewQR.append($("qrPreview"));
+  // Do not construct an SVG without the brand image and then race an
+  // asynchronous QRCodeStyling.update(). Initial construction must already
+  // contain the final image; otherwise its SVG can remain image-less.
+  let previewQR=null;
+  function renderPreview(){
+    if(!currentLogo)return;
+    if(!previewQR){
+      previewQR=new QRCodeStyling(getOptions(420));
+      previewQR.append($("qrPreview"));
+    }else{
+      renderPreview();
+    }
+  }
 
   function updateQR(){
     const url=normalizeUrl($("url").value);
@@ -513,7 +524,9 @@
   });
   $("downloadPng").addEventListener("click",()=>downloadQR("png"));
   $("downloadSvg").addEventListener("click",()=>downloadQR("svg"));
-  updateQR();
+  // The symbol image may still be loading on a first visit. Its onload
+  // callback calls updateQR(), creating the first SVG with the logo present.
+  if(currentLogo)updateQR();
 </script>
 </body>
 </html>
