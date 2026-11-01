@@ -155,7 +155,6 @@ window.COLORA_LIBRARY = Object.freeze([
         'Client Care Academy: nội dung tư vấn, role-play và các mô phỏng dịch vụ.',
         'QR Generator: xuất PNG/SVG theo nhận diện COLORA. Kiểm tra đường dẫn và khả năng quét trước khi in.',
         'Email Signature: nhập thông tin, xem trước rồi sao chép vào ứng dụng email.',
-        'Website Generator: tạo trang HTML một tệp từ mẫu có sẵn; không tự đưa website lên Internet.',
         'JD Library: chỉ truy cập khi được cấp mật khẩu quản lý riêng; không phải không gian chứa hồ sơ HR tuyệt mật.'
       ]},
       {title:'An toàn và quyền riêng tư',points:[

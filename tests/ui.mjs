@@ -21,7 +21,11 @@ try{
   page.on('requestfailed',r=>console.error('FAILED RESOURCE',r.url(),r.failure()?.errorText));
   await page.goto('http://127.0.0.1:'+server.address().port+'/');
   await page.locator('#dashboard').waitFor();
-  assert.equal(await page.locator('.feature-card').count(),7);
+  assert.equal(await page.locator('.feature-card').count(),6);
+  assert.equal(await page.locator('[data-view="web"]').count(),0,'Website Generator links must be removed');
+  assert.equal(await page.locator('#web-tool,#web-form,#web-preview').count(),0,'Website Generator DOM must be removed');
+  assert.equal(await page.locator('.hero-art,.hero-facet,.hero-symbol').count(),0,'Decorative diagonal hero illustration must be removed');
+  assert.equal(await page.locator('.hero-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns==='none'),true,'Homepage hero must not reserve empty illustration column');
   const logo=page.locator('.brand-logo');
   assert.equal(await logo.isVisible(),true,'Official COLORA logo should be visible');
   assert.equal(await logo.evaluate(el=>el.complete&&el.naturalWidth>0),true,'Official COLORA logo must load correctly');
@@ -46,16 +50,11 @@ try{
   const signature=page.waitForEvent('download');
   await page.locator('#signature-download').click();
   assert.equal((await signature).suggestedFilename(),'colora-email-signature.html');
-  await page.locator('[data-view="web"].nav-btn').click();
-  await page.locator('#web-form [name="template"]').selectOption('announcement');
-  await page.locator('#web-form [name="description"]').fill('<script>alert(1)</script>');
-  const srcdoc=await page.locator('#web-preview').getAttribute('srcdoc');
-  assert(srcdoc.includes('&lt;script&gt;'));
-  assert(srcdoc.includes('background:#002451'));
-  assert(srcdoc.includes('colora-lettermark.png'),'Website export should use real COLORA logo');
-  const html=page.waitForEvent('download');await page.locator('#web-form button[type="submit"]').click();
-  assert.equal((await html).suggestedFilename(),'colora-landing-page.html');
-  for(const [view,selector] of [['learning','#app'],['client-care','#main-content'],['qr','#downloadPng'],['jd','#workspaceTitle']]){
+  // Removed routes should safely resolve to dashboard; no orphaned generator.
+  await page.evaluate(()=>location.hash='#web');
+  await page.locator('#dashboard').waitFor({state:'visible'});
+  assert.equal(await page.locator('#path-label').innerText(),'Staff Workspace');
+    for(const [view,selector] of [['learning','#app'],['client-care','#main-content'],['qr','#downloadPng'],['jd','#workspaceTitle']]){
     await page.locator('.nav-btn[data-view="'+view+'"]').click();
     const embedded=page.frameLocator('#module-frame');
     try{await embedded.locator(selector).waitFor({timeout:12000});}

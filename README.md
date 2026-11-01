@@ -17,7 +17,7 @@ A simple integrated COLORA Staff Portal on GitHub Pages. The Staff entry HTML an
 
 | Area | Route | Source | Gate |
 | --- | --- | --- | --- |
-| Dashboard, Resource Library, Email Signature, Website Generator | / | COLORA-staff | Staff password |
+| Dashboard, Resource Library, Email Signature | / | COLORA-staff | Staff password |
 | Client Care Academy | /#client-care | CSKH-COLORA (copied into staff bundle) | Included in one Staff login |
 | Learning Studio | /#learning | QnA-COLORA (copied into staff bundle) | Included in one Staff login |
 | QR Generator | /#qr | QR-V1 (copied into staff bundle) | Included in one Staff login |
@@ -72,7 +72,7 @@ CI pull-request validation uses disposable demo passwords and NEVER deploys. Onl
 
 ## Staff single-login architecture
 
-**Exactly one common staff password** unlocks Dashboard, Resource Library, Learning Studio (full QnA-COLORA app), Client Care Academy (full CSKH-COLORA app), QR Generator (full QR-V1 app), Email Signature, and Website Generator. The three external app **HTML source documents are bundled inside the encrypted root `index.html` at build time** and mounted as `iframe.srcdoc` within the Staff shell, not published at standalone HTML URLs. Their JS/CSS/JSON/images are copied locally to `/apps/<name>/` for compatibility. It is NOT a redirect to other websites.
+**Exactly one common staff password** unlocks Dashboard, Resource Library, Learning Studio (full QnA-COLORA app), Client Care Academy (full CSKH-COLORA app), QR Generator (full QR-V1 app), and Email Signature. The three external app **HTML source documents are bundled inside the encrypted root `index.html` at build time** and mounted as `iframe.srcdoc` within the Staff shell, not published at standalone HTML URLs. Their JS/CSS/JSON/images are copied locally to `/apps/<name>/` for compatibility. It is NOT a redirect to other websites.
 
 No staff login or separate Staff password forms should appear when switching between those apps. JD Library remains separately encrypted with the SENIOR_JD_PASSWORD as requested; it is the **only** page that may ask for another password.
 
@@ -110,7 +110,6 @@ After checking production workflow success and manually testing all training and
 - Resource Library: 8 bài đọc về thương hiệu, triết lý, vật liệu, thiết kế, chăm sóc, khách hàng, media và sử dụng portal. Có tìm kiếm không dấu, lọc danh mục và liên kết trực tiếp đến từng bài.
 - Learning Studio, Client Care Academy, QR Generator và JD Library được lắp vào cùng điều hướng; có chế độ mở rộng iframe, mở tab riêng.
 - Email Signature: live preview, copy chữ ký HTML định dạng bảng tương thích email, download một file HTML độc lập.
-- Website Generator: ba theme HTML tĩnh (Editorial / Announcement / Minimal), xem trước trực tiếp trong iframe sandbox, download HTML hoặc copy code. Nội dung nhập được escape trước khi tạo markup.
 - Các công cụ không kết nối dữ liệu Haravan và không gửi thông tin nhập form về máy chủ.
 
 ### Kiểm thử
