@@ -46,7 +46,14 @@ function encryptFile(file, password, salt, isSenior){
     if(outputs.length!==1)throw new Error('Unexpected StatiCrypt outputs: '+outputs.length+' for '+file);
     const encrypted=fs.readFileSync(outputs[0],'utf8');
     if(encrypted.length<1000 || encrypted.includes('const STORAGE_KEY =') || encrypted.includes('An environment to <em>') || encrypted.includes('A space to <em>'))throw new Error('HTML not protected: '+file);
-    fs.writeFileSync(file,encrypted);
+    // StatiCrypt v3 uses WebCrypto, which is unavailable on ordinary HTTP.
+    // Redirect custom-domain visits to HTTPS *before* the password form or
+    // Staticrypt decryption code runs. Localhost is exempt for CI smoke tests.
+    // Keep this tiny script outside the encrypted payload: it has no secrets.
+    const enforceSecureContext = '<script>(function(){if(location.protocol==="http:" && !["localhost","127.0.0.1","::1"].includes(location.hostname)){location.replace("https:"+location.href.substring(location.protocol.length));}})();<\\/script>';
+    if (!encrypted.includes('<head>')) throw new Error('Missing HTML head in encrypted page: '+file);
+    const securedHTML = encrypted.replace('<head>','<head>\\n'+enforceSecureContext);
+    fs.writeFileSync(file,securedHTML);
     console.log('Encrypted '+path.relative(dist,file)+(isSenior?' [SENIOR]':' [STAFF]'));
   }finally{fs.rmSync(temp,{recursive:true,force:true});}
 }
