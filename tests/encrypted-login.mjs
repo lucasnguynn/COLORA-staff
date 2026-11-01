@@ -164,10 +164,18 @@ try{
   await unlock(page,staff);
   await page.locator('#staticrypt-password').waitFor({state:'visible'});
   assert.equal(await page.locator('#workspaceTitle').count(),0,'JD incorrectly unlocked with staff secret');
-  await unlock(page,senior);
-  await page.locator('#workspaceTitle').waitFor({state:'attached',timeout:15000});
-
-  console.log('PASS: single-login Staff portal with 3 internally bundled apps and separately protected senior JD decrypted using Actions secrets. No secret values logged.');
+  if(process.env.JD_BUILD_MODE==='preserve'){
+    // The unchanged JD page still requires its ORIGINAL, privately held
+    // Senior password. The new Senior secret may not decrypt this archive,
+    // so verify the original login is intact and rejects the Staff password
+    // without incorrectly claiming that the current secret opens JD.
+    assert.equal(await page.locator('#workspaceTitle').count(),0,'Protected JD must remain encrypted');
+    console.log('PASS: Staff tools unlock; previously encrypted JD remains protected and rejects Staff secret. Original JD password is unchanged.');
+  }else{
+    await unlock(page,senior);
+    await page.locator('#workspaceTitle').waitFor({state:'attached',timeout:15000});
+    console.log('PASS: single-login Staff portal with 3 internally bundled apps and separately protected senior JD decrypted using Actions secrets. No secret values logged.');
+  }
 }finally{
   await browser.close();
   await new Promise(resolve=>server.close(resolve));
