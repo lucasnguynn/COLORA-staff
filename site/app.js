@@ -12,7 +12,8 @@
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const escapeAttribute = escapeHTML;
   const safeURL = raw => {try {const u = new URL(String(raw), 'https://colora.vn/');return u.protocol === 'https:' ? u.href : 'https://colora.vn/';}catch {return 'https://colora.vn/';}};
-  const sidebar=$('sidebar'), menuButton=$('mobile-menu'), frame=$('module-frame');
+  const sidebar=$('sidebar'), menuButton=$('mobile-menu'), frame=$('module-frame'), shade=$('mobile-shade');
+  function closeMobile(){sidebar.classList.remove('open');shade.hidden=true;document.body.classList.remove('menu-open');menuButton.setAttribute('aria-expanded','false');}
 
   function navigate(view) {
     if (!Object.prototype.hasOwnProperty.call(labels,view)) view = 'home';
@@ -37,7 +38,7 @@
     $('module-expand').textContent='Mở rộng ⤢';
     $('path-label').textContent=labels[view];
     $$('.nav-btn').forEach(btn=>{const selected=btn.dataset.view===view;btn.classList.toggle('active',selected);if(selected)btn.setAttribute('aria-current','page');else btn.removeAttribute('aria-current')});
-    sidebar.classList.remove('open');menuButton.setAttribute('aria-expanded','false');
+    closeMobile();
     document.title=labels[view]+' | COLORA Staff';
     window.scrollTo({top:0,behavior:'instant'});
   }
@@ -55,9 +56,15 @@
     $('module-expand').setAttribute('aria-pressed',String(enabled));
     $('module-expand').textContent=enabled?'Thu nhỏ ⤡':'Mở rộng ⤢';
   });
-  menuButton.addEventListener('click',()=>{sidebar.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(sidebar.classList.contains('open')))});
+  menuButton.addEventListener('click',()=>{
+    const opened=sidebar.classList.toggle('open');
+    shade.hidden=!opened;document.body.classList.toggle('menu-open',opened);
+    menuButton.setAttribute('aria-expanded',String(opened));
+    if(opened)sidebar.scrollTop=0;
+  });
+  shade.addEventListener('click',closeMobile);
   window.addEventListener('hashchange',applyRoute);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){sidebar.classList.remove('open');menuButton.setAttribute('aria-expanded','false');document.body.classList.remove('module-immersive');$('module-expand').textContent='Mở rộng ⤢';$('module-expand').setAttribute('aria-pressed','false')}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMobile();document.body.classList.remove('module-immersive');$('module-expand').textContent='Mở rộng ⤢';$('module-expand').setAttribute('aria-pressed','false')}});
 
   let signatureHTML = '';
   function formatSignature(values) {
