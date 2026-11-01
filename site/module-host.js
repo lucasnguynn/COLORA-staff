@@ -141,6 +141,13 @@ window.COLORA_MODULE_HOST=(()=>{
         data.resizeObserver=new ResizeObserver(schedule);
         data.resizeObserver.observe(target);
         data.mutationObserver=new MutationObserver(()=>{
+          if(view==='learning'&&!data.defaultOpened){
+            const first=doc.querySelector('#app .sidebar [data-nav].active');
+            if(first){
+              data.defaultOpened=true;
+              if(first.dataset.nav==='home')goTo('learn');
+            }
+          }
           syncNav();
           schedule();
         });
