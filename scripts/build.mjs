@@ -137,6 +137,10 @@ const seniorBundle=JSON.stringify(seniorEmbedded)
   .replace(/</g,'\\u003c').replace(/>/g,'\\u003e').replace(/&/g,'\\u0026');
 const seniorRole=portal
   .replace('<body style="visibility:hidden">','<body style="visibility:hidden" data-staff-role="senior">')
+  // The plaintext staging file lives under /senior/ during CI, while the
+  // decrypted ciphertext replaces /index.html at runtime. Parent-relative
+  // assets resolve to the site root in BOTH contexts.
+  .replace(/(href|src)="\.\//g,'$1="../')
   .replace('</body>','<script id="bundled-jd" type="application/json">'+seniorBundle+'</script>\\n</body>');
 const seniorDir=path.join(dist,'senior');
 fs.mkdirSync(seniorDir,{recursive:true});
