@@ -9,9 +9,9 @@ A simple integrated COLORA Staff Portal on GitHub Pages. The Staff entry HTML an
 | Area | Route | Source | Gate |
 | --- | --- | --- | --- |
 | Dashboard, Resource Library, Email Signature, Website Generator | / | COLORA-staff | Staff password |
-| Client Care Academy | /apps/client-care/ | CSKH-COLORA | Staff password |
-| Learning Studio | /apps/learning/ | QnA-COLORA | Staff password |
-| QR Generator | /apps/qr/ | QR-V1 | Staff password |
+| Client Care Academy | /#client-care | CSKH-COLORA (copied into staff bundle) | Included in one Staff login |
+| Learning Studio | /#learning | QnA-COLORA (copied into staff bundle) | Included in one Staff login |
+| QR Generator | /#qr | QR-V1 (copied into staff bundle) | Included in one Staff login |
 | JD Library | /apps/jd/ | COLORA-JD | Separate senior password |
 
 The three training/tool modules are copied and bundled into the portal's single encrypted HTML workspace. JD is inlined (JS + CSS) into the HTML BEFORE encryption. The deployment artifact does not contain plaintext JD JavaScript.
