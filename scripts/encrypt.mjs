@@ -50,9 +50,9 @@ function encryptFile(file, password, salt, isSenior){
     // Redirect custom-domain visits to HTTPS *before* the password form or
     // Staticrypt decryption code runs. Localhost is exempt for CI smoke tests.
     // Keep this tiny script outside the encrypted payload: it has no secrets.
-    const enforceSecureContext = '<script>(function(){if(location.protocol==="http:" && !["localhost","127.0.0.1","::1"].includes(location.hostname)){location.replace("https:"+location.href.substring(location.protocol.length));}})();<\\/script>';
+    const enforceSecureContext = '<script>(function(){if(location.protocol==="http:" && !["localhost","127.0.0.1","::1"].includes(location.hostname)){location.replace("https:"+location.href.substring(location.protocol.length));}})();</script>';
     if (!encrypted.includes('<head>')) throw new Error('Missing HTML head in encrypted page: '+file);
-    const securedHTML = encrypted.replace('<head>','<head>\\n'+enforceSecureContext);
+    const securedHTML = encrypted.replace('<head>','<head>\n'+enforceSecureContext);
     fs.writeFileSync(file,securedHTML);
     console.log('Encrypted '+path.relative(dist,file)+(isSenior?' [SENIOR]':' [STAFF]'));
   }finally{fs.rmSync(temp,{recursive:true,force:true});}
