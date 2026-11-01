@@ -66,6 +66,11 @@
       transition:background-color .18s;
     }
     .staticrypt-decrypt-button:hover{background:#153A68}
+    .login-feedback{margin:14px 0 0;font-size:12px;line-height:1.8;color:#9A433E}
+    .login-recover{display:inline-block;border:0;background:none;padding:0;margin:11px 0 0;color:var(--navy);
+      text-align:left;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:5px;
+      cursor:pointer;font:600 11px/1.8 var(--body)}
+    .staticrypt-password-container:has(input[aria-invalid="true"]){border-color:#9A433E}
     :is(.staticrypt-decrypt-button,.staticrypt-toggle-password-visibility,.staticrypt-remember input):focus-visible{outline:2px solid var(--gold);outline-offset:3px}
     .staticrypt-spinner-container{min-height:100dvh;display:grid;place-items:center}
     .staticrypt-spinner{width:30px;height:30px;border:2px solid #D5CFC5;border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite}
@@ -122,6 +127,8 @@
             /*[|template_remember|]*/0
           </label>
           <input type="submit" class="staticrypt-decrypt-button" value="/*[|template_button|]*/0">
+          <p id="staticrypt-login-feedback" class="login-feedback" role="alert" aria-live="assertive" hidden></p>
+          <button type="button" class="login-recover" id="staticrypt-login-recover" hidden>Tải lại bản mới và xóa mật khẩu đã ghi nhớ ↗</button>
         </form>
       </div>
     </main>
@@ -146,19 +153,37 @@
             // init the staticrypt engine
             const staticrypt = staticryptInitiator.init(staticryptConfig, templateConfig);
 
-            // try to automatically decrypt on load if there is a saved password
+            // A stale remembered passphrase must never trap staff behind the
+            // initial loading spinner. Clear only StatiCrypt's own saved keys.
+            function clearRememberedLogin() {
+                try {
+                    localStorage.removeItem("staticrypt_passphrase");
+                    localStorage.removeItem("staticrypt_expiration");
+                } catch (_) { /* Private browsing can restrict storage. */ }
+            }
+            const loginFeedback = document.getElementById("staticrypt-login-feedback");
+            const loginRecover = document.getElementById("staticrypt-login-recover");
+            if (isRememberEnabled) {
+                loginRecover.hidden = false;
+            }
+            loginRecover.addEventListener("click", function () {
+                clearRememberedLogin();
+                const url = new URL(location.href);
+                // A fresh URL bypasses an old cached encrypted HTML document.
+                url.searchParams.set("refresh", String(Date.now()));
+                location.replace(url.href);
+            });
             window.onload = async function () {
-                const { isSuccessful } = await staticrypt.handleDecryptOnLoad();
-
-                // if we didn't decrypt anything on load, show the password prompt. Otherwise the content has already been
-                // replaced, no need to do anything
+                let isSuccessful = false;
+                try {
+                    ({ isSuccessful } = await staticrypt.handleDecryptOnLoad());
+                } catch (_) {
+                    clearRememberedLogin();
+                }
                 if (!isSuccessful) {
-                    // hide loading screen
                     document.getElementById("staticrypt_loading").classList.add("hidden");
                     document.getElementById("staticrypt_content").classList.remove("hidden");
                     document.getElementById("staticrypt-password").focus();
-
-                    // show the remember me checkbox
                     if (isRememberEnabled) {
                         document.getElementById("staticrypt-remember-label").classList.remove("hidden");
                     }
@@ -191,8 +216,11 @@
             document.getElementById("staticrypt-form").addEventListener("submit", async function (e) {
                 e.preventDefault();
 
-                const password = document.getElementById("staticrypt-password").value,
+                const passwordField = document.getElementById("staticrypt-password");
+                const password = passwordField.value,
                     isRememberChecked = document.getElementById("staticrypt-remember").checked;
+                loginFeedback.hidden = true;
+                passwordField.removeAttribute("aria-invalid");
 
                 // A stable branded loading state bridges password validation
                 // and the protected document's own inline first-paint guard.
@@ -210,8 +238,14 @@
                 if (!isSuccessful) {
                     loading.classList.add("hidden");
                     content.classList.remove("hidden");
-                    document.getElementById("staticrypt-password").focus();
-                    alert(templateError);
+                    // Do not make an assumption about whether the password,
+                    // a stale cached document, or WebCrypto caused the failure.
+                    clearRememberedLogin();
+                    passwordField.value = "";
+                    passwordField.setAttribute("aria-invalid", "true");
+                    loginFeedback.textContent = "Không thể mở trang. Hãy kiểm tra mật khẩu Staff, hoặc nhấn ‘Tải lại bản mới’ bên dưới rồi thử lại.";
+                    loginFeedback.hidden = false;
+                    passwordField.focus();
                 }
             });
         </script>
