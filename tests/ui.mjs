@@ -133,6 +133,7 @@ try{
   assert(await page.locator('body').evaluate(x=>x.classList.contains('module-immersive')));
   await page.keyboard.press('Escape');
   await page.setViewportSize({width:390,height:844});
+  await page.locator('#mobile-menu').click();
   await page.locator('.nav-btn[data-view="client-care"]').click();
   await page.frameLocator('#module-frame').locator('#main-content').waitFor({state:'visible',timeout:14000});
   await page.waitForTimeout(650);
