@@ -4,7 +4,7 @@
     learning: {title: 'Learning Studio', eyebrow: '01 / LEARNING', description: 'Thư viện học tập nội bộ. Một số nội dung còn chờ duyệt; kết quả bài thi hiện không phải chứng nhận năng lực chính thức.', url: './apps/learning/index.html'},
     'client-care': {title: 'Client Care Academy', eyebrow: '02 / CLIENT EXPERIENCE', description: 'Kiến thức và tình huống tư vấn mô phỏng. Khi tư vấn thật, đối chiếu chính sách và hồ sơ SKU đã được phê duyệt.', url: './apps/client-care/index.html'},
     qr: {title: 'QR Generator', eyebrow: '04 / CREATIVE TOOL', description: 'Tạo QR, xem trước và xuất PNG/SVG theo mẫu COLORA.', url: './apps/qr/index.html'},
-    jd: {title: 'JD Library', eyebrow: '07 / SENIOR ACCESS', description: 'Chỉ dành cho người được cung cấp mật khẩu quản lý riêng. Không lưu dữ liệu nhân sự mật trong công cụ website tĩnh.', url: './apps/jd/index.html'}
+    jd: {title: 'JD Library', eyebrow: '07 / SENIOR ACCESS', description: 'Soạn, quản lý và xuất mô tả công việc theo chuẩn COLORA. Dữ liệu được lưu trên chính trình duyệt này.', url: './apps/jd/index.html'}
   };
   // Role is part of the encrypted shell, not an access-control flag by
   // itself. Only Senior-encrypted HTML includes the actual bundled JD app.
@@ -29,9 +29,14 @@
   }
   function closeMobile(){sidebar.classList.remove('open');shade.hidden=true;document.body.classList.remove('menu-open');menuButton.setAttribute('aria-expanded','false');}
 
+  function isModuleName(view){return Object.prototype.hasOwnProperty.call(modules,view)}
+
   function navigate(view) {
     if (!Object.prototype.hasOwnProperty.call(labels,view) || (view==='jd'&&!isSenior)) view = 'home';
     window.COLORA_MODULE_HOST?.cleanup();
+    window.COLORA_JD_WORKSPACE?.dispose();
+    $('jd-workspace-controls').hidden=true;
+    $('module').dataset.activeModule=isModuleName(view)?view:'';
     ['dashboard','library-view','module','signature-tool','mail-guide'].forEach(id=>$(id).hidden=true);
     const isModule=Object.prototype.hasOwnProperty.call(modules,view);
     if (isModule) {
@@ -51,16 +56,16 @@
         const markup=JSON.parse(packed.textContent);
         controls.hidden=true;
         trackLabel.hidden=true;
-        expand.hidden=false;
+        expand.hidden=true;
         // The Senior envelope already decrypted JD source during the outer
         // login. srcdoc shares the Staff origin and retains local JD drafts.
         // No secret is placed into the URL, web storage, iframe, or logs.
         frame.removeAttribute('src');
+        window.COLORA_JD_WORKSPACE?.mount(frame);
         frame.srcdoc=markup.replace('<base href="/apps/jd/">',
           '<base href="'+new URL('/apps/jd/',location.origin).href+'">').trim();
         $('module-open').hidden=true;
-        $('module-hint').textContent='JD Library · Senior access. Dữ liệu JD được lưu trên chính trình duyệt này.';
-        $('module-hint').hidden=false;
+        $('module-hint').hidden=true;
         $('module-status').hidden=true;
       } else {
         const packed=document.getElementById('bundled-'+view);
