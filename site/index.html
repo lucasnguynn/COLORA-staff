@@ -50,10 +50,12 @@
   <link rel="stylesheet" href="./jd-integrated.css">
   <script src="./library.js" defer></script>
   <script src="./module-host.js" defer></script>
-  <script src="./app.js" defer></script>
+  <!-- The JD bridge must exist before app.js resolves the initial #jd route.
+       Otherwise a directly bookmarked Senior session renders an empty frame. -->
+  <script src="./jd-workspace.js" defer></script>
   <script src="./library-ui.js" defer></script>
   <script src="./mail-guide.js" defer></script>
-  <script src="./jd-workspace.js" defer></script>
+  <script src="./app.js" defer></script>
 </head>
 <body style="visibility:hidden">
   <a class="skip-link" href="#main">Đến nội dung chính</a>

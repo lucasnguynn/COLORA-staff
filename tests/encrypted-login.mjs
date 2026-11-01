@@ -177,7 +177,9 @@ try{
   // SAME outer form must also accept Senior password, which decrypts a
   // completely separate, Senior-only ciphertext with integrated JD source.
   const seniorPage=await context.newPage();
-  await seniorPage.goto(base+'/',{waitUntil:'domcontentloaded'});
+  // Reproduce the reported blank Senior JD: logging in with the initial
+  // #jd bookmark must show the native controls without a second nav click.
+  await seniorPage.goto(base+'/#jd',{waitUntil:'domcontentloaded'});
   await seniorPage.locator('#staticrypt-password').waitFor({state:'visible',timeout:15000});
   assert.equal(await seniorPage.locator('#login-role-hint').isVisible(),true);
   await seniorPage.locator('#staticrypt-password').fill(senior);
@@ -185,6 +187,15 @@ try{
   await seniorPage.locator('body[data-staff-role="senior"][data-staff-ready="true"]').waitFor({state:'attached',timeout:25000});
   assert.equal(await seniorPage.locator('.nav-btn[data-view="jd"]').isVisible(),true);
   assert.equal(await seniorPage.locator('#bundled-jd').count(),1,'Only Senior ciphertext should contain JD');
+  assert.equal(new URL(seniorPage.url()).hash,'#jd');
+  assert.equal(await seniorPage.locator('#module').getAttribute('data-active-module'),'jd','Direct Senior #jd must select JD on first render');
+  await seniorPage.locator('#jd-workspace-controls').waitFor({state:'visible',timeout:20000});
+  await seniorPage.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:20000});
+  await seniorPage.locator('#jd-role-select option').first().waitFor({state:'attached',timeout:15000});
+  assert.equal(await seniorPage.locator('#module-frame').getAttribute('data-jd-loaded'),'true','JD frame must become visible after deep-link login');
+  // Also verify switching away and returning does not break the same bridge.
+  await seniorPage.locator('.nav-btn[data-view="home"]').click();
+  await seniorPage.locator('#dashboard').waitFor({state:'visible'});
   await seniorPage.locator('.nav-btn[data-view="jd"]').click();
   await seniorPage.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:20000});
   await seniorPage.locator('#jd-workspace-controls').waitFor({state:'visible'});
