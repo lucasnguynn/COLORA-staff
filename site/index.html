@@ -4,6 +4,40 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#F4EDE1">
+
+  <!-- Inline boot guard: StatiCrypt can replace the document before CSS/fonts
+       are applied. Never expose a flash of unformatted Staff content. -->
+  <style id="colora-first-paint">
+    html{background:#F4EDE1}
+    html:not([data-colora-ready="true"]) body{visibility:hidden!important}
+    html:not([data-colora-ready="true"])::before{
+      content:"COLORA";position:fixed;left:0;top:calc(50% - 20px);
+      width:100%;z-index:2147483647;text-align:center;
+      font:600 19px/1.5 Georgia,serif;letter-spacing:.13em;color:#002451;
+      pointer-events:none
+    }
+    html:not([data-colora-ready="true"])::after{
+      content:"Đang mở không gian làm việc";position:fixed;
+      left:0;top:calc(50% + 20px);width:100%;z-index:2147483647;
+      text-align:center;font:400 12px/1.6 Arial,sans-serif;
+      color:#65738A;pointer-events:none
+    }
+    html[data-colora-load-error="true"]:not([data-colora-ready="true"])::after{
+      content:"Không tải được giao diện. Vui lòng tải lại trang."
+    }
+    @media(prefers-reduced-motion:no-preference){
+      html:not([data-colora-ready="true"])::before{animation:colora-boot-pulse 1.3s ease-in-out infinite alternate}
+      @keyframes colora-boot-pulse{from{opacity:.55}to{opacity:1}}
+    }
+  </style>
+  <script>
+    // Fail closed if a required stylesheet/script cannot load: show a simple
+    // retry hint instead of exposing unstyled or partially initialized text.
+    window.setTimeout(function(){
+      if(document.documentElement.dataset.coloraReady!=='true')
+        document.documentElement.dataset.coloraLoadError='true';
+    },10000);
+  </script>
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="description" content="COLORA Staff Workspace - học tập, tài liệu và công cụ dành cho đội ngũ COLORA.">
   <title>Staff Workspace | COLORA</title>

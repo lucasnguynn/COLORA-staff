@@ -170,8 +170,28 @@
   });
 
   applyRoute();
-  // The decrypted HTML can become visible before deferred scripts finish.
-  // Consumers (and automated tests) should wait for this readiness marker
-  // before invoking module navigation.
-  document.body.dataset.staffReady='true';
+  // StatiCrypt replaces the whole document after a successful decrypt.
+  // Keep the first-paint guard (inline in <head>) until stylesheet loading,
+  // Staff app initialization, and a paint with brand fonts have completed.
+  // Never reveal unformatted content when a required CSS asset fails.
+  function finishStaffFirstPaint(){
+    const fonts=document.fonts?.ready||Promise.resolve();
+    const timeout=new Promise(resolve=>setTimeout(resolve,2800));
+    Promise.race([fonts,timeout]).then(()=>{
+      const sidebar=document.getElementById('sidebar');
+      const themed=sidebar&&getComputedStyle(sidebar).backgroundColor==='rgb(0, 36, 81)';
+      if(!themed){
+        document.documentElement.dataset.coloraLoadError='true';
+        return;
+      }
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        document.body.dataset.staffReady='true';
+        document.documentElement.dataset.coloraReady='true';
+      }));
+    }).catch(()=>{
+      document.documentElement.dataset.coloraLoadError='true';
+    });
+  }
+  if(document.readyState==='complete')finishStaffFirstPaint();
+  else window.addEventListener('load',finishStaffFirstPaint,{once:true});
 })();
