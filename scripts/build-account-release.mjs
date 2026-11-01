@@ -1,75 +1,93 @@
-/* Isolated authenticated-release builder.
- * Source: plaintext "dist" from scripts/build.mjs BEFORE StatiCrypt.
- * Output: account-release/public (ONLY public files), account-release/private
- * (NEVER deploy to Pages; upload ONLY to Supabase private Storage).
+/* Build a no-provider, five-user encrypted login on GitHub Pages.
+ * Use only in a trusted Actions environment with secret
+ * COLORA_ACCOUNT_CREDENTIALS_JSON. Never print, upload, or commit it.
+ *
+ * Source: plaintext `dist` from scripts/build.mjs, only inside the
+ * trusted runner. Published: public account gateway and five encrypted blobs.
+ * Staff HTML contains NO Senior JD. Do not confuse static encryption with
+ * server-verifiable identity, email ownership or revocable sessions.
  */
 import fs from 'node:fs';
 import path from 'node:path';
-const cwd=process.cwd();
-const dist=path.join(cwd,'dist');
-const output=path.join(cwd,'account-release');
-const pub=path.join(output,'public'), priv=path.join(output,'private');
-const url=String(process.env.SUPABASE_URL||'').replace(/\/+$/,'');
-const key=String(process.env.SUPABASE_PUBLISHABLE_KEY||'');
-if(!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(url))throw Error('Missing/invalid Supabase project HTTPS URL');
-if(!/^(sb_publishable_|eyJ)[A-Za-z0-9_.-]{15,}$/.test(key))throw Error('Missing/invalid Supabase publishable key (NEVER a service_role key)');
-if(/^eyJ/.test(key)&&key.length>1024)throw Error('Unexpected public key size');
-if(!fs.existsSync(path.join(dist,'senior','index.html')) || !fs.existsSync(path.join(dist,'index.html'))){
- throw Error('Plaintext Staff/Senior build must exist before this separate staging command');
+import {randomBytes,pbkdf2Sync,createCipheriv} from 'node:crypto';
+const cwd=process.cwd(),dist=path.join(cwd,'dist');
+const output=path.join(cwd,'account-release'),pub=path.join(output,'public');
+const source=path.join(cwd,'account-auth');
+let users;
+try{users=JSON.parse(process.env.COLORA_ACCOUNT_CREDENTIALS_JSON||'null')}catch{}
+if(!Array.isArray(users)||users.length!==5)throw Error('Exactly five private employee credentials are required');
+let tally={staff:0,senior:0},emails=new Set(),passwords=new Set();
+for(const member of users){
+ const email=String(member?.email||'').toLowerCase().trim();
+ const password=member?.password,role=member?.role;
+ if(!/^[a-z0-9._%+-]+@colora\.vn$/.test(email)||emails.has(email))throw Error('Invalid or duplicate company email');
+ if(typeof password!=='string'||password.length<20||password.length>512||passwords.has(password)){
+   throw Error('Each user must have a unique randomly generated 20+ character Workspace password');
+ }
+ if(!['staff','senior'].includes(role))throw Error('Invalid staff role');
+ tally[role]++;emails.add(email);passwords.add(password);
 }
-const roleHtml=[
- ['staff',fs.readFileSync(path.join(dist,'index.html'),'utf8')],
- ['senior',fs.readFileSync(path.join(dist,'senior','index.html'),'utf8')]
-];
-for(const [role,html] of roleHtml){
- if(!html.includes('data-staff-role="'+role+'"') || !html.includes('id="module-frame"'))throw Error('Unexpected role-specific HTML: '+role);
- if(role==='staff' && (html.includes('id="bundled-jd"')||html.includes('data-view="jd"')))throw Error('Staff role leaks JD');
- if(role==='senior' && !html.includes('id="bundled-jd"'))throw Error('Senior app payload missing');
+if(tally.staff!==3||tally.senior!==2)throw Error('Expected exactly 3 Staff and 2 Senior');
+const roleDocuments={
+  staff:fs.readFileSync(path.join(dist,'index.html')),
+  senior:fs.readFileSync(path.join(dist,'senior','index.html'))
+};
+for(const [role,bytes] of Object.entries(roleDocuments)){
+ const html=bytes.toString('utf8');
+ if(!html.includes('data-staff-role="'+role+'"')||!html.includes('id="module-frame"'))throw Error('Invalid role document');
+ if(role==='staff'&&(html.includes('id="bundled-jd"')||html.includes('data-view="jd"')))throw Error('Staff document contains JD');
+ if(role==='senior'&&!html.includes('id="bundled-jd"'))throw Error('Senior document lacks JD');
 }
 fs.rmSync(output,{recursive:true,force:true});
-fs.mkdirSync(pub,{recursive:true});fs.mkdirSync(priv,{recursive:true});
+fs.mkdirSync(path.join(pub,'account-files'),{recursive:true});
 function copyStatic(src,dst){
  for(const entry of fs.readdirSync(src,{withFileTypes:true})){
   const input=path.join(src,entry.name),out=path.join(dst,entry.name);
   if(entry.isDirectory()){
-    if(entry.name==='senior'||entry.name.startsWith('.'))continue;
-    fs.mkdirSync(out,{recursive:true});copyStatic(input,out);
+   if(entry.name==='senior'||entry.name.startsWith('.'))continue;
+   fs.mkdirSync(out,{recursive:true});copyStatic(input,out);
   }else if(entry.isFile()){
-    // Never distribute any independent .html or the old public senior gateway.
-    if(entry.name.endsWith('.html')||entry.name==='senior-gateway.json')continue;
-    fs.copyFileSync(input,out);
+   // Never publish the plain role documents or old senior ciphertext.
+   if(entry.name.endsWith('.html')||entry.name==='senior-gateway.json')continue;
+   fs.copyFileSync(input,out);
   }
  }
 }
 copyStatic(dist,pub);
-for(const [role,html] of roleHtml)fs.writeFileSync(path.join(priv,role+'.html'),html,{mode:0o600});
-const source=path.join(cwd,'account-auth');
-for(const [src,dst] of [['login.html','index.html'],['account-login.css','account-login.css'],['account-login.js','account-login.js']]){
- fs.copyFileSync(path.join(source,src),path.join(pub,dst));
+for(const [src,dst] of [
+ ['login.html','index.html'],
+ ['account-login.css','account-login.css'],
+ ['account-login.js','account-login.js']
+])fs.copyFileSync(path.join(source,src),path.join(pub,dst));
+const manifest={version:1,entries:[]};
+for(const member of users){
+ const email=member.email.toLowerCase().trim();
+ const role=member.role;
+ const salt=randomBytes(16),iv=randomBytes(12);
+ const material=Buffer.from(JSON.stringify([email,member.password]),'utf8');
+ const kdf=pbkdf2Sync(material,salt,600000,48,'sha256');
+ const verifier=kdf.subarray(0,16),key=kdf.subarray(16,48);
+ const cipher=createCipheriv('aes-256-gcm',key,iv);
+ const ciphertext=Buffer.concat([cipher.update(roleDocuments[role]),cipher.final(),cipher.getAuthTag()]);
+ const id=randomBytes(16).toString('hex');
+ manifest.entries.push({id,salt:salt.toString('base64'),verifier:verifier.toString('base64')});
+ fs.writeFileSync(path.join(pub,'account-files',id+'.json'),
+   JSON.stringify({iv:iv.toString('base64'),ciphertext:ciphertext.toString('base64')}));
 }
-let login=fs.readFileSync(path.join(pub,'index.html'),'utf8');
-// The trusted app uses inline scripts in its private document (legacy JD
-// engine and boot guard). srcdoc inherits the gateway's CSP. Limit network
-// access to this exact Supabase URL and self; no external app scripts.
-login=login.replace("script-src 'self';","script-src 'self' 'unsafe-inline';")
- .replace("style-src 'self' https://fonts.googleapis.com;","style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;")
- .replace("base-uri 'none';","base-uri 'self';")
- .replace("connect-src 'self' https:;","connect-src 'self' "+url+";")
- .replace("frame-src 'self' about:;","frame-src 'self' about:;"); 
-if(login.includes("connect-src 'self' https:;"))throw Error('Unrestricted network policy');
-fs.writeFileSync(path.join(pub,'index.html'),login);
-fs.writeFileSync(path.join(pub,'account-config.js'),
- 'window.COLORA_AUTH_CONFIG=Object.freeze('+JSON.stringify({supabaseUrl:url,publishableKey:key})+');\n');
-const found=[];
-function scan(dir,prefix=''){
- for(const item of fs.readdirSync(dir,{withFileTypes:true})){
-  const rel=prefix+item.name,abs=path.join(dir,item.name);
-  if(item.isDirectory())scan(abs,rel+'/');
-  else found.push(rel);
+fs.writeFileSync(path.join(pub,'account-entries.json'),JSON.stringify(manifest));
+const all=[];
+function scan(dir,rel=''){
+ for(const e of fs.readdirSync(dir,{withFileTypes:true})){
+  const p=path.join(dir,e.name),r=rel+e.name;
+  if(e.isDirectory())scan(p,r+'/');else all.push(r);
  }
 }
 scan(pub);
-const forbidden=found.filter(f=>f.endsWith('.html')&&f!=='index.html'||f.includes('senior-gateway')||f.includes('.sources')||f.includes('jd-source.enc'));
-if(forbidden.length)throw Error('Private files leaked into public Pages: '+forbidden.join(', '));
-if(!fs.existsSync(path.join(pub,'CNAME')))throw Error('Missing custom domain CNAME');
-console.log('Account release staged: public assets and separate private Staff/Senior HTML. No individual passwords used or stored.');
+const nonLoginHtml=all.filter(f=>f.endsWith('.html')&&f!=='index.html');
+if(nonLoginHtml.length||all.includes('senior-gateway.json'))throw Error('Found unauthorized public HTML');
+for(const member of users){
+ for(const file of ['index.html','account-entries.json','account-login.js']){
+  if(fs.readFileSync(path.join(pub,file),'utf8').includes(member.email))throw Error('Employee email leaked to public artifact');
+ }
+}
+console.log('PASS: five separately encrypted, opaque employee envelopes generated; three Staff, two Senior. No plaintext role HTML is published.');
