@@ -16,18 +16,31 @@ const source=path.join(cwd,'account-auth');
 let users;
 try{users=JSON.parse(process.env.COLORA_ACCOUNT_CREDENTIALS_JSON||'null')}catch{}
 if(!Array.isArray(users)||users.length!==5)throw Error('Exactly five private employee credentials are required');
-let tally={staff:0,senior:0},emails=new Set(),passwords=new Set();
-for(const member of users){
+// Report ALL problems together without ever printing account emails, secrets,
+// password lengths, password content, or other personally identifying data.
+let tally={staff:0,senior:0},emails=new Set(),passwords=new Set(),issues=[];
+for(const [index,member] of users.entries()){
+ const number=index+1;
  const email=String(member?.email||'').toLowerCase().trim();
  const password=member?.password,role=member?.role;
- if(!/^[a-z0-9._%+-]+@colora\.vn$/.test(email)||emails.has(email))throw Error('Invalid or duplicate company email');
- if(typeof password!=='string'||password.length<20||password.length>512||passwords.has(password)){
-   throw Error('Each user must have a unique randomly generated 20+ character Workspace password');
- }
- if(!['staff','senior'].includes(role))throw Error('Invalid staff role');
- tally[role]++;emails.add(email);passwords.add(password);
+ if(!/^[a-z0-9._%+-]+@colora\.vn$/.test(email)){
+  issues.push('Account #'+number+': email is not a valid @colora.vn address');
+ }else if(emails.has(email)){
+  issues.push('Account #'+number+': company email repeats another account');
+ }else emails.add(email);
+ if(typeof password!=='string'||password.length<20){
+  issues.push('Account #'+number+': password must contain at least 20 characters');
+ }else if(password.length>512){
+  issues.push('Account #'+number+': password exceeds 512 characters');
+ }else if(passwords.has(password)){
+  issues.push('Account #'+number+': password duplicates another account');
+ }else passwords.add(password);
+ if(role!=='staff'&&role!=='senior'){
+  issues.push('Account #'+number+': role must be staff or senior');
+ }else tally[role]++;
 }
-if(tally.staff!==3||tally.senior!==2)throw Error('Expected exactly 3 Staff and 2 Senior');
+if(tally.staff!==3||tally.senior!==2)issues.push('Roles must contain exactly 3 staff and 2 senior accounts');
+if(issues.length)throw Error('Account configuration failed (no secrets displayed):\n- '+issues.join('\n- '));
 const roleDocuments={
   staff:fs.readFileSync(path.join(dist,'index.html')),
   senior:fs.readFileSync(path.join(dist,'senior','index.html'))
