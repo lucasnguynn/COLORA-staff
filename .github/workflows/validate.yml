@@ -61,8 +61,16 @@ jobs:
           STAFF_PORTAL_PASSWORD: CI-STAFF-DEMO-DO-NOT-SHARE-2026
           SENIOR_JD_PASSWORD: CI-SENIOR-DEMO-DO-NOT-SHARE-2026
         run: node scripts/encrypt.mjs && node scripts/verify.mjs
-      - name: Verify encrypted login using synthetic test passwords
+      - name: Verify branded Staff + Senior login on desktop/mobile
         env:
           STAFF_PORTAL_PASSWORD: CI-STAFF-DEMO-DO-NOT-SHARE-2026
           SENIOR_JD_PASSWORD: CI-SENIOR-DEMO-DO-NOT-SHARE-2026
+          LOGIN_QA_SCREENSHOTS: '1'
         run: node tests/encrypted-login.mjs
+      - name: Save branded login screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: colora-login-ui-qa
+          path: test-results/login-*.png
+          if-no-files-found: ignore
