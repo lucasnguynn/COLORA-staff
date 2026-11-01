@@ -81,10 +81,21 @@
         $('module-hint').hidden=true;
         // Each section uses one continuous Staff layout: no duplicate
         // sidebar, 2nd masthead, nested scroll area or external site URL.
-        window.COLORA_MODULE_HOST.mount(
-          view,frame,childHTML,
-          $('module-subnav'),$('module-track'),$('module-status')
-        );
+        try{
+          if(!window.COLORA_MODULE_HOST?.mount)throw Error('Module host unavailable');
+          window.COLORA_MODULE_HOST.mount(
+            view,frame,childHTML,
+            $('module-subnav'),$('module-track'),$('module-status')
+          );
+        }catch(_error){
+          // A runtime/URL error must not leave a seemingly successful but
+          // empty page, or abort the rest of Staff navigation and breadcrumbs.
+          $('module-subnav').replaceChildren();
+          $('module-subnav').hidden=true;
+          $('module-track').hidden=true;
+          $('module-status').hidden=false;
+          $('module-status').textContent='Không thể tải công cụ này. Vui lòng tải lại trang hoặc liên hệ quản trị COLORA.';
+        }
       }
     } else {
       // Stop background module execution when using local tools.

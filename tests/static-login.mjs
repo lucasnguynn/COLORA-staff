@@ -53,6 +53,49 @@ try{
   await wrapper.locator('body[data-staff-role="'+role+'"][data-staff-ready="true"]').waitFor({state:'attached',timeout:20000});
   const jd=await wrapper.locator('[data-view="jd"]').count();
   assert.equal(jd>0,role==='senior','Staff role must never see JD navigation');
+  // Verify all three nested applications INSIDE the real AES-GCM
+  // email/password login. Previously CI checked only the JD Library, so
+  // about:srcdoc origin errors and Blob CSP violations reached production.
+  for(const [view,selector] of [
+   ['learning','#app .content'],
+   ['client-care','#main-content'],
+   ['qr','#downloadPng']
+  ]){
+    await wrapper.locator('.nav-btn[data-view="'+view+'"]').click();
+    const app=wrapper.frameLocator('#module-frame');
+    try{
+      await app.locator(selector).waitFor({state:'visible',timeout:18000});
+      await wrapper.locator('#module-status').waitFor({state:'hidden',timeout:15000});
+      const frameURL=await wrapper.locator('#module-frame').getAttribute('src');
+      assert(frameURL?.startsWith('blob:'),'Encrypted '+role+' '+view+' should open a Blob app');
+      assert.equal(await app.locator('html').getAttribute('data-colora-embed'),view,'Incorrect '+view+' integration markup');
+      if(view==='learning'){
+        await app.locator('#app .content').waitFor({state:'visible'});
+        await wrapper.locator('.workspace-subnav-btn[data-subroute="learn"]').waitFor({state:'visible'});
+        await wrapper.locator('.workspace-subnav-btn[data-subroute="review"]').click();
+        await wrapper.locator('.workspace-subnav-btn[data-subroute="learn"]').click();
+      } else if(view==='client-care'){
+        await wrapper.locator('.workspace-subnav-btn[data-subroute="scripts"]').waitFor({state:'visible'});
+        await wrapper.locator('.workspace-subnav-btn[data-subroute="scripts"]').click();
+        await app.locator('#main-content').getByText(/kịch bản/i).first().waitFor({state:'visible',timeout:12000});
+      } else {
+        await app.locator('#qrPreview canvas, #qrPreview svg').first().waitFor({state:'attached',timeout:20000});
+        assert.equal(await app.locator('script[src*="unpkg.com"]').count(),0,'QR must use local vendor library');
+      }
+    }catch(error){
+      // Do not print any user secrets, email addresses or decrypted HTML.
+      const diag=await wrapper.locator('#module-frame').evaluate(el=>{
+        try{return {frameSrc:el.getAttribute('src')?.startsWith('blob:')?'blob':'other',
+          parentURL:el.ownerDocument.defaultView.location.protocol,
+          parentOrigin:el.ownerDocument.defaultView.location.origin,
+          frameHeight:el.clientHeight,childTitle:el.contentDocument?.title,
+          childVisible:!!el.contentDocument?.body?.innerText?.trim(),
+          childReady:el.contentDocument?.readyState};}catch{return {error:'could not inspect frame'}}
+      }).catch(()=>({error:'frame missing'}));
+      console.error('MODULE E2E FAILED',role,view,JSON.stringify(diag));
+      throw error;
+    }
+  }
   if(role==='senior'){
    await wrapper.locator('.nav-btn[data-view="jd"]').click();
    try{await wrapper.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:15000})}
@@ -87,5 +130,5 @@ try{
  await page.locator('#signin-submit:not([disabled])').waitFor({state:'attached',timeout:60000});
  assert.equal(await page.locator('#workspace').isVisible(),false,'Wrong email must not enter');
  await context.close();
- console.log('PASS: Chrome decrypted one Staff and one Senior account; Staff cannot navigate JD, Senior can; logout and incorrect email tested.');
+ console.log('PASS: Encrypted Staff and Senior logins open real Learning Studio, Client Care Academy, QR Generator, and Senior-only JD. Tested module routes, QR output, logout and rejected email.');
 } finally {await browser.close();await new Promise(resolve=>server.close(resolve));}
