@@ -56,8 +56,9 @@ if(!buildJS.includes('data-colora-embed') || !buildJS.includes('embedded-apps.cs
 if(!fs.readFileSync(path.join('site','index.html'),'utf8').includes('id="mail-guide"'))throw Error('Mailbox guide must be part of encrypted Staff HTML.');
 if(!fs.readFileSync(path.join('site','index.html'),'utf8').includes('id="jd-workspace-controls"'))throw Error('Native Staff JD controls missing.');
 const staffSource=fs.readFileSync(path.join('site','index.html'),'utf8');
-const bridgeScript=staffSource.indexOf('<script src="./jd-workspace.js" defer>');
-const routerScript=staffSource.indexOf('<script src="./app.js" defer>');
+// Versioned script URLs are required to avoid stale GitHub Pages/CDN assets.
+const bridgeScript=staffSource.search(/<script src="\.\/jd-workspace\.js\?v=[^"]+" defer>/);
+const routerScript=staffSource.search(/<script src="\.\/app\.js\?v=[^"]+" defer>/);
 if(bridgeScript<0 || routerScript<0 || bridgeScript>routerScript){
   throw Error('JD controller must load before app.js resolves bookmarked Senior #jd.');
 }
