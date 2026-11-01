@@ -47,10 +47,15 @@ try{
   assert.equal(await page.locator('#staticrypt-remember-label').isVisible(),true,'Staff Remember me option missing');
   assert.equal(await page.locator('.login-panel').count(),1,'Exactly one COLORA access form expected');
   assert.equal(await page.locator('.identity-panel,.identity-copy,.site-topbar,.site-footer,.staticrypt-hr').count(),0,'Decorative or redundant login chrome must be removed');
-  assert.equal(await page.locator('.staticrypt-content').innerText().then(t=>/A place to|Facets of Feeling|Every feeling|COLOR YOUR AURA|Made for our people/i.test(t)),false,'Remove sentimental and repeated brand copy');
+  assert.equal(await page.locator('.staticrypt-content').innerText().then(t=>/A place to|Facets of Feeling|Every feeling|Made for our people/i.test(t)),false,'Remove sentimental and repeated brand copy');
+  assert.equal(await page.locator('.brand-line').innerText(),'COLOR YOUR AURA','One concise brand line should appear');
+  assert.equal(await page.locator('.brand-side').evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(0, 36, 81)','COLORA Navy brand panel missing');
+  assert.equal(await page.locator('.staticrypt-content .brand-logo').count(),1,'Only one COLORA logo should appear');
   assert.equal(await page.locator('.staticrypt-decrypt-button').getAttribute('value'),'Đăng nhập');
   assert.equal(await page.locator('.login-panel').evaluate(el=>getComputedStyle(el).fontFamily.includes('Open Sans')),true,'Use COLORA body typography');
-  assert.equal(await page.locator('.login-panel').evaluate(el=>el.getBoundingClientRect().width),440,'Desktop should render one narrow login panel');
+  const panelWidth=await page.locator('.login-panel').evaluate(el=>el.getBoundingClientRect().width);
+  assert(panelWidth>=800&&panelWidth<=940,'Desktop should render a compact two-tone panel, not a tiny card: '+panelWidth);
+  assert.equal(await page.locator('.login-panel').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),2,'Desktop should show two balanced columns');
   if(process.env.LOGIN_QA_SCREENSHOTS==='1'){
     fs.mkdirSync('test-results',{recursive:true});
     await page.screenshot({path:'test-results/login-staff-desktop.png',fullPage:true});
@@ -58,6 +63,7 @@ try{
     const widths=await page.evaluate(()=>[document.documentElement.scrollWidth,innerWidth]);
     assert(widths[0]<=widths[1]+2,'Login mobile horizontal overflow '+widths);
     assert.equal(await logo.evaluate(el=>el.complete&&el.naturalWidth>0),true,'Mobile login logo failed to load');
+    assert((await page.locator('.brand-side').boundingBox()).height<165,'Compact brand header expected on mobile');
     await page.screenshot({path:'test-results/login-staff-mobile.png',fullPage:true});
     await page.setViewportSize({width:1280,height:800});
   }
