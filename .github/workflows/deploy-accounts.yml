@@ -1,0 +1,67 @@
+name: Deploy COLORA individual accounts (opt-in)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: colora-staff-pages
+  cancel-in-progress: false
+jobs:
+  build-and-deploy:
+    # Explicit account-mode switch. Legacy live portal remains unchanged
+    # until Supabase project, SQL/RLS and invitations are ready.
+    if: vars.STAFF_AUTH_MODE == 'accounts'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Restore protected JD source in ephemeral runner only
+        env:
+          SENIOR_JD_PASSWORD: ${{ secrets.SENIOR_JD_PASSWORD }}
+        shell: bash
+        run: |
+          if node scripts/jd-source.mjs decrypt modules/jd-source.enc.json .sources/jd; then
+            echo "Protected JD restored."
+          else
+            rm -rf .sources/jd
+            node scripts/recover-jd-source.mjs .sources/jd
+          fi
+      - name: Install pinned QR library (no runtime third-party scripts)
+        run: npm install --no-save --no-package-lock qr-code-styling@1.6.0-rc.1
+      - name: Build role-specific HTML in runner (never upload as Pages artifact)
+        run: node scripts/build.mjs
+      - name: Stage public and private artifacts separately
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+        run: node scripts/build-account-release.mjs
+      - name: Verify artifact segregation, role identity and private payloads
+        run: node tests/account-release.mjs
+      - name: Upload private HTML to Supabase RLS bucket, verify anonymous denial
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: node scripts/publish-account-release.mjs
+      - name: Drop plaintext staging source before preparing public artifact
+        run: |
+          rm -rf .sources dist account-release/private
+          test -f account-release/public/index.html
+          test ! -e account-release/public/apps/jd/index.html
+          test ! -e account-release/public/senior-gateway.json
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: account-release/public
+      - name: Publish account gateway only after private permissions succeed
+        id: deployment
+        uses: actions/deploy-pages@v4

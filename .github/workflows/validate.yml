@@ -17,6 +17,11 @@ jobs:
           node --check site/app.js
           node --check site/mail-guide.js
           node --check site/jd-workspace.js
+          node --check account-auth/account-login.js
+          node --check scripts/build-account-release.mjs
+          node --check scripts/publish-account-release.mjs
+          node --check scripts/invite-colora-staff.mjs
+          node --check tests/account-release.mjs
           node --check site/library.js
           node --check site/library-ui.js
           node --check tests/ui.mjs
@@ -62,6 +67,15 @@ jobs:
         env:
           JD_SOURCE_DIR: tests/fixtures/jd
         run: node scripts/build.mjs
+      - name: Verify opt-in account release keeps Staff and Senior HTML private
+        env:
+          SUPABASE_URL: https://example-project.supabase.co
+          SUPABASE_PUBLISHABLE_KEY: sb_publishable_FAKE_ACCOUNT_CI_ONLY_DO_NOT_USE
+        run: |
+          node scripts/build-account-release.mjs
+          node tests/account-release.mjs
+          # Never pass staged private HTML into a CI artifact.
+          rm -rf account-release
       - name: Install browser for UI smoke tests
         run: npx playwright install chromium
       - name: Test desktop, mobile and embedded tools

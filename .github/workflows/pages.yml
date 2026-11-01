@@ -11,6 +11,9 @@ concurrency:
   cancel-in-progress: false
 jobs:
   build:
+    # Once individual accounts are activated, never overwrite their gateway
+    # with the old shared-password StatiCrypt portal on the next commit.
+    if: vars.STAFF_AUTH_MODE != 'accounts'
     runs-on: ubuntu-latest
     # github-pages secrets stored in Settings > Environments can only be
     # read by a job that explicitly references this environment.
