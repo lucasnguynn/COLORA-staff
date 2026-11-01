@@ -42,7 +42,7 @@
     window.scrollTo({top:0,behavior:'instant'});
   }
   function applyRoute(){const route=decodeURIComponent(location.hash.slice(1)||'home');const [view,detail]=route.split('/');navigate(view);if(view==='library'&&typeof window.COLORA_LIBRARY_OPEN==='function')window.COLORA_LIBRARY_OPEN(detail||'');}
-  $('[data-view]').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('[data-view]').forEach(btn=>btn.addEventListener('click',()=>{
     const route=btn.dataset.view+(btn.dataset.article?'/'+btn.dataset.article:'');
     if(location.hash==='#'+route) applyRoute(); else location.hash=route;
   }));
