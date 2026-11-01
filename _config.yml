@@ -1,0 +1,16 @@
+# Temporary safe fallback while GitHub Pages still publishes from main/(root).
+# When Pages Source is switched to GitHub Actions, the encrypted dist artifact
+# supersedes this fallback. Do not serve the plaintext site/ directory via Jekyll.
+exclude:
+  - site
+  - scripts
+  - tests
+  - .github
+  - README.md
+  - LICENSE.md
+  - node_modules
+  - .sources
+  - dist
+  - .gitignore
+  - package.json
+  - package-lock.json
