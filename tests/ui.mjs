@@ -41,6 +41,7 @@ try{
   await page.locator('#signature-form [name="role"]').fill('Client Advisor');
   await page.locator('#signature-form [name="email"]').fill('example@colora.vn');
   assert((await page.locator('#signature-preview').innerText()).includes('Minh An'));
+  assert.equal(await page.locator('#signature-preview img[alt="COLORA"]').count(),1,'Signature must use official COLORA logo');
   const signature=page.waitForEvent('download');
   await page.locator('#signature-download').click();
   assert.equal((await signature).suggestedFilename(),'colora-email-signature.html');
@@ -50,6 +51,7 @@ try{
   const srcdoc=await page.locator('#web-preview').getAttribute('srcdoc');
   assert(srcdoc.includes('&lt;script&gt;'));
   assert(srcdoc.includes('background:#002451'));
+  assert(srcdoc.includes('colora-lettermark.png'),'Website export should use real COLORA logo');
   const html=page.waitForEvent('download');await page.locator('#web-form button[type="submit"]').click();
   assert.equal((await html).suggestedFilename(),'colora-landing-page.html');
   for(const [view,selector] of [['learning','#app'],['client-care','#main-content'],['qr','#downloadPng'],['jd','#workspaceTitle']]){
