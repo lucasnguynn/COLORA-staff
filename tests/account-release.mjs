@@ -13,6 +13,13 @@ const users=JSON.parse(process.env.COLORA_ACCOUNT_CREDENTIALS_JSON||'null');
 assert(Array.isArray(users)&&users.length===5,'Exactly 5 test credentials');
 assert.equal(records.version,1);assert.equal(records.entries.length,5);
 assert(html.includes('id="staff-email"')&&html.includes('id="staff-password"'));
+assert(html.includes('id="remember-device"')&&html.includes('type="checkbox"'),'Remember must be explicit opt-in');
+assert(!html.includes('id="remember-device" type="checkbox" checked'),'Remember must default to off');
+assert(script.includes("indexedDB.open(DB_NAME,1)"),'Browser remember should use IndexedDB');
+assert(script.includes("await safelyForget()"),'Logout must erase saved access key');
+assert(script.includes("extractable===false"),'Stored key must be non-extractable');
+assert(!script.includes("localStorage.setItem(")&&!script.includes("document.cookie="),'Remember must not store plaintext passwords in cookies or localStorage');
+
 assert(html.includes("frame-src 'self' about: blob:"),'Account CSP must permit local module Blob frames');
 assert(!html.includes("frame-src *"),'Do not allow arbitrary frame hosts');
 
