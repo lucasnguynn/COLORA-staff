@@ -64,6 +64,24 @@ function encryptFile(file, password, salt, isSenior){
     console.log('Encrypted '+path.relative(dist,file)+(isSenior?' [SENIOR]':' [STAFF]'));
   }finally{fs.rmSync(temp,{recursive:true,force:true});}
 }
+// Encrypt Senior's complete workspace with its own password before generating
+// the public two-role gateway. Only the encrypted payload and salt are
+// extracted. The gateway cannot reveal JD content with a Staff password.
+if(process.env.JD_BUILD_MODE==='preserve')throw Error('Dual-role login requires freshly encryptable Senior JD source.');
+const seniorPortal=path.join(dist,'senior','index.html');
+encryptFile(seniorPortal,senior,'693d7e80bd9ad117ec37b5f4482e2490',true);
+const seniorEncrypted=fs.readFileSync(seniorPortal,'utf8');
+const configMatch=seniorEncrypted.match(/\bstaticryptConfig\s*=\s*(\{[^\r\n;]*\})\s*;/);
+if(!configMatch)throw Error('Cannot extract encrypted Senior configuration');
+let gateway;
+try {gateway=JSON.parse(configMatch[1]);} catch {throw Error('Senior envelope config is not JSON serializable');}
+if(!gateway || typeof gateway.staticryptEncryptedMsgUniqueVariableName!=='string' ||
+   typeof gateway.staticryptSaltUniqueVariableName!=='string' ||
+   !gateway.staticryptEncryptedMsgUniqueVariableName.length) {
+  throw Error('Senior gateway encrypted configuration is incomplete');
+}
+fs.writeFileSync(path.join(dist,'senior-gateway.json'),JSON.stringify(gateway));
+fs.rmSync(path.dirname(seniorPortal),{recursive:true,force:true});
 const pages=['index.html'];
 for(const file of pages)encryptFile(path.join(dist,file),standard,saltStaff,false);
 if(process.env.JD_BUILD_MODE==='preserve'){
