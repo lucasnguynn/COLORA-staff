@@ -303,6 +303,24 @@ try{
   await page.setViewportSize({width:1440,height:900});
   await page.locator('[data-view="home"].nav-btn').click();
   await page.screenshot({path:'test-results/colora-staff-desktop.png',fullPage:true});
+  // Simulate mixed CDN caches: the Staff router executes before the JD
+  // bridge even though the intended HTML order is now corrected. A Senior
+  // bookmarked #jd must still recover and never remain a blank section.
+  const lateBridge=await browser.newPage({viewport:{width:1280,height:800}});
+  await lateBridge.route('**/senior/index.html',async route=>{
+    const response=await route.fetch();
+    const html=await response.text();
+    const bridgeTag=html.match(/<script src="\.\.\/jd-workspace\.js\?v=[^"]+" defer><\/script>/)?.[0];
+    const appTag=html.match(/<script src="\.\.\/app\.js\?v=[^"]+" defer><\/script>/)?.[0];
+    assert(bridgeTag&&appTag,'Mixed-cache test requires versioned scripts');
+    const reversed=html.replace(bridgeTag,'').replace(appTag,appTag+'\n'+bridgeTag);
+    await route.fulfill({response,body:reversed});
+  });
+  await lateBridge.goto('http://127.0.0.1:'+server.address().port+'/senior/index.html#jd');
+  await lateBridge.locator('#jd-workspace-controls').waitFor({state:'visible',timeout:12000});
+  await lateBridge.locator('#module-frame[data-jd-loaded="true"]').waitFor({state:'attached',timeout:12000});
+  await lateBridge.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:12000});
+  await lateBridge.close();
   assert.deepEqual(errors,[]);
   console.log('PASS: Staff UI desktop/mobile, library, signatures, HTML export and 4 embedded modules and mailbox setup walkthrough');
 }finally{await browser.close();await new Promise(done=>server.close(done));}
