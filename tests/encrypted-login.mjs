@@ -40,6 +40,7 @@ try{
   assert.equal(await page.locator('#staticrypt-password').isVisible(),true,'Staff login form missing');
   await unlock(page,staff);
   await page.locator('#dashboard h1').waitFor({state:'visible',timeout:15000});
+  await page.locator('body[data-staff-ready="true"]').waitFor({state:'attached',timeout:15000});
   assert((await page.locator('#dashboard').innerText()).includes('learn'),'Dashboard did not decrypt');
 
   // ONE staff login: navigate three copied apps inside the encrypted
@@ -52,7 +53,20 @@ try{
   for(const [view,selector] of modules){
     await page.locator('.nav-btn[data-view="'+view+'"]').click();
     const frame=page.frameLocator('#module-frame');
-    await frame.locator(selector).waitFor({state:'attached',timeout:20000});
+    try{await frame.locator(selector).waitFor({state:'attached',timeout:20000});}
+    catch(error){
+      // Report only structural diagnostics, NEVER user secrets or decrypted
+      // page contents.
+      const state=await page.locator('#module-frame').evaluate(el=>({
+        src:el.getAttribute('src'),
+        hasSrcdoc:el.hasAttribute('srcdoc'),
+        frameURL:el.contentWindow?.location?.href,
+        appFound:!!el.contentDocument?.querySelector('#app'),
+        ready:document.body.dataset.staffReady
+      })).catch(()=>({inaccessible:true}));
+      console.error('Encrypted module load state',view,JSON.stringify(state));
+      throw error;
+    }
     if(await frame.locator('#staticrypt-password').count()>0)throw Error('Unexpected second Staff password form in '+view);
     console.log('PASS: '+view+' opened directly after the single Staff login.');
   }

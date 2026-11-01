@@ -187,4 +187,8 @@
   });
   updateWebPreview();
   applyRoute();
+  // The decrypted HTML can become visible before deferred scripts finish.
+  // Consumers (and automated tests) should wait for this readiness marker
+  // before invoking module navigation.
+  document.body.dataset.staffReady='true';
 })();
