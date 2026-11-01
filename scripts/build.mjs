@@ -27,7 +27,7 @@ function copyModule(name,sourceName){
 
 fs.rmSync(dist,{recursive:true,force:true});
 fs.mkdirSync(dist,{recursive:true});
-for(const file of ['index.html','styles.css','brand-refinements.css','library.js','library-ui.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
+for(const file of ['index.html','styles.css','brand-refinements.css','embedded-apps.css','module-host.js','library.js','library-ui.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
 
 copyModule('client-care','client-care');
 copyModule('learning','learning');
@@ -57,6 +57,11 @@ for(const entry of bundledModules){
   // scripts, stylesheets, fetch('data/...'), and logo images.
   if(!/<head[^>]*>/i.test(child))fail('Sub-app HTML missing head: '+entry.source);
   child=child.replace(/<head([^>]*)>/i,'<head$1>\n<base href="/apps/'+entry.key+'/">');
+  // Retain original functionality, but publish each app as a CONTENT SECTION.
+  // A build-time CSS layer removes duplicate child sidebars/headers and
+  // removes the huge 2nd homepage. All routes remain usable in Blob context.
+  child=child.replace(/<html(\s|>)/i,'<html data-colora-embed="'+entry.key+'"$1');
+  child=child.replace(/<\/head>/i,'<link rel="stylesheet" href="/embedded-apps.css">\n</head>');
   // JSON encoding plus escaping of HTML sentinels prevents closing the inert
   // script element or accidentally parsing executable HTML in the shell.
   const json=JSON.stringify(child).replace(/</g,'\\u003c').replace(/>/g,'\\u003e').replace(/&/g,'\\u0026');
