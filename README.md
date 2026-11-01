@@ -13,6 +13,19 @@
 
 A simple integrated COLORA Staff Portal on GitHub Pages. The Staff entry HTML and separate Senior JD HTML are encrypted with StatiCrypt. This is for LOW-SENSITIVITY content only.
 
+
+## Dual-role Staff/Senior entry — November 2026
+
+A **single outer password box** at `https://staff.colora.vn/` selects the encrypted role-specific workspace through successful decryption:
+
+- `STAFF_PORTAL_PASSWORD` decrypts only the ordinary Staff workspace. No JD UI, markup, or source is present inside that role's ciphertext; the `#jd` deep link cannot elevate access.
+- `SENIOR_JD_PASSWORD` decrypts an independent Senior workspace ciphertext with all normal tools **plus JD Library**, without a second password prompt. Direct `/apps/jd/` remains separately encrypted.
+- Public `senior-gateway.json` contains ciphertext and nonsecret encryption parameters only. Neither password nor plaintext JD is published.
+- “Đổi quyền truy cập” clears the remembered Staff login before returning to the same shared login. Senior passwords are never remembered.
+- Production must build Senior ciphertext from legitimate recovered JD source. It must not reuse a stale Senior encryption envelope.
+
+This is shared-password encryption, **not employee identity verification** or server-side role-based access control. Use long random shared passwords and do not store confidential customer or HR records in browser-only tools.
+
 ## Modules
 
 | Area | Route | Source | Gate |
