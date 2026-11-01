@@ -1,0 +1,102 @@
+/* COLORA Staff unified workspace presentation.
+ * This stylesheet is injected into app source HTML at build time.
+ * Each legacy application's OWN functionality/data remain intact; the
+ * duplicate navigation and separate site chrome are hidden only here.
+ * The app runs in a controlled local browser context with one Staff shell.
+ */
+:root[data-colora-embed]{color-scheme:light}
+html[data-colora-embed],html[data-colora-embed] body{
+  min-height:0!important;height:auto!important;margin:0!important;
+  background:transparent!important;overflow-x:clip!important;
+  font-family:"Open Sans",Arial,sans-serif!important;
+}
+html[data-colora-embed] body{padding:0!important}
+html[data-colora-embed] *{scroll-margin-top:22px}
+html[data-colora-embed] .skip-link{display:none!important}
+
+/* Client Care: retain content, interactive scripts, filters and lessons.
+ * Remove the entire duplicate sidebar and top masthead. */
+html[data-colora-embed="client-care"] .app-shell{
+  display:block!important;width:100%!important;min-height:0!important;
+}
+html[data-colora-embed="client-care"] .app-shell > .sidebar,
+html[data-colora-embed="client-care"] .app-shell > .mobile-shade,
+html[data-colora-embed="client-care"] .workspace > .topbar,
+html[data-colora-embed="client-care"] .workspace > .site-footer,
+html[data-colora-embed="client-care"] > body > .mobile-shade{
+  display:none!important;
+}
+html[data-colora-embed="client-care"] .app-shell > .workspace{
+  display:block!important;width:100%!important;min-height:0!important;
+}
+html[data-colora-embed="client-care"] #main-content{width:100%!important;min-height:0!important}
+html[data-colora-embed="client-care"] #main-content > .page{
+  max-width:none!important;width:100%!important;
+  padding:8px 0 26px!important;margin:0!important;
+}
+html[data-colora-embed="client-care"] .page > .hero{margin-top:0!important}
+html[data-colora-embed="client-care"] h1,
+html[data-colora-embed="client-care"] h2,
+html[data-colora-embed="client-care"] h3{
+  font-family:"Cormorant Garamond",Georgia,serif!important;
+}
+html[data-colora-embed="client-care"] .toast{z-index:5}
+
+/* Learning: take the content canvas and its question/assessment state,
+ * not its duplicate vertical navigation or mobile bars. */
+html[data-colora-embed="learning"] #app{width:100%;min-height:0}
+html[data-colora-embed="learning"] #app .shell{
+  display:block!important;width:100%!important;min-height:0!important;
+}
+html[data-colora-embed="learning"] #app .sidebar,
+html[data-colora-embed="learning"] #app .mobile-header,
+html[data-colora-embed="learning"] #app .topbar,
+html[data-colora-embed="learning"] #app .mobile-nav{display:none!important}
+html[data-colora-embed="learning"] #app .main{
+  display:block!important;min-height:0!important;width:100%!important;
+}
+html[data-colora-embed="learning"] #app .content{
+  max-width:none!important;width:100%!important;
+  padding:8px 0 32px!important;margin:0!important;
+}
+html[data-colora-embed="learning"] #app h1,
+html[data-colora-embed="learning"] #app h2,
+html[data-colora-embed="learning"] #app h3{
+  font-family:"Cormorant Garamond",Georgia,serif!important;
+}
+
+/* QR: remove the second full website hero, header, decorative background
+ * and footer. Preserve the original QR canvas, settings and download UI. */
+html[data-colora-embed="qr"] .page{
+  min-height:0!important;background:transparent!important;isolation:auto!important;
+}
+html[data-colora-embed="qr"] .page > .facet,
+html[data-colora-embed="qr"] .shell > .topbar,
+html[data-colora-embed="qr"] .shell > .hero,
+html[data-colora-embed="qr"] .shell > .footer{display:none!important}
+html[data-colora-embed="qr"] .shell{
+  width:100%!important;max-width:none!important;
+  margin:0!important;padding:5px 0 28px!important;
+}
+html[data-colora-embed="qr"] .workspace{
+  gap:18px!important;align-items:start!important;
+  grid-template-columns:minmax(0,1fr) minmax(320px,.9fr)!important;
+}
+html[data-colora-embed="qr"] .panel{
+  background:#FFFCF8!important;box-shadow:none!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  border-color:#DDD1BF!important;
+}
+html[data-colora-embed="qr"] .preview-panel{top:16px!important}
+html[data-colora-embed="qr"] .qr-frame{min-height:300px!important;padding:24px!important}
+html[data-colora-embed="qr"] h2{font-family:"Cormorant Garamond",Georgia,serif!important}
+@media(max-width:980px){
+  html[data-colora-embed="qr"] .workspace{grid-template-columns:minmax(0,1fr)!important}
+  html[data-colora-embed="qr"] .preview-panel{position:static!important}
+}
+@media(max-width:620px){
+  html[data-colora-embed="qr"] .section{padding:20px 18px!important}
+  html[data-colora-embed="qr"] .qr-frame{min-height:260px!important;padding:18px!important}
+  html[data-colora-embed="client-care"] #main-content > .page{padding:0 0 16px!important}
+  html[data-colora-embed="learning"] #app .content{padding:2px 0 18px!important}
+}
