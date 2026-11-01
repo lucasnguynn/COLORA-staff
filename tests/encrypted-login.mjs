@@ -100,7 +100,8 @@ try{
   }finally{
     releaseCSS();
   }
-  await page.unroute('**/styles.css');
+  // Keep interception installed until its async callback finishes; page.unroute
+  // would auto-handle the held request and race with route.continue().
   await page.locator('#dashboard h1').waitFor({state:'visible',timeout:20000});
   await page.locator('body[data-staff-ready="true"]').waitFor({state:'attached',timeout:20000});
   assert.equal(await page.locator('html').getAttribute('data-colora-ready'),'true','Decrypted page should reveal only after stylesheet/font readiness');
