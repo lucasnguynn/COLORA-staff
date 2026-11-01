@@ -27,6 +27,24 @@ try{
   const context=await browser.newContext(),page=await context.newPage();
   page.on('pageerror',err=>console.error('Nested browser error:',String(err.message||'Unknown').slice(0,180).replace(/[a-z0-9._%+-]+@colora\.vn/gi,'[redacted]')));
   await page.goto(base+'/',{waitUntil:'domcontentloaded'});
+  // The logo and slogan share the true horizontal center of the page
+  // on desktop and mobile, and the obsolete BKNS text is absent.
+  for(const width of [1280,390]){
+    await page.setViewportSize({width,height:850});
+    const brandLayout=await page.evaluate(()=>{
+      const image=document.querySelector('.brand img').getBoundingClientRect();
+      const slogan=document.querySelector('.brand span').getBoundingClientRect();
+      return {viewWidth:innerWidth,imgCenter:image.left+image.width/2,
+        sloganCenter:slogan.left+slogan.width/2,
+        horizontalOverflow:document.documentElement.scrollWidth>innerWidth+1,
+        obsoleteText:document.body.textContent.includes('Không sử dụng mật khẩu hộp thư BKNS.')};
+    });
+    assert(Math.abs(brandLayout.imgCenter-brandLayout.viewWidth/2)<=2,'COLORA logo not horizontally centered: '+JSON.stringify(brandLayout));
+    assert(Math.abs(brandLayout.sloganCenter-brandLayout.viewWidth/2)<=2,'COLORA slogan not horizontally centered: '+JSON.stringify(brandLayout));
+    assert(!brandLayout.horizontalOverflow,'Login page overflows screen at '+width);
+    assert(!brandLayout.obsoleteText,'Obsolete BKNS sentence must not appear');
+  }
+  await page.setViewportSize({width:1280,height:850});
   await page.locator('#staff-email').fill(user.email);
   await page.locator('#staff-password').fill(user.password);
   await page.locator('#signin-submit').click();
