@@ -9,27 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: lucasnguynn/CSKH-COLORA
-          path: .sources/client-care
-          persist-credentials: false
-      - uses: actions/checkout@v4
-        with:
-          repository: lucasnguynn/QnA-COLORA
-          path: .sources/learning
-          persist-credentials: false
-      - uses: actions/checkout@v4
-        with:
-          repository: lucasnguynn/QR-V1
-          path: .sources/qr
-          persist-credentials: false
-      - uses: actions/checkout@v4
-        with:
-          repository: lucasnguynn/COLORA-JD
-          path: .sources/jd
-          persist-credentials: false
-          token: ${{ secrets.SENIOR_SOURCE_TOKEN || github.token }}
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -43,9 +22,10 @@ jobs:
           node --check scripts/build.mjs
           node --check scripts/encrypt.mjs
           node --check scripts/preflight.mjs
+          node --check scripts/jd-source.mjs
           node --check scripts/verify.mjs
-          (cd .sources/learning && node scripts/validate.mjs)
-          (cd .sources/client-care && node tests/publication.cjs && node tests/ops.cjs && node tests/smoke.cjs)
+          (cd modules/learning && node scripts/validate.mjs)
+          (cd modules/client-care && node tests/publication.cjs && node tests/ops.cjs && node tests/smoke.cjs)
       - name: Validate password preflight using disposable test secrets
         env:
           STAFF_PORTAL_PASSWORD: CI-STAFF-DEMO-DO-NOT-SHARE-2026
@@ -61,7 +41,10 @@ jobs:
             exit 1
           fi
       - run: npm install --no-save --no-package-lock staticrypt@3.5.4 playwright@1.56.1
-      - run: node scripts/build.mjs
+      - name: Build with synthetic JD fixture (no privileged secrets in PR CI)
+        env:
+          JD_SOURCE_DIR: tests/fixtures/jd
+        run: node scripts/build.mjs
       - name: Install browser for UI smoke tests
         run: npx playwright install chromium
       - name: Test desktop, mobile and embedded tools
