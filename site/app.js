@@ -6,12 +6,10 @@
     qr: {title: 'QR Generator', eyebrow: '04 / CREATIVE TOOL', description: 'Tạo QR, xem trước và xuất PNG/SVG theo mẫu COLORA.', url: './apps/qr/index.html'},
     jd: {title: 'JD Library', eyebrow: '07 / SENIOR ACCESS', description: 'Chỉ dành cho người được cung cấp mật khẩu quản lý riêng. Không lưu dữ liệu nhân sự mật trong công cụ website tĩnh.', url: './apps/jd/index.html'}
   };
-  const labels = {home:'Staff Workspace',library:'Resource Library',learning:'Learning Studio','client-care':'Client Care Academy',qr:'QR Generator',signature:'Email Signature',web:'Website Generator',jd:'JD Library'};
+  const labels = {home:'Staff Workspace',library:'Resource Library',learning:'Learning Studio','client-care':'Client Care Academy',qr:'QR Generator',signature:'Email Signature',jd:'JD Library'};
   const $$ = s => [...document.querySelectorAll(s)];
   const $ = id => document.getElementById(id);
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const escapeAttribute = escapeHTML;
-  const safeURL = raw => {try {const u = new URL(String(raw), 'https://colora.vn/');return u.protocol === 'https:' ? u.href : 'https://colora.vn/';}catch {return 'https://colora.vn/';}};
   const sidebar=$('sidebar'), menuButton=$('mobile-menu'), shade=$('mobile-shade');
   let frame=$('module-frame');
   function freshModuleFrame(){
@@ -31,7 +29,7 @@
   function navigate(view) {
     if (!Object.prototype.hasOwnProperty.call(labels,view)) view = 'home';
     window.COLORA_MODULE_HOST?.cleanup();
-    ['dashboard','library-view','module','signature-tool','web-tool'].forEach(id=>$(id).hidden=true);
+    ['dashboard','library-view','module','signature-tool'].forEach(id=>$(id).hidden=true);
     const isModule=Object.prototype.hasOwnProperty.call(modules,view);
     if (isModule) {
       const data=modules[view];
@@ -78,7 +76,7 @@
       frame.removeAttribute('srcdoc');
       frame.removeAttribute('src');
       $('module-status').hidden=true;
-      $(view==='home'?'dashboard':view==='library'?'library-view':view==='signature'?'signature-tool':'web-tool').hidden=false;
+      $(view==='home'?'dashboard':view==='library'?'library-view':'signature-tool').hidden=false;
     }
     document.body.classList.remove('module-immersive');
     $('module-expand').setAttribute('aria-pressed','false');
@@ -169,38 +167,6 @@
     } catch(err){$('signature-status').textContent='Không thể tự động sao chép. Chọn nội dung ở phần xem trước và sao chép thủ công.';}
   });
 
-  function generateHTML(form) {
-    const title=escapeHTML(form.get('title')).trim()||'COLORA';
-    const eyebrow=escapeHTML(form.get('eyebrow')).trim()||'COLORA';
-    const description=escapeHTML(form.get('description')).replace(/\n/g,'<br>');
-    const cta=escapeHTML(form.get('cta')).trim()||'Discover COLORA';
-    const link=safeURL(form.get('link'));
-    const template=['editorial','announcement','minimal'].includes(form.get('template'))?form.get('template'):'editorial';
-    const options={
-      editorial: {background:'#F4EDE1',ink:'#002451',align:'left',accent:'#B08A5B',contentWidth:'780px',border:'transparent'},
-      announcement: {background:'#002451',ink:'#F4EDE1',align:'center',accent:'#D9B98E',contentWidth:'820px',border:'#B08A5B'},
-      minimal: {background:'#FFFCF8',ink:'#002451',align:'left',accent:'#B08A5B',contentWidth:'700px',border:'#D9C9B5'}
-    };
-    const t=options[template];
-    const css='*{box-sizing:border-box}body{margin:0;background:'+t.background+';color:'+t.ink+';font-family:Arial,Helvetica,sans-serif}main{min-height:85vh;display:flex;align-items:center;justify-content:'+ (template==='announcement'?'center':'flex-start') +';padding:clamp(40px,9vw,145px) clamp(23px,8vw,135px)}section{max-width:'+t.contentWidth+';text-align:'+t.align+'}.brand{font-family:Georgia,serif;font-size:27px;letter-spacing:.15em;margin-bottom:16px}.eyebrow{font-size:10px;letter-spacing:.22em;color:'+t.accent+';font-weight:bold;text-transform:uppercase}h1{font-family:Georgia,serif;font-weight:normal;font-size:clamp(44px,7vw,94px);line-height:1.07;letter-spacing:-.03em;margin:32px 0 24px}p{font-size:15px;line-height:1.9;max-width:640px;margin:0 auto 35px;opacity:.8}section{text-align:'+t.align+'}section p{margin-left:'+(t.align==='left'?'0':'auto')+'}a{display:inline-block;text-decoration:none;background:'+(template==='announcement'?'#F4EDE1':'#002451')+';color:'+(template==='announcement'?'#002451':'#F4EDE1')+';padding:16px 26px;font-size:12px;letter-spacing:.06em}footer{border-top:1px solid '+t.border+';padding:25px 8vw;font-size:10px;letter-spacing:.15em;opacity:.7}';
-    return '<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+title+' | COLORA</title><style>'+css+'</style></head><body><main><section><div class="brand"><img src="https://staff.colora.vn/apps/qr/assets/colora-lettermark.png" width="170" alt="COLORA" style="display:block;width:170px;height:auto;max-width:100%;'+(template==='announcement'?'filter:brightness(0) invert(1);':'')+'"></div><div class="eyebrow">'+eyebrow+'</div><h1>'+title+'</h1><p>'+description+'</p><a href="'+escapeAttribute(link)+'" target="_blank" rel="noopener noreferrer">'+cta+'</a></section></main><footer>COLORA - COLOR YOUR AURA</footer></body></html>';
-  }
-  const webForm=$('web-form');
-  const updateWebPreview=()=>{$('web-preview').srcdoc=generateHTML(new FormData(webForm));};
-  webForm.addEventListener('input',updateWebPreview);
-  webForm.addEventListener('change',updateWebPreview);
-  $('web-copy').addEventListener('click',async()=>{
-    try{await navigator.clipboard.writeText(generateHTML(new FormData(webForm)));$('web-status').textContent='Đã sao chép mã HTML.';}
-    catch{$('web-status').textContent='Trình duyệt không cho phép sao chép tự động; hãy dùng “Tải trang HTML”.';}
-  });
-  $('web-form').addEventListener('submit',e=>{
-    e.preventDefault();
-    const html=generateHTML(new FormData(e.currentTarget));
-    $('web-preview').srcdoc=html;
-    downloadText(html,'colora-landing-page.html');
-    $('web-status').textContent='Đã tạo trang HTML và bắt đầu tải xuống.';
-  });
-  updateWebPreview();
   applyRoute();
   // The decrypted HTML can become visible before deferred scripts finish.
   // Consumers (and automated tests) should wait for this readiness marker
