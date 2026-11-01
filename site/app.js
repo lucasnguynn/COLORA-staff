@@ -122,10 +122,11 @@
     const phoneHref='tel:'+encodeURIComponent(phone.replace(/[^+\d]/g,''));
     const phoneCell=phone?'<span style="color:#53647a"> · </span><a style="color:#53647a;text-decoration:none" href="'+phoneHref+'">'+escapeHTML(phone)+'</a>':'';
     return [
-      '<table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;color:#002451;border-collapse:collapse;max-width:520px"><tr><td style="border-left:3px solid #B08A5B;padding:5px 0 5px 17px">',
+      '<table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;color:#002451;border-collapse:collapse;max-width:520px"><tr><td style="padding:5px 0 18px 20px">',
       '<div style="min-height:36px"><img src="https://staff.colora.vn/apps/qr/assets/colora-lettermark.png" alt="COLORA" width="148" style="display:block;border:0;width:148px;height:auto;max-width:100%"></div>',
       '<div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:2.1px;color:#B08A5B;margin-top:2px">COLOR YOUR AURA</div>',
-      '<div style="font-weight:bold;font-size:14px;margin-top:16px">'+name+'</div>',
+      '</td></tr><tr><td style="border-left:3px solid #B08A5B;padding:2px 0 5px 17px">',
+      '<div style="font-weight:bold;font-size:14px;margin:0">'+name+'</div>',
       '<div style="font-size:11px;color:#53647a;margin:4px 0 12px">'+role+'</div>',
       '<div style="font-size:11px"><a style="color:#53647a;text-decoration:none" href="'+emailHref+'">'+escapeHTML(email)+'</a>'+phoneCell+'</div>',
       '<div style="margin-top:9px;font-size:11px"><a href="https://colora.vn/" style="text-decoration:none;color:#002451">colora.vn</a></div>',

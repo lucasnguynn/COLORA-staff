@@ -47,6 +47,14 @@ try{
   await page.locator('#signature-form [name="email"]').fill('example@colora.vn');
   assert((await page.locator('#signature-preview').innerText()).includes('Minh An'));
   assert.equal(await page.locator('#signature-preview img[alt="COLORA"]').count(),1,'Signature must use official COLORA logo');
+  const signatureRows=page.locator('#signature-preview table > tbody > tr');
+  assert.equal(await signatureRows.count(),2,'Signature should separate brand header from employee details');
+  assert.equal(await signatureRows.nth(0).locator('img[alt="COLORA"]').count(),1,'Official logo belongs in the unbordered header');
+  assert((await signatureRows.nth(0).innerText()).includes('COLOR YOUR AURA'),'Tagline belongs above the gold line');
+  assert.equal(await signatureRows.nth(0).locator('td').evaluate(el=>getComputedStyle(el).borderLeftWidth),'0px','No decorative bar next to logo and tagline');
+  assert((await signatureRows.nth(1).innerText()).includes('Minh An'),'Employee name belongs at start of bordered details');
+  assert.equal(await signatureRows.nth(1).locator('td').evaluate(el=>getComputedStyle(el).borderLeftWidth),'3px','Gold line must start at employee name');
+  assert.equal(await signatureRows.nth(1).locator('td').evaluate(el=>getComputedStyle(el).borderLeftColor),'rgb(176, 138, 91)','Signature border must use COLORA gold');
   const signature=page.waitForEvent('download');
   await page.locator('#signature-download').click();
   assert.equal((await signature).suggestedFilename(),'colora-email-signature.html');
