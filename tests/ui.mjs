@@ -48,15 +48,22 @@ try{
   await page.locator('#signature-form [name="phone"]').fill('+84912345678');
   assert((await page.locator('#signature-preview').innerText()).includes('Minh An'));
   assert.equal(await page.locator('#signature-preview img[alt="COLORA"]').count(),1,'Signature must use official COLORA logo');
-  const signatureRows=page.locator('#signature-preview table > tbody > tr');
+  const signatureRows=page.locator('#signature-preview > table > tbody > tr');
   assert.equal(await signatureRows.count(),2,'Signature should separate brand header from employee details');
   assert.equal(await signatureRows.nth(0).locator('img[alt="COLORA"]').count(),1,'Official logo belongs in the unbordered header');
   assert((await signatureRows.nth(0).innerText()).includes('COLOR YOUR AURA'),'Tagline belongs above the gold line');
   assert.equal(await signatureRows.nth(0).locator('td').evaluate(el=>getComputedStyle(el).borderLeftWidth),'0px','No decorative bar next to logo and tagline');
   assert.equal(await signatureRows.nth(0).locator('td').evaluate(el=>getComputedStyle(el).paddingLeft),'0px','Logo and tagline should move closer to the left edge');
+  const tagline=signatureRows.nth(0).locator('div');
+  assert.equal(await tagline.evaluate(el=>getComputedStyle(el).paddingLeft),'5px','Tagline C must align with visible logo C despite PNG inset');
+  const detailRows=signatureRows.nth(1).locator('table[role="presentation"] > tbody > tr');
+  assert.equal(await detailRows.count(),5,'Name, role, email, phone and website need separate rows');
+  const contactTops=await Promise.all([2,3,4].map(i=>detailRows.nth(i).evaluate(el=>el.getBoundingClientRect().top)));
+  assert(Math.abs((contactTops[1]-contactTops[0])-18)<1,'Email and phone must use one 18px line rhythm');
+  assert(Math.abs((contactTops[2]-contactTops[1])-18)<1,'Phone and website must use the same 18px line rhythm');
   assert((await signatureRows.nth(1).innerText()).includes('Minh An'),'Employee name belongs at start of bordered details');
-  assert.equal(await signatureRows.nth(1).locator('td').evaluate(el=>getComputedStyle(el).borderLeftWidth),'3px','Gold line must start at employee name');
-  assert.equal(await signatureRows.nth(1).locator('td').evaluate(el=>getComputedStyle(el).borderLeftColor),'rgb(176, 138, 91)','Signature border must use COLORA gold');
+  assert.equal(await signatureRows.nth(1).locator('td').first().evaluate(el=>getComputedStyle(el).borderLeftWidth),'3px','Gold line must start at employee name');
+  assert.equal(await signatureRows.nth(1).locator('td').first().evaluate(el=>getComputedStyle(el).borderLeftColor),'rgb(176, 138, 91)','Signature border must use COLORA gold');
   const emailNode=signatureRows.nth(1).locator('a[href="mailto:example%40colora.vn"]');
   const phoneNode=signatureRows.nth(1).locator('a[href^="tel:"]');
   assert.equal(await emailNode.count(),1,'Email link is missing');
@@ -71,7 +78,11 @@ try{
   assert.equal(downloadedSignature.suggestedFilename(),'colora-email-signature.html');
   const exportedHTML=fs.readFileSync(await downloadedSignature.path(),'utf8');
   assert(exportedHTML.includes('padding:5px 0 18px 0'),'Exported signature must keep left-aligned logo');
-  assert(exportedHTML.includes('margin-top:6px'),'Exported phone must remain on a separate row');
+  assert(exportedHTML.includes('mso-line-height-rule:exactly'),'Exported signature needs Outlook-safe line spacing');
+  assert(exportedHTML.includes('padding:1px 0 0 5px'),'Exported tagline must retain the wordmark inset adjustment');
+  await page.locator('#signature-form [name="role"]').fill('');
+  assert.equal(await detailRows.count(),4,'Empty role must not leave a phantom spacer row');
+  await page.locator('#signature-form [name="role"]').fill('Client Advisor');
   // Removed routes should safely resolve to dashboard; no orphaned generator.
   await page.evaluate(()=>location.hash='#web');
   await page.locator('#dashboard').waitFor({state:'visible'});
