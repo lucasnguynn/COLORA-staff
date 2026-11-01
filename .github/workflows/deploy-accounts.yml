@@ -1,4 +1,4 @@
-name: Deploy COLORA individual accounts (opt-in)
+name: Deploy COLORA individual encrypted accounts (opt-in)
 on:
   push:
     branches: [main]
@@ -12,9 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   build-and-deploy:
-    # Explicit account-mode switch. Legacy live portal remains unchanged
-    # until Supabase project, SQL/RLS and invitations are ready.
-    if: vars.STAFF_AUTH_MODE == 'accounts'
+    if: vars.STAFF_AUTH_MODE == 'static-accounts'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -24,37 +22,38 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Restore protected JD source in ephemeral runner only
+      - name: Restore protected JD source without exposing a password
         env:
           SENIOR_JD_PASSWORD: ${{ secrets.SENIOR_JD_PASSWORD }}
         shell: bash
         run: |
           if node scripts/jd-source.mjs decrypt modules/jd-source.enc.json .sources/jd; then
-            echo "Protected JD restored."
+            echo "JD source restored."
           else
             rm -rf .sources/jd
             node scripts/recover-jd-source.mjs .sources/jd
           fi
-      - name: Install pinned QR library (no runtime third-party scripts)
-        run: npm install --no-save --no-package-lock qr-code-styling@1.6.0-rc.1
-      - name: Build role-specific HTML in runner (never upload as Pages artifact)
+      - name: Install pinned QR dependency
+        run: npm install --no-save --no-package-lock qr-code-styling@1.6.0-rc.1 playwright@1.56.1
+      - name: Build Staff and Senior plaintext in temporary runner ONLY
         run: node scripts/build.mjs
-      - name: Stage public and private artifacts separately
+      - name: Encrypt five independent email-password envelopes
         env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+          COLORA_ACCOUNT_CREDENTIALS_JSON: ${{ secrets.COLORA_ACCOUNT_CREDENTIALS_JSON }}
         run: node scripts/build-account-release.mjs
-      - name: Verify artifact segregation, role identity and private payloads
-        run: node tests/account-release.mjs
-      - name: Upload private HTML to Supabase RLS bucket, verify anonymous denial
+      - name: Assert correct role decryption and no private plaintext exposure
         env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
-          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-        run: node scripts/publish-account-release.mjs
-      - name: Drop plaintext staging source before preparing public artifact
+          COLORA_ACCOUNT_CREDENTIALS_JSON: ${{ secrets.COLORA_ACCOUNT_CREDENTIALS_JSON }}
+        run: node tests/account-release.mjs
+      - name: Install browser for real encrypted five-user login tests
+        run: npx playwright install chromium
+      - name: Verify employee-specific login and Staff JD denial
+        env:
+          COLORA_ACCOUNT_CREDENTIALS_JSON: ${{ secrets.COLORA_ACCOUNT_CREDENTIALS_JSON }}
+        run: node tests/static-login.mjs
+      - name: Erase staging plaintext and private test fixtures
         run: |
-          rm -rf .sources dist account-release/private
+          rm -rf dist .sources
           test -f account-release/public/index.html
           test ! -e account-release/public/apps/jd/index.html
           test ! -e account-release/public/senior-gateway.json
@@ -62,6 +61,6 @@ jobs:
       - uses: actions/upload-pages-artifact@v4
         with:
           path: account-release/public
-      - name: Publish account gateway only after private permissions succeed
+      - name: Publish encrypted five-person login, never plaintext
         id: deployment
         uses: actions/deploy-pages@v4
