@@ -9,8 +9,18 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # github-pages secrets stored in Settings > Environments can only be
+    # read by a job that explicitly references this environment.
+    environment:
+      name: github-pages
+      deployment: false
     steps:
       - uses: actions/checkout@v4
+      - name: Check staff passwords are accessible before build
+        env:
+          STAFF_PORTAL_PASSWORD: ${{ secrets.STAFF_PORTAL_PASSWORD }}
+          SENIOR_JD_PASSWORD: ${{ secrets.SENIOR_JD_PASSWORD }}
+        run: node scripts/preflight.mjs
       - name: Checkout Client Care Academy
         uses: actions/checkout@v4
         with:
