@@ -63,7 +63,7 @@
         frame.removeAttribute('src');
         window.COLORA_JD_WORKSPACE?.mount(frame);
         frame.srcdoc=markup.replace('<base href="/apps/jd/">',
-          '<base href="'+new URL('/apps/jd/',location.origin).href+'">').trim();
+          '<base href="'+new URL('/apps/jd/',window.parent.location.origin).href+'">').trim();
         $('module-open').hidden=true;
         $('module-hint').hidden=true;
         // A missing/delayed JD bridge should never leave a silent blank.

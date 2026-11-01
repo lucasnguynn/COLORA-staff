@@ -1,62 +1,52 @@
-/* Static security checks for the opt-in individual-account release.
- * No Supabase secrets, auth tokens or actual staff passwords are needed.
+/* Test all 5 independently encrypted records, fail closed for wrong email,
+ * wrong password and mismatched role. Only test credentials live in CI env.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
-const root=process.cwd();
-const pub=path.join(root,'account-release','public');
-const priv=path.join(root,'account-release','private');
-const read=rel=>fs.readFileSync(path.join(root,rel),'utf8');
+import {pbkdf2Sync,createDecipheriv} from 'node:crypto';
+const pub=path.resolve('account-release/public');
 const html=fs.readFileSync(path.join(pub,'index.html'),'utf8');
-const staff=fs.readFileSync(path.join(priv,'staff.html'),'utf8');
-const senior=fs.readFileSync(path.join(priv,'senior.html'),'utf8');
-const cfg=fs.readFileSync(path.join(pub,'account-config.js'),'utf8');
-assert(html.includes('id="staff-email"')&&html.includes('id="staff-password"'),'Login must collect per-account credentials');
+const script=fs.readFileSync(path.join(pub,'account-login.js'),'utf8');
+const records=JSON.parse(fs.readFileSync(path.join(pub,'account-entries.json'),'utf8'));
+const users=JSON.parse(process.env.COLORA_ACCOUNT_CREDENTIALS_JSON||'null');
+assert(Array.isArray(users)&&users.length===5,'Exactly 5 test credentials');
+assert.equal(records.version,1);assert.equal(records.entries.length,5);
 assert(html.includes('id="staff-email"')&&html.includes('id="staff-password"'));
-assert(html.includes('Content-Security-Policy'));
-assert(html.includes('connect-src \'self\' https://'));
-assert(!html.includes('staticryptConfig'));
+assert(!html.includes('supabase')&&!script.includes('supabase'));
 assert(!html.includes('id="bundled-jd"'));
-assert(!cfg.includes('sb_secret_')&&!cfg.includes('SUPABASE_SECRET_KEY'));
-assert(staff.includes('data-staff-role="staff"'));
-assert(!staff.includes('id="bundled-jd"')&&!staff.includes('data-view="jd"'));
-assert(senior.includes('data-staff-role="senior"')&&senior.includes('id="bundled-jd"'));
-assert(senior.length>staff.length);
 assert(!fs.existsSync(path.join(pub,'senior-gateway.json')));
-assert(!fs.existsSync(path.join(pub,'apps','jd','index.html')));
-assert(!fs.existsSync(path.join(pub,'senior','index.html')));
-const publicHtml=[];
-function walk(dir){
- for(const entry of fs.readdirSync(dir,{withFileTypes:true})){
-  const full=path.join(dir,entry.name);
-  if(entry.isDirectory())walk(full);
-  else if(entry.name.endsWith('.html'))publicHtml.push(path.relative(pub,full));
+assert(!fs.existsSync(path.join(pub,'apps/jd/index.html')));
+assert(!fs.existsSync(path.join(pub,'senior/index.html')));
+const all=[];
+function scan(dir,base=''){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name),r=base+e.name;if(e.isDirectory())scan(p,r+'/');else all.push(r);}}
+scan(pub);
+assert.deepEqual(all.filter(x=>x.endsWith('.html')),['index.html']);
+assert.equal(all.filter(x=>x.startsWith('account-files/')&&x.endsWith('.json')).length,5);
+function decrypt(email,password){
+ for(const e of records.entries){
+  const salt=Buffer.from(e.salt,'base64'),kdf=pbkdf2Sync(Buffer.from(JSON.stringify([email,password])),salt,600000,48,'sha256');
+  if(!kdf.subarray(0,16).equals(Buffer.from(e.verifier,'base64')))continue;
+  const obj=JSON.parse(fs.readFileSync(path.join(pub,'account-files',e.id+'.json'),'utf8'));
+  const sealed=Buffer.from(obj.ciphertext,'base64');
+  const d=createDecipheriv('aes-256-gcm',kdf.subarray(16,48),Buffer.from(obj.iv,'base64'));
+  d.setAuthTag(sealed.subarray(sealed.length-16));
+  return Buffer.concat([d.update(sealed.subarray(0,-16)),d.final()]).toString('utf8');
  }
+ return null;
 }
-walk(pub);
-assert.deepEqual(publicHtml,['index.html'],'Only the account login may be public HTML');
-const sql=read('supabase/migrations/202611020001_colora_staff_auth.sql');
-// The public repository must not disclose individual staff email addresses.
-// Owners provision exactly five secret mappings into the private DB.
-assert(sql.includes('create table if not exists public.colora_staff_allowlist'));
-assert(!sql.includes('@colora.vn'),'Never commit employee email identities into public SQL');
-const invite=read('scripts/invite-colora-staff.mjs');
-assert(invite.includes('COLORA_AUTH_ALLOWLIST_JSON'));
-assert(invite.includes('users.length!==5'));
-assert(invite.includes('tally.staff!==3||tally.senior!==2'));
-assert(!/\b[a-z0-9._%+-]+@colora\.vn\b/.test(invite),'Never embed employee emails into public source');
-assert(sql.includes("name='senior.html'"));
-assert(sql.includes("m.access_role='senior'"));
-assert(sql.includes("m.active=true"));
-assert(sql.includes("user_id=(select auth.uid())"));
-assert(!sql.includes('create policy colora_member_write'));
-const loginJs=read('account-auth/account-login.js');
-assert(loginJs.includes("rawDocument(role+'.html',token)"));
-assert(loginJs.includes("method:'POST',body:{email,password"));
-assert(loginJs.includes("session={access_token:token"));
-assert(!loginJs.includes('localStorage.setItem('));
-assert(loginJs.includes('storage/v1/object/authenticated'));
-const uploader=read('scripts/publish-account-release.mjs');
-assert(uploader.includes('if(!response.ok)')&&uploader.includes("if(resp.ok)throw Error('CRITICAL:"),'Uploader must fail both on upload errors and unexpected anonymous access');
-console.log('PASS: Five allowlisted accounts, SQL role restrictions, private JD segregation, public-only login build, no stored staff passwords.');
+let staff=0,senior=0;
+for(const u of users){
+ const email=u.email.toLowerCase().trim();
+ const page=decrypt(email,u.password);
+ assert(page?.includes('data-staff-role="'+u.role+'"'),'Correct email+password must decrypt correct role');
+ assert(page.includes('id="module-frame"'));
+ assert.equal(page.includes('id="bundled-jd"'),u.role==='senior','Only Senior can decrypt JD');
+ assert.equal(decrypt(email,'incorrect-password-2026'),null,'Wrong password must fail');
+ assert.equal(decrypt('incorrect@colora.vn',u.password),null,'Wrong email must fail');
+ staff+=u.role==='staff';senior+=u.role==='senior';
+ assert(!html.includes(email)&&!script.includes(email)&&!JSON.stringify(records).includes(email),'Email address exposed publicly');
+ assert(!all.some(file=>file.includes(email)),'Employee email in public file name');
+}
+assert.equal(staff,3);assert.equal(senior,2);
+console.log('PASS: Each individual email+password decrypts its role, wrong pairs rejected, Senior JD isolated, no public plaintext or named email roster.');

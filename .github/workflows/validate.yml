@@ -19,9 +19,8 @@ jobs:
           node --check site/jd-workspace.js
           node --check account-auth/account-login.js
           node --check scripts/build-account-release.mjs
-          node --check scripts/publish-account-release.mjs
-          node --check scripts/invite-colora-staff.mjs
           node --check tests/account-release.mjs
+          node --check tests/static-login.mjs
           node --check site/library.js
           node --check site/library-ui.js
           node --check tests/ui.mjs
@@ -67,17 +66,20 @@ jobs:
         env:
           JD_SOURCE_DIR: tests/fixtures/jd
         run: node scripts/build.mjs
-      - name: Verify opt-in account release keeps Staff and Senior HTML private
+      - name: Build and verify five encrypted accounts with disposable CI identities (not real employees)
         env:
-          SUPABASE_URL: https://example-project.supabase.co
-          SUPABASE_PUBLISHABLE_KEY: sb_publishable_FAKE_ACCOUNT_CI_ONLY_DO_NOT_USE
+          COLORA_ACCOUNT_CREDENTIALS_JSON: '[{"email":"ci-staff-one@colora.vn","password":"CI-INDIVIDUAL-STAFF-ONE-PASSWORD-2026-X1","role":"staff"},{"email":"ci-staff-two@colora.vn","password":"CI-INDIVIDUAL-STAFF-TWO-PASSWORD-2026-X2","role":"staff"},{"email":"ci-staff-three@colora.vn","password":"CI-INDIVIDUAL-STAFF-THREE-PASSWORD-2026-X3","role":"staff"},{"email":"ci-senior-one@colora.vn","password":"CI-INDIVIDUAL-SENIOR-ONE-PASSWORD-2026-Y1","role":"senior"},{"email":"ci-senior-two@colora.vn","password":"CI-INDIVIDUAL-SENIOR-TWO-PASSWORD-2026-Y2","role":"senior"}]'
         run: |
           node scripts/build-account-release.mjs
           node tests/account-release.mjs
-          # Never pass staged private HTML into a CI artifact.
-          rm -rf account-release
       - name: Install browser for UI smoke tests
         run: npx playwright install chromium
+      - name: End-to-end static login with disposable Staff and Senior accounts
+        env:
+          COLORA_ACCOUNT_CREDENTIALS_JSON: '[{"email":"ci-staff-one@colora.vn","password":"CI-INDIVIDUAL-STAFF-ONE-PASSWORD-2026-X1","role":"staff"},{"email":"ci-staff-two@colora.vn","password":"CI-INDIVIDUAL-STAFF-TWO-PASSWORD-2026-X2","role":"staff"},{"email":"ci-staff-three@colora.vn","password":"CI-INDIVIDUAL-STAFF-THREE-PASSWORD-2026-X3","role":"staff"},{"email":"ci-senior-one@colora.vn","password":"CI-INDIVIDUAL-SENIOR-ONE-PASSWORD-2026-Y1","role":"senior"},{"email":"ci-senior-two@colora.vn","password":"CI-INDIVIDUAL-SENIOR-TWO-PASSWORD-2026-Y2","role":"senior"}]'
+        run: |
+          node tests/static-login.mjs
+          rm -rf account-release
       - name: Test desktop, mobile and embedded tools
         run: node tests/ui.mjs
       - name: Save QA screenshots
