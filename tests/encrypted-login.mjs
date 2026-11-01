@@ -89,7 +89,7 @@ try{
   assert.equal(await recoveryPage.locator('#staticrypt-password').inputValue(),'','Rejected password must not remain in the input');
   assert.equal(await recoveryPage.locator('#staticrypt-login-recover').isVisible(),true,'Staff recovery action must be accessible');
   await recoveryPage.locator('#staticrypt-login-recover').click();
-  await recoveryPage.waitForURL(/\\?refresh=\\d+/,{timeout:15000});
+  await recoveryPage.waitForURL(url=>url.searchParams.has('refresh'),{timeout:15000});
   await recoveryPage.locator('#staticrypt-password').waitFor({state:'visible',timeout:15000});
   assert.equal(await recoveryPage.locator('#staticrypt-login-feedback').isVisible(),false,'Reload must reset login error');
   await recoveryPage.close();
