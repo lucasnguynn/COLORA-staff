@@ -80,29 +80,21 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Cancel stale Pages deployment from old branch publishing
+      - name: Inspect Pages configuration before deployment
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
-          # A past branch-based deployment is stuck on GitHub's Pages backend.
-          # Cancel ONLY the commit SHA shown in the Pages API error.
-          # This step can be removed after the first successful deployment.
-          STALE_SHA="822a80fd2c4fcd13e8ffbd60ff3fd5708bcffba5"
-          STATUS=$(curl -sS -o "$RUNNER_TEMP/pages-cancel-response.txt" -w '%{http_code}' \
-            -X POST \
+          HTTP_STATUS=$(curl -sS -o "$RUNNER_TEMP/pages-site-response.json" -w '%{http_code}' \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "X-GitHub-Api-Version: 2026-03-10" \
-            "https://api.github.com/repos/$GITHUB_REPOSITORY/pages/deployments/$STALE_SHA/cancel")
-          case "$STATUS" in
-            204) echo "Stale Pages deployment was cancelled." ;;
-            404|409|422) echo "::warning::Stale deployment may already be cleared (HTTP $STATUS); attempting fresh deployment." ;;
-            *) echo "::error::Could not cancel stale Pages deployment (HTTP $STATUS)."
-               echo "Response from GitHub Pages API (no credentials):"
-               python3 -c 'import json,sys; s=open(sys.argv[1],encoding="utf-8").read(); j=json.loads(s); print(json.dumps({"message":j.get("message"),"errors":j.get("errors"),"documentation_url":j.get("documentation_url")},ensure_ascii=False))' "$RUNNER_TEMP/pages-cancel-response.txt" || true
-               exit 1 ;;
-          esac
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/pages")
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "::error::Unable to read current Pages site (HTTP $HTTP_STATUS)."
+            exit 1
+          fi
+          python3 -c 'import json,sys; j=json.load(open(sys.argv[1])); print("Pages configuration:",json.dumps({"build_type":j.get("build_type"),"status":j.get("status"),"cname":j.get("cname"),"https_enforced":j.get("https_enforced"),"https_certificate_state":(j.get("https_certificate") or {}).get("state"),"source":j.get("source")},ensure_ascii=False));' "$RUNNER_TEMP/pages-site-response.json"
       - name: Deploy published-only artifact
         uses: actions/deploy-pages@v4
         id: deployment
