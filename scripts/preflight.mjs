@@ -9,8 +9,8 @@ for(let i=0;i<names.length;i++){
   if(value.length===0){
     console.error('::error title=Missing '+name+'::'+name+' is empty or not available to this build job. Add it as an Actions repository secret or a github-pages environment secret (NOT an Actions variable).');
     invalid=true;
-  }else if(value.length<16){
-    console.error('::error title=Invalid '+name+'::'+name+' is shorter than the required 16 characters. Replace it with a unique, strong password.');
+  }else if(Array.from(value).length<8){
+    console.error('::error title=Invalid '+name+'::'+name+' is shorter than the required 8 characters. Replace it with a unique, strong password.');
     invalid=true;
   }else{
     console.log(name+' is available (value hidden).');
