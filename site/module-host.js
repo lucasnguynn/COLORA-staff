@@ -36,7 +36,16 @@ window.COLORA_MODULE_HOST=(()=>{
     // Blob documents cannot resolve relative <base href="/apps/.../"> URLs.
     // Rewrite the build-time base to this *same* Staff origin before mounting
     // so JS, CSS, images and the QnA JSON fetches all resolve correctly.
-    const baseURL=new URL('/apps/'+view+'/',window.location.origin).href;
+    // The decrypted Staff shell is shown inside <iframe srcdoc>. Its
+    // location is about:srcdoc, so location.origin can be the string "null"
+    // even though its document inherits the trusted parent origin.
+    // Resolve from the actual gateway document instead, and verify origin.
+    const hostOrigin=window.parent.location.origin;
+    if(!/^https?:$/.test(new URL(hostOrigin).protocol) ||
+       document.referrer && new URL(document.referrer).origin!==hostOrigin) {
+      throw Error('Unexpected workspace host origin');
+    }
+    const baseURL=new URL('/apps/'+view+'/',hostOrigin).href;
     const docMarkup=markup.replace(/<base href="\/apps\/[a-z-]+\/">/i,'<base href="'+baseURL+'">');
     if(docMarkup===markup)throw Error('Missing expected internal app base: '+view);
     const url=URL.createObjectURL(new Blob([docMarkup],{type:'text/html;charset=utf-8'}));
