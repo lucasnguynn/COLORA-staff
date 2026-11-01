@@ -58,7 +58,10 @@ try{
   await page.setViewportSize({width:390,height:844});
   await page.locator('#mobile-menu').click();
   assert(await page.locator('#sidebar').evaluate(x=>x.classList.contains('open')));
+  assert(await page.locator('#mobile-shade').isVisible());
   await page.locator('[data-view="library"].nav-btn').click();
+  await page.locator('#mobile-shade').waitFor({state:'hidden'});
+  await page.waitForTimeout(300);
   const sizes=await page.evaluate(()=>[document.documentElement.scrollWidth,innerWidth]);
   assert(sizes[0]<=sizes[1]+2,'Mobile overflow: '+sizes);
   fs.mkdirSync('test-results',{recursive:true});
