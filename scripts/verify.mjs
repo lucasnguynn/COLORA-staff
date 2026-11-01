@@ -11,6 +11,7 @@ for(const rel of pages){
   const forbidden=[
     '<div class="shell">',
     'An environment to <em>grow</em> together',
+    'A space to <em>learn,</em>',
     'const STORAGE_KEY =',
     '<div class="app-shell">',
     '<div id="app"><div class="boot">',
@@ -22,6 +23,6 @@ for(const rel of pages){
 for(const rel of ['apps/jd/app.js','apps/jd/styles.css','apps/jd/luxury.css','apps/jd/refinements.css','apps/jd/print-polish.css']){
   if(fs.existsSync(path.join(dist,rel)))throw Error('Senior source exposed in published artifact: '+rel);
 }
-const rootLinks=['apps/client-care/styles.css','apps/client-care/content.js','apps/learning/app.js','apps/learning/data/questions.json','apps/qr/assets/colora-logo.png','app.js','styles.css'];
+const rootLinks=['apps/client-care/styles.css','apps/client-care/content.js','apps/learning/app.js','apps/learning/data/questions.json','apps/qr/assets/colora-logo.png','app.js','library.js','library-ui.js','styles.css'];
 for(const rel of rootLinks)if(!fs.existsSync(path.join(dist,rel)))throw Error('Missing integrated dependency: '+rel);
 console.log('Verified: all five HTML pages encrypted; JD bundle sealed; required assets present.');
