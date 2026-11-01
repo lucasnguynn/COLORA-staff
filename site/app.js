@@ -111,6 +111,12 @@
       localStorage.removeItem('staticrypt_passphrase');
       localStorage.removeItem('staticrypt_expiration');
     } catch (_) {}
+    if(window.parent!==window){
+      // Secure account-based portal owns the session in the parent document.
+      // The encrypted legacy Staff login still uses the existing path.
+      window.parent.postMessage({type:'colora-workspace-logout'},location.origin);
+      return;
+    }
     location.assign('/?staticrypt_logout=1');
   });
     document.querySelectorAll('[data-view]').forEach(btn=>btn.addEventListener('click',()=>{
