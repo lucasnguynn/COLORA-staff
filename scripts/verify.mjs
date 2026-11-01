@@ -27,7 +27,17 @@ for(const rel of pages){
 for(const rel of ['apps/learning/index.html','apps/client-care/index.html','apps/qr/index.html','apps/jd/app.js','apps/jd/styles.css','apps/jd/luxury.css','apps/jd/refinements.css','apps/jd/print-polish.css']){
   if(fs.existsSync(path.join(dist,rel)))throw Error('Senior source exposed in published artifact: '+rel);
 }
-const rootLinks=['apps/client-care/styles.css','apps/client-care/content.js','apps/learning/app.js','apps/learning/data/questions.json','apps/qr/assets/colora-logo.png','apps/qr/assets/colora-lettermark.png','apps/qr/assets/colora-symbol.png','apps/qr/vendor/qr-code-styling.js','brand-refinements.css','embedded-apps.css','module-host.js','apps/learning/brand-refinements.css','apps/client-care/brand-refinements.css','app.js','library.js','library-ui.js','mail-guide.js','mail-guide.css','styles.css'];
+// Senior gateway exposes only ciphertext + salt; no plaintext JD or
+// password is ever published. The temporary Senior HTML must be deleted.
+if(fs.existsSync(path.join(dist,'senior','index.html')))throw Error('Senior plaintext shell was published.');
+const gatewayPath=path.join(dist,'senior-gateway.json');
+if(!fs.existsSync(gatewayPath))throw Error('Missing encrypted Senior gateway');
+const gateway=JSON.parse(fs.readFileSync(gatewayPath,'utf8'));
+if(typeof gateway.staticryptEncryptedMsgUniqueVariableName!=='string'||
+   typeof gateway.staticryptSaltUniqueVariableName!=='string')throw Error('Malformed Senior gateway');
+if(JSON.stringify(gateway).includes('id="workspaceTitle"')||
+   JSON.stringify(gateway).includes('Job Description Builder'))throw Error('Senior JD plaintext leaked into gateway');
+const rootLinks=['apps/client-care/styles.css','apps/client-care/content.js','apps/learning/app.js','apps/learning/data/questions.json','apps/qr/assets/colora-logo.png','apps/qr/assets/colora-lettermark.png','apps/qr/assets/colora-symbol.png','apps/qr/vendor/qr-code-styling.js','brand-refinements.css','embedded-apps.css','module-host.js','apps/learning/brand-refinements.css','apps/client-care/brand-refinements.css','app.js','library.js','library-ui.js','mail-guide.js','mail-guide.css','senior-gateway.json','styles.css'];
 for(const rel of rootLinks)if(!fs.existsSync(path.join(dist,rel)))throw Error('Missing integrated dependency: '+rel);
 const qrHTML=fs.readFileSync(path.join('modules','qr','index.html'),'utf8');
  if(/<script[^>]+src=["']https?:\/\//i.test(qrHTML))throw Error('External QR script is not allowed: vendor all QR JavaScript locally.');
