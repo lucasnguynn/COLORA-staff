@@ -1,0 +1,89 @@
+/* COLORA Staff — illustrated mailbox setup.
+   The SVG mini screenshots are educational diagrams, not vendor UI captures. */
+.mail-guide-view{max-width:1250px;margin:0 auto;min-width:0}
+.mail-guide-view h1{margin:0 0 14px}
+.mail-guide-lede{font-size:14px;line-height:1.85;color:var(--muted);max-width:850px;margin:0 0 29px}
+.mail-guide-kicker{display:block;color:#B08A5B;letter-spacing:.16em;font-size:10px;font-weight:700;margin-bottom:9px}
+.mail-guide-intro{background:#FFFCF8;border:1px solid var(--border);padding:22px 26px;display:flex;gap:26px;align-items:flex-end;justify-content:space-between;margin:0 0 24px}
+.mail-guide-intro>div:first-child{flex:1;max-width:465px;min-width:0}
+.mail-guide-intro label{display:block;font-weight:700;font-size:12px;margin:0 0 9px}
+.mail-guide-intro input{font:600 15px "Open Sans",Arial,sans-serif;color:#002451;display:block;width:100%;min-height:48px;padding:10px 14px;border:1px solid #D5C9BB;background:#FFF}
+.mail-guide-intro input[aria-invalid="true"]{border-color:#BB674F}
+.mail-guide-intro p{color:#657080;font-size:11px;line-height:1.8;margin:9px 0 0}
+.mail-guide-app-picker{display:flex;align-items:center;gap:0;border:1px solid #D9CABB;min-height:48px;flex-wrap:nowrap}
+.mail-guide-app-picker button{appearance:none;border:0;background:transparent;color:#002451;font-size:12px;font-weight:700;padding:14px 18px;white-space:nowrap;min-height:46px}
+.mail-guide-app-picker button[aria-selected="true"]{background:#002451;color:#FFF}
+.mail-guide-app-picker button:focus-visible,.mail-guide-image:focus-visible,#mail-guide-dialog-close:focus-visible{outline:3px solid #B08A5B;outline-offset:3px}
+.mail-guide-connection{background:#FCF8F2;border:1px solid #D9CABB;padding:26px;margin-bottom:46px}
+.mail-guide-connection-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:20px}
+.mail-guide-connection h2,.mail-guide-steps-head h2,.mail-guide-help h2{font-size:clamp(28px,3vw,39px);line-height:1.05;margin:0;font-weight:500}
+.mail-guide-connection h2 em,.mail-guide-steps-head h2 em{color:#B08A5B;font-weight:400}
+.mail-guide-copy-actions{display:flex;align-items:flex-end;flex-direction:column;gap:7px}
+.mail-guide-copy-actions .outline-button{font-size:11px}
+#mail-guide-copy-status{font-size:11px;color:#50617A;max-width:230px;text-align:right}
+.mail-guide-settings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #D9CABB;border-bottom:1px solid #D9CABB}
+.mail-guide-settings>div{padding:22px 15px 20px 0;min-width:0}
+.mail-guide-settings>div+div{border-left:1px solid #D9CABB;padding-left:22px}
+.mail-guide-settings span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;color:#A17A4D;margin-bottom:13px}
+.mail-guide-settings strong{display:block;font:700 15px/1.5 "Open Sans",Arial,sans-serif;color:#002451;overflow-wrap:anywhere}
+.mail-guide-settings p{margin:8px 0 0;font-size:11px;line-height:1.7;color:#647285}
+.mail-guide-settings p b{color:#002451}
+.mail-guide-security-note{margin:18px 0 0;font-size:11px;color:#637084;line-height:1.8}
+.mail-guide-steps-head{display:flex;justify-content:space-between;align-items:flex-end;gap:25px;margin-bottom:23px}
+.mail-guide-steps-head>p{font-size:11px;color:#6F7890;margin:0 0 5px}
+.mail-guide-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.mail-guide-step{min-width:0;background:#FFFCF8;border:1px solid #E1D6C8;padding:23px 23px 16px;display:flex;flex-direction:column;gap:14px}
+.mail-guide-step-top{display:flex;align-items:flex-start;gap:15px;min-height:107px}
+.mail-guide-num{font:500 30px/.95 "Cormorant Garamond",Georgia,serif;color:#B08A5B;padding-top:4px;min-width:32px}
+.mail-guide-step h3{font:500 27px/1.06 "Cormorant Garamond",Georgia,serif;color:#002451;margin:0 0 8px}
+.mail-guide-step p{font-size:12px;line-height:1.75;color:#52657B;margin:0}
+.mail-guide-image{display:block;width:100%;padding:8px;border:1px solid #DDE3EA;background:#F7F9FC;min-width:0;text-align:left;cursor:zoom-in;overflow:hidden}
+.mail-guide-image svg{display:block;width:100%;height:auto;max-height:320px;object-fit:contain}
+.mail-guide-zoom-hint{font-size:10px;letter-spacing:.03em;color:#A17A4D;text-align:right;margin-top:auto}
+.mail-guide-help{margin-top:29px;border-top:1px solid #D2C5B3;padding:27px 0 4px}
+.mail-guide-help-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:20px}
+.mail-guide-help-grid p{margin:0;font-size:12px;line-height:1.8;color:#52657B}
+.mail-guide-help-grid strong{color:#002451}
+.mail-guide-official{font-size:11px;line-height:1.85;color:#657080;margin:25px 0 0}
+.mail-guide-official a{color:#002451;text-underline-offset:3px}
+.mail-guide-inline-link{display:inline;border:0;background:none;padding:0;color:#002451;border-bottom:1px solid #B08A5B;font:600 12px "Open Sans",Arial,sans-serif;text-align:left;cursor:pointer}
+#mail-guide-dialog{width:min(960px,94vw);max-width:100%;max-height:90dvh;overflow:auto;border:1px solid #D0C1B0;padding:22px;background:#FFFCF8;color:#002451}
+#mail-guide-dialog::backdrop{background:rgba(0,23,54,.72)}
+.mail-guide-dialog-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}
+.mail-guide-dialog-head h3{font-size:29px;margin:0}
+#mail-guide-dialog-close{font-size:17px;border:1px solid #D9CABB;background:#FFF;padding:8px 12px;color:#002451}
+.mail-guide-modal-art{padding:8px;border:1px solid #DCE2E9;background:#F7F9FC}
+.mail-guide-modal-art svg{display:block;width:100%;height:auto}
+#mail-guide-dialog>p{font-size:11px;color:#677489;line-height:1.8;margin:14px 0 0}
+@media(max-width:1100px){
+  .mail-guide-intro{align-items:stretch;flex-wrap:wrap}
+  .mail-guide-intro>div:first-child{max-width:none;flex-basis:100%}
+  .mail-guide-settings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mail-guide-settings>div:nth-child(3){grid-column:1/-1;border-left:0;border-top:1px solid #D9CABB;padding:20px 0}
+}
+@media(max-width:760px){
+  .mail-guide-intro,.mail-guide-connection{padding:19px}
+  .mail-guide-intro{gap:16px}
+  .mail-guide-app-picker{width:100%}
+  .mail-guide-app-picker button{flex:1;padding:13px 9px}
+  .mail-guide-steps{grid-template-columns:1fr;gap:13px}
+  .mail-guide-steps-head{flex-wrap:wrap;gap:8px}
+  .mail-guide-steps-head>p{width:100%}
+  .mail-guide-step{padding:16px;gap:12px}
+  .mail-guide-step-top{min-height:0}
+  .mail-guide-step h3{font-size:25px}
+  .mail-guide-image{padding:4px}
+  .mail-guide-help-grid{grid-template-columns:1fr;gap:14px}
+  .mail-guide-connection-head{align-items:flex-start;flex-direction:column}
+  .mail-guide-copy-actions{align-items:flex-start}
+  #mail-guide-copy-status{text-align:left}
+}
+@media(max-width:430px){
+  .mail-guide-settings{grid-template-columns:1fr}
+  .mail-guide-settings>div{padding:16px 0}
+  .mail-guide-settings>div+div{border-left:0;border-top:1px solid #D9CABB;padding-left:0}
+  .mail-guide-settings>div:nth-child(3){grid-column:auto}
+  .mail-guide-step-top{gap:8px}
+  .mail-guide-num{font-size:27px;min-width:29px}
+  #mail-guide-dialog{padding:12px}
+}

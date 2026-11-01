@@ -94,6 +94,37 @@ try{
   await page.locator('#signature-form [name="role"]').fill('');
   assert.equal(await detailRows.count(),4,'Empty role must not leave a phantom spacer row');
   await page.locator('#signature-form [name="role"]').fill('Client Advisor');
+  // BKNS mailbox setup guides use one protected Staff route with 12 SVG
+  // interface illustrations and never ask users to enter their password.
+  await page.locator('.nav-btn[data-view="mail-setup"]').click();
+  await page.locator('#mail-guide').waitFor({state:'visible'});
+  assert.equal(await page.locator('#mail-guide-steps .mail-guide-step').count(),6);
+  assert.equal(await page.locator('#mail-guide-steps svg[role="img"]').count(),6,'Outlook guide must have an illustration for every step');
+  assert((await page.locator('#mail-guide-settings').innerText()).includes('smtp81065.bkns.com.vn'));
+  assert((await page.locator('#mail-guide-settings').innerText()).includes('993'));
+  assert((await page.locator('#mail-guide-settings').innerText()).includes('465'));
+  assert.equal(await page.locator('#mail-guide input[type="password"]').count(),0,'Never request or save BKNS mailbox password');
+  await page.locator('#mail-guide-email').fill('dat.ndq@colora.vn');
+  assert((await page.locator('#mail-guide-settings').innerText()).includes('dat.ndq@colora.vn'),'Guide must reflect staff member mailbox');
+  await page.locator('[data-mail-platform="apple"]').click();
+  assert.equal(new URL(page.url()).hash,'#mail-setup/apple','Apple Mail guide should have a deep link');
+  await page.waitForFunction(()=>document.getElementById('mail-guide-current-app')?.textContent==='Apple Mail');
+  assert.equal(await page.locator('#mail-guide-steps .mail-guide-step').count(),6);
+  assert((await page.locator('#mail-guide-steps').innerText()).includes('Other Mail Account'),'Apple Mail provider choice is missing');
+  await page.locator('[data-mail-zoom="3"]').click();
+  assert.equal(await page.locator('#mail-guide-dialog').evaluate(el=>el.open),true,'Detailed illustration must be zoomable');
+  assert((await page.locator('.mail-guide-modal-art').innerHTML()).includes('svg'));
+  await page.locator('#mail-guide-dialog-close').click();
+  assert.equal(await page.locator('#mail-guide-dialog').evaluate(el=>el.open),false);
+  await page.locator('[data-mail-platform="outlook"]').click();
+  assert.equal(new URL(page.url()).hash,'#mail-setup/outlook');
+  await page.waitForFunction(()=>document.getElementById('mail-guide-current-app')?.textContent==='Microsoft Outlook');
+  assert((await page.locator('#mail-guide-steps').innerText()).includes('Microsoft 365/Exchange'));
+  // Existing signature page retains a direct contextual link to setup guide.
+  await page.locator('.nav-btn[data-view="signature"]').click();
+  await page.locator('.mail-guide-inline-link').click();
+  await page.locator('#mail-guide').waitFor({state:'visible'});
+  assert.equal(await page.locator('#mail-guide').isVisible(),true);
   // Removed routes should safely resolve to dashboard; no orphaned generator.
   await page.evaluate(()=>location.hash='#web');
   await page.locator('#dashboard').waitFor({state:'visible'});
@@ -194,6 +225,12 @@ try{
   await page.locator('#mobile-menu').click();
   assert(await page.locator('#sidebar').evaluate(x=>x.classList.contains('open')));
   assert(await page.locator('#mobile-shade').isVisible());
+  await page.locator('[data-view="mail-setup"].nav-btn').click();
+  await page.locator('#mail-guide').waitFor({state:'visible'});
+  assert.equal(await page.locator('#mail-guide-steps .mail-guide-step').count(),6);
+  const mailWidth=await page.evaluate(()=>[document.documentElement.scrollWidth,innerWidth]);
+  assert(mailWidth[0]<=mailWidth[1]+2,'Mobile mailbox guide overflow: '+mailWidth);
+  await page.locator('#mobile-menu').click();
   await page.locator('[data-view="library"].nav-btn').click();
   await page.locator('#mobile-shade').waitFor({state:'hidden'});
   await page.waitForTimeout(300);
@@ -205,5 +242,5 @@ try{
   await page.locator('[data-view="home"].nav-btn').click();
   await page.screenshot({path:'test-results/colora-staff-desktop.png',fullPage:true});
   assert.deepEqual(errors,[]);
-  console.log('PASS: Staff UI desktop/mobile, library, signatures, HTML export and 4 embedded modules');
+  console.log('PASS: Staff UI desktop/mobile, library, signatures, HTML export and 4 embedded modules and mailbox setup walkthrough');
 }finally{await browser.close();await new Promise(done=>server.close(done));}

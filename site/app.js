@@ -6,7 +6,7 @@
     qr: {title: 'QR Generator', eyebrow: '04 / CREATIVE TOOL', description: 'Tạo QR, xem trước và xuất PNG/SVG theo mẫu COLORA.', url: './apps/qr/index.html'},
     jd: {title: 'JD Library', eyebrow: '07 / SENIOR ACCESS', description: 'Chỉ dành cho người được cung cấp mật khẩu quản lý riêng. Không lưu dữ liệu nhân sự mật trong công cụ website tĩnh.', url: './apps/jd/index.html'}
   };
-  const labels = {home:'Staff Workspace',library:'Resource Library',learning:'Learning Studio','client-care':'Client Care Academy',qr:'QR Generator',signature:'Email Signature',jd:'JD Library'};
+  const labels = {home:'Staff Workspace',library:'Resource Library',learning:'Learning Studio','client-care':'Client Care Academy',qr:'QR Generator',signature:'Email Signature','mail-setup':'Cài đặt Email',jd:'JD Library'};
   const $$ = s => [...document.querySelectorAll(s)];
   const $ = id => document.getElementById(id);
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -29,7 +29,7 @@
   function navigate(view) {
     if (!Object.prototype.hasOwnProperty.call(labels,view)) view = 'home';
     window.COLORA_MODULE_HOST?.cleanup();
-    ['dashboard','library-view','module','signature-tool'].forEach(id=>$(id).hidden=true);
+    ['dashboard','library-view','module','signature-tool','mail-guide'].forEach(id=>$(id).hidden=true);
     const isModule=Object.prototype.hasOwnProperty.call(modules,view);
     if (isModule) {
       const data=modules[view];
@@ -76,7 +76,7 @@
       frame.removeAttribute('srcdoc');
       frame.removeAttribute('src');
       $('module-status').hidden=true;
-      $(view==='home'?'dashboard':view==='library'?'library-view':'signature-tool').hidden=false;
+      $(view==='home'?'dashboard':view==='library'?'library-view':view==='mail-setup'?'mail-guide':'signature-tool').hidden=false;
     }
     document.body.classList.remove('module-immersive');
     $('module-expand').setAttribute('aria-pressed','false');
@@ -87,7 +87,7 @@
     document.title=labels[view]+' | COLORA Staff';
     window.scrollTo({top:0,behavior:'instant'});
   }
-  function applyRoute(){const route=decodeURIComponent(location.hash.slice(1)||'home');const [view,detail]=route.split('/');navigate(view);if(view==='library'&&typeof window.COLORA_LIBRARY_OPEN==='function')window.COLORA_LIBRARY_OPEN(detail||'');}
+  function applyRoute(){const route=decodeURIComponent(location.hash.slice(1)||'home');const [view,detail]=route.split('/');navigate(view);if(view==='library'&&typeof window.COLORA_LIBRARY_OPEN==='function')window.COLORA_LIBRARY_OPEN(detail||'');if(view==='mail-setup'&&typeof window.COLORA_MAIL_GUIDE_SHOW==='function')window.COLORA_MAIL_GUIDE_SHOW(detail||'outlook');}
   document.querySelectorAll('[data-view]').forEach(btn=>btn.addEventListener('click',()=>{
     const route=btn.dataset.view+(btn.dataset.article?'/'+btn.dataset.article:'');
     if(location.hash==='#'+route) applyRoute(); else location.hash=route;
