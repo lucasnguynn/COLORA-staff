@@ -105,7 +105,18 @@ try{
       }
       const sizes=await page.locator('#module-frame').evaluate(el=>({frame:el.getBoundingClientRect().height,scroll:el.contentDocument?.documentElement.scrollHeight}));
       assert(sizes.frame>=430,'Frame should expand as a continuous document section');
-      assert(sizes.scroll<=sizes.frame+110,'Nested scroll detected: '+JSON.stringify(sizes));
+      if(sizes.scroll>sizes.frame+110){
+        const deep=await page.locator('#module-frame').evaluate(el=>{
+          const d=el.contentDocument;
+          const target=el.contentDocument?.querySelector('#app .content,#main-content,.page .shell');
+          return {view:el.title,body:d?.body?.scrollHeight,html:d?.documentElement?.scrollHeight,
+            targetScroll:target?.scrollHeight,targetRect:target?.getBoundingClientRect().toJSON(),
+            appScroll:d?.querySelector('#app')?.scrollHeight,
+            shellScroll:d?.querySelector('.shell')?.scrollHeight,src:el.getAttribute('src')};
+        });
+        console.error('SCROLL DEBUG',JSON.stringify(deep));
+      }
+      assert(sizes.scroll<=sizes.frame+110,'Nested scroll detected ('+view+'): '+JSON.stringify(sizes));
     }
   }
   await page.locator('#module-expand').click();
