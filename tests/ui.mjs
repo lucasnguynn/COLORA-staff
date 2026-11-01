@@ -21,7 +21,9 @@ try{
   page.on('requestfailed',r=>console.error('FAILED RESOURCE',r.url(),r.failure()?.errorText));
   await page.goto('http://127.0.0.1:'+server.address().port+'/');
   await page.locator('#dashboard').waitFor();
-  assert.equal(await page.locator('.feature-card').count(),6);
+  assert.equal(await page.locator('.feature-card').count(),5,'Staff dashboard must not expose Senior JD');
+  assert.equal(await page.locator('[data-view="jd"]').count(),0,'Staff role must not show JD links');
+  assert.equal(await page.locator('#bundled-jd').count(),0,'No decrypted JD source may be bundled in Staff content');
   assert.equal(await page.locator('[data-view="web"]').count(),0,'Website Generator links must be removed');
   assert.equal(await page.locator('#web-tool,#web-form,#web-preview').count(),0,'Website Generator DOM must be removed');
   assert.equal(await page.locator('.hero-art,.hero-facet,.hero-symbol').count(),0,'Decorative diagonal hero illustration must be removed');
@@ -129,7 +131,7 @@ try{
   await page.evaluate(()=>location.hash='#web');
   await page.locator('#dashboard').waitFor({state:'visible'});
   assert.equal(await page.locator('#path-label').innerText(),'Staff Workspace');
-    for(const [view,selector] of [['learning','#app'],['client-care','#main-content'],['qr','#downloadPng'],['jd','#workspaceTitle']]){
+    for(const [view,selector] of [['learning','#app'],['client-care','#main-content'],['qr','#downloadPng']]){
     await page.locator('.nav-btn[data-view="'+view+'"]').click();
     const embedded=page.frameLocator('#module-frame');
     try{await embedded.locator(selector).waitFor({timeout:12000});}
@@ -210,7 +212,22 @@ try{
       await page.screenshot({path:'test-results/'+view+'-integrated-desktop.png',fullPage:false});
     }
   }
-  await page.locator('#module-expand').click();
+  // Staff deep links must never elevate privileges.
+  await page.evaluate(()=>location.hash='#jd');
+  await page.locator('#dashboard').waitFor({state:'visible'});
+  assert.equal(await page.locator('#bundled-jd').count(),0,'Staff deep-link may not expose JD payload');
+
+  // The Senior shell is a second plaintext staging artifact only in local
+  // CI; production distributes it as a separate encrypted gateway payload.
+  await page.goto('http://127.0.0.1:'+server.address().port+'/senior/index.html');
+  await page.locator('#dashboard').waitFor({state:'visible'});
+  assert.equal(await page.locator('.feature-card').count(),6,'Senior workspace should include JD card');
+  assert.equal(await page.locator('body').getAttribute('data-staff-role'),'senior');
+  await page.locator('.nav-btn[data-view="jd"]').click();
+  await page.frameLocator('#module-frame').locator('#workspaceTitle').waitFor({state:'visible',timeout:15000});
+  assert.equal(await page.frameLocator('#module-frame').locator('#staticrypt-password').count(),0,'Senior must not see a second JD password prompt');
+  assert.equal(await page.locator('#module-open').isVisible(),false,'Senior JD should be integrated instead of opening another login');
+    await page.locator('#module-expand').click();
   assert(await page.locator('body').evaluate(x=>x.classList.contains('module-immersive')));
   await page.keyboard.press('Escape');
   await page.setViewportSize({width:390,height:844});
