@@ -45,6 +45,7 @@ try{
   await page.locator('#signature-form [name="name"]').fill('Minh An');
   await page.locator('#signature-form [name="role"]').fill('Client Advisor');
   await page.locator('#signature-form [name="email"]').fill('example@colora.vn');
+  await page.locator('#signature-form [name="phone"]').fill('+84912345678');
   assert((await page.locator('#signature-preview').innerText()).includes('Minh An'));
   assert.equal(await page.locator('#signature-preview img[alt="COLORA"]').count(),1,'Signature must use official COLORA logo');
   const signatureRows=page.locator('#signature-preview table > tbody > tr');
@@ -52,12 +53,25 @@ try{
   assert.equal(await signatureRows.nth(0).locator('img[alt="COLORA"]').count(),1,'Official logo belongs in the unbordered header');
   assert((await signatureRows.nth(0).innerText()).includes('COLOR YOUR AURA'),'Tagline belongs above the gold line');
   assert.equal(await signatureRows.nth(0).locator('td').evaluate(el=>getComputedStyle(el).borderLeftWidth),'0px','No decorative bar next to logo and tagline');
+  assert.equal(await signatureRows.nth(0).locator('td').evaluate(el=>getComputedStyle(el).paddingLeft),'0px','Logo and tagline should move closer to the left edge');
   assert((await signatureRows.nth(1).innerText()).includes('Minh An'),'Employee name belongs at start of bordered details');
   assert.equal(await signatureRows.nth(1).locator('td').evaluate(el=>getComputedStyle(el).borderLeftWidth),'3px','Gold line must start at employee name');
   assert.equal(await signatureRows.nth(1).locator('td').evaluate(el=>getComputedStyle(el).borderLeftColor),'rgb(176, 138, 91)','Signature border must use COLORA gold');
+  const emailNode=signatureRows.nth(1).locator('a[href="mailto:example%40colora.vn"]');
+  const phoneNode=signatureRows.nth(1).locator('a[href^="tel:"]');
+  assert.equal(await emailNode.count(),1,'Email link is missing');
+  assert.equal(await phoneNode.count(),1,'Phone link must appear when provided');
+  assert.equal(decodeURIComponent(await phoneNode.getAttribute('href')),'tel:+84912345678','Phone link should contain the correct number');
+  const emailTop=await emailNode.evaluate(el=>el.getBoundingClientRect().top);
+  const phoneTop=await phoneNode.evaluate(el=>el.getBoundingClientRect().top);
+  assert(phoneTop>emailTop+5,'Phone number must be on its own line below email');
   const signature=page.waitForEvent('download');
   await page.locator('#signature-download').click();
-  assert.equal((await signature).suggestedFilename(),'colora-email-signature.html');
+  const downloadedSignature=await signature;
+  assert.equal(downloadedSignature.suggestedFilename(),'colora-email-signature.html');
+  const exportedHTML=fs.readFileSync(await downloadedSignature.path(),'utf8');
+  assert(exportedHTML.includes('padding:5px 0 18px 0'),'Exported signature must keep left-aligned logo');
+  assert(exportedHTML.includes('margin-top:6px'),'Exported phone must remain on a separate row');
   // Removed routes should safely resolve to dashboard; no orphaned generator.
   await page.evaluate(()=>location.hash='#web');
   await page.locator('#dashboard').waitFor({state:'visible'});
