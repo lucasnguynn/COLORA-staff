@@ -72,6 +72,8 @@ window.COLORA_JD_WORKSPACE=(()=>{
     item.resize.observe(doc.body);
     item.resize.observe(doc.getElementById('editorPanel'));
     item.frame.dataset.jdLoaded='true';
+    const status=$('module-status');
+    if(status)status.hidden=true;
     syncRoles();
     resize();
   }
@@ -120,5 +122,16 @@ window.COLORA_JD_WORKSPACE=(()=>{
       area().querySelector('details')?.removeAttribute('open');
     }
   });
-  return {mount,dispose};
+  const bridge={mount,dispose};
+  // Defensive recovery for a browser/CDN that pairs a cached older Staff
+  // router with a newer JD bridge. The router may have visited #jd before
+  // this script became available and silently skipped its optional mount.
+  // Only remount if no live JD bridge exists; never expose JD to Staff.
+  queueMicrotask(()=>{
+    if(active || document.body?.dataset.staffRole!=='senior')return;
+    if(document.getElementById('module')?.dataset.activeModule!=='jd')return;
+    const frame=document.getElementById('module-frame');
+    if(frame?.isConnected && document.getElementById('bundled-jd'))mount(frame);
+  });
+  return bridge;
 })();
