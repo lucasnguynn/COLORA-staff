@@ -460,7 +460,7 @@
       previewQR=new QRCodeStyling(getOptions(420));
       previewQR.append($("qrPreview"));
     }else{
-      renderPreview();
+      previewQR.update(getOptions(420));
     }
   }
 
@@ -472,7 +472,7 @@
       currentLogo = defaultBrandBadge();
       $("logoThumb").src = currentLogo;
     }
-    previewQR.update(getOptions(420));
+    renderPreview();
     $("currentUrl").textContent=url;
     const exportSize=Number($("size").value); $("exportSizeText").textContent=`${exportSize} × ${exportSize} px`;
     $("fgValue").textContent=$("fg").value.toUpperCase(); $("bgValue").textContent=$("bg").value.toUpperCase(); updateContrast();
