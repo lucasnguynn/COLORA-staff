@@ -14,7 +14,7 @@ try{
   const page=await context.newPage();
   for(const [type,route,password,selector] of [
     ['staff','/',staff,'body[data-staff-role="staff"][data-staff-ready="true"]'],
-    ['senior workspace','/',senior,'body[data-staff-role="senior"][data-staff-ready="true"]'],
+    ['senior workspace','/#jd',senior,'body[data-staff-role="senior"][data-staff-ready="true"]'],
     ['senior JD direct','/apps/jd/',senior,'#workspaceTitle']
   ]){
     try{
@@ -28,7 +28,11 @@ try{
         if(await page.locator('[data-view="jd"]').count())throw Error('Staff role unexpectedly exposes JD route');
       }
       if(type==='senior workspace'){
-        await page.locator('.nav-btn[data-view="jd"]').click();
+        if(await page.locator('#module').getAttribute('data-active-module')!=='jd')throw Error('Senior #jd route did not initialize');
+        await page.locator('#jd-workspace-controls').waitFor({state:'visible',timeout:18000});
+        if(await page.locator('#module-frame').getAttribute('data-jd-loaded')!=='true'){
+          await page.locator('#module-frame[data-jd-loaded="true"]').waitFor({state:'attached',timeout:18000});
+        }
         await page.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:18000});
         await page.locator('#jd-workspace-controls').waitFor({state:'visible',timeout:18000});
         await page.locator('#jd-role-select option').first().waitFor({state:'attached',timeout:18000});
