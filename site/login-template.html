@@ -67,6 +67,7 @@
     }
     .staticrypt-decrypt-button:hover{background:#153A68}
     .login-feedback{margin:14px 0 0;font-size:12px;line-height:1.8;color:#9A433E}
+    .login-role-hint{font-size:11px;line-height:1.7;color:var(--muted);margin:9px 0 0}
     .login-recover{display:inline-block;border:0;background:none;padding:0;margin:11px 0 0;color:var(--navy);
       text-align:left;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:5px;
       cursor:pointer;font:600 11px/1.8 var(--body)}
@@ -109,6 +110,7 @@
         <div class="staticrypt-instructions">
           <h1 class="staticrypt-title">/*[|template_title|]*/0</h1>
           <p class="access-intro">Truy cập nội bộ COLORA</p>
+          <p id="login-role-hint" class="login-role-hint" hidden>Nhập mật khẩu Staff hoặc Senior. Không gian làm việc sẽ mở theo quyền tương ứng.</p>
           <p class="sr-only">/*[|template_instructions|]*/0</p>
         </div>
         <form id="staticrypt-form" action="#" method="post">
@@ -165,6 +167,7 @@
             const loginRecover = document.getElementById("staticrypt-login-recover");
             if (isRememberEnabled) {
                 loginRecover.hidden = false;
+                document.getElementById("login-role-hint").hidden = false;
             }
             loginRecover.addEventListener("click", function () {
                 clearRememberedLogin();
@@ -231,6 +234,23 @@
                 let isSuccessful = false;
                 try {
                     ({ isSuccessful } = await staticrypt.handleDecryptionOfPage(password, isRememberChecked));
+                    // This is the SAME outer Staff login, not a second login.
+                    // The Senior payload is separately encrypted and is only
+                    // decrypted in memory by the matching Senior password.
+                    // This fallback runs only in the Staff login template,
+                    // never inside the separately encrypted JD direct URL.
+                    if (!isSuccessful && isRememberEnabled) {
+                        const response = await fetch("/senior-gateway.json", {cache:"no-store"});
+                        if (!response.ok) throw new Error("Missing Senior encrypted envelope");
+                        const seniorConfig = await response.json();
+                        const seniorPortal = staticryptInitiator.init(seniorConfig, {
+                            rememberExpirationKey: "staticrypt_senior_no_store_expiry",
+                            rememberPassphraseKey: "staticrypt_senior_no_store_password",
+                            replaceHtmlCallback: null,
+                            clearLocalStorageCallback: null
+                        });
+                        ({ isSuccessful } = await seniorPortal.handleDecryptionOfPage(password, false));
+                    }
                 } catch (error) {
                     // Do not expose decryption details or password material.
                     isSuccessful = false;
@@ -243,7 +263,7 @@
                     clearRememberedLogin();
                     passwordField.value = "";
                     passwordField.setAttribute("aria-invalid", "true");
-                    loginFeedback.textContent = "Không thể mở trang. Hãy kiểm tra mật khẩu Staff, hoặc nhấn ‘Tải lại bản mới’ bên dưới rồi thử lại.";
+                    loginFeedback.textContent = "Không thể mở trang. Hãy kiểm tra mật khẩu Staff hoặc Senior, hoặc nhấn ‘Tải lại bản mới’ bên dưới rồi thử lại.";
                     loginFeedback.hidden = false;
                     passwordField.focus();
                 }
