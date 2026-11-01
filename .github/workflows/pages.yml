@@ -31,34 +31,23 @@ jobs:
         run: |
           (cd modules/learning && node scripts/validate.mjs)
           (cd modules/client-care && node tests/publication.cjs && node tests/ops.cjs && node tests/smoke.cjs)
-      - name: Unlock Senior JD source, or preserve prior encrypted deployment
+      - name: Restore pinned JD source if Senior archive password was rotated
         env:
           SENIOR_JD_PASSWORD: ${{ secrets.SENIOR_JD_PASSWORD }}
-          GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
+          # Keep the existing encrypted archive untouched. If the secret was
+          # rotated without rekeying it, restore the exact reviewed historical
+          # source from the owner's original public repository and encrypt the
+          # JD page with the CURRENT Senior secret during this build.
           if node scripts/jd-source.mjs decrypt modules/jd-source.enc.json .sources/jd; then
-            echo "JD_BUILD_MODE=fresh" >> "$GITHUB_ENV"
+            echo "JD source archive matches configured Senior secret."
           else
-            # No passwords or plaintext JD files are accessed during fallback.
-            # Use the most recent SUCCESSFUL main-branch Pages artifact as source
-            # of the already encrypted JD HTML + its non-sensitive images.
             rm -rf .sources/jd
-            echo "::warning::Senior JD archive key differs from the configured key. Preserving the last published encrypted JD (its existing password remains unchanged)."
-            RUN_ID=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/pages.yml/runs?status=success&branch=main&per_page=1" --jq '.workflow_runs[0].id')
-            if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
-              echo "::error::No previously successful Staff deployment was found. Refusing to publish an unprotected JD."
-              exit 1
-            fi
-            mkdir -p .sources/last-published/site
-            gh run download "$RUN_ID" --repo "$GITHUB_REPOSITORY" --name github-pages --dir .sources/last-published
-            tar -xf .sources/last-published/artifact.tar -C .sources/last-published/site
-            if [ ! -f .sources/last-published/site/apps/jd/index.html ]; then
-              echo "::error::Last published archive lacks protected JD HTML."
-              exit 1
-            fi
-            echo "JD_BUILD_MODE=preserve" >> "$GITHUB_ENV"
+            echo "::warning::Previous JD source archive key mismatch. Rebuilding from pinned original COLORA-JD source under current Senior secret."
+            node scripts/recover-jd-source.mjs .sources/jd
           fi
+          echo "JD_BUILD_MODE=fresh" >> "$GITHUB_ENV"
       - name: Install pinned StatiCrypt and browser test runner
         run: npm install --no-save --no-package-lock staticrypt@3.5.4 playwright@1.56.1 qr-code-styling@1.6.0-rc.1
       - name: Assemble static portal
