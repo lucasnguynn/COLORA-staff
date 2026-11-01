@@ -3,18 +3,27 @@ import path from 'node:path';
 
 const root=process.cwd();
 const dist=path.join(root,'dist');
-const source=path.join(root,'.sources');
+// Fully self-contained source snapshots committed within COLORA-staff.
+const source=path.join(root,'modules');
 const site=path.join(root,'site');
 const app=code=>path.join(source,code);
-const allowed={
-  'client-care': ['styles.css','favicon.svg','content.js','intelligence.js','ops.js','app.js','practice-tools.js','data/approved-public.js'],
-  'learning': ['styles.css','app.js','data/questions.json','data/lessons.json','data/curriculum.json','data/gem-13.json','data/gem-14.json','data/gem-15.json','data/gem-16.json','data/care-17.json','data/applied-cases.json'],
-  'qr': []
-};
 function fail(message){throw new Error(message);}
 function copyRequired(from,to){if(!fs.existsSync(from))fail('Missing required file: '+from);fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(from,to);}
 function copyAssets(from,to){if(!fs.existsSync(from))return;for(const entry of fs.readdirSync(from,{withFileTypes:true})){if(!entry.isFile() || !/\.(png|jpg|jpeg|webp|svg)$/i.test(entry.name))continue;copyRequired(path.join(from,entry.name),path.join(to,entry.name));}}
-function copyModule(name,sourceName){for(const file of allowed[name])copyRequired(path.join(app(sourceName),file),path.join(dist,'apps',name,file));}
+function copyModule(name,sourceName){
+  const from=app(sourceName),to=path.join(dist,'apps',name);
+  if(!fs.existsSync(path.join(from,'index.html')))fail('Missing archived source for '+sourceName);
+  // Runtime files copied locally, not fetched from any other repository.
+  // Keep docs, tests, unpublished workflows, plaintext entry HTML, private
+  // files and configuration OUT of the public GitHub Pages artifact.
+  for(const entry of fs.readdirSync(from,{withFileTypes:true})){
+    if(entry.isDirectory()){
+      if(['assets','data'].includes(entry.name))fs.cpSync(path.join(from,entry.name),path.join(to,entry.name),{recursive:true});
+    }else if(entry.isFile() && /\.(?:js|css|json|svg|png|webp|jpe?g)$/i.test(entry.name)){
+      copyRequired(path.join(from,entry.name),path.join(to,entry.name));
+    }
+  }
+}
 
 fs.rmSync(dist,{recursive:true,force:true});
 fs.mkdirSync(dist,{recursive:true});
@@ -57,7 +66,8 @@ fs.writeFileSync(path.join(dist,'index.html'),portal);
 // before encryption, so no unencrypted JD script or role templates are deployed.
 // Important: JD source repo itself is currently public and must be made private
 // for real source confidentiality; this build cannot change its visibility.
-const jdSource=app('jd');
+const jdSource=process.env.JD_SOURCE_DIR || path.join(root,'.sources','jd');
+if(!fs.existsSync(path.join(jdSource,'index.html')))fail('Missing decrypted JD source. Run scripts/jd-source.mjs decrypt before build.');
 let jd=fs.readFileSync(path.join(jdSource,'index.html'),'utf8');
 const cssFiles=['styles.css','luxury.css','refinements.css','print-polish.css'];
 for(const filename of cssFiles){

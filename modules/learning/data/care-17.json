@@ -1,0 +1,706 @@
+[
+  {
+    "id": "PC-001",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Trước khi đeo",
+    "chapter": "17",
+    "q": "Khách chuẩn bị đi làm, vừa xịt nước hoa và dùng kem dưỡng. Thời điểm nào nên đeo nhẫn COLORA?",
+    "a": [
+      "Khi nước hoa chưa khô để bảo vệ lớp mạ.",
+      "Sau khi mỹ phẩm khô, tránh xịt trực tiếp vào nhẫn.",
+      "Trước khi thoa kem để phủ lên chấu.",
+      "Không cần lưu ý vì bạc 930 chống mọi hóa chất."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Nước hoa, mỹ phẩm và dung môi có thể ảnh hưởng đá và lớp hoàn thiện.",
+    "apply": "Tư vấn thứ tự: làm đẹp trước, trang sức sau.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-002",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Vận động",
+    "chapter": "17",
+    "q": "Khách thường đeo nhẫn đá màu khi tập tạ. Cách chăm sóc phù hợp là gì?",
+    "a": [
+      "Tháo nhẫn trước khi tập.",
+      "Giữ nhẫn trên tay vì setting thấp không thể vướng.",
+      "Đeo găng rồi tập như thường, không cần kiểm tra.",
+      "Chỉ tháo nếu viên đá có Mohs dưới 7."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Áp lực và va chạm có thể làm mẻ đá, biến dạng chấu dù đá cứng.",
+    "apply": "Hướng dẫn thói quen tháo nhẫn trước vận động mạnh.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-003",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Hồ bơi",
+    "chapter": "17",
+    "q": "Khách định đeo vòng COLORA khi bơi hồ có chlorine. Nên tư vấn thế nào?",
+    "a": [
+      "Chỉ cần rửa bằng nước nóng sau khi bơi.",
+      "Đeo thoải mái vì lớp phủ làm bạc kháng chlorine tuyệt đối.",
+      "Chỉ cần tránh bơi biển, hồ chlorine không ảnh hưởng.",
+      "Tháo vòng trước khi xuống hồ."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Chlorine và môi trường nước bể bơi không nên tiếp xúc kéo dài với trang sức.",
+    "apply": "Đề nghị tháo trước khi xuống hồ và lau khô nếu đã tiếp xúc.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-004",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Sau khi đeo",
+    "chapter": "17",
+    "q": "Bước chăm sóc tại nhà thường xuyên và ít rủi ro nhất với COLORA SILVER chưa có care guide riêng là gì?",
+    "a": [
+      "Dùng kem đánh răng để lấy lại độ bóng.",
+      "Ngâm dung dịch tẩy bạc trong một đêm.",
+      "Lau nhẹ bằng khăn mềm sạch, khô.",
+      "Dùng bàn chải cứng cọ quanh mọi chấu."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Lau nhẹ giảm mồ hôi/dầu mà không mài mòn bề mặt phủ.",
+    "apply": "Hướng dẫn khăn không xơ và thao tác nhẹ.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-005",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Bảo quản",
+    "chapter": "17",
+    "q": "Khách để nhẫn sapphire và vòng bạc chung trong túi không có ngăn. Rủi ro nào cần giải thích?",
+    "a": [
+      "Chỉ có nguy cơ thay màu sapphire khi gần bạc.",
+      "Cất riêng để tránh ma sát gây xước.",
+      "Không có rủi ro nếu hai sản phẩm cùng thương hiệu.",
+      "Chỉ gây rủi ro khi túi được đặt theo chiều dọc."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Các món trang sức nên tách ngăn/túi mềm để tránh tiếp xúc.",
+    "apply": "Gợi ý cất từng món trong ngăn riêng.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-006",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Dây chuyền",
+    "chapter": "17",
+    "q": "Sau khi đeo, nên cất dây chuyền COLORA như thế nào để giảm rối?",
+    "a": [
+      "Đóng khóa, xếp dây nằm phẳng.",
+      "Mở khóa rồi xoắn dây thành vòng nhỏ.",
+      "Để dây chung với nhẫn và hoa tai trong một ngăn.",
+      "Treo vật nặng vào đầu dây để giữ thẳng."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Đóng khóa và đặt phẳng giảm nguy cơ rối, kéo và biến dạng.",
+    "apply": "Cho khách xem minh họa cất dây đúng cách.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-007",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Khi di chuyển",
+    "chapter": "17",
+    "q": "Khách mang trang sức trong vali du lịch. Phương án cất giữ nào hợp lý?",
+    "a": [
+      "Để chung các món trong túi zipper không lót.",
+      "Dùng khăn giấy thô bọc toàn bộ trang sức cùng nhau.",
+      "Bỏ thẳng vào túi phụ của vali với khóa kim loại.",
+      "Hộp/túi lót mềm có ngăn riêng."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Rung, ma sát và va đập khi di chuyển có thể làm xước và biến dạng.",
+    "apply": "Gợi ý hộp trang sức du lịch có ngăn riêng.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-008",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Dầu và mồ hôi",
+    "chapter": "17",
+    "q": "Khách thấy bề mặt nhẫn xỉn nhẹ sau thời gian sử dụng. Kết luận nào phù hợp nhất?",
+    "a": [
+      "Chắc chắn hàng giả vì GENIA276 Ag 930‰ không thể đổi độ sáng.",
+      "Chắc chắn lỗi bảo hành và được thay mới tức thì.",
+      "Cần kiểm tra tình trạng; môi trường và lớp phủ có thể ảnh hưởng.",
+      "Chỉ cần dùng bột mài làm sáng, không cần xem lớp phủ."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Thay đổi bề mặt có nhiều nguyên nhân; không chẩn đoán từ một mô tả.",
+    "apply": "Xin mã SKU và ảnh trước khi hướng dẫn xử lý sâu.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-009",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "COLORA SILVER",
+    "chapter": "17",
+    "q": "Vì sao không nên tự áp hướng dẫn vệ sinh bạc 925 trần cho mọi món COLORA SILVER?",
+    "a": [
+      "Vì COLORA SILVER chỉ làm từ thủy tinh phủ bạc.",
+      "Phải xét cả lớp phủ và đá trên sản phẩm.",
+      "Vì mọi lớp phủ đều bền hơn bạc không phủ trong mọi hóa chất.",
+      "Vì Ag 930‰ không có tương tác với môi trường."
+    ],
+    "key": [
+      1
+    ],
+    "why": "COLORA SILVER có nền bạc GENIA276 Ag 930‰ và lớp hoàn thiện riêng.",
+    "apply": "Đối chiếu care guide của SKU trước khi gợi ý dung dịch.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-010",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Đánh bóng",
+    "chapter": "17",
+    "q": "Khách muốn lấy khăn đánh bạc có chất mài mòn chà nhẫn COLORA. Cách khuyên phù hợp?",
+    "a": [
+      "Không tự dùng; kiểm tra loại lớp phủ và hướng dẫn chính thức.",
+      "Dùng mạnh tay ở vùng chấu để sáng nhanh.",
+      "Trộn thêm baking soda để tăng hiệu quả.",
+      "Chà hàng ngày vì lớp phủ độc quyền không bị mòn."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Chất mài mòn có thể ảnh hưởng lớp hoàn thiện bề mặt.",
+    "apply": "Chuyển tư vấn chăm sóc hoặc vệ sinh chuyên sâu khi cần.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-011",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Hóa chất",
+    "chapter": "17",
+    "q": "Khách hỏi có dùng dung dịch tẩy bạc mạnh cho nhẫn đính đá màu được không. Nên trả lời?",
+    "a": [
+      "Có, vì dung dịch tẩy bạc không tác động tới đá màu.",
+      "Có, nếu chỉ nhúng phần đá trước.",
+      "Có, nếu sau đó rửa ngay bằng nước sôi.",
+      "Chưa dùng khi chưa xác minh SKU."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Dung dịch mạnh có thể tác động đá nhạy cảm và lớp hoàn thiện.",
+    "apply": "Ưu tiên khăn mềm và hướng dẫn theo SKU.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-012",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Nước vô tình tiếp xúc",
+    "chapter": "17",
+    "q": "Khách vô tình làm ướt nhẫn khi rửa tay. Hướng xử lý thận trọng nhất?",
+    "a": [
+      "Ngâm tiếp nước nóng để cân bằng độ ẩm.",
+      "Sấy bằng máy ở nhiệt cao để loại nước.",
+      "Lau khô nhẹ và kiểm tra có dấu hiệu lạ.",
+      "Dùng cồn đậm đặc lau ngay mặt đá."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Khi ướt, lau khô nhẹ tránh nhiệt và hóa chất bổ sung.",
+    "apply": "Không coi một lần dính nước là hỏng chắc chắn.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-013",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Vệ sinh đá",
+    "chapter": "17",
+    "q": "Vì sao không thể đưa một công thức ngâm xà phòng chung cho tất cả đá màu COLORA?",
+    "a": [
+      "Vì tất cả đá tự nhiên đều tan trong nước.",
+      "Vì cách chăm tùy từng đá và lớp phủ.",
+      "Vì sapphire luôn cần làm sạch bằng hơi nước.",
+      "Vì bất kỳ loại xà phòng nào cũng làm bạc hóa vàng."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Nhiều đá rửa nhẹ được nhưng một số đá xử lý/xốp nhạy cảm.",
+    "apply": "Luôn xác minh SKU trước khi hướng dẫn ngâm hoặc chải.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-014",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Siêu âm",
+    "chapter": "17",
+    "q": "Với khách không rõ loại đá và trạng thái xử lý, lời khuyên về máy vệ sinh siêu âm là gì?",
+    "a": [
+      "Chưa sử dụng; cần người có chuyên môn đánh giá trước.",
+      "Dùng chế độ mạnh nếu đá từ 7 Mohs trở lên.",
+      "Dùng khoảng 15 phút cho mọi nhẫn bạc 930.",
+      "Chỉ cần thêm nước ấm để bảo vệ chấu."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Rung và nhiệt có thể làm lỏng chấu hoặc hỏng chất lấp.",
+    "apply": "Không chỉ dẫn khách tự làm sạch cơ học khi chưa rõ cấu trúc.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-015",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Hơi nóng",
+    "chapter": "17",
+    "q": "Vì sao không nên khuyên hấp hơi nước nóng cho một mẫu đá màu chưa xác minh treatment?",
+    "a": [
+      "Hơi nước luôn làm viên đá đổi thành synthetic.",
+      "Vì hơi nước chắc chắn làm tăng độ cứng Mohs.",
+      "Vì đá màu chỉ hỏng khi hơi nước có mùi thơm.",
+      "Nhiệt có thể ảnh hưởng chất lấp và đá."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Một số đá và filler nhạy nhiệt; lớp phủ cũng cần đánh giá.",
+    "apply": "Chuyển vệ sinh chuyên nghiệp khi cần.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-016",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Emerald",
+    "chapter": "17",
+    "q": "Khách có emerald đã tẩm dầu hỏi có nên đưa vào máy siêu âm không. Cách trả lời nào đúng?",
+    "a": [
+      "Có, vì emerald Mohs 7,5–8 nên không ảnh hưởng.",
+      "Có, miễn là thêm nước hoa để khử mùi.",
+      "Nên tránh vì có thể tác động dầu tẩm.",
+      "Có, nếu đá không nhìn thấy bao thể bằng mắt thường."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Chất lấp khe nứt emerald có thể bị ảnh hưởng bởi máy siêu âm.",
+    "apply": "Hướng dẫn vệ sinh theo hồ sơ đá và tránh làm sạch cơ học.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-017",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Opal",
+    "chapter": "17",
+    "q": "Khách định phơi nhẫn opal dưới nắng nóng để làm khô nhanh. Cần tư vấn gì?",
+    "a": [
+      "Nên làm vì opal có độ cứng cao như sapphire.",
+      "Không; nên tránh phơi dưới nắng nóng.",
+      "Nên làm nếu opal có màu sáng.",
+      "Nên làm nếu dùng máy sấy thay ánh nắng."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Một số opal nhạy nhiệt và có nguy cơ rạn do thay đổi độ ẩm/nhiệt.",
+    "apply": "Lau nhẹ và cất theo hướng dẫn của loại opal cụ thể.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-018",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Topaz",
+    "chapter": "17",
+    "q": "Khách đeo nhẫn topaz khi làm việc dễ va chạm. Thông tin chăm sóc nào cần nhấn mạnh?",
+    "a": [
+      "Topaz cứng chống trầy nhưng có cát khai, nên hạn chế va đập.",
+      "Mohs 8 đồng nghĩa không thể mẻ khi rơi.",
+      "Topaz có thể tự liền vết nứt qua đêm.",
+      "Chỉ cần tránh ánh sáng xanh, va chạm không ảnh hưởng."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Cleavage là điểm yếu của topaz dù hardness 8.",
+    "apply": "Khuyên tháo khi làm việc nặng; kiểm tra sau va đập.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-019",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Sapphire",
+    "chapter": "17",
+    "q": "Có nên kết luận sapphire trên nhẫn không cần chăm sóc vì Mohs 9 không?",
+    "a": [
+      "Có, vì sapphire không có treatment.",
+      "Có, vì Mohs 9 chống mọi va đập.",
+      "Có, vì bạc 930 giữ viên đá vĩnh viễn.",
+      "Không; chấu có thể lỏng, đá vẫn có thể mẻ."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Mohs chủ yếu đo chống trầy, không đo độ bền cấu trúc lắp đặt.",
+    "apply": "Nhắc kiểm tra định kỳ vị trí chấu và các điểm tiếp xúc.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-020",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Tourmaline",
+    "chapter": "17",
+    "q": "Khách muốn dùng hơi nóng vệ sinh tourmaline. Nên tư vấn thế nào?",
+    "a": [
+      "Có, vì tất cả tourmaline chịu nhiệt như kim cương.",
+      "Có, nếu viên đá có màu hồng.",
+      "Chưa tự dùng hơi nóng nếu chưa rõ đá.",
+      "Có, vì tourmaline không bị ảnh hưởng bởi treatment."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Tourmaline có thể nhạy thay đổi nhiệt và rủi ro cơ học.",
+    "apply": "Khuyên làm theo care guide đúng loài và SKU.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-021",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Amethyst",
+    "chapter": "17",
+    "q": "Khách để nhẫn amethyst dưới ánh nắng gắt nhiều ngày. Điều gì cần lưu ý?",
+    "a": [
+      "Amethyst sẽ tăng độ cứng do UV.",
+      "Màu có thể thay đổi bởi nắng, nhiệt kéo dài.",
+      "Amethyst không thể đổi màu trong bất cứ điều kiện nào.",
+      "Mọi viên amethyst sẽ chuyển thành sapphire."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Ánh sáng và nhiệt kéo dài có thể tác động một số màu đá.",
+    "apply": "Khuyên bảo quản tránh nắng gắt và nguồn nhiệt.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-022",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Chấu lỏng",
+    "chapter": "17",
+    "q": "Khách thấy viên đá nhúc nhích khi chạm nhẹ vào mặt nhẫn. Hành động an toàn là gì?",
+    "a": [
+      "Ngừng đeo, cất an toàn và liên hệ COLORA để kiểm tra.",
+      "Bóp chấu bằng kìm tại nhà để giữ chắc.",
+      "Dùng keo trong dán viên đá.",
+      "Vẫn đeo bình thường tới kỳ vệ sinh tiếp theo."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Đá lỏng là vấn đề an toàn cấu trúc, không phải chỉ vệ sinh.",
+    "apply": "Gửi hướng dẫn chụp hình/video, không yêu cầu tự sửa.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-023",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Va đập",
+    "chapter": "17",
+    "q": "Khách đánh rơi bông tai và thấy chấu hơi nhô nhưng đá chưa rơi. Nên làm gì?",
+    "a": [
+      "Thử bẻ chấu trở lại bằng móng tay.",
+      "Cất chung với các món khác rồi dùng tiếp.",
+      "Dùng bàn chải cứng làm phẳng chấu.",
+      "Nên ngừng đeo và gửi kiểm tra kết cấu."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Sau va chạm, chấu có thể yếu hoặc mất bám giữ đá.",
+    "apply": "Nhận ảnh từ nhiều góc rồi chuyển kiểm tra kỹ thuật.",
+    "source": "GIA_CARE",
+    "status": "HƯỚNG DẪN CHĂM SÓC - THEO SKU",
+    "stage": 2
+  },
+  {
+    "id": "PC-024",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Dịch vụ chăm sóc",
+    "chapter": "17",
+    "q": "Theo chính sách COLORA đang công bố, đâu là cách phân biệt vệ sinh cơ bản với phục hồi chuyên sâu?",
+    "a": [
+      "Vệ sinh và mạ lại đều luôn miễn phí với mọi tình trạng.",
+      "Mọi vết trầy đều được đổi sản phẩm ngay.",
+      "Vệ sinh cơ bản miễn phí; mạ lại phải kiểm tra.",
+      "Đánh bóng sâu luôn được thực hiện tại nhà khách."
+    ],
+    "key": [
+      2
+    ],
+    "why": "COLORA Care công bố vệ sinh cơ bản, kiểm tra; dịch vụ kỹ thuật khác tùy tình trạng.",
+    "apply": "Đối chiếu chính sách mới trước khi hứa quyền lợi.",
+    "source": "GIA_CARE",
+    "status": "CHÍNH SÁCH WEB - KIỂM TRA HIỆU LỰC",
+    "stage": 2
+  },
+  {
+    "id": "PC-025",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Khách gửi ảnh",
+    "chapter": "17",
+    "q": "Khách gửi ảnh bạc xỉn, không có mã sản phẩm. Bước tiếp nhận đầu tiên nên làm gì?",
+    "a": [
+      "Yêu cầu khách đánh bóng ngay bằng kem đánh răng.",
+      "Báo phí mạ lại cố định khi chưa xem mẫu.",
+      "Xin mã SKU và ảnh rõ trước khi tư vấn.",
+      "Kết luận hàng lỗi và hứa đổi ngay qua tin nhắn."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Từ ảnh đơn lẻ chưa xác định nguyên nhân, lớp phủ hay lỗi sản xuất.",
+    "apply": "Hỏi mã và thời điểm phát hiện, xác minh trước khi kết luận.",
+    "source": "COLORA_CARE",
+    "status": "QUY TRÌNH TƯ VẤN ĐỀ XUẤT",
+    "stage": 2
+  },
+  {
+    "id": "PC-026",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Tư vấn tại nhà",
+    "chapter": "17",
+    "q": "Khách hỏi hướng dẫn vệ sinh chi tiết nhưng chưa biết viên đá là tourmaline hay topaz. Bạn nên làm gì?",
+    "a": [
+      "Gửi video ngâm nước nóng cho mọi viên đá.",
+      "Chỉ hướng dẫn lau nhẹ và xác minh hồ sơ SKU trước bước tiếp theo.",
+      "Đề nghị khách thử dung dịch bạc trên mặt đá.",
+      "Khuyên khách dùng máy rung siêu âm 5 phút."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Loại đá/treatment và lớp hoàn thiện quyết định cách làm sạch.",
+    "apply": "Tra Product Passport, không tự phỏng đoán dựa ảnh.",
+    "source": "COLORA_CARE",
+    "status": "QUY TRÌNH TƯ VẤN ĐỀ XUẤT",
+    "stage": 2
+  },
+  {
+    "id": "PC-027",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Phân tích nguyên nhân",
+    "chapter": "17",
+    "q": "Khách cho biết vòng đổi màu sau kỳ nghỉ biển. Cách nói nào phù hợp với Client Care?",
+    "a": [
+      "Ghi nhận môi trường tiếp xúc, xin ảnh kiểm tra.",
+      "Khẳng định khách sử dụng sai nên từ chối ngay.",
+      "Cam kết toàn bộ là lỗi lớp mạ độc quyền.",
+      "Hướng dẫn chà mạnh để lấy lại màu tức thì."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Muối, hóa chất, ma sát và bề mặt phủ đều cần được đánh giá.",
+    "apply": "Tách ghi nhận hiện trạng khỏi kết luận về bảo hành.",
+    "source": "COLORA_CARE",
+    "status": "QUY TRÌNH TƯ VẤN ĐỀ XUẤT",
+    "stage": 2
+  },
+  {
+    "id": "PC-028",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Chăm sau mua",
+    "chapter": "17",
+    "q": "Khách vừa nhận quà tặng nhẫn COLORA nhưng không có người hướng dẫn sử dụng. Nội dung nào nên gửi?",
+    "a": [
+      "Chỉ gửi mã giảm giá chăm sóc đặc biệt.",
+      "Chỉ nhắc rằng mọi loại đá đều bền như nhau.",
+      "Gửi quy trình ngâm hóa chất chung cho mọi SKU.",
+      "Gửi hướng dẫn đeo, lau, cất và hỗ trợ."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Hướng dẫn sau mua giảm lo lắng và giúp sử dụng đúng.",
+    "apply": "Gắn care card theo SKU và ngôn ngữ dễ hiểu.",
+    "source": "COLORA_CARE",
+    "status": "QUY TRÌNH TƯ VẤN ĐỀ XUẤT",
+    "stage": 2
+  },
+  {
+    "id": "PC-029",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Vết trầy",
+    "chapter": "17",
+    "q": "Khách hỏi 'vết xước nhỏ có phải được bảo hành miễn phí không?'. Nên trả lời thế nào?",
+    "a": [
+      "Mọi vết xước đều được bảo hành thay mới miễn phí.",
+      "Vết xước chắc chắn do khách nên không cần xem.",
+      "Phải kiểm tra tình trạng và bảo hành trước.",
+      "Có thể tự mài rồi yêu cầu bảo hành sau."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Bảo hành lỗi kỹ thuật khác dịch vụ phục hồi bề mặt do dùng.",
+    "apply": "Xin ảnh, mã SKU và tư vấn kết quả kiểm tra.",
+    "source": "COLORA_CARE",
+    "status": "QUY TRÌNH TƯ VẤN ĐỀ XUẤT",
+    "stage": 2
+  },
+  {
+    "id": "PC-030",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Bảo quản dây",
+    "chapter": "17",
+    "q": "Khách gửi video dây chuyền bị rối và khóa có dấu hiệu cong. Hướng xử lý phù hợp?",
+    "a": [
+      "Yêu cầu kéo hai đầu dây cho thẳng bằng lực.",
+      "Không kéo mạnh, cần kiểm tra phần khóa.",
+      "Gợi ý dùng nhiệt nóng để làm mềm bạc.",
+      "Khuyên dùng kim nhọn tách rối sát vùng đá."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Kéo mạnh có thể tăng biến dạng hoặc đứt mối nối.",
+    "apply": "Hỏi thêm góc ảnh khóa, ngưng tác động lực.",
+    "source": "COLORA_CARE",
+    "status": "QUY TRÌNH TƯ VẤN ĐỀ XUẤT",
+    "stage": 2
+  },
+  {
+    "id": "PC-031",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Theo dõi",
+    "chapter": "17",
+    "q": "Khách báo đã tự dùng dung dịch đánh bạc mạnh khiến bề mặt nhẫn đổi màu. Cách hỗ trợ nào phù hợp?",
+    "a": [
+      "Ngừng dùng dung dịch, ghi nhận tình trạng và chuyển kiểm tra lớp phủ.",
+      "Khuyên tiếp tục dùng thêm để lớp phủ đều màu.",
+      "Xác nhận ngay lỗi sản xuất mà không cần xem ảnh.",
+      "Đề nghị tự mạ lại bằng sản phẩm bán lẻ."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Phương pháp đã dùng có thể làm thay đổi lớp phủ, cần đánh giá.",
+    "apply": "Không trách móc; thu thập thông tin về hóa chất và thời gian.",
+    "source": "COLORA_CARE",
+    "status": "QUY TRÌNH TƯ VẤN ĐỀ XUẤT",
+    "stage": 2
+  },
+  {
+    "id": "PC-032",
+    "role": "CARE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Đá bị lỏng",
+    "chapter": "17",
+    "q": "Khách gửi video viên đá lắc nhẹ, nhưng vẫn muốn đeo dự tiệc tối nay. Bạn cần ưu tiên điều gì?",
+    "a": [
+      "Chỉ gợi ý thêm một miếng băng dính để cố định.",
+      "Nói rằng đá còn trong ổ nên không thể rơi.",
+      "Hướng dẫn ấn mạnh vào đá để test thêm.",
+      "Khuyên ngừng đeo và đưa chấu đi kiểm tra."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Một viên đá đã chuyển động có rủi ro rơi/mẻ; an toàn ưu tiên hơn dịp đeo.",
+    "apply": "Đưa lựa chọn trang sức khác và hướng liên hệ kiểm tra.",
+    "source": "COLORA_CARE",
+    "status": "QUY TRÌNH TƯ VẤN ĐỀ XUẤT",
+    "stage": 2
+  }
+]

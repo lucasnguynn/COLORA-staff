@@ -1,0 +1,310 @@
+[
+  {
+    "id": "GM-026",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Shape vs Cut",
+    "chapter": "15",
+    "q": "Một viên oval brilliant và một viên oval step khác nhau ở đâu?",
+    "a": [
+      "Oval là loại khoáng vật, step là nguồn đá.",
+      "Cùng dáng thì ánh sáng phản chiếu giống nhau.",
+      "Step chỉ là lớp phủ bề mặt, không liên quan giác cắt.",
+      "Khác kiểu sắp xếp các mặt giác."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Shape là outline, cutting style là cách bố trí facets.",
+    "apply": "Khi ghi thông số, tách shape và facet style.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-027",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Round",
+    "chapter": "15",
+    "q": "Lợi ích thường thấy của một viên round brilliant được cắt đúng tỷ lệ là gì?",
+    "a": [
+      "Đối xứng và độ phản chiếu sáng mạnh.",
+      "Giữ nguyên khối lượng thô nhiều nhất.",
+      "Luôn phù hợp low-profile không cần đo sâu.",
+      "Không bao giờ xuất hiện vùng tối dù cách cắt sai."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Round brilliant tối ưu phản xạ khi tỷ lệ đạt yêu cầu.",
+    "apply": "Không đồng nhất round với giá trị cao trong mọi màu đá.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-028",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Oval",
+    "chapter": "15",
+    "q": "Viên oval có vùng tối hình nơ giữa đá. Hiện tượng đó gọi là gì?",
+    "a": [
+      "Window chỉ có ở viên tròn.",
+      "Bow-tie, dải tối hình nơ.",
+      "Pleochroism luôn chứng minh đá thiên nhiên.",
+      "Một cấp cut do GIA xác nhận mọi viên oval."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Oval và các dáng kéo dài có thể có bow-tie do phân bố phản xạ.",
+    "apply": "Quay viên đá để xem vùng tối có quá lấn màu không.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-029",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Pear",
+    "chapter": "15",
+    "q": "Một viên pear 7×5 mm cần chú ý rủi ro nào khi thiết kế chấu?",
+    "a": [
+      "Toàn bộ mặt table cần bịt kín.",
+      "Hai vai phải bất đối xứng càng nhiều càng tốt.",
+      "Đầu nhọn cần được bảo vệ khỏi va chạm.",
+      "Mọi pear đều phải đeo ngược đầu nhọn."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Pear tạo điểm nhấn hướng xuống nhưng đầu nhọn dễ mẻ.",
+    "apply": "Đối chiếu đầu nhọn, hai vai, chiều sâu và vị trí prong.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-030",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Marquise",
+    "chapter": "15",
+    "q": "Trade-off quan trọng của hình marquise là gì?",
+    "a": [
+      "Dáng ngắn và tròn hơn cushion cùng kích thước.",
+      "Không thể cắt dạng brilliant hoặc mixed.",
+      "Không thể gắn lên nhẫn bạc với bất cứ kích thước nào.",
+      "Dáng dài, hai đầu nhọn dễ mẻ."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Marquise có dáng thuôn sắc, cần kiểm tra đầu nhọn và tỷ lệ.",
+    "apply": "Cân nhắc đá marquise rất nhỏ vì chấu và không gian giữ đá khó hơn oval.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-031",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Cushion",
+    "chapter": "15",
+    "q": "Vì sao cushion có thể phù hợp ngôn ngữ thiết kế mềm của COLORA?",
+    "a": [
+      "Góc bo mềm, nhưng cần xét độ sâu.",
+      "Cushion luôn sáng hơn mọi brilliant round.",
+      "Cushion là một loài đá rất cứng.",
+      "Cushion không có pavilion và không cần ổ đá."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Cushion là shape với góc bo; faceting/style ảnh hưởng vẻ đẹp.",
+    "apply": "So silhouette và depth với bản CAD.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-032",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Step Cut",
+    "chapter": "15",
+    "q": "Ưu và nhược điểm thường gặp của step cut như emerald cut là gì?",
+    "a": [
+      "Luôn nhấp nháy mạnh hơn brilliant cut.",
+      "Nổi màu/độ trong, dễ lộ bao thể.",
+      "Che mọi bao thể tốt nhất, bất kể loài đá.",
+      "Chỉ áp dụng được cho emerald tự nhiên."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Step cut nhấn vào mặt lớn song song, ít scintillation hơn brilliant.",
+    "apply": "Đánh giá clarity/polish dưới các góc khác nhau.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-033",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Brilliant",
+    "chapter": "15",
+    "q": "Vì sao brilliant cut thường cho cảm giác lấp lánh mạnh?",
+    "a": [
+      "Chỉ vì đá có màu đậm hơn.",
+      "Vì không cần pavilion khi cắt brilliant.",
+      "Các mặt giác phối hợp phản xạ.",
+      "Vì số carat tăng sau khi cắt."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Brilliant-style dùng nhiều facet có tổ chức và góc phù hợp.",
+    "apply": "Kiểm tra ánh sáng thực, không chỉ đếm mặt giác.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-034",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Mixed",
+    "chapter": "15",
+    "q": "Một oval có crown brilliant và pavilion step là kiểu cắt nào?",
+    "a": [
+      "Rose cut vì có mặt giác trên crown.",
+      "Cabochon vì đáy bắt buộc phẳng.",
+      "Princess cut vì có nhiều đường phản xạ.",
+      "Mixed cut, kết hợp các phong cách mặt giác."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Mixed cut phổ biến với một số oval/cushion nhằm cân bằng màu và sáng.",
+    "apply": "Kiểm tra cửa sổ và độ sâu ngay cả khi tên mixed nghe hấp dẫn.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-035",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Rose",
+    "chapter": "15",
+    "q": "Rose cut được nhận diện thường bằng cấu trúc nào?",
+    "a": [
+      "Đáy phẳng, crown vòm có facet.",
+      "Mặt trên trơn hoàn toàn không có facets.",
+      "Crown phẳng, pavilion sâu nhọn.",
+      "Chỉ một mặt giác duy nhất trên toàn viên đá."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Rose cut cho hình ảnh vintage và khác hiệu ứng full brilliant.",
+    "apply": "So độ cao viên thực và cách ánh sáng phản xạ.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-036",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Cabochon",
+    "chapter": "15",
+    "q": "Cabochon phù hợp với loại hiệu ứng nào trong một số loại đá?",
+    "a": [
+      "Lấp lánh 57–58 facet kiểu round brilliant.",
+      "Hiệu ứng sao và mắt mèo trên bề mặt vòm mịn.",
+      "Bậc phản xạ hall-of-mirrors như step.",
+      "Bow-tie xuất hiện do pavilion sâu."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Cabochon có bề mặt vòm và không có tổ chức facet truyền thống.",
+    "apply": "Không kỳ vọng cabochon tỏa sáng giống full brilliant.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-037",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Độ sâu",
+    "chapter": "15",
+    "q": "Một viên pear có L×W giống CAD nhưng pavilion sâu hơn mẫu duyệt. Nguy cơ thực tế nào?",
+    "a": [
+      "Không có khác biệt vì L×W giống nhau.",
+      "Đá sâu hơn chắc chắn không tự nhiên.",
+      "Setting có thể cao hơn dự kiến.",
+      "Độ sâu chỉ ảnh hưởng giá, không liên quan nhẫn."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Depth/girdle ảnh hưởng khả năng lắp và chiều cao setting.",
+    "apply": "Đo cả L×W×D, girdle và đối chiếu mặt cắt CAD.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-038",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Cut Quality",
+    "chapter": "15",
+    "q": "Khi kiểm tra chất lượng cut đá màu, ưu tiên đánh giá gì?",
+    "a": [
+      "Chỉ số facets càng nhiều càng tốt.",
+      "Kích thước carat càng cao càng tốt.",
+      "Tên cut càng hiếm càng chắc chắn chất lượng cao.",
+      "Màu, đối xứng, tỷ lệ, polish và window."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Vẻ đẹp đá màu phụ thuộc cắt và màu cùng lúc.",
+    "apply": "Xoay viên đá, xem face-up và nghiêng dưới ánh sáng chuẩn.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-039",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Tỷ lệ",
+    "chapter": "15",
+    "q": "Vì sao cùng tên oval không đủ để kết luận hai viên có độ sáng giống nhau?",
+    "a": [
+      "Tỷ lệ, góc mặt giác, độ sâu và chất lượng vật liệu có thể khác.",
+      "Vì oval chỉ là tên thương mại cho ruby.",
+      "Vì màu đá chỉ phụ thuộc số lượng chấu.",
+      "Vì oval của các hãng luôn có số facet giống hệt."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Cùng outline không đồng nghĩa cùng faceting hoặc cùng cut quality.",
+    "apply": "So ảnh/video từng viên thay vì chỉ mã shape.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  }
+]

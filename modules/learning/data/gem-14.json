@@ -1,0 +1,288 @@
+[
+  {
+    "id": "GM-013",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Corundum",
+    "chapter": "14",
+    "q": "Ruby và sapphire cùng thuộc họ khoáng vật nào?",
+    "a": [
+      "Beryl, Mohs 7,5–8.",
+      "Corundum, Mohs 9.",
+      "Quartz, Mohs 7.",
+      "Spinel, Mohs 8."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Ruby và sapphire là các biến thể màu của corundum.",
+    "apply": "Không gọi spinel đỏ là ruby chỉ dựa màu.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-014",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Sapphire",
+    "chapter": "14",
+    "q": "Trong các nhóm đá sau, loại nào thường phù hợp đeo nhẫn nhiều khi xử lý và setting được kiểm soát?",
+    "a": [
+      "Sapphire Mohs 9 với độ dai nhìn chung tốt.",
+      "Opal Mohs 5–6,5 với độ dai hạn chế.",
+      "Topaz Mohs 8 nhưng cát khai rõ.",
+      "Emerald có khe nứt và chất lấp thường gặp."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Corundum có độ cứng và độ dai thuận lợi; vẫn cần kiểm tra theo viên.",
+    "apply": "Phân biệt khả năng đeo với lời hứa 'không trầy vỡ'.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-015",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Spinel",
+    "chapter": "14",
+    "q": "Một viên đá đỏ được hồ sơ xác định là spinel. Cách mô tả đúng là gì?",
+    "a": [
+      "Ruby vì màu đỏ đủ để định danh.",
+      "Sapphire đỏ vì thuộc nhóm corundum.",
+      "Garnet vì mọi spinel đều màu xanh.",
+      "Spinel đỏ, Mohs 8."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Spinel khác ruby dù có một số dải màu tương tự.",
+    "apply": "Dùng đúng tên đá theo hồ sơ.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-016",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Topaz",
+    "chapter": "14",
+    "q": "Topaz Mohs 8 nhưng vì sao cần kiểm tra rủi ro va đập khi đeo nhẫn?",
+    "a": [
+      "Topaz chỉ có Mohs 8 khi được mạ rhodium.",
+      "Topaz không thể dùng trong trang sức đính chấu.",
+      "Vì topaz có cát khai rõ.",
+      "Topaz chỉ chịu mẻ nếu có màu xanh."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Hardness không đủ; topaz có độ dai hạn chế do cát khai.",
+    "apply": "Xem hướng cắt, góc đá và phương án bảo vệ.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-017",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Tourmaline",
+    "chapter": "14",
+    "q": "Thông số độ cứng nào tương ứng với tourmaline?",
+    "a": [
+      "Mohs 9, như ruby.",
+      "Khoảng Mohs 7–7,5.",
+      "Mohs 10, như diamond.",
+      "Mohs 5, tương tự opal mềm."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Tourmaline nhiều màu, tương đối bền nhưng tránh sốc nhiệt.",
+    "apply": "Không khuyên dùng máy siêu âm chung cho mọi tourmaline.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-018",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Emerald",
+    "chapter": "14",
+    "q": "Điểm kỹ thuật nào cần chú ý nhất khi chọn emerald cho nhẫn?",
+    "a": [
+      "Khe nứt và các chất lấp.",
+      "Emerald có độ cứng Mohs luôn dưới 5.",
+      "Emerald không bao giờ có bao thể tự nhiên.",
+      "Emerald chỉ có thể cắt dạng cabochon."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Emerald Mohs 7,5–8 nhưng nhiều viên được xử lý độ trong.",
+    "apply": "Không tự khuyên hấp hơi/siêu âm khi có xử lý lấp nứt.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-019",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Beryl",
+    "chapter": "14",
+    "q": "Aquamarine và emerald cùng thuộc họ khoáng vật nào?",
+    "a": [
+      "Quartz, như amethyst/citrine.",
+      "Corundum, như ruby/sapphire.",
+      "Spinel, như spinel đỏ.",
+      "Beryl."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Aquamarine và emerald là các biến thể beryl.",
+    "apply": "Tránh suy ra độ nhạy với khe nứt của emerald cho mọi aquamarine.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-020",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Quartz",
+    "chapter": "14",
+    "q": "Hai viên đá nào thuộc nhóm quartz Mohs 7?",
+    "a": [
+      "Ruby đỏ và sapphire xanh.",
+      "Emerald xanh và aquamarine lam.",
+      "Amethyst tím và citrine vàng/cam.",
+      "Tourmaline hồng và topaz lam."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Cả amethyst và citrine đều thuộc quartz.",
+    "apply": "Không nhầm citrine với yellow topaz.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-021",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Garnet",
+    "chapter": "14",
+    "q": "Garnet có nhất thiết chỉ có màu đỏ không?",
+    "a": [
+      "Có; garnet xanh luôn là đá tổng hợp.",
+      "Không; garnet có nhiều loài và màu.",
+      "Có; mọi garnet có thành phần giống ruby.",
+      "Không; vì garnet là tên nhóm thủy tinh màu."
+    ],
+    "key": [
+      1
+    ],
+    "why": "Nhóm garnet có almandine, spessartine, tsavorite và loại khác.",
+    "apply": "Tra đúng loài/giống nếu cần thông số chính xác.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-022",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Opal",
+    "chapter": "14",
+    "q": "Điểm cần lưu ý khi dùng opal trong trang sức là gì?",
+    "a": [
+      "Mohs 5–6,5; độ dai hạn chế.",
+      "Opal Mohs 9 nên chịu va chạm như sapphire.",
+      "Opal không bị ảnh hưởng bởi sốc nhiệt.",
+      "Opal luôn có độ dai tốt hơn spinel."
+    ],
+    "key": [
+      0
+    ],
+    "why": "Một số opal dễ bị trầy, mẻ hoặc thay đổi do môi trường.",
+    "apply": "Cân nhắc loại sản phẩm, chăm sóc và cấu trúc bảo vệ.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-023",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Peridot",
+    "chapter": "14",
+    "q": "Peridot thuộc khoảng độ cứng nào?",
+    "a": [
+      "Mohs 9 như corundum.",
+      "Mohs 8,5–9 như sapphire.",
+      "Mohs 4–5 cho mọi loại peridot.",
+      "Mohs 6,5–7 và cần thận trọng va đập."
+    ],
+    "key": [
+      3
+    ],
+    "why": "Peridot thường xanh lục và có độ cứng 6,5–7.",
+    "apply": "Chọn setting theo thói quen sử dụng của người đeo.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-024",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Citrine",
+    "chapter": "14",
+    "q": "Điều nào thường đúng về citrine xuất hiện trên thị trường?",
+    "a": [
+      "Mọi citrine tự nhiên đều là đá không xử lý.",
+      "Citrine là tên thương mại cho mọi topaz vàng.",
+      "Xử lý nhiệt quartz khá phổ biến.",
+      "Citrine không thể xuất hiện bao thể."
+    ],
+    "key": [
+      2
+    ],
+    "why": "Gia nhiệt amethyst có thể tạo màu citrine; natural không đồng nghĩa untreated.",
+    "apply": "Kiểm tra xử lý của lô hàng trước khi mô tả.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  },
+  {
+    "id": "GM-025",
+    "role": "CORE",
+    "pillar": "SẢN PHẨM",
+    "topic": "Phân tích lựa chọn",
+    "chapter": "14",
+    "q": "Vì sao 'đá quý' không nhất thiết là lựa chọn tốt hơn 'bán quý' cho khách?",
+    "a": [
+      "Đá bán quý luôn rẻ hơn mọi đá quý.",
+      "Độ phù hợp còn tùy độ dai, xử lý, màu, giá và kiểu đeo.",
+      "Đá quý không thể có khe nứt.",
+      "Chỉ carat quyết định độ phù hợp khi đeo."
+    ],
+    "key": [
+      1
+    ],
+    "why": "GIA đánh giá nhiều yếu tố; nhãn thương mại không thay kiểm tra riêng.",
+    "apply": "So từng viên và nhu cầu sử dụng của khách.",
+    "source": "GIA",
+    "status": "KIẾN THỨC NGÀNH ĐÃ KIỂM CHỨNG",
+    "stage": 2
+  }
+]

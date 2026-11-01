@@ -22,7 +22,7 @@ The three training/tool modules are copied and bundled into the portal's single 
 
 At implementation, **all 5 upstream repositories are PUBLIC, including COLORA-JD**. Source code, seed job descriptions and history from that repository are already visible publicly. The portal's extra password does NOT secure the original public repository or previously deployed public Pages URLs.
 
-For genuine management-only information, change COLORA-JD to private, review/remove old public deployments and do not keep HR secrets in a public static website. If changing the source to private, create a fine-grained read-only token (Contents permission) restricted ONLY to COLORA-JD, stored as the GitHub Actions secret SENIOR_SOURCE_TOKEN. The workflow can then continue checking out the private source.
+The JD source has been archived encrypted inside this repository, and Staff no longer checks out COLORA-JD. Still, older public commits and Pages URLs may have exposed information. Do not keep confidential employee data in a browser-only static portal; a real management-only document service would require authenticated server-side authorization.
 
 StatiCrypt encrypts HTML only. JS, CSS, JSON, and images in the normal CSKH/QnA/QR apps remain publicly accessible by direct URLs. The QnA answers are available in JSON, so this is NOT a secure employee test or certification system. Existing apps may use localStorage for progress and JD drafts; localStorage is device-local, user-modifiable, and not secure storage. Do not put confidential customer, HR, financial, pricing cost, API tokens or client records in these apps.
 
@@ -38,13 +38,13 @@ StatiCrypt encrypts HTML only. JS, CSS, JSON, and images in the normal CSKH/QnA/
 5. In **Settings > Pages > Custom domain** enter staff.colora.vn and save BEFORE changing DNS. Enable Enforce HTTPS when available.
 6. At BKNS DNS, add a **CNAME** named **staff**, targeting **lucasnguynn.github.io**. Remove only a conflicting prior staff record if one exists. Never change the Haravan apex/www records, email MX/TXT or nameservers.
 7. Visit staff.colora.vn in an incognito window. Test the staff pass on the dashboard and all three normal subapps, then confirm the staff password CANNOT open JD and the separate senior password CAN. Verify email signature copy, HTML export, QR download, training navigation and mobile.
-8. Make the original JD repo private before anyone enters non-public management/HR data.
+8. The original JD source was publicly available; do not use this static portal for confidential HR information. After confirming migration, archive or retire the original JD repository.
 
 **GitHub Actions publishes only the verified /dist artifact**. GitHub Pages from branch (root or /docs) must NOT be enabled, because the source /site/index.html is deliberately unencrypted until the build runs. A CNAME file in the artifact is not sufficient alone; set the custom domain in Pages Settings.
 
 ## How integration works
 
-Every staff workflow execution checks out CURRENT main branch of CSKH-COLORA, QnA-COLORA, QR-V1 and COLORA-JD; it copies whitelisted production files, bundles the three regular apps' complete HTML inside the encrypted Staff home, and separately encrypts JD. Changes in the component repositories are NOT automatically reflected until the Staff workflow is run again. Review upstream changes before triggering publication.
+Staff CI builds exclusively from archived modules in this repository. No source checkout from the old repos is required. Edit modules directly for future changes; encrypted JD source is recovered from modules/jd-source.enc.json during trusted production builds.
 
 JD is distributed only as the encrypted JD HTML plus non-sensitive logo images; no external JD scripts or stylesheets are deployed. The password is NOT stored in the repository. Staff pass has optional 7-day remember-me, while senior login is configured without remember-me.
 
@@ -52,7 +52,7 @@ JD is distributed only as the encrypted JD HTML plus non-sensitive logo images; 
 
 Requires Node 22 and StatiCrypt 3.5.4.
 
-1. Checkout the four source repositories into .sources/client-care, .sources/learning, .sources/qr and .sources/jd.
+1. The four app snapshots are already stored in modules/. Decrypt the JD archive using the senior password into .sources/jd before a real production build, or use JD_SOURCE_DIR=tests/fixtures/jd for local public CI tests.
 2. Install StatiCrypt: npm install --no-save --no-package-lock staticrypt@3.5.4
 3. Run: node scripts/build.mjs
 4. Set STAFF_PORTAL_PASSWORD and SENIOR_JD_PASSWORD in your environment (do not log their values).
@@ -68,6 +68,32 @@ CI pull-request validation uses disposable demo passwords and NEVER deploys. Onl
 No staff login or separate Staff password forms should appear when switching between those apps. JD Library remains separately encrypted with the SENIOR_JD_PASSWORD as requested; it is the **only** page that may ask for another password.
 
 The static-hosting security limitation remains: JavaScript, CSS, images and structured training datasets are publicly accessible by URL, and source repositories remain public. Do not enter confidential customer, HR, pricing or token data. This is not server-backed access authorization.
+
+## Self-contained source archive — no original repositories required
+
+**Since this migration, COLORA-staff owns the source code needed to build its apps.** No GitHub Actions checkout, submodule, API fetch, or network import from CSKH-COLORA, QnA-COLORA, QR-V1, or COLORA-JD is required at production build time. The snapshot was created on 01 November 2026, and original repositories can be retired **only after a successful clean production deployment and functional verification**.
+
+| Location in COLORA-staff | Contains | Public source exposure |
+| --- | --- | --- |
+| `modules/client-care/` | Full CSKH source: HTML, styles, scripts, data, schema, tests and docs | Public, non-sensitive |
+| `modules/learning/` | Full QnA source: app, tests, all 10 training data files, gemstone photos and docs | Public, non-sensitive |
+| `modules/qr/` | Full QR-V1 HTML generator, all COLORA logos and docs | Public, non-sensitive |
+| `modules/jd-source.enc.json` | Complete COLORA-JD original source and images, archived with AES-256-GCM | Encrypted; no public plaintext JD file |
+| `site/` | Main Staff design system, search library and utility generators | Public, non-sensitive |
+
+The Staff homepage **contains the three normal applications' complete HTML as inert, encrypted embedded templates**, not external iframes pointing to other GitHub Pages sites. External app source repositories are not loaded after migration. Shared CSS/JS/data/imagery are copied from local `modules/` during build and served at the same `staff.colora.vn` hostname. Individual QR/CSKH/QnA app HTML pages are not separately published. The Staff password is entered **once**; only JD has a second password.
+
+### Production / CI source handling
+
+- Production obtains the archived JD code via `SENIOR_JD_PASSWORD` inside the trusted GitHub Actions runner; it decrypts into a temporary, ignored `.sources/jd/` directory. Only the separately encrypted JD webpage is published.
+- PR checks run against a **non-sensitive synthetic JD fixture**, never decrypting production JD source in untrusted PR jobs. Production CI tests the real encrypted JD end-to-end.
+- **Rotating `SENIOR_JD_PASSWORD` now also requires re-encrypting the archived JD source before changing that secret.** Otherwise future build cannot read the snapshot. Changing `STAFF_PORTAL_PASSWORD` alone remains straightforward.
+- The original JD repository was public before migration; existing copies or Git history may already have disclosed its old source. This design prevents future automatic exposure inside Staff, but cannot retroactively revoke public access.
+- The QR generator currently uses an external QR rendering library/CDN. Its original application source is locally preserved, but to guarantee strictly offline operation the dependency would need to be vendored separately. Do not delete any upstream GitHub projects before verifying the latest Staff build, even though they are no longer needed for source checkout.
+
+### Safe retirement of originals
+
+After checking production workflow success and manually testing all training and creative functions, archive the four original repositories first (or make them read-only). Once satisfied all source and assets are present and backed up, delete them using GitHub's own repository settings. **Deletion is not automated**; it is irreversible without backups, may break historic links or any other independently deployed site, and does not make old public data confidential.
 
 ## V2: Website hoàn thiện trước khi kích hoạt tên miền
 
