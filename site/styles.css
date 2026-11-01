@@ -66,3 +66,11 @@ main{width:100%;max-width:1570px;padding:55px 5% 70px;margin:0 auto;flex:1;min-w
   .menu-open{overflow:hidden}
   .sidebar .brand{position:sticky}
 }
+
+/* Let narrow screens scroll category chips INSIDE the filter bar, not the page. */
+#library-view,#library-list,.library-toolbar,.library-cards{min-width:0;max-width:100%}
+@media(max-width:760px){
+  .library-filters{width:100%;max-width:100%;min-width:0;overflow-x:auto;scrollbar-width:thin}
+  .filter-btn{flex:0 0 auto}
+  .library-card{min-width:0}
+}
