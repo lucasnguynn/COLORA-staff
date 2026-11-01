@@ -42,17 +42,24 @@ try{
   await page.locator('#dashboard h1').waitFor({state:'visible',timeout:15000});
   assert((await page.locator('#dashboard').innerText()).includes('learn'),'Dashboard did not decrypt');
 
-  // Verify all three integrated applications decrypt with staff secret.
+  // ONE staff login: navigate three copied apps inside the encrypted
+  // dashboard without encountering another StatiCrypt form.
   const modules=[
-    ['apps/learning/','#app'],
-    ['apps/client-care/','#main-content'],
-    ['apps/qr/','#downloadPng']
+    ['learning','#app'],
+    ['client-care','#main-content'],
+    ['qr','#downloadPng']
   ];
-  for(const [route,selector] of modules){
-    await page.goto(base+'/'+route,{waitUntil:'domcontentloaded'});
-    const login=page.locator('#staticrypt-password');
-    if(await login.isVisible())await unlock(page,staff);
-    await page.locator(selector).waitFor({state:'attached',timeout:15000});
+  for(const [view,selector] of modules){
+    await page.locator('.nav-btn[data-view="'+view+'"]').click();
+    const frame=page.frameLocator('#module-frame');
+    await frame.locator(selector).waitFor({state:'attached',timeout:20000});
+    if(await frame.locator('#staticrypt-password').count()>0)throw Error('Unexpected second Staff password form in '+view);
+    console.log('PASS: '+view+' opened directly after the single Staff login.');
+  }
+  // No standalone public child HTML pages should be deployed.
+  for(const route of ['apps/learning/index.html','apps/client-care/index.html','apps/qr/index.html']){
+    const response=await context.request.get(base+'/'+route);
+    assert.equal(response.status(),404,'Unexpected unprotected HTML URL: '+route);
   }
 
   // The JD module must NOT accept the standard staff secret.
@@ -64,7 +71,7 @@ try{
   await unlock(page,senior);
   await page.locator('#workspaceTitle').waitFor({state:'attached',timeout:15000});
 
-  console.log('PASS: production-encrypted Staff, learning, client-care, QR and separately protected JD decrypted using Actions secrets. No secret values logged.');
+  console.log('PASS: single-login Staff portal with 3 internally bundled apps and separately protected senior JD decrypted using Actions secrets. No secret values logged.');
 }finally{
   await browser.close();
   await new Promise(resolve=>server.close(resolve));
