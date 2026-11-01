@@ -51,6 +51,15 @@ try{
   const signatureRows=page.locator('#signature-preview > table > tbody > tr');
   assert.equal(await signatureRows.count(),2,'Signature should separate brand header from employee details');
   assert.equal(await signatureRows.nth(0).locator('img[alt="COLORA"]').count(),1,'Official logo belongs in the unbordered header');
+  const closing=signatureRows.nth(0).locator('p').first();
+  assert.equal(await closing.innerText(),'Kính thư / Best regards,','Bilingual sign-off should appear before logo');
+  assert.equal(await closing.locator('strong em').count(),1,'Bilingual sign-off must be bold and italic');
+  const closingBottom=await closing.evaluate(el=>el.getBoundingClientRect().bottom);
+  const logoTop=await signatureRows.nth(0).locator('img[alt="COLORA"]').evaluate(el=>el.getBoundingClientRect().top);
+  assert(logoTop>closingBottom+15,'Fine gold divider must keep breathing room above logo');
+  const separator=signatureRows.nth(0).locator('p[aria-hidden="true"]');
+  assert.equal(await separator.evaluate(el=>getComputedStyle(el).borderTopColor),'rgb(176, 138, 91)','Sign-off divider should use COLORA gold');
+  assert.equal(await separator.evaluate(el=>getComputedStyle(el).borderTopWidth),'1px','Sign-off divider should be a quiet hairline');
   assert((await signatureRows.nth(0).innerText()).includes('COLOR YOUR AURA'),'Tagline belongs above the gold line');
   assert.equal(await signatureRows.nth(0).locator('td').evaluate(el=>getComputedStyle(el).borderLeftWidth),'0px','No decorative bar next to logo and tagline');
   assert.equal(await signatureRows.nth(0).locator('td').evaluate(el=>getComputedStyle(el).paddingLeft),'0px','Logo and tagline should move closer to the left edge');
@@ -79,6 +88,8 @@ try{
   const exportedHTML=fs.readFileSync(await downloadedSignature.path(),'utf8');
   assert(exportedHTML.includes('padding:5px 0 18px 0'),'Exported signature must keep left-aligned logo');
   assert(exportedHTML.includes('mso-line-height-rule:exactly'),'Exported signature needs Outlook-safe line spacing');
+  assert(exportedHTML.includes('<strong style="font-weight:700;"><em style="font-style:italic;">Kính thư / Best regards,</em></strong>'),'Exported signature must keep the bold italic bilingual sign-off');
+  assert(exportedHTML.includes('border-top:1px solid #B08A5B'),'Exported signature must keep gold separator');
   assert(exportedHTML.includes('padding:1px 0 0 5px'),'Exported tagline must retain the wordmark inset adjustment');
   await page.locator('#signature-form [name="role"]').fill('');
   assert.equal(await detailRows.count(),4,'Empty role must not leave a phantom spacer row');
