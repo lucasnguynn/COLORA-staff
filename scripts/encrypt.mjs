@@ -32,10 +32,14 @@ function encryptFile(file, password, salt, isSenior){
     fs.mkdirSync(path.dirname(input),{recursive:true});
     fs.copyFileSync(file,input);
     const args=['--no-install','staticrypt',input,'--directory',outdir,'--config','false','--salt',salt,
-      '--template-title',isSenior?'COLORA - Management Access':'COLORA - Staff Access',
-      '--template-instructions',isSenior?'Chỉ dành cho quản lý được cấp mật khẩu riêng.':'Nhập mật khẩu nhân viên COLORA để tiếp tục.',
-      '--template-placeholder','Mật khẩu',
-      '--template-button','VÀO KHÔNG GIAN LÀM VIỆC',
+      '--template',path.join(root,'site','login-template.html'),
+      '--template-title',isSenior?'Management workspace':'Welcome to COLORA',
+      '--template-instructions',isSenior?'Không gian dành cho quản lý COLORA. Nhập mật khẩu quản lý riêng để tiếp tục.':'Nhập mật khẩu Staff để bước vào không gian học tập và làm việc của COLORA.',
+      '--template-placeholder','Nhập mật khẩu',
+      '--template-button',isSenior?'VÀO KHU VỰC QUẢN LÝ':'VÀO KHÔNG GIAN LÀM VIỆC',
+      '--template-remember','Ghi nhớ trên thiết bị này',
+      '--template-toggle-show','Hiện mật khẩu',
+      '--template-toggle-hide','Ẩn mật khẩu',
       '--template-color-primary','#002451',
       '--template-color-secondary','#F4EDE1',
       '--template-error','Mật khẩu chưa đúng.',

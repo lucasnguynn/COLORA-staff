@@ -37,7 +37,24 @@ try{
   const context=await browser.newContext({viewport:{width:1280,height:800}});
   const page=await context.newPage();
   await page.goto(base+'/',{waitUntil:'domcontentloaded'});
+  await page.locator('#staticrypt_content').waitFor({state:'visible',timeout:15000});
   assert.equal(await page.locator('#staticrypt-password').isVisible(),true,'Staff login form missing');
+  const logo=page.locator('.identity-panel .brand-logo');
+  assert.equal(await logo.evaluate(el=>el.complete&&el.naturalWidth>0),true,'Official COLORA login logo must load');
+  assert.equal(await page.locator('.staticrypt-title').innerText(),'Welcome to COLORA','Staff title missing');
+  assert.equal(await page.locator('.staticrypt-form').evaluate(el=>getComputedStyle(el).fontFamily.includes('Open Sans')),true,'Login body font must be Open Sans');
+  assert.equal(await page.locator('.staticrypt-title').evaluate(el=>getComputedStyle(el).fontFamily.includes('Cormorant Garamond')),true,'Login heading must be Cormorant Garamond');
+  assert.equal(await page.locator('#staticrypt-remember-label').isVisible(),true,'Staff Remember me option missing');
+  if(process.env.LOGIN_QA_SCREENSHOTS==='1'){
+    fs.mkdirSync('test-results',{recursive:true});
+    await page.screenshot({path:'test-results/login-staff-desktop.png',fullPage:true});
+    await page.setViewportSize({width:390,height:844});
+    const widths=await page.evaluate(()=>[document.documentElement.scrollWidth,innerWidth]);
+    assert(widths[0]<=widths[1]+2,'Login mobile horizontal overflow '+widths);
+    assert.equal(await logo.evaluate(el=>el.complete&&el.naturalWidth>0),true,'Mobile login logo failed to load');
+    await page.screenshot({path:'test-results/login-staff-mobile.png',fullPage:true});
+    await page.setViewportSize({width:1280,height:800});
+  }
   await unlock(page,staff);
   await page.locator('#dashboard h1').waitFor({state:'visible',timeout:15000});
   await page.locator('body[data-staff-ready="true"]').waitFor({state:'attached',timeout:15000});
@@ -78,6 +95,11 @@ try{
 
   // The JD module must NOT accept the standard staff secret.
   await page.goto(base+'/apps/jd/',{waitUntil:'domcontentloaded'});
+  await page.locator('#staticrypt_content').waitFor({state:'visible',timeout:15000});
+  assert.equal(await page.locator('.staticrypt-title').innerText(),'Management workspace','Senior branded title missing');
+  assert.equal(await page.locator('#staticrypt-remember-label').isVisible(),false,'Senior login must not offer Remember me');
+  assert.equal(await page.locator('.identity-panel .brand-logo').evaluate(el=>el.complete&&el.naturalWidth>0),true,'Senior logo missing');
+  if(process.env.LOGIN_QA_SCREENSHOTS==='1') await page.screenshot({path:'test-results/login-senior-desktop.png',fullPage:true});
   await page.locator('#staticrypt-password').waitFor();
   await unlock(page,staff);
   await page.locator('#staticrypt-password').waitFor({state:'visible'});

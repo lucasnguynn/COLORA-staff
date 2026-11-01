@@ -1,0 +1,187 @@
+<!doctype html>
+<html class="staticrypt-html" lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#F4EDE1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta http-equiv="cache-control" content="no-store, max-age=0">
+  <title>/*[|template_title|]*/0 | COLORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+:root{--ivory:#F4EDE1;--paper:#FFFCF8;--navy:#002451;--ink:#183451;--gold:#B08A5B;--line:#DDD0BD;--muted:#647184;--display:"Cormorant Garamond",Georgia,serif;--body:"Open Sans",Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{min-height:100%;-webkit-text-size-adjust:100%}
+body{min-height:100dvh;margin:0;background:var(--ivory);color:var(--navy);font-family:var(--body);-webkit-font-smoothing:antialiased}
+.hidden{display:none!important}
+.staticrypt-content{min-height:100dvh;display:flex;flex-direction:column}
+.site-topbar{padding:24px clamp(22px,4.5vw,70px);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.site-topbar .top-wordmark{font-family:var(--display);font-size:19px;letter-spacing:.13em;font-weight:600}
+.site-topbar .top-access{font-size:10px;letter-spacing:.19em;font-weight:600;color:#857762}
+.staticrypt-page{width:min(1080px,calc(100% - 64px));min-height:560px;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);background:var(--paper);border:1px solid #E2D8CB;margin:auto;box-shadow:0 22px 70px rgba(0,36,81,.075)}
+.identity-panel{background:var(--navy);color:var(--ivory);position:relative;overflow:hidden;display:flex;flex-direction:column;padding:clamp(32px,4vw,57px)}
+.identity-panel::before{content:"";position:absolute;right:-65px;top:120px;width:325px;height:325px;border:1px solid rgba(244,237,225,.15);transform:rotate(45deg);pointer-events:none}
+.identity-panel::after{content:"";position:absolute;right:30px;top:150px;width:175px;height:310px;border-left:1px solid rgba(244,237,225,.12);border-right:1px solid rgba(244,237,225,.12);transform:skewX(-20deg);pointer-events:none}
+.identity-panel .brand-logo{width:200px;height:auto;max-width:100%;max-height:70px;object-fit:contain;object-position:left center;filter:brightness(0) invert(1)}
+.identity-kicker{font-size:10px;font-weight:600;letter-spacing:.23em;margin-top:12px;color:#D9C3A5}
+.identity-copy{position:relative;z-index:1;margin:auto 0}
+.identity-copy .eyebrow{color:#D3B990;font-size:10px;font-weight:700;letter-spacing:.2em}
+.identity-copy h2{font-family:var(--display);font-weight:400;font-size:clamp(45px,4.5vw,69px);letter-spacing:-.025em;line-height:1.02;margin:20px 0 20px;max-width:385px}
+.identity-copy h2 em{font-weight:400;color:#D7B88E}
+.identity-copy p{font-size:13px;line-height:1.9;color:#D6DBE2;max-width:325px}
+.identity-footer{position:relative;z-index:1;padding-top:24px;border-top:1px solid rgba(255,255,255,.18);font-size:10px;font-weight:600;letter-spacing:.15em;color:#D9C3A5}
+.staticrypt-form{padding:clamp(33px,5vw,68px);display:flex;justify-content:center;flex-direction:column;min-width:0}
+.form-kicker{font-size:10px;font-weight:700;color:#92754C;letter-spacing:.2em;margin:0 0 19px}
+.staticrypt-instructions h1{font-family:var(--display);font-size:clamp(40px,3.8vw,58px);font-weight:500;line-height:1.04;letter-spacing:-.023em;margin:0 0 17px}
+.staticrypt-instructions p{font-size:14px;line-height:1.85;color:var(--muted);margin:0 0 30px;max-width:350px}
+.staticrypt-hr{border:0;border-top:1px solid var(--line);margin:0 0 29px}
+.password-label{display:block;font-size:12px;font-weight:700;letter-spacing:.055em;margin-bottom:10px;color:var(--navy)}
+.staticrypt-password-container{height:54px;position:relative;background:#fff;border:1px solid #C8CED3;transition:border-color .18s,box-shadow .18s}
+.staticrypt-password-container:focus-within{border-color:var(--navy);box-shadow:0 0 0 3px rgba(0,36,81,.09)}
+.staticrypt-password-container input{width:100%;height:100%;font-family:var(--body);font-size:16px;color:var(--navy);background:transparent;border:0;outline:0;padding:13px 52px 13px 15px}
+.staticrypt-password-container input::placeholder{color:#8D97A2}
+.staticrypt-toggle-password-visibility{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:23px;height:23px;cursor:pointer;opacity:.65}
+.staticrypt-toggle-password-visibility:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.staticrypt-remember{display:flex;align-items:center;gap:10px;margin:17px 0 19px;font-size:12px;line-height:1.6;color:var(--ink);cursor:pointer}
+.staticrypt-remember input{width:17px;height:17px;accent-color:var(--navy);margin:0}
+.staticrypt-decrypt-button{width:100%;min-height:54px;margin-top:19px;padding:14px 20px;border:1px solid var(--navy);background:var(--navy);color:#fff;font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.1em;cursor:pointer;transition:background-color .18s,transform .18s}
+.staticrypt-remember:not(.hidden)+.staticrypt-decrypt-button{margin-top:0}
+.staticrypt-decrypt-button:hover{background:#123B67}
+.staticrypt-decrypt-button:active{transform:translateY(1px)}
+.staticrypt-decrypt-button:focus-visible,.staticrypt-password-container input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.privacy-hint{font-size:11px;color:#66758A;line-height:1.7;margin:19px 0 0}
+.site-footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:25px clamp(22px,4.5vw,70px);color:#827868;font-size:10px;letter-spacing:.035em}
+.site-footer strong{color:var(--navy);font-weight:700;letter-spacing:.08em}
+.staticrypt-spinner-container{min-height:100dvh;display:flex;align-items:center;justify-content:center}
+.staticrypt-spinner{width:34px;height:34px;border:3px solid #C7BCA8;border-right-color:var(--navy);border-radius:50%;animation:spin .75s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:850px){.staticrypt-page{grid-template-columns:1fr;max-width:560px;min-height:0}.identity-panel{padding:27px 32px}.identity-panel .brand-logo{width:160px;max-height:56px}.identity-kicker{margin-top:5px}.identity-copy{display:none}.identity-footer{display:none}.staticrypt-form{padding:38px 36px 42px}.staticrypt-instructions h1{font-size:47px}.site-topbar{padding-top:22px;padding-bottom:22px}}
+@media(max-width:520px){.staticrypt-page{width:calc(100% - 28px);margin:4px auto 14px}.site-topbar{padding:20px 17px}.site-topbar .top-wordmark{font-size:16px}.site-topbar .top-access{font-size:9px}.identity-panel{padding:22px 24px}.identity-panel .brand-logo{width:144px}.staticrypt-form{padding:30px 24px 36px}.staticrypt-instructions h1{font-size:42px}.staticrypt-instructions p{font-size:13px}.staticrypt-decrypt-button{letter-spacing:.045em}.site-footer{padding:14px 18px 21px;font-size:9px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation-duration:.01ms!important}}
+
+  </style>
+</head>
+<body class="staticrypt-body">
+  <div id="staticrypt_loading" class="staticrypt-spinner-container" aria-label="Đang tải cổng COLORA"><span class="staticrypt-spinner"></span></div>
+  <div id="staticrypt_content" class="staticrypt-content hidden">
+    <header class="site-topbar"><span class="top-wordmark">STAFF WORKSPACE</span><span class="top-access">INTERNAL · COLORA</span></header>
+    <div class="staticrypt-page">
+      <section class="identity-panel" aria-label="Bản sắc thương hiệu COLORA">
+        <div><img class="brand-logo" src="/apps/qr/assets/colora-lettermark.png" alt="COLORA" width="200" height="68"><div class="identity-kicker">COLOR YOUR AURA</div></div>
+        <div class="identity-copy"><div class="eyebrow">FACETS OF FEELING</div><h2>A place to <em>learn,</em> create &amp; grow.</h2><p>Mỗi cảm xúc đều mang một sắc màu. Mỗi giác cắt hé mở một tầng cảm xúc riêng.</p></div>
+        <div class="identity-footer">COLORA - COLOR YOUR AURA</div>
+      </section>
+      <section class="staticrypt-form" aria-label="Đăng nhập COLORA">
+        <div class="form-kicker">COLORA / ACCESS</div>
+        <div class="staticrypt-instructions"><h1 class="staticrypt-title">/*[|template_title|]*/0</h1><p>/*[|template_instructions|]*/0</p></div>
+        <hr class="staticrypt-hr">
+        <form id="staticrypt-form" action="#" method="post">
+          <label class="password-label" for="staticrypt-password">Mật khẩu truy cập</label>
+          <div class="staticrypt-password-container">
+            <input id="staticrypt-password" type="password" name="password" placeholder="/*[|template_placeholder|]*/0" autocomplete="current-password" required autofocus>
+<img
+                                class="staticrypt-toggle-password-visibility"
+                                alt="/*[|template_toggle_show|]*/0"
+                                title="/*[|template_toggle_show|]*/0"
+                                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNS4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjQgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTM4LjggNS4xQzI4LjQtMy4xIDEzLjMtMS4yIDUuMSA5LjJTLTEuMiAzNC43IDkuMiA0Mi45bDU5MiA0NjRjMTAuNCA4LjIgMjUuNSA2LjMgMzMuNy00LjFzNi4zLTI1LjUtNC4xLTMzLjdMNTI1LjYgMzg2LjdjMzkuNi00MC42IDY2LjQtODYuMSA3OS45LTExOC40YzMuMy03LjkgMy4zLTE2LjcgMC0yNC42Yy0xNC45LTM1LjctNDYuMi04Ny43LTkzLTEzMS4xQzQ2NS41IDY4LjggNDAwLjggMzIgMzIwIDMyYy02OC4yIDAtMTI1IDI2LjMtMTY5LjMgNjAuOEwzOC44IDUuMXpNMjIzLjEgMTQ5LjVDMjQ4LjYgMTI2LjIgMjgyLjcgMTEyIDMyMCAxMTJjNzkuNSAwIDE0NCA2NC41IDE0NCAxNDRjMCAyNC45LTYuMyA0OC4zLTE3LjQgNjguN0w0MDggMjk0LjVjOC40LTE5LjMgMTAuNi00MS40IDQuOC02My4zYy0xMS4xLTQxLjUtNDcuOC02OS40LTg4LjYtNzEuMWMtNS44LS4yLTkuMiA2LjEtNy40IDExLjdjMi4xIDYuNCAzLjMgMTMuMiAzLjMgMjAuM2MwIDEwLjItMi40IDE5LjgtNi42IDI4LjNsLTkwLjMtNzAuOHpNMzczIDM4OS45Yy0xNi40IDYuNS0zNC4zIDEwLjEtNTMgMTAuMWMtNzkuNSAwLTE0NC02NC41LTE0NC0xNDRjMC02LjkgLjUtMTMuNiAxLjQtMjAuMkw4My4xIDE2MS41QzYwLjMgMTkxLjIgNDQgMjIwLjggMzQuNSAyNDMuN2MtMy4zIDcuOS0zLjMgMTYuNyAwIDI0LjZjMTQuOSAzNS43IDQ2LjIgODcuNyA5MyAxMzEuMUMxNzQuNSA0NDMuMiAyMzkuMiA0ODAgMzIwIDQ4MGM0Ny44IDAgODkuOS0xMi45IDEyNi4yLTMyLjVMMzczIDM4OS45eiIvPjwvc3ZnPg=="
+                            />
+          </div>
+          <label id="staticrypt-remember-label" class="staticrypt-remember hidden">
+            <input id="staticrypt-remember" type="checkbox" name="remember">
+            /*[|template_remember|]*/0
+          </label>
+          <input type="submit" class="staticrypt-decrypt-button" value="/*[|template_button|]*/0">
+          <p class="privacy-hint">Chỉ sử dụng trên thiết bị đáng tin cậy. Không chia sẻ mật khẩu truy cập.</p>
+        </form>
+      </section>
+    </div>
+    <footer class="site-footer"><strong>COLORA - COLOR YOUR AURA</strong><span>Made for our people · Internal workspace</span></footer>
+  </div>
+        <script>
+            // these variables will be filled when generating the file - the template format is '/*[|variable_name|]*/0'
+            const staticryptInitiator = /*[|js_staticrypt|]*/ 0;
+            const templateError = "/*[|template_error|]*/0",
+                templateToggleAltShow = "/*[|template_toggle_show|]*/0",
+                templateToggleAltHide = "/*[|template_toggle_hide|]*/0",
+                isRememberEnabled = /*[|is_remember_enabled|]*/ 0,
+                staticryptConfig = /*[|staticrypt_config|]*/ 0;
+
+            // you can edit these values to customize some of the behavior of StatiCrypt
+            const templateConfig = {
+                rememberExpirationKey: "staticrypt_expiration",
+                rememberPassphraseKey: "staticrypt_passphrase",
+                replaceHtmlCallback: null,
+                clearLocalStorageCallback: null,
+            };
+
+            // init the staticrypt engine
+            const staticrypt = staticryptInitiator.init(staticryptConfig, templateConfig);
+
+            // try to automatically decrypt on load if there is a saved password
+            window.onload = async function () {
+                const { isSuccessful } = await staticrypt.handleDecryptOnLoad();
+
+                // if we didn't decrypt anything on load, show the password prompt. Otherwise the content has already been
+                // replaced, no need to do anything
+                if (!isSuccessful) {
+                    // hide loading screen
+                    document.getElementById("staticrypt_loading").classList.add("hidden");
+                    document.getElementById("staticrypt_content").classList.remove("hidden");
+                    document.getElementById("staticrypt-password").focus();
+
+                    // show the remember me checkbox
+                    if (isRememberEnabled) {
+                        document.getElementById("staticrypt-remember-label").classList.remove("hidden");
+                    }
+                }
+            };
+
+            // toggle password visibility
+            const toggleIcon = document.querySelector(".staticrypt-toggle-password-visibility");
+            // these two icons are coming from FontAwesome
+            const imgSrcEyeClosed =
+                "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNS4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjQgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTM4LjggNS4xQzI4LjQtMy4xIDEzLjMtMS4yIDUuMSA5LjJTLTEuMiAzNC43IDkuMiA0Mi45bDU5MiA0NjRjMTAuNCA4LjIgMjUuNSA2LjMgMzMuNy00LjFzNi4zLTI1LjUtNC4xLTMzLjdMNTI1LjYgMzg2LjdjMzkuNi00MC42IDY2LjQtODYuMSA3OS45LTExOC40YzMuMy03LjkgMy4zLTE2LjcgMC0yNC42Yy0xNC45LTM1LjctNDYuMi04Ny43LTkzLTEzMS4xQzQ2NS41IDY4LjggNDAwLjggMzIgMzIwIDMyYy02OC4yIDAtMTI1IDI2LjMtMTY5LjMgNjAuOEwzOC44IDUuMXpNMjIzLjEgMTQ5LjVDMjQ4LjYgMTI2LjIgMjgyLjcgMTEyIDMyMCAxMTJjNzkuNSAwIDE0NCA2NC41IDE0NCAxNDRjMCAyNC45LTYuMyA0OC4zLTE3LjQgNjguN0w0MDggMjk0LjVjOC40LTE5LjMgMTAuNi00MS40IDQuOC02My4zYy0xMS4xLTQxLjUtNDcuOC02OS40LTg4LjYtNzEuMWMtNS44LS4yLTkuMiA2LjEtNy40IDExLjdjMi4xIDYuNCAzLjMgMTMuMiAzLjMgMjAuM2MwIDEwLjItMi40IDE5LjgtNi42IDI4LjNsLTkwLjMtNzAuOHpNMzczIDM4OS45Yy0xNi40IDYuNS0zNC4zIDEwLjEtNTMgMTAuMWMtNzkuNSAwLTE0NC02NC41LTE0NC0xNDRjMC02LjkgLjUtMTMuNiAxLjQtMjAuMkw4My4xIDE2MS41QzYwLjMgMTkxLjIgNDQgMjIwLjggMzQuNSAyNDMuN2MtMy4zIDcuOS0zLjMgMTYuNyAwIDI0LjZjMTQuOSAzNS43IDQ2LjIgODcuNyA5MyAxMzEuMUMxNzQuNSA0NDMuMiAyMzkuMiA0ODAgMzIwIDQ4MGM0Ny44IDAgODkuOS0xMi45IDEyNi4yLTMyLjVMMzczIDM4OS45eiIvPjwvc3ZnPg==";
+            const imgSrcEyeOpened =
+                "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNS4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjQgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTI4OCAzMmMtODAuOCAwLTE0NS41IDM2LjgtMTkyLjYgODAuNkM0OC42IDE1NiAxNy4zIDIwOCAyLjUgMjQzLjdjLTMuMyA3LjktMy4zIDE2LjcgMCAyNC42QzE3LjMgMzA0IDQ4LjYgMzU2IDk1LjQgMzk5LjRDMTQyLjUgNDQzLjIgMjA3LjIgNDgwIDI4OCA0ODBzMTQ1LjUtMzYuOCAxOTIuNi04MC42YzQ2LjgtNDMuNSA3OC4xLTk1LjQgOTMtMTMxLjFjMy4zLTcuOSAzLjMtMTYuNyAwLTI0LjZjLTE0LjktMzUuNy00Ni4yLTg3LjctOTMtMTMxLjFDNDMzLjUgNjguOCAzNjguOCAzMiAyODggMzJ6TTE0NCAyNTZhMTQ0IDE0NCAwIDEgMSAyODggMCAxNDQgMTQ0IDAgMSAxIC0yODggMHptMTQ0LTY0YzAgMzUuMy0yOC43IDY0LTY0IDY0Yy03LjEgMC0xMy45LTEuMi0yMC4zLTMuM2MtNS41LTEuOC0xMS45IDEuNi0xMS43IDcuNGMuMyA2LjkgMS4zIDEzLjggMy4yIDIwLjdjMTMuNyA1MS4yIDY2LjQgODEuNiAxMTcuNiA2Ny45czgxLjYtNjYuNCA2Ny45LTExNy42Yy0xMS4xLTQxLjUtNDcuOC02OS40LTg4LjYtNzEuMWMtNS44LS4yLTkuMiA2LjEtNy40IDExLjdjMi4xIDYuNCAzLjMgMTMuMiAzLjMgMjAuM3oiLz48L3N2Zz4=";
+            toggleIcon.addEventListener("click", function () {
+                const passwordInput = document.getElementById("staticrypt-password");
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    toggleIcon.src = imgSrcEyeOpened;
+                    toggleIcon.alt = templateToggleAltHide;
+                    toggleIcon.title = templateToggleAltHide;
+                } else {
+                    passwordInput.type = "password";
+                    toggleIcon.src = imgSrcEyeClosed;
+                    toggleIcon.alt = templateToggleAltShow;
+                    toggleIcon.title = templateToggleAltShow;
+                }
+            });
+
+            // handle password form submission
+            document.getElementById("staticrypt-form").addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                const password = document.getElementById("staticrypt-password").value,
+                    isRememberChecked = document.getElementById("staticrypt-remember").checked;
+
+                const { isSuccessful } = await staticrypt.handleDecryptionOfPage(password, isRememberChecked);
+
+                if (!isSuccessful) {
+                    alert(templateError);
+                }
+            });
+        </script>
+  <script>
+    const pwVisibility = document.querySelector(".staticrypt-toggle-password-visibility");
+    pwVisibility?.setAttribute("tabindex", "0");
+    pwVisibility?.setAttribute("role", "button");
+    pwVisibility?.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") { event.preventDefault(); pwVisibility.click(); }
+    });
+  </script>
+</body>
+</html>
