@@ -57,3 +57,12 @@ main{width:100%;max-width:1570px;padding:55px 5% 70px;margin:0 auto;flex:1;min-w
 @media(max-width:900px){.library-toolbar{align-items:stretch;flex-direction:column}.search-field{width:100%;flex:auto;min-width:0}.library-filters{gap:5px}.library-cards{grid-template-columns:1fr}}
 @media(max-width:760px){.topbar-quick span{display:none}.topbar-actions{gap:12px}.topbar{gap:6px}.start-panel{padding:22px;margin-top:22px}.start-panel h2{font-size:32px}.hero-actions{margin-top:22px}.hero-actions>*{flex:1;min-width:155px}.library-card{min-height:180px;padding:20px}.article-top{flex-wrap:wrap;align-items:flex-start}.article-view h2{font-size:40px}.module-actions{gap:8px}.module-heading .outline-button{font-size:10px;padding:10px 12px}.module-immersive main{padding:16px 2%}.module-immersive .module-heading h1{font-size:28px}}
 @media(max-width:420px){.start-panel{padding:19px}.hero-actions>*{flex:1 1 100%}.library-filters{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.form-actions>*{min-width:100%}.topbar-tag{display:none}}
+
+/* Keep identity visible on scrolling navigation; dim underlying page on mobile. */
+.sidebar .brand{position:sticky;top:0;z-index:3;background:var(--navy)}
+.mobile-shade[hidden]{display:none!important}
+@media(max-width:760px){
+  .mobile-shade:not([hidden]){position:fixed;inset:0;z-index:19;background:rgba(0,25,56,.45);display:block}
+  .menu-open{overflow:hidden}
+  .sidebar .brand{position:sticky}
+}
