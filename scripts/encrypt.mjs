@@ -66,7 +66,18 @@ function encryptFile(file, password, salt, isSenior){
 }
 const pages=['index.html'];
 for(const file of pages)encryptFile(path.join(dist,file),standard,saltStaff,false);
-encryptFile(path.join(dist,'apps/jd/index.html'),senior,saltSenior,true);
+if(process.env.JD_BUILD_MODE==='preserve'){
+  // Already encrypted by the last successful deployment. No recomputation
+  // is possible without the original snapshot password, and none is needed
+  // to publish new Staff content safely.
+  const preserved=fs.readFileSync(path.join(dist,'apps/jd/index.html'),'utf8');
+  if(!preserved.includes('staticrypt-password') || !preserved.includes('staticrypt-form') || preserved.includes('id="workspaceTitle"')){
+    throw new Error('Cannot publish the preserved JD HTML: protection check failed.');
+  }
+  console.log('Preserved existing encrypted JD HTML (Senior password unchanged).');
+}else{
+  encryptFile(path.join(dist,'apps/jd/index.html'),senior,saltSenior,true);
+}
 
 // Fail closed: no other unencrypted HTML may be shipped.
 const all=findHTML(dist).map(p=>path.relative(dist,p).replaceAll(path.sep,'/'));
