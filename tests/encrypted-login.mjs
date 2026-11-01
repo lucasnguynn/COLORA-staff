@@ -42,14 +42,14 @@ try{
   const logo=page.locator('.login-panel .brand-logo');
   assert.equal(await logo.evaluate(el=>el.complete&&el.naturalWidth>0),true,'Official COLORA login logo must load');
   assert.equal(await page.locator('.staticrypt-title').innerText(),'Staff Workspace','Staff title missing');
-  assert.equal(await page.locator('.staticrypt-form').evaluate(el=>getComputedStyle(el).fontFamily.includes('Open Sans')),true,'Login body font must be Open Sans');
+  assert.equal(await page.locator('.login-panel').evaluate(el=>getComputedStyle(el).fontFamily.includes('Open Sans')),true,'Login body font must be Open Sans');
   assert.equal(await page.locator('.staticrypt-title').evaluate(el=>getComputedStyle(el).fontFamily.includes('Cormorant Garamond')),true,'Login heading must be Cormorant Garamond');
   assert.equal(await page.locator('#staticrypt-remember-label').isVisible(),true,'Staff Remember me option missing');
   assert.equal(await page.locator('.login-panel').count(),1,'Exactly one COLORA access form expected');
   assert.equal(await page.locator('.identity-panel,.identity-copy,.site-topbar,.site-footer,.staticrypt-hr').count(),0,'Decorative or redundant login chrome must be removed');
   assert.equal(await page.locator('.staticrypt-content').innerText().then(t=>/A place to|Facets of Feeling|Every feeling|COLOR YOUR AURA|Made for our people/i.test(t)),false,'Remove sentimental and repeated brand copy');
   assert.equal(await page.locator('.staticrypt-decrypt-button').getAttribute('value'),'Đăng nhập');
-  assert.equal(await page.locator('.staticrypt-form').evaluate(el=>getComputedStyle(el).fontFamily.includes('Open Sans')),true,'Use COLORA body typography');
+  assert.equal(await page.locator('.login-panel').evaluate(el=>getComputedStyle(el).fontFamily.includes('Open Sans')),true,'Use COLORA body typography');
   assert.equal(await page.locator('.login-panel').evaluate(el=>el.getBoundingClientRect().width),440,'Desktop should render one narrow login panel');
   if(process.env.LOGIN_QA_SCREENSHOTS==='1'){
     fs.mkdirSync('test-results',{recursive:true});
