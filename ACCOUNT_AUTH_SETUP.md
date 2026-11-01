@@ -34,6 +34,16 @@ This system cannot verify mailbox ownership, provide MFA, rate-limit offline att
 
 5. After the workflow reports **Success**, open https://staff.colora.vn/ in a private browser and test all five accounts, logout and Senior JD Library. If it fails, read the workflow error. For invalid passwords, the build reports **Account #1–#5** with a reason but never prints the email or password.
 
+## Remember this browser for 30 days (opt-in)
+
+The login now includes an unchecked **“Ghi nhớ đăng nhập trên thiết bị này trong 30 ngày”** option. On a trusted personal laptop, select it the first time you enter your individual email/password. Subsequent visits from the same browser profile normally open the Staff Workspace automatically without re-entering credentials.
+
+- The application saves **only a non-extractable AES-GCM CryptoKey, an opaque encrypted-account ID and a 30-day expiration** to the browser's IndexedDB. It does **not** save the original password, email address, decrypted Staff HTML or a login token in localStorage/cookies.
+- Choosing not to remember never saves the key. **Đăng xuất** deletes the local key, so the next visit requires the password. Sign-out is broadcast to other open Staff tabs in the same browser.
+- Browser private/incognito mode, clearing site data, a different computer or another browser profile require another sign-in. Device storage may be cleared by the browser.
+- **Important: each GitHub Pages rebuild regenerates all five encrypted envelope IDs and key salts.** As a result, **any new Staff deployment invalidates saved keys**, even if passwords did not change. On that next visit, the site requests the email/password again. Changing a user's password also invalidates their saved access.
+- **Security trade-off:** a remembered browser can decrypt role content without knowing the password, so any person or hostile same-origin code with access to that browser profile could use the stored key. A non-extractable key only blocks direct export; it does not make the browser a trusted server. Use only on an individual, physically protected device, especially for Senior JD access. The 30-day time limit and local logout are client-side controls and do not revoke already-downloaded content.
+
 ## Replacing a password or revoking an employee
 
 To change any password, replace only that member's `password` in `COLORA_ACCOUNT_CREDENTIALS_JSON`, update the whole GitHub Secret, and rerun the encrypted account workflow. The current build requires **exactly five** members; changing headcount requires a code update. Rebuilt ciphertext blocks decryption of the *newly deployed* site with old credentials, but previously downloaded encrypted documents cannot be remotely erased.
