@@ -76,6 +76,24 @@ try{
     await page.screenshot({path:'test-results/login-staff-mobile.png',fullPage:true});
     await page.setViewportSize({width:1280,height:800});
   }
+  // The recovery flow must be usable when a staff member has saved an
+  // older password or an old encrypted HTML document in their browser.
+  const recoveryPage=await context.newPage();
+  await recoveryPage.goto(base+'/',{waitUntil:'domcontentloaded'});
+  await recoveryPage.locator('#staticrypt-password').waitFor({state:'visible',timeout:15000});
+  await recoveryPage.locator('#staticrypt-password').fill('WrongPasswordForRecoveryTest');
+  await recoveryPage.locator('#staticrypt-form input[type="submit"]').click();
+  const feedback=recoveryPage.locator('#staticrypt-login-feedback');
+  await feedback.waitFor({state:'visible',timeout:10000});
+  assert((await feedback.innerText()).includes('Không thể mở trang'),'Login failure must be explained inline');
+  assert.equal(await recoveryPage.locator('#staticrypt-password').inputValue(),'','Rejected password must not remain in the input');
+  assert.equal(await recoveryPage.locator('#staticrypt-login-recover').isVisible(),true,'Staff recovery action must be accessible');
+  await recoveryPage.locator('#staticrypt-login-recover').click();
+  await recoveryPage.waitForURL(url=>url.searchParams.has('refresh'),{timeout:15000});
+  await recoveryPage.locator('#staticrypt-password').waitFor({state:'visible',timeout:15000});
+  assert.equal(await recoveryPage.locator('#staticrypt-login-feedback').isVisible(),false,'Reload must reset login error');
+  await recoveryPage.close();
+
   // Reproduce the reported 1-second flash: decrypt the real, encrypted
   // production page while deliberately holding its main stylesheet.
   // Unstyled dashboard text must NEVER be visible during this interval.
