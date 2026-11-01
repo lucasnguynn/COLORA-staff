@@ -33,10 +33,10 @@ function encryptFile(file, password, salt, isSenior){
     fs.copyFileSync(file,input);
     const args=['--no-install','staticrypt',input,'--directory',outdir,'--config','false','--salt',salt,
       '--template',path.join(root,'site','login-template.html'),
-      '--template-title',isSenior?'Management workspace':'Welcome to COLORA',
-      '--template-instructions',isSenior?'Không gian dành cho quản lý COLORA. Nhập mật khẩu quản lý riêng để tiếp tục.':'Nhập mật khẩu Staff để bước vào không gian học tập và làm việc của COLORA.',
+      '--template-title',isSenior?'Management Access':'Staff Workspace',
+      '--template-instructions',isSenior?'Nhập mật khẩu quản lý.':'Nhập mật khẩu Staff.',
       '--template-placeholder','Nhập mật khẩu',
-      '--template-button',isSenior?'VÀO KHU VỰC QUẢN LÝ':'VÀO KHÔNG GIAN LÀM VIỆC',
+      '--template-button','Đăng nhập',
       '--template-remember','Ghi nhớ trên thiết bị này',
       '--template-toggle-show','Hiện mật khẩu',
       '--template-toggle-hide','Ẩn mật khẩu',

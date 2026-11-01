@@ -111,6 +111,13 @@ try{
         assert.equal(await embedded.locator('.shell > .topbar').isVisible(),false,'QR has duplicate branding header');
         assert.equal(await embedded.locator('.shell > .hero').isVisible(),false,'QR has duplicate landing hero');
       }
+      // The host resizes section content asynchronously (ResizeObserver plus
+      // 300ms fallback). Check the settled layout, not the first frame tick.
+      await page.waitForFunction(()=>{
+        const el=document.getElementById('module-frame');
+        if(!el?.contentDocument)return false;
+        return el.contentDocument.documentElement.scrollHeight<=el.getBoundingClientRect().height+110;
+      },null,{timeout:8000,polling:180});
       const sizes=await page.locator('#module-frame').evaluate(el=>({frame:el.getBoundingClientRect().height,scroll:el.contentDocument?.documentElement.scrollHeight}));
       assert(sizes.frame>=430,'Frame should expand as a continuous document section');
       if(sizes.scroll>sizes.frame+110){
