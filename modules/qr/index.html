@@ -597,8 +597,12 @@
     $("logoFile").value="";$("logoThumb").src=currentLogo||symbolSource;
     $("logoName").textContent=currentLogoName;updateQR();
   });
-  $("downloadPng").addEventListener("click",()=>downloadQR("png"));
-  $("downloadSvg").addEventListener("click",()=>downloadQR("svg"));
+  async function safeExport(extension){
+    try{await downloadQR(extension)}
+    catch(_error){$("urlError").textContent="Không thể xuất QR. Vui lòng thử lại hoặc liên hệ quản trị COLORA."}
+  }
+  $("downloadPng").addEventListener("click",()=>safeExport("png"));
+  $("downloadSvg").addEventListener("click",()=>safeExport("svg"));
   // The symbol image may still be loading on a first visit. Its onload
   // callback calls updateQR(), creating the first SVG with the logo present.
   if(currentLogo)updateQR();
