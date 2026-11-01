@@ -1,0 +1,75 @@
+name: Deploy COLORA Staff Portal
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: colora-staff-pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout Client Care Academy
+        uses: actions/checkout@v4
+        with:
+          repository: lucasnguynn/CSKH-COLORA
+          path: .sources/client-care
+          persist-credentials: false
+      - name: Checkout Learning Studio
+        uses: actions/checkout@v4
+        with:
+          repository: lucasnguynn/QnA-COLORA
+          path: .sources/learning
+          persist-credentials: false
+      - name: Checkout QR Generator
+        uses: actions/checkout@v4
+        with:
+          repository: lucasnguynn/QR-V1
+          path: .sources/qr
+          persist-credentials: false
+      - name: Checkout JD Library
+        uses: actions/checkout@v4
+        with:
+          repository: lucasnguynn/COLORA-JD
+          path: .sources/jd
+          persist-credentials: false
+          token: ${{ secrets.SENIOR_SOURCE_TOKEN || github.token }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate integrated learning repositories
+        run: |
+          (cd .sources/learning && node scripts/validate.mjs)
+          (cd .sources/client-care && node tests/publication.cjs && node tests/ops.cjs && node tests/smoke.cjs)
+      - name: Install pinned StatiCrypt
+        run: npm install --no-save --no-package-lock staticrypt@3.5.4
+      - name: Assemble static portal
+        run: node scripts/build.mjs
+      - name: Encrypt ALL HTML pages before publishing
+        env:
+          STAFF_PORTAL_PASSWORD: ${{ secrets.STAFF_PORTAL_PASSWORD }}
+          SENIOR_JD_PASSWORD: ${{ secrets.SENIOR_JD_PASSWORD }}
+        run: node scripts/encrypt.mjs
+      - name: Verify no plaintext JD or unencrypted pages
+        run: node scripts/verify.mjs
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+  deploy:
+    needs: build
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy published-only artifact
+        uses: actions/deploy-pages@v4
+        id: deployment
