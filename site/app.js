@@ -12,7 +12,20 @@
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const escapeAttribute = escapeHTML;
   const safeURL = raw => {try {const u = new URL(String(raw), 'https://colora.vn/');return u.protocol === 'https:' ? u.href : 'https://colora.vn/';}catch {return 'https://colora.vn/';}};
-  const sidebar=$('sidebar'), menuButton=$('mobile-menu'), frame=$('module-frame'), shade=$('mobile-shade');
+  const sidebar=$('sidebar'), menuButton=$('mobile-menu'), shade=$('mobile-shade');
+  let frame=$('module-frame');
+  function freshModuleFrame(){
+    // Switching from srcdoc to a normal src on the same iframe can leave
+    // Chromium at about:blank due to overlapping navigation. Use a fresh
+    // browsing context for each module to prevent that race.
+    const next=document.createElement('iframe');
+    next.id='module-frame';
+    next.title='COLORA Application';
+    next.setAttribute('referrerpolicy','no-referrer');
+    next.setAttribute('loading','eager');
+    frame.replaceWith(next);
+    frame=next;
+  }
   function closeMobile(){sidebar.classList.remove('open');shade.hidden=true;document.body.classList.remove('menu-open');menuButton.setAttribute('aria-expanded','false');}
 
   function navigate(view) {
@@ -21,15 +34,34 @@
     const isModule=Object.prototype.hasOwnProperty.call(modules,view);
     if (isModule) {
       const data=modules[view];
+      freshModuleFrame();
       $('module').hidden=false;
       $('module-title').textContent=data.title;
       $('module-eyebrow').textContent=data.eyebrow;
       $('module-description').textContent=data.description;
-      $('module-open').href=data.url;
-      if (frame.getAttribute('src')!==data.url) frame.src=data.url;
       frame.title=data.title;
+      if(view==='jd'){
+        // Only management has its own separate password.
+        frame.removeAttribute('srcdoc');
+        if(frame.getAttribute('src')!==data.url)frame.src=data.url;
+        $('module-open').hidden=false;
+        $('module-open').href=data.url;
+        $('module-hint').textContent='JD Library dành cho quản lý, sử dụng mật khẩu riêng. Không đưa dữ liệu nhân sự tuyệt mật vào website tĩnh.';
+      }else{
+        // One staff login decrypts the full HTML for every normal module.
+        // srcdoc mounts the ORIGINAL source app as an internal frame, with
+        // no second HTML route or StatiCrypt login to navigate through.
+        const packed=document.getElementById('bundled-'+view);
+        if(!packed)throw Error('Missing integrated module: '+view);
+        const childHTML=JSON.parse(packed.textContent);
+        frame.removeAttribute('src');
+        if(frame.srcdoc!==childHTML)frame.srcdoc=childHTML;
+        $('module-open').hidden=true;
+        $('module-hint').textContent='Đã tích hợp vào Staff Workspace. Bạn không cần nhập lại mật khẩu để sử dụng ứng dụng này.';
+      }
     } else {
       // Stop background module execution when using local tools.
+      frame.removeAttribute('srcdoc');
       frame.removeAttribute('src');
       $(view==='home'?'dashboard':view==='library'?'library-view':view==='signature'?'signature-tool':'web-tool').hidden=false;
     }

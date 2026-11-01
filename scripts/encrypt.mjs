@@ -57,12 +57,7 @@ function encryptFile(file, password, salt, isSenior){
     console.log('Encrypted '+path.relative(dist,file)+(isSenior?' [SENIOR]':' [STAFF]'));
   }finally{fs.rmSync(temp,{recursive:true,force:true});}
 }
-const pages=[
-  'index.html',
-  'apps/client-care/index.html',
-  'apps/learning/index.html',
-  'apps/qr/index.html'
-];
+const pages=['index.html'];
 for(const file of pages)encryptFile(path.join(dist,file),standard,saltStaff,false);
 encryptFile(path.join(dist,'apps/jd/index.html'),senior,saltSenior,true);
 

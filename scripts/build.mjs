@@ -7,9 +7,9 @@ const source=path.join(root,'.sources');
 const site=path.join(root,'site');
 const app=code=>path.join(source,code);
 const allowed={
-  'client-care': ['index.html','styles.css','favicon.svg','content.js','intelligence.js','ops.js','app.js','practice-tools.js','data/approved-public.js'],
-  'learning': ['index.html','styles.css','app.js','data/questions.json','data/lessons.json','data/curriculum.json','data/gem-13.json','data/gem-14.json','data/gem-15.json','data/gem-16.json','data/care-17.json','data/applied-cases.json'],
-  'qr': ['index.html']
+  'client-care': ['styles.css','favicon.svg','content.js','intelligence.js','ops.js','app.js','practice-tools.js','data/approved-public.js'],
+  'learning': ['styles.css','app.js','data/questions.json','data/lessons.json','data/curriculum.json','data/gem-13.json','data/gem-14.json','data/gem-15.json','data/gem-16.json','data/care-17.json','data/applied-cases.json'],
+  'qr': []
 };
 function fail(message){throw new Error(message);}
 function copyRequired(from,to){if(!fs.existsSync(from))fail('Missing required file: '+from);fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(from,to);}
@@ -25,6 +25,33 @@ copyModule('learning','learning');
 copyAssets(path.join(app('learning'),'assets'),path.join(dist,'apps','learning','assets'));
 copyModule('qr','qr');
 copyAssets(path.join(app('qr'),'assets'),path.join(dist,'apps','qr','assets'));
+/**
+ * Bundle the FULL HTML of all normal tools into the ONE encrypted staff page.
+ * The HTML is serialized as JSON text within an inert script tag, then the
+ * complete root page gets encrypted by StatiCrypt. Each child app loads
+ * its own JS/CSS/assets from /apps/<module>/, but no public child HTML
+ * document exists and the user never sees another login form.
+ */
+const bundledModules=[
+  {key:'learning',source:'learning'},
+  {key:'client-care',source:'client-care'},
+  {key:'qr',source:'qr'}
+];
+let portal=fs.readFileSync(path.join(dist,'index.html'),'utf8');
+if(!portal.includes('</body>'))fail('Main Staff HTML missing closing body');
+for(const entry of bundledModules){
+  let child=fs.readFileSync(path.join(app(entry.source),'index.html'),'utf8');
+  // Always resolve relative assets in the integration folder, including
+  // scripts, stylesheets, fetch('data/...'), and logo images.
+  if(!/<head[^>]*>/i.test(child))fail('Sub-app HTML missing head: '+entry.source);
+  child=child.replace(/<head([^>]*)>/i,'<head$1>\n<base href="/apps/'+entry.key+'/">');
+  // JSON encoding plus escaping of HTML sentinels prevents closing the inert
+  // script element or accidentally parsing executable HTML in the shell.
+  const json=JSON.stringify(child).replace(/</g,'\\u003c').replace(/>/g,'\\u003e').replace(/&/g,'\\u0026');
+  portal=portal.replace('</body>','<script id="bundled-'+entry.key+'" type="application/json">'+json+'</script>\n</body>');
+}
+fs.writeFileSync(path.join(dist,'index.html'),portal);
+
 
 // JD uses a separate encryption password. Bundle its JS and CSS INTO the HTML
 // before encryption, so no unencrypted JD script or role templates are deployed.
@@ -48,5 +75,8 @@ fs.mkdirSync(jdDir,{recursive:true});
 fs.writeFileSync(path.join(jdDir,'index.html'),jd);
 copyAssets(path.join(jdSource,'assets'),path.join(jdDir,'assets'));
 
-for(const name of ['index.html','apps/client-care/index.html','apps/learning/index.html','apps/qr/index.html','apps/jd/index.html']) if(!fs.existsSync(path.join(dist,name))) fail('Missing page '+name);
-console.log('Built COLORA Staff Portal with 4 embedded applications a searchable staff library and 2 generators.');
+for(const name of ['index.html','apps/jd/index.html']) if(!fs.existsSync(path.join(dist,name))) fail('Missing page '+name);
+for(const key of ['learning','client-care','qr']){
+  if(fs.existsSync(path.join(dist,'apps',key,'index.html')))fail('Plaintext sub-app HTML must not be published: '+key);
+}
+console.log('Built COLORA Staff Portal: 3 full applications bundled into single encrypted staff HTML; separately encrypted JD; resource library and generators.');
