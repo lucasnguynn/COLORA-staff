@@ -45,7 +45,7 @@ function encryptFile(file, password, salt, isSenior){
     const outputs=findHTML(outdir);
     if(outputs.length!==1)throw new Error('Unexpected StatiCrypt outputs: '+outputs.length+' for '+file);
     const encrypted=fs.readFileSync(outputs[0],'utf8');
-    if(encrypted.length<1000 || encrypted.includes('const STORAGE_KEY =') || encrypted.includes('An environment to <em>'))throw new Error('HTML not protected: '+file);
+    if(encrypted.length<1000 || encrypted.includes('const STORAGE_KEY =') || encrypted.includes('An environment to <em>') || encrypted.includes('A space to <em>'))throw new Error('HTML not protected: '+file);
     fs.writeFileSync(file,encrypted);
     console.log('Encrypted '+path.relative(dist,file)+(isSenior?' [SENIOR]':' [STAFF]'));
   }finally{fs.rmSync(temp,{recursive:true,force:true});}
