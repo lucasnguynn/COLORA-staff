@@ -24,6 +24,7 @@ window.COLORA_MODULE_HOST=(()=>{
   function cleanup(){
     if(!current)return;
     current.closed=true;
+    if(current.poll)clearInterval(current.poll);
     if(current.resizeObserver)current.resizeObserver.disconnect();
     if(current.mutationObserver)current.mutationObserver.disconnect();
     if(current.frame&&current.listener)current.frame.removeEventListener('load',current.listener);
@@ -170,6 +171,10 @@ window.COLORA_MODULE_HOST=(()=>{
       syncNav();
     };
     frame.addEventListener('load',data.listener);
+    // Browser load/ResizeObserver ordering varies, especially in Cốc Cốc.
+    // Keep an inexpensive, same-origin height synchronization as a safety
+    // fallback so longer lessons never get a second scroll area.
+    data.poll=setInterval(updateHeight,300);
     frame.removeAttribute('srcdoc');
     frame.src=url;
     return data;
