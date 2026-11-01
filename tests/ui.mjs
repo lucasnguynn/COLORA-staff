@@ -237,7 +237,12 @@ try{
     jdRoles:el.contentDocument?.querySelectorAll('#roleList .role-item').length,
     docEmbed:el.contentDocument?.documentElement?.dataset.coloraEmbed,
     editorVisibility:el.contentDocument?.getElementById('editorPanel')?getComputedStyle(el.contentDocument.getElementById('editorPanel')).display:'',
-    cssLoaded:[...(el.contentDocument?.styleSheets||[])].some(x=>x.href?.includes('jd-integrated.css'))
+    cssLoaded:[...(el.contentDocument?.styleSheets||[])].some(x=>x.href?.includes('jd-integrated.css')),
+    docBodyStart:el.contentDocument?.body?.innerHTML?.slice(0,700),
+    docBodyEnd:el.contentDocument?.body?.innerHTML?.slice(-400),
+    headEnd:el.contentDocument?.head?.innerHTML?.slice(-450),
+    bodyNodes:el.contentDocument?.body?.children.length,
+    docScripts:el.contentDocument?.scripts.length
   }))));
     await page.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:15000});
   await page.locator('#jd-workspace-controls').waitFor({state:'visible'});
