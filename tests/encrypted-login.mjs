@@ -165,8 +165,33 @@ try{
     if(await frame.locator('#staticrypt-password').count()>0)throw Error('Unexpected second Staff password form in '+view);
     console.log('PASS: '+view+' opened directly after the single Staff login.');
   }
-  // No standalone public child HTML pages should be deployed.
-  for(const route of ['apps/learning/index.html','apps/client-care/index.html','apps/qr/index.html']){
+  // Staff password MUST NOT reveal the JD navigation or its decrypted
+  // source — even when the user directly edits the route fragment.
+  assert.equal(await page.locator('body').getAttribute('data-staff-role'),'staff');
+  assert.equal(await page.locator('.nav-btn[data-view="jd"]').count(),0);
+  assert.equal(await page.locator('#bundled-jd').count(),0);
+  await page.evaluate(()=>location.hash='#jd');
+  await page.locator('#dashboard').waitFor({state:'visible'});
+  assert.equal(await page.locator('#bundled-jd').count(),0);
+
+  // SAME outer form must also accept Senior password, which decrypts a
+  // completely separate, Senior-only ciphertext with integrated JD source.
+  const seniorPage=await context.newPage();
+  await seniorPage.goto(base+'/',{waitUntil:'domcontentloaded'});
+  await seniorPage.locator('#staticrypt-password').waitFor({state:'visible',timeout:15000});
+  assert.equal(await seniorPage.locator('#login-role-hint').isVisible(),true);
+  await seniorPage.locator('#staticrypt-password').fill(senior);
+  await seniorPage.locator('#staticrypt-form input[type="submit"]').click();
+  await seniorPage.locator('body[data-staff-role="senior"][data-staff-ready="true"]').waitFor({state:'attached',timeout:25000});
+  assert.equal(await seniorPage.locator('.nav-btn[data-view="jd"]').isVisible(),true);
+  assert.equal(await seniorPage.locator('#bundled-jd').count(),1,'Only Senior ciphertext should contain JD');
+  await seniorPage.locator('.nav-btn[data-view="jd"]').click();
+  await seniorPage.frameLocator('#module-frame').locator('#workspaceTitle').waitFor({state:'visible',timeout:20000});
+  assert.equal(await seniorPage.frameLocator('#module-frame').locator('#staticrypt-password').count(),0,'Senior must not face second password');
+  await seniorPage.close();
+
+    // No standalone public child HTML pages should be deployed.
+  for(const route of ['apps/learning/index.html','apps/client-care/index.html','apps/qr/index.html','senior/index.html']){
     const response=await context.request.get(base+'/'+route);
     assert.equal(response.status(),404,'Unexpected unprotected HTML URL: '+route);
   }
