@@ -25,11 +25,29 @@
       $('module-title').textContent=data.title;
       $('module-eyebrow').textContent=data.eyebrow;
       $('module-description').textContent=data.description;
-      $('module-open').href=data.url;
-      if (frame.getAttribute('src')!==data.url) frame.src=data.url;
       frame.title=data.title;
+      if(view==='jd'){
+        // Only management has its own separate password.
+        frame.removeAttribute('srcdoc');
+        if(frame.getAttribute('src')!==data.url)frame.src=data.url;
+        $('module-open').hidden=false;
+        $('module-open').href=data.url;
+        $('module-hint').textContent='JD Library dành cho quản lý, sử dụng mật khẩu riêng. Không đưa dữ liệu nhân sự tuyệt mật vào website tĩnh.';
+      }else{
+        // One staff login decrypts the full HTML for every normal module.
+        // srcdoc mounts the ORIGINAL source app as an internal frame, with
+        // no second HTML route or StatiCrypt login to navigate through.
+        const packed=document.getElementById('bundled-'+view);
+        if(!packed)throw Error('Missing integrated module: '+view);
+        const childHTML=JSON.parse(packed.textContent);
+        frame.removeAttribute('src');
+        if(frame.srcdoc!==childHTML)frame.srcdoc=childHTML;
+        $('module-open').hidden=true;
+        $('module-hint').textContent='Đã tích hợp vào Staff Workspace. Bạn không cần nhập lại mật khẩu để sử dụng ứng dụng này.';
+      }
     } else {
       // Stop background module execution when using local tools.
+      frame.removeAttribute('srcdoc');
       frame.removeAttribute('src');
       $(view==='home'?'dashboard':view==='library'?'library-view':view==='signature'?'signature-tool':'web-tool').hidden=false;
     }
