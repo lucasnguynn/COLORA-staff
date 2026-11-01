@@ -90,11 +90,13 @@ try{
     const early=await page.evaluate(()=>({
       cssGuard:!!document.getElementById('colora-first-paint'),
       bodyVisibility:getComputedStyle(document.body).visibility,
+      inlineVisibility:document.body.style.visibility,
       headerContent:getComputedStyle(document.documentElement,'::before').content,
       ready:document.documentElement.dataset.coloraReady||'false'
     }));
     assert.equal(early.cssGuard,true,'Missing inline anti-FOUC guard in decrypted HTML');
     assert.equal(early.bodyVisibility,'hidden','Raw Staff text must stay hidden when stylesheet is slow');
+    assert.equal(early.inlineVisibility,'hidden','Decrypted body must have an inline guard before its CSS arrives');
     assert(early.headerContent.includes('COLORA'),'Waiting state should retain COLORA branding');
     assert.notEqual(early.ready,'true','Staff must not be declared ready before CSS arrives');
   }finally{
@@ -106,6 +108,7 @@ try{
   await page.locator('body[data-staff-ready="true"]').waitFor({state:'attached',timeout:20000});
   assert.equal(await page.locator('html').getAttribute('data-colora-ready'),'true','Decrypted page should reveal only after stylesheet/font readiness');
   assert.equal(await page.locator('body').evaluate(el=>getComputedStyle(el).visibility),'visible','Staff UI must become visible after CSS is ready');
+  assert.equal(await page.locator('body').evaluate(el=>el.style.visibility),'','Inline visibility guard must be released only when Staff is ready');
   assert((await page.locator('#dashboard').innerText()).includes('learn'),'Dashboard did not decrypt');
 
   // ONE staff login: navigate three copied apps inside the encrypted
