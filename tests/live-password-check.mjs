@@ -31,6 +31,7 @@ try{
         await page.locator('.nav-btn[data-view="jd"]').click();
         await page.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:18000});
         await page.locator('#jd-workspace-controls').waitFor({state:'visible',timeout:18000});
+        await page.locator('#jd-role-select option').first().waitFor({state:'attached',timeout:18000});
         if(await page.frameLocator('#module-frame').locator('.app-shell > .sidebar').isVisible())throw Error('Nested JD sidebar still visible');
         if(await page.frameLocator('#module-frame').locator('.workspace > .topbar').isVisible())throw Error('Nested JD header still visible');
         if(await page.frameLocator('#module-frame').locator('#staticrypt-password').count())throw Error('Senior JD prompted for a second password');
