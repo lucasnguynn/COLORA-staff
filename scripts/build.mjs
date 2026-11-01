@@ -67,7 +67,17 @@ for(const entry of bundledModules){
   const json=JSON.stringify(child).replace(/</g,'\\u003c').replace(/>/g,'\\u003e').replace(/&/g,'\\u0026');
   portal=portal.replace('</body>','<script id="bundled-'+entry.key+'" type="application/json">'+json+'</script>\n</body>');
 }
-fs.writeFileSync(path.join(dist,'index.html'),portal);
+// Both roles receive identical non-management tools; each has a DIFFERENT
+// encrypted shell. Never deliver JD markup in the Staff-encrypted document.
+// This file is a pre-encryption staging artifact, not a deployed HTML page.
+if(!portal.includes('<body style="visibility:hidden">'))fail('Missing Staff role build anchor');
+const staffRole=portal
+  .replace('<body style="visibility:hidden">','<body style="visibility:hidden" data-staff-role="staff">')
+  .replace(/\s*<button data-view="jd" class="nav-btn">[^\n]*<\/button>/,'')
+  .replace(/\s*<button class="feature-card feature-card-restricted" data-view="jd">[^\n]*<\/button>/,'')
+  .replace(/\s*<p class="menu-label">MANAGEMENT<\/p>/,'');
+if(staffRole.includes('data-view="jd"'))fail('Staff role still exposes the JD navigation');
+fs.writeFileSync(path.join(dist,'index.html'),staffRole);
 
 
 // JD uses a separate encryption password. Bundle its JS and CSS INTO the HTML
@@ -110,6 +120,27 @@ fs.mkdirSync(jdDir,{recursive:true});
 fs.writeFileSync(path.join(jdDir,'index.html'),jd);
 copyAssets(path.join(jdSource,'assets'),path.join(jdDir,'assets'));
 }
+
+// Senior can open the JD module directly after the SAME outer login; only
+// Senior-encrypted HTML contains the complete JD application source. No
+// separate second password prompt is presented inside the workspace.
+if(process.env.JD_BUILD_MODE==='preserve'){
+  fail('Cannot enable dual-role login without a decrypted JD source; refusing to expose anything unprotected.');
+}
+const seniorJD=fs.readFileSync(path.join(jdDir,'index.html'),'utf8');
+if(!seniorJD.includes('id="workspaceTitle"')||!seniorJD.includes('</body>')){
+  fail('JD source must be a complete unencrypted HTML application before Senior envelope encryption.');
+}
+const seniorEmbedded=seniorJD.replace(/<head([^>]*)>/i,
+  '<head$1>\\n<base href="/apps/jd/">');
+const seniorBundle=JSON.stringify(seniorEmbedded)
+  .replace(/</g,'\\u003c').replace(/>/g,'\\u003e').replace(/&/g,'\\u0026');
+const seniorRole=portal
+  .replace('<body style="visibility:hidden">','<body style="visibility:hidden" data-staff-role="senior">')
+  .replace('</body>','<script id="bundled-jd" type="application/json">'+seniorBundle+'</script>\\n</body>');
+const seniorDir=path.join(dist,'senior');
+fs.mkdirSync(seniorDir,{recursive:true});
+fs.writeFileSync(path.join(seniorDir,'index.html'),seniorRole);
 
 for(const name of ['index.html','apps/jd/index.html']) if(!fs.existsSync(path.join(dist,name))) fail('Missing page '+name);
 for(const key of ['learning','client-care','qr']){
