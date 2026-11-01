@@ -75,7 +75,15 @@ try{
       assert.equal(await page.locator('#module-open').isVisible(),false,'Old app window access button must be removed');
       assert.equal(await page.locator('#module-frame').evaluate(el=>getComputedStyle(el).borderTopWidth),'0px','App must sit flush, not within a framed card');
       if(view==='learning'){
-        await embedded.locator('#app .content').waitFor({state:'visible',timeout:18000});
+        try{await embedded.locator('#app .content').waitFor({state:'visible',timeout:10000});}
+        catch(error){
+          const details=await page.locator('#module-frame').evaluate(e=>{
+            let d=e.contentDocument;
+            return {src:e.getAttribute('src'),frameURL:e.contentWindow?.location?.href,title:d?.title,body:d?.body?.innerText?.slice(0,800),head:d?.head?.innerHTML?.slice(0,600),root:d?.documentElement?.outerHTML?.slice(0,400)};
+          }).catch(e=>({error:String(e)}));
+          console.error('LEARNING MODULE DIAGNOSTIC:',JSON.stringify(details));
+          throw error;
+        }
         assert.equal(await embedded.locator('#app .sidebar').isVisible(),false,'Learning has a duplicate sidebar');
         assert(await page.locator('.workspace-subnav-btn').count()>=5,'Missing integrated Learning navigation');
         await page.locator('.workspace-subnav-btn[data-subroute="review"]').click();
