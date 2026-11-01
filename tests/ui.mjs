@@ -224,27 +224,7 @@ try{
   assert.equal(await page.locator('.feature-card').count(),6,'Senior workspace should include JD card');
   assert.equal(await page.locator('body').getAttribute('data-staff-role'),'senior');
   await page.locator('.nav-btn[data-view="jd"]').click();
-  await page.waitForTimeout(900);
-  console.log('JD INTEGRATION DIAGNOSTIC',JSON.stringify(await page.locator('#module-frame').evaluate(el=>({
-    parentBridge:!!window.COLORA_JD_WORKSPACE,
-    activeModule:document.getElementById('module')?.dataset.activeModule,
-    frameLoaded:el.dataset.jdLoaded,
-    frameStyle:el.style.cssText,
-    frameVisibility:getComputedStyle(el).visibility,
-    docReady:el.contentDocument?.readyState,
-    frameBody:!!el.contentDocument?.body,
-    jdEditor:!!el.contentDocument?.getElementById('editorPanel'),
-    jdRoles:el.contentDocument?.querySelectorAll('#roleList .role-item').length,
-    docEmbed:el.contentDocument?.documentElement?.dataset.coloraEmbed,
-    editorVisibility:el.contentDocument?.getElementById('editorPanel')?getComputedStyle(el.contentDocument.getElementById('editorPanel')).display:'',
-    cssLoaded:[...(el.contentDocument?.styleSheets||[])].some(x=>x.href?.includes('jd-integrated.css')),
-    docBodyStart:el.contentDocument?.body?.innerHTML?.slice(0,700),
-    docBodyEnd:el.contentDocument?.body?.innerHTML?.slice(-400),
-    headEnd:el.contentDocument?.head?.innerHTML?.slice(-450),
-    bodyNodes:el.contentDocument?.body?.children.length,
-    docScripts:el.contentDocument?.scripts.length
-  }))));
-    await page.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:15000});
+  await page.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:15000});
   await page.locator('#jd-workspace-controls').waitFor({state:'visible'});
   const jdFrame=page.frameLocator('#module-frame');
   assert.equal(await jdFrame.locator('.app-shell > .sidebar').isVisible(),false,'JD must not duplicate Staff sidebar');
@@ -262,6 +242,22 @@ try{
   await jdFrame.locator('#editorPanel').waitFor({state:'visible'});
   const jdHeights=await page.locator('#module-frame').evaluate(el=>({frame:el.getBoundingClientRect().height,scroll:el.contentDocument.documentElement.scrollHeight}));
   assert(jdHeights.frame+50>=jdHeights.scroll,'JD must expand to one scrollable Staff page, no nested website viewport: '+JSON.stringify(jdHeights));
+  // Brand settings remain backed by the original JD app, not a parallel
+  // localStorage schema created by the Staff wrapper.
+  await page.locator('.jd-workspace-more summary').click();
+  await page.locator('#jd-settings').click();
+  await jdFrame.locator('#settingsModal').waitFor({state:'visible'});
+  await jdFrame.locator('#closeSettingsBtn').click();
+  await page.setViewportSize({width:390,height:844});
+  await page.waitForTimeout(350);
+  const jdMobile=await page.evaluate(()=>({
+    width:document.documentElement.scrollWidth,
+    viewport:window.innerWidth,
+    columns:getComputedStyle(document.querySelector('#jd-workspace-controls .jd-position-field')).gridTemplateColumns
+  }));
+  assert(jdMobile.width<=jdMobile.viewport+2,'JD controls must not overflow mobile width: '+JSON.stringify(jdMobile));
+  assert.equal(await jdFrame.locator('.app-shell > .sidebar').isVisible(),false,'JD duplicate sidebar must remain hidden on mobile');
+  await page.setViewportSize({width:1440,height:900});
   // Regression: escaped backslash-n written into <head> is parsed as visible
   // text before the JD interface, producing an ugly seam in Senior Workspace.
   const jdEscapedText=await page.frameLocator('#module-frame').locator('body').evaluate(el=>
