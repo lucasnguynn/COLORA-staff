@@ -30,6 +30,7 @@
 
   function navigate(view) {
     if (!Object.prototype.hasOwnProperty.call(labels,view)) view = 'home';
+    window.COLORA_MODULE_HOST?.cleanup();
     ['dashboard','library-view','module','signature-tool','web-tool'].forEach(id=>$(id).hidden=true);
     const isModule=Object.prototype.hasOwnProperty.call(modules,view);
     if (isModule) {
@@ -40,29 +41,43 @@
       $('module-eyebrow').textContent=data.eyebrow;
       $('module-description').textContent=data.description;
       frame.title=data.title;
+      const controls=$('module-controls');
+      const trackLabel=$('module-track-label');
+      const expand=$('module-expand');
       if(view==='jd'){
-        // Only management has its own separate password.
+        // Actual management app remains separately encrypted and isolated
+        // from general training and must retain its second password.
+        controls.hidden=true;
+        trackLabel.hidden=true;
+        expand.hidden=false;
         frame.removeAttribute('srcdoc');
-        if(frame.getAttribute('src')!==data.url)frame.src=data.url;
+        frame.src=data.url;
         $('module-open').hidden=false;
         $('module-open').href=data.url;
-        $('module-hint').textContent='JD Library dành cho quản lý, sử dụng mật khẩu riêng. Không đưa dữ liệu nhân sự tuyệt mật vào website tĩnh.';
-      }else{
-        // One staff login decrypts the full HTML for every normal module.
-        // srcdoc mounts the ORIGINAL source app as an internal frame, with
-        // no second HTML route or StatiCrypt login to navigate through.
+        $('module-hint').textContent='Khu vực quản lý có mật khẩu truy cập riêng. Không đưa thông tin nhân sự nhạy cảm vào website tĩnh.';
+        $('module-hint').hidden=false;
+        $('module-status').hidden=true;
+      } else {
         const packed=document.getElementById('bundled-'+view);
-        if(!packed)throw Error('Missing integrated module: '+view);
+        if(!packed)throw Error('Missing integrated Staff section: '+view);
         const childHTML=JSON.parse(packed.textContent);
-        frame.removeAttribute('src');
-        if(frame.srcdoc!==childHTML)frame.srcdoc=childHTML;
+        controls.hidden=view==='qr';
+        trackLabel.hidden=view!=='client-care';
+        expand.hidden=true;
         $('module-open').hidden=true;
-        $('module-hint').textContent=view==='learning'?'Đã tích hợp vào Staff Workspace, không cần đăng nhập lại. Lưu ý: nội dung chờ duyệt chỉ để tham khảo; kết quả thi không phải chứng nhận nhân sự.':'Đã tích hợp vào Staff Workspace. Bạn không cần nhập lại mật khẩu để sử dụng ứng dụng này.';
+        $('module-hint').hidden=true;
+        // Each section uses one continuous Staff layout: no duplicate
+        // sidebar, 2nd masthead, nested scroll area or external site URL.
+        window.COLORA_MODULE_HOST.mount(
+          view,frame,childHTML,
+          $('module-subnav'),$('module-track'),$('module-status')
+        );
       }
     } else {
       // Stop background module execution when using local tools.
       frame.removeAttribute('srcdoc');
       frame.removeAttribute('src');
+      $('module-status').hidden=true;
       $(view==='home'?'dashboard':view==='library'?'library-view':view==='signature'?'signature-tool':'web-tool').hidden=false;
     }
     document.body.classList.remove('module-immersive');

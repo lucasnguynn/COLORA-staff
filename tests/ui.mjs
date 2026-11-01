@@ -17,7 +17,8 @@ await new Promise(done=>server.listen(0,'127.0.0.1',done));
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 try{
   const page=await browser.newPage({viewport:{width:1440,height:900},acceptDownloads:true});
-  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  const errors=[];page.on('pageerror',e=>{errors.push(e.message);console.error('BROWSER PAGE ERROR',e.message)});
+  page.on('requestfailed',r=>console.error('FAILED RESOURCE',r.url(),r.failure()?.errorText));
   await page.goto('http://127.0.0.1:'+server.address().port+'/');
   await page.locator('#dashboard').waitFor();
   assert.equal(await page.locator('.feature-card').count(),7);
@@ -68,14 +69,78 @@ try{
       assert.equal(await embedded.locator('script[src*="vendor/qr-code-styling.js"]').count(),1,'Local QR library missing');
     }
     if(view!=='jd'){
-      assert.equal(await embedded.locator('#staticrypt-password').count(),0,'A duplicate login should not appear inside '+view);
-      assert((await page.locator('#module-frame').getAttribute('srcdoc'))?.includes('<base href="/apps/'+view+'/">'),'Source HTML not integrated into Staff: '+view);
+      assert.equal(await embedded.locator('#staticrypt-password').count(),0,'No second Staff login in '+view);
+      const frameSrc=await page.locator('#module-frame').getAttribute('src');
+      assert(frameSrc?.startsWith('blob:'),'Module content must be mounted locally, no GitHub URL: '+view);
+      assert.equal(await embedded.locator('html').getAttribute('data-colora-embed'),view,'Integrated content variant missing');
+      assert.equal(await page.locator('#module-open').isVisible(),false,'Old app window access button must be removed');
+      assert.equal(await page.locator('#module-frame').evaluate(el=>getComputedStyle(el).borderTopWidth),'0px','App must sit flush, not within a framed card');
+      if(view==='learning'){
+        try{await embedded.locator('#app .content').waitFor({state:'visible',timeout:10000});}
+        catch(error){
+          const details=await page.locator('#module-frame').evaluate(e=>{
+            let d=e.contentDocument;
+            return {src:e.getAttribute('src'),frameURL:e.contentWindow?.location?.href,title:d?.title,body:d?.body?.innerText?.slice(0,800),baseURI:d?.baseURI,scripts:[...(d?.scripts||[])].map(x=>x.src),nav:typeof e.contentWindow?.nav,boot:typeof e.contentWindow?.boot,head:d?.head?.innerHTML?.slice(0,600),root:d?.documentElement?.outerHTML?.slice(0,400)};
+          }).catch(e=>({error:String(e)}));
+          console.error('LEARNING MODULE DIAGNOSTIC:',JSON.stringify(details));
+          throw error;
+        }
+        assert.equal(await embedded.locator('#app .sidebar').isVisible(),false,'Learning has a duplicate sidebar');
+        assert(await page.locator('.workspace-subnav-btn').count()>=5,'Missing integrated Learning navigation');
+        await page.locator('.workspace-subnav-btn[data-subroute="review"]').click();
+        await page.locator('.workspace-subnav-btn[data-subroute="learn"]').click();
+      }
+      if(view==='client-care'){
+        assert.equal(await embedded.locator('.app-shell > .sidebar').isVisible(),false,'Client Care has a duplicate sidebar');
+        assert.equal(await embedded.locator('.workspace > .topbar').isVisible(),false,'Client Care has a second header');
+        await page.locator('.workspace-subnav-btn[data-subroute="scripts"]').click();
+        await page.waitForTimeout(450);
+        const careState=await page.locator('#module-frame').evaluate(el=>({
+          href:el.contentWindow?.location?.href,
+          hash:el.contentWindow?.location?.hash,
+          title:el.contentDocument?.title,
+          content:el.contentDocument?.getElementById('main-content')?.innerText?.slice(0,450),
+          active:el.contentDocument?.querySelector('.nav-link.active')?.getAttribute('data-page')
+        }));
+        console.log('CARE NAV DIAGNOSTIC',JSON.stringify(careState));
+        assert((await embedded.locator('#main-content').innerText()).toLowerCase().includes('kịch bản'),'Client Care scripts failed to navigate');
+        assert.equal((await embedded.locator('body').innerText()).includes('File not found'),false,'GitHub 404 inside Client Care');
+        await page.locator('.workspace-subnav-btn[data-subroute="learn"]').click();
+      }
+      if(view==='qr'){
+        assert.equal(await embedded.locator('.shell > .topbar').isVisible(),false,'QR has duplicate branding header');
+        assert.equal(await embedded.locator('.shell > .hero').isVisible(),false,'QR has duplicate landing hero');
+      }
+      const sizes=await page.locator('#module-frame').evaluate(el=>({frame:el.getBoundingClientRect().height,scroll:el.contentDocument?.documentElement.scrollHeight}));
+      assert(sizes.frame>=430,'Frame should expand as a continuous document section');
+      if(sizes.scroll>sizes.frame+110){
+        const deep=await page.locator('#module-frame').evaluate(el=>{
+          const d=el.contentDocument;
+          const target=el.contentDocument?.querySelector('#app .content,#main-content,.page .shell');
+          return {view:el.title,body:d?.body?.scrollHeight,html:d?.documentElement?.scrollHeight,
+            targetScroll:target?.scrollHeight,targetRect:target?.getBoundingClientRect().toJSON(),
+            appScroll:d?.querySelector('#app')?.scrollHeight,
+            shellScroll:d?.querySelector('.shell')?.scrollHeight,src:el.getAttribute('src'),frameStyle:el.style.cssText,frameComputed:getComputedStyle(el).height,moduleComputed:getComputedStyle(el.parentElement).display,embedStylesheet:[...document.styleSheets].some(st=>{try{return [...st.cssRules].some(rule=>rule.selectorText?.includes('#module #module-frame'))}catch{return false}})};
+        });
+        console.error('SCROLL DEBUG',JSON.stringify(deep));
+      }
+      assert(sizes.scroll<=sizes.frame+110,'Nested scroll detected ('+view+'): '+JSON.stringify(sizes));
+      fs.mkdirSync('test-results',{recursive:true});
+      await page.screenshot({path:'test-results/'+view+'-integrated-desktop.png',fullPage:false});
     }
   }
   await page.locator('#module-expand').click();
   assert(await page.locator('body').evaluate(x=>x.classList.contains('module-immersive')));
   await page.keyboard.press('Escape');
   await page.setViewportSize({width:390,height:844});
+  await page.locator('#mobile-menu').click();
+  await page.locator('.nav-btn[data-view="client-care"]').click();
+  await page.frameLocator('#module-frame').locator('#main-content').waitFor({state:'visible',timeout:14000});
+  await page.waitForTimeout(650);
+  assert.equal(await page.frameLocator('#module-frame').locator('.app-shell > .sidebar').isVisible(),false,'Client Care mobile should use Staff sidebar only');
+  assert.equal(await page.locator('#module-frame').evaluate(el=>el.contentDocument.documentElement.scrollWidth <= el.clientWidth+2),true,'Client Care has horizontal overflow on mobile');
+  fs.mkdirSync('test-results',{recursive:true});
+  await page.screenshot({path:'test-results/client-care-integrated-mobile.png',fullPage:false});
   await page.locator('#mobile-menu').click();
   assert(await page.locator('#sidebar').evaluate(x=>x.classList.contains('open')));
   assert(await page.locator('#mobile-shade').isVisible());

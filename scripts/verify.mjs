@@ -27,7 +27,7 @@ for(const rel of pages){
 for(const rel of ['apps/learning/index.html','apps/client-care/index.html','apps/qr/index.html','apps/jd/app.js','apps/jd/styles.css','apps/jd/luxury.css','apps/jd/refinements.css','apps/jd/print-polish.css']){
   if(fs.existsSync(path.join(dist,rel)))throw Error('Senior source exposed in published artifact: '+rel);
 }
-const rootLinks=['apps/client-care/styles.css','apps/client-care/content.js','apps/learning/app.js','apps/learning/data/questions.json','apps/qr/assets/colora-logo.png','apps/qr/assets/colora-lettermark.png','apps/qr/assets/colora-symbol.png','apps/qr/vendor/qr-code-styling.js','brand-refinements.css','apps/learning/brand-refinements.css','apps/client-care/brand-refinements.css','app.js','library.js','library-ui.js','styles.css'];
+const rootLinks=['apps/client-care/styles.css','apps/client-care/content.js','apps/learning/app.js','apps/learning/data/questions.json','apps/qr/assets/colora-logo.png','apps/qr/assets/colora-lettermark.png','apps/qr/assets/colora-symbol.png','apps/qr/vendor/qr-code-styling.js','brand-refinements.css','embedded-apps.css','module-host.js','apps/learning/brand-refinements.css','apps/client-care/brand-refinements.css','app.js','library.js','library-ui.js','styles.css'];
 for(const rel of rootLinks)if(!fs.existsSync(path.join(dist,rel)))throw Error('Missing integrated dependency: '+rel);
 const qrHTML=fs.readFileSync(path.join('modules','qr','index.html'),'utf8');
  if(/<script[^>]+src=["']https?:\/\//i.test(qrHTML))throw Error('External QR script is not allowed: vendor all QR JavaScript locally.');
@@ -39,5 +39,9 @@ for(const module of ['learning','client-care','qr']){
   // so it cannot be read directly via an unencrypted public app URL.
   if(fs.existsSync(path.join(dist,'apps',module,'index.html')))throw Error('Ungated subapp HTML found: '+module);
 }
+const hostJS=fs.readFileSync(path.join(dist,'module-host.js'),'utf8');
+if(!hostJS.includes('URL.createObjectURL') || !hostJS.includes('workspace-subnav-btn'))throw Error('Missing integrated section host');
+const buildJS=fs.readFileSync(path.join('scripts','build.mjs'),'utf8');
+if(!buildJS.includes('data-colora-embed') || !buildJS.includes('embedded-apps.css'))throw Error('Build must embed each app with unified Staff presentation');
 if(encryptedRoot.includes('id="bundled-learning"') || encryptedRoot.includes('id="bundled-qr"'))throw Error('Bundled application templates leaked outside the encrypted payload.');
 console.log('Verified: one encrypted Staff entry with 3 bundled applications; separate encrypted JD; no public child HTML routes.');

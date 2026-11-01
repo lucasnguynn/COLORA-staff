@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./brand-refinements.css">
   <script src="./library.js" defer></script>
+  <script src="./module-host.js" defer></script>
   <script src="./app.js" defer></script>
   <script src="./library-ui.js" defer></script>
 </head>
@@ -80,7 +81,19 @@
             <p class="article-note">Nội dung học tập không thay thế thông số SKU được xác nhận, chính sách chính thức hay văn bản pháp lý.</p>
           </article>
         </section>
-        <section id="module" class="module view" hidden><div class="module-heading"><div><div id="module-eyebrow" class="eyebrow">COLORA WORKSPACE</div><h1 id="module-title">Learning Studio</h1><p id="module-description"></p></div><div class="module-actions"><a id="module-open" class="open-new" target="_blank" rel="noopener noreferrer" href="#">Mở trong tab mới ↗</a><button type="button" id="module-expand" class="outline-button">Mở rộng ⤢</button></div></div><p id="module-hint" class="module-hint">Ứng dụng bên trong có thể yêu cầu lại mật khẩu khi chưa chọn “Remember me” trên thiết bị tin cậy.</p><iframe id="module-frame" title="COLORA Application" loading="lazy" referrerpolicy="no-referrer"></iframe></section>
+        <section id="module" class="module view" hidden>
+          <div class="module-heading">
+            <div><div id="module-eyebrow" class="eyebrow">COLORA WORKSPACE</div><h1 id="module-title">Learning Studio</h1><p id="module-description"></p></div>
+            <div class="module-actions"><a id="module-open" class="open-new" target="_blank" rel="noopener noreferrer" href="#">Mở khu vực quản lý ↗</a><button type="button" id="module-expand" class="outline-button" hidden>Mở rộng ⤢</button></div>
+          </div>
+          <div class="workspace-controls" id="module-controls">
+            <nav class="workspace-subnav" id="module-subnav" aria-label="Các mục trong phân hệ"></nav>
+            <label class="workspace-track-label" id="module-track-label"><span>Lộ trình</span><select id="module-track" aria-label="Chọn lộ trình đào tạo" hidden></select></label>
+          </div>
+          <p id="module-hint" class="module-hint">Nội dung COLORA được tích hợp trong cùng một workspace.</p>
+          <p id="module-status" class="module-status" role="status" aria-live="polite" hidden></p>
+          <iframe id="module-frame" title="Nội dung phân hệ COLORA" loading="eager" referrerpolicy="no-referrer"></iframe>
+        </section>
         <section id="signature-tool" class="tool-view view" hidden><div class="eyebrow">COLORA · BRAND UTILITIES</div><h1>Email <em>Signature</em></h1><p class="tool-intro">Tạo chữ ký theo nhận diện thương hiệu. Không có dữ liệu nào được gửi lên máy chủ.</p><div class="tool-grid"><form id="signature-form" class="tool-panel"><h2>Thông tin nhân viên</h2><label>Họ và tên <input name="name" required maxlength="90" placeholder="Nguyễn Văn A"></label><label>Chức danh <input name="role" required maxlength="100" placeholder="Client Experience Executive"></label><label>Email công việc <input name="email" type="email" required maxlength="130" placeholder="name@colora.vn"></label><label>Số điện thoại (tùy chọn) <input name="phone" maxlength="35" placeholder="+84 ..."></label><div class="form-actions"><button type="submit" class="primary-button">Sao chép chữ ký đẹp</button><button type="button" id="signature-download" class="outline-button">Tải HTML ↓</button></div><p id="signature-status" class="form-status" role="status"></p></form><div class="tool-panel preview-panel"><h2>Xem trước</h2><div id="signature-preview" class="signature-preview"><p>Nhập thông tin để xem trước chữ ký COLORA.</p></div><p class="helper">Dán chữ ký vào trình chỉnh sửa chữ ký Gmail/ứng dụng email. Một số trình email có thể thay đổi định dạng.</p></div></div></section>
         <section id="web-tool" class="tool-view view" hidden><div class="eyebrow">COLORA · CREATIVE UTILITIES</div><h1>Website <em>Generator</em></h1><p class="tool-intro">Tạo một trang HTML độc lập từ mẫu tối giản, phù hợp cho landing page nội bộ hoặc bản trình bày đơn giản.</p><div class="tool-grid"><form id="web-form" class="tool-panel"><h2>Nội dung</h2><label>Mẫu giao diện <select name="template" id="web-template"><option value="editorial">Editorial / Story</option><option value="announcement">Announcement / Launch</option><option value="minimal">Minimal / Information</option></select></label><label>Kicker <input name="eyebrow" maxlength="70" value="FACETS OF FEELING"></label><label>Tiêu đề <input name="title" required maxlength="110" value="Facets of Feeling"></label><label>Thông điệp <textarea name="description" maxlength="800" rows="5">Every feeling has a color. Every facet holds a spectrum of feelings.</textarea></label><label>Chữ trên nút <input name="cta" maxlength="45" value="Discover COLORA"></label><label>Địa chỉ nút (HTTPS) <input name="link" type="url" value="https://colora.vn/"></label><div class="form-actions"><button type="submit" class="primary-button">Tải trang HTML ↓</button><button type="button" id="web-copy" class="outline-button">Sao chép mã</button></div><p id="web-status" class="form-status" role="status"></p></form><div class="tool-panel preview-panel"><h2>Live preview</h2><iframe id="web-preview" class="web-preview" sandbox="" title="Bản xem trước HTML"></iframe><p class="helper">Mẫu chỉ xuất mã HTML/CSS tĩnh. Không thực thi mã JavaScript nhập từ người dùng.</p></div></div></section>
       </main>
