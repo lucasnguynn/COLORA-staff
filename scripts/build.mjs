@@ -18,7 +18,7 @@ function copyModule(name,sourceName){for(const file of allowed[name])copyRequire
 
 fs.rmSync(dist,{recursive:true,force:true});
 fs.mkdirSync(dist,{recursive:true});
-for(const file of ['index.html','styles.css','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
+for(const file of ['index.html','styles.css','library.js','library-ui.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
 
 copyModule('client-care','client-care');
 copyModule('learning','learning');
@@ -49,4 +49,4 @@ fs.writeFileSync(path.join(jdDir,'index.html'),jd);
 copyAssets(path.join(jdSource,'assets'),path.join(jdDir,'assets'));
 
 for(const name of ['index.html','apps/client-care/index.html','apps/learning/index.html','apps/qr/index.html','apps/jd/index.html']) if(!fs.existsSync(path.join(dist,name))) fail('Missing page '+name);
-console.log('Built COLORA Staff Portal with 4 embedded applications and 2 local generators.');
+console.log('Built COLORA Staff Portal with 4 embedded applications a searchable staff library and 2 generators.');
