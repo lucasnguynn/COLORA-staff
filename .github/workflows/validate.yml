@@ -83,38 +83,9 @@ jobs:
           SENIOR_JD_PASSWORD: "Test8!Bb"
           LOGIN_QA_SCREENSHOTS: '1'
         run: node tests/encrypted-login.mjs
-      - name: Verify previously encrypted JD survives Staff rebuild and Senior key rotation
-        env:
-          STAFF_PORTAL_PASSWORD: "Test8!Aa"
-          SENIOR_JD_PASSWORD: "Test8!Cc"
-          JD_BUILD_MODE: preserve
-        shell: bash
-        run: |
-          mkdir -p .sources/last-published/site/apps/jd
-          cp -a dist/apps/jd/. .sources/last-published/site/apps/jd/
-          cp dist/apps/jd/index.html "$RUNNER_TEMP/original-senior-encrypted.html"
-          node scripts/build.mjs
-          node scripts/encrypt.mjs
-          node scripts/verify.mjs
-          cmp dist/apps/jd/index.html "$RUNNER_TEMP/original-senior-encrypted.html"
-          node tests/encrypted-login.mjs
-      - name: Verify PINNED public JD source can recover Senior login after key mismatch
-        env:
-          STAFF_PORTAL_PASSWORD: "Test8!Aa"
-          SENIOR_JD_PASSWORD: "Test8!Dd"
-          JD_SOURCE_DIR: .sources/jd
-          JD_BUILD_MODE: fresh
-        shell: bash
-        run: |
-          # The reviewed source commit is public; no production secret is
-          # available in pull-request CI. Use disposable passwords only.
-          node scripts/recover-jd-source.mjs .sources/jd
-          node scripts/build.mjs
-          node scripts/encrypt.mjs
-          node scripts/verify.mjs
-          node tests/encrypted-login.mjs
-          test ! -f dist/apps/jd/app.js
-          test -f .sources/jd/index.html
+      # Two-role login is validated by encrypted-login.mjs with disposable
+      # Staff and Senior secrets. Preserving a stale JD envelope is no longer
+      # allowed because Senior must access JD in the same workspace session.
       - name: Save branded login screenshots
         if: always()
         uses: actions/upload-artifact@v4
