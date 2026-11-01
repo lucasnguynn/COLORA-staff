@@ -74,6 +74,24 @@ fs.writeFileSync(path.join(dist,'index.html'),portal);
 // before encryption, so no unencrypted JD script or role templates are deployed.
 // Important: JD source repo itself is currently public and must be made private
 // for real source confidentiality; this build cannot change its visibility.
+const jdDir=path.join(dist,'apps','jd');
+if(process.env.JD_BUILD_MODE==='preserve'){
+  // A secret rotation must not block unrelated Staff improvements. Reuse
+  // ONLY the already encrypted JD HTML and images from a successful deployment.
+  // Never attempt to decrypt this backup with a different password.
+  const prior=path.join(root,'.sources','last-published','site','apps','jd');
+  const document=path.join(prior,'index.html');
+  if(!fs.existsSync(document))fail('Missing previously encrypted JD document');
+  const html=fs.readFileSync(document,'utf8');
+  if(html.length<1500 || !html.includes('staticrypt-password') || !html.includes('Management Access') || html.includes('id="workspaceTitle"')){
+    fail('Previous JD page is not recognized as protected StatiCrypt output');
+  }
+  fs.cpSync(prior,jdDir,{recursive:true});
+  for(const unsafe of ['app.js','styles.css','luxury.css','refinements.css','print-polish.css']){
+    if(fs.existsSync(path.join(jdDir,unsafe)))fail('Unprotected JD source present in copied archive: '+unsafe);
+  }
+  console.log('Preserved the previously published, encrypted Senior JD page unchanged.');
+}else{
 const jdSource=process.env.JD_SOURCE_DIR || path.join(root,'.sources','jd');
 if(!fs.existsSync(path.join(jdSource,'index.html')))fail('Missing decrypted JD source. Run scripts/jd-source.mjs decrypt before build.');
 let jd=fs.readFileSync(path.join(jdSource,'index.html'),'utf8');
@@ -88,10 +106,10 @@ if(!jd.includes('<script src="app.js"></script>'))fail('Cannot inline JD JS');
 jd=jd.replace('<script src="app.js"></script>','<script>\n'+fs.readFileSync(path.join(jdSource,'app.js'),'utf8').replace(/<\/script/gi,'<\\/script')+'\n</script>');
 jd=jd.replace(/family=Bodoni\+Moda:[^"&]+&family=Open\+Sans:/,'family=Cormorant+Garamond:wght@400;500;600&family=Open+Sans:');
 jd=jd.replace('</head>','<style>h1,h2,h3,.serif,.brand-name{font-family:"Cormorant Garamond",Georgia,serif!important}</style>\n<meta name="robots" content="noindex,nofollow,noarchive">\n</head>');
-const jdDir=path.join(dist,'apps','jd');
 fs.mkdirSync(jdDir,{recursive:true});
 fs.writeFileSync(path.join(jdDir,'index.html'),jd);
 copyAssets(path.join(jdSource,'assets'),path.join(jdDir,'assets'));
+}
 
 for(const name of ['index.html','apps/jd/index.html']) if(!fs.existsSync(path.join(dist,name))) fail('Missing page '+name);
 for(const key of ['learning','client-care','qr']){
