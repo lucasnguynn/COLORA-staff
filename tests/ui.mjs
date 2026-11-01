@@ -224,7 +224,24 @@ try{
   assert.equal(await page.locator('.feature-card').count(),6,'Senior workspace should include JD card');
   assert.equal(await page.locator('body').getAttribute('data-staff-role'),'senior');
   await page.locator('.nav-btn[data-view="jd"]').click();
-  await page.frameLocator('#module-frame').locator('#workspaceTitle').waitFor({state:'visible',timeout:15000});
+  await page.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:15000});
+  await page.locator('#jd-workspace-controls').waitFor({state:'visible'});
+  const jdFrame=page.frameLocator('#module-frame');
+  assert.equal(await jdFrame.locator('.app-shell > .sidebar').isVisible(),false,'JD must not duplicate Staff sidebar');
+  assert.equal(await jdFrame.locator('.workspace > .topbar').isVisible(),false,'JD must not duplicate Staff topbar');
+  assert.equal(await jdFrame.locator('.workspace > .toolbar').isVisible(),false,'JD must not duplicate Staff mode switch');
+  assert.equal(await page.locator('#module-open').isVisible(),false,'No secondary JD website link');
+  const originalJDs=await page.locator('#jd-role-select option').count();
+  assert(originalJDs>0,'Native JD dropdown must show saved roles');
+  await page.locator('#jd-create').click();
+  await page.waitForFunction(n=>document.getElementById('jd-role-select')?.options.length===n+1,originalJDs,{timeout:8000});
+  await page.locator('[data-jd-mode="preview"]').click();
+  await page.waitForFunction(()=>document.getElementById('module-frame')?.contentDocument?.body.classList.contains('preview-only'));
+  assert.equal(await jdFrame.locator('#previewPanel').isVisible(),true,'Native preview must show JD print sheet');
+  await page.locator('[data-jd-mode="edit"]').click();
+  await jdFrame.locator('#editorPanel').waitFor({state:'visible'});
+  const jdHeights=await page.locator('#module-frame').evaluate(el=>({frame:el.getBoundingClientRect().height,scroll:el.contentDocument.documentElement.scrollHeight}));
+  assert(jdHeights.frame+50>=jdHeights.scroll,'JD must expand to one scrollable Staff page, no nested website viewport: '+JSON.stringify(jdHeights));
   // Regression: escaped backslash-n written into <head> is parsed as visible
   // text before the JD interface, producing an ugly seam in Senior Workspace.
   const jdEscapedText=await page.frameLocator('#module-frame').locator('body').evaluate(el=>
@@ -235,9 +252,7 @@ try{
   assert.equal(seniorShellEscapedText,false,'Senior shell must not contain a visible literal backslash-n');
   assert.equal(await page.frameLocator('#module-frame').locator('#staticrypt-password').count(),0,'Senior must not see a second JD password prompt');
   assert.equal(await page.locator('#module-open').isVisible(),false,'Senior JD should be integrated instead of opening another login');
-    await page.locator('#module-expand').click();
-  assert(await page.locator('body').evaluate(x=>x.classList.contains('module-immersive')));
-  await page.keyboard.press('Escape');
+  assert.equal(await page.locator('#module-expand').isVisible(),false,'Integrated JD has no nested fullscreen mode');
   await page.setViewportSize({width:390,height:844});
   await page.locator('#mobile-menu').click();
   await page.locator('.nav-btn[data-view="client-care"]').click();
