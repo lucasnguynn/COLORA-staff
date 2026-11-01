@@ -17,7 +17,8 @@ await new Promise(done=>server.listen(0,'127.0.0.1',done));
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 try{
   const page=await browser.newPage({viewport:{width:1440,height:900},acceptDownloads:true});
-  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  const errors=[];page.on('pageerror',e=>{errors.push(e.message);console.error('BROWSER PAGE ERROR',e.message)});
+  page.on('requestfailed',r=>console.error('FAILED RESOURCE',r.url(),r.failure()?.errorText));
   await page.goto('http://127.0.0.1:'+server.address().port+'/');
   await page.locator('#dashboard').waitFor();
   assert.equal(await page.locator('.feature-card').count(),7);
@@ -79,7 +80,7 @@ try{
         catch(error){
           const details=await page.locator('#module-frame').evaluate(e=>{
             let d=e.contentDocument;
-            return {src:e.getAttribute('src'),frameURL:e.contentWindow?.location?.href,title:d?.title,body:d?.body?.innerText?.slice(0,800),head:d?.head?.innerHTML?.slice(0,600),root:d?.documentElement?.outerHTML?.slice(0,400)};
+            return {src:e.getAttribute('src'),frameURL:e.contentWindow?.location?.href,title:d?.title,body:d?.body?.innerText?.slice(0,800),baseURI:d?.baseURI,scripts:[...(d?.scripts||[])].map(x=>x.src),nav:typeof e.contentWindow?.nav,boot:typeof e.contentWindow?.boot,head:d?.head?.innerHTML?.slice(0,600),root:d?.documentElement?.outerHTML?.slice(0,400)};
           }).catch(e=>({error:String(e)}));
           console.error('LEARNING MODULE DIAGNOSTIC:',JSON.stringify(details));
           throw error;
