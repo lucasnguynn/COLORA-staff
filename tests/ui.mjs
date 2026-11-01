@@ -224,7 +224,22 @@ try{
   assert.equal(await page.locator('.feature-card').count(),6,'Senior workspace should include JD card');
   assert.equal(await page.locator('body').getAttribute('data-staff-role'),'senior');
   await page.locator('.nav-btn[data-view="jd"]').click();
-  await page.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:15000});
+  await page.waitForTimeout(900);
+  console.log('JD INTEGRATION DIAGNOSTIC',JSON.stringify(await page.locator('#module-frame').evaluate(el=>({
+    parentBridge:!!window.COLORA_JD_WORKSPACE,
+    activeModule:document.getElementById('module')?.dataset.activeModule,
+    frameLoaded:el.dataset.jdLoaded,
+    frameStyle:el.style.cssText,
+    frameVisibility:getComputedStyle(el).visibility,
+    docReady:el.contentDocument?.readyState,
+    frameBody:!!el.contentDocument?.body,
+    jdEditor:!!el.contentDocument?.getElementById('editorPanel'),
+    jdRoles:el.contentDocument?.querySelectorAll('#roleList .role-item').length,
+    docEmbed:el.contentDocument?.documentElement?.dataset.coloraEmbed,
+    editorVisibility:el.contentDocument?.getElementById('editorPanel')?getComputedStyle(el.contentDocument.getElementById('editorPanel')).display:'',
+    cssLoaded:[...(el.contentDocument?.styleSheets||[])].some(x=>x.href?.includes('jd-integrated.css'))
+  }))));
+    await page.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:15000});
   await page.locator('#jd-workspace-controls').waitFor({state:'visible'});
   const jdFrame=page.frameLocator('#module-frame');
   assert.equal(await jdFrame.locator('.app-shell > .sidebar').isVisible(),false,'JD must not duplicate Staff sidebar');
