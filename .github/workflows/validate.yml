@@ -31,6 +31,20 @@ jobs:
           STAFF_PORTAL_PASSWORD: CI-STAFF-DEMO-DO-NOT-SHARE-2026
           SENIOR_JD_PASSWORD: CI-SENIOR-DEMO-DO-NOT-SHARE-2026
         run: node scripts/preflight.mjs
+      - name: Verify eight-character passwords are accepted
+        env:
+          STAFF_PORTAL_PASSWORD: "Test8!Aa"
+          SENIOR_JD_PASSWORD: "Test8!Bb"
+        run: node scripts/preflight.mjs
+      - name: Verify seven-character passwords are rejected
+        env:
+          STAFF_PORTAL_PASSWORD: "Test7!A"
+          SENIOR_JD_PASSWORD: "Test8!Bb"
+        run: |
+          if node scripts/preflight.mjs; then
+            echo "Preflight unexpectedly accepted a seven-character password"
+            exit 1
+          fi
       - name: Verify incomplete password setup fails safely
         env:
           STAFF_PORTAL_PASSWORD: ""
@@ -58,13 +72,13 @@ jobs:
           if-no-files-found: ignore
       - name: Encryption smoke test (demo passwords, NO deploy)
         env:
-          STAFF_PORTAL_PASSWORD: CI-STAFF-DEMO-DO-NOT-SHARE-2026
-          SENIOR_JD_PASSWORD: CI-SENIOR-DEMO-DO-NOT-SHARE-2026
+          STAFF_PORTAL_PASSWORD: "Test8!Aa"
+          SENIOR_JD_PASSWORD: "Test8!Bb"
         run: node scripts/encrypt.mjs && node scripts/verify.mjs
       - name: Verify branded Staff + Senior login on desktop/mobile
         env:
-          STAFF_PORTAL_PASSWORD: CI-STAFF-DEMO-DO-NOT-SHARE-2026
-          SENIOR_JD_PASSWORD: CI-SENIOR-DEMO-DO-NOT-SHARE-2026
+          STAFF_PORTAL_PASSWORD: "Test8!Aa"
+          SENIOR_JD_PASSWORD: "Test8!Bb"
           LOGIN_QA_SCREENSHOTS: '1'
         run: node tests/encrypted-login.mjs
       - name: Save branded login screenshots
