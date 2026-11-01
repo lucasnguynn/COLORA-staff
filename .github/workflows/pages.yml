@@ -98,7 +98,10 @@ jobs:
           case "$STATUS" in
             204) echo "Stale Pages deployment was cancelled." ;;
             404|409|422) echo "::warning::Stale deployment may already be cleared (HTTP $STATUS); attempting fresh deployment." ;;
-            *) echo "::error::Could not cancel stale Pages deployment (HTTP $STATUS). Check Pages write permission and GitHub status."; exit 1 ;;
+            *) echo "::error::Could not cancel stale Pages deployment (HTTP $STATUS)."
+               echo "Response from GitHub Pages API (no credentials):"
+               python3 -c 'import json,sys; s=open(sys.argv[1],encoding="utf-8").read(); j=json.loads(s); print(json.dumps({"message":j.get("message"),"errors":j.get("errors"),"documentation_url":j.get("documentation_url")},ensure_ascii=False))' "$RUNNER_TEMP/pages-cancel-response.txt" || true
+               exit 1 ;;
           esac
       - name: Deploy published-only artifact
         uses: actions/deploy-pages@v4
