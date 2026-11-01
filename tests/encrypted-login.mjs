@@ -36,18 +36,14 @@ async function unlock(page,password){
 try{
   const context=await browser.newContext({viewport:{width:1280,height:800}});
   const page=await context.newPage();
-  // Routing from the FIRST request disables Chromium's HTTP cache. With
-  // login-screen CSS preloads, attaching the route only after login is too late.
-  let interceptDecryptedStyles=false;
-  let releaseCSS;
-  let cssRequested;
-  const pendingCSS=new Promise(resolve=>{cssRequested=resolve});
-  const permitCSS=new Promise(resolve=>{releaseCSS=resolve});
-  await page.route('**/styles.css',async route=>{
-    if(!interceptDecryptedStyles)return route.continue();
-    cssRequested();
-    await permitCSS;
-    await route.continue();
+  // Simulate a genuinely cold stylesheet cache: suppress only the lock
+  // screen's PERFORMANCE preloads in this test, not the protected HTML.
+  // The production login keeps those preloads to minimize transition latency.
+  await page.route(base+'/',async route=>{
+    const response=await route.fetch();
+    const html=await response.text();
+    const cold=html.replace(/<link rel="preload" href="\\/(?:styles|brand-refinements)\\.css" as="style">/g,'');
+    await route.fulfill({response,body:cold});
   });
   await page.goto(base+'/',{waitUntil:'domcontentloaded'});
   await page.locator('#staticrypt_content').waitFor({state:'visible',timeout:15000});
@@ -83,7 +79,15 @@ try{
   // Reproduce the reported 1-second flash: decrypt the real, encrypted
   // production page while deliberately holding its main stylesheet.
   // Unstyled dashboard text must NEVER be visible during this interval.
-  interceptDecryptedStyles=true;
+  let releaseCSS;
+  let cssRequested;
+  const pendingCSS=new Promise(resolve=>{cssRequested=resolve});
+  const permitCSS=new Promise(resolve=>{releaseCSS=resolve});
+  await page.route('**/styles.css',async route=>{
+    cssRequested();
+    await permitCSS;
+    await route.continue();
+  });
   await page.locator('#staticrypt-password').fill(staff);
   await page.locator('#staticrypt-form input[type="submit"]').click({noWaitAfter:true});
   try{
