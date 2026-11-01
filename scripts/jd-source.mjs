@@ -18,7 +18,7 @@ import {spawnSync} from 'node:child_process';
 
 const [mode,src,dest]=process.argv.slice(2);
 const password=process.env.SENIOR_JD_PASSWORD||'';
-if(password.length<16)throw Error('SENIOR_JD_PASSWORD is absent or too short (no value printed).');
+if(Array.from(password).length<8)throw Error('SENIOR_JD_PASSWORD is absent or too short (no value printed).');
 if(!src||!dest||!['encrypt','decrypt'].includes(mode))throw Error('Usage: jd-source.mjs encrypt <tar.gz> <json> OR decrypt <json> <folder>');
 
 const derive=salt=>crypto.scryptSync(password,salt,32,{maxmem:64*1024*1024});
