@@ -62,8 +62,8 @@ try{
   assert(Math.abs((contactTops[1]-contactTops[0])-18)<1,'Email and phone must use one 18px line rhythm');
   assert(Math.abs((contactTops[2]-contactTops[1])-18)<1,'Phone and website must use the same 18px line rhythm');
   assert((await signatureRows.nth(1).innerText()).includes('Minh An'),'Employee name belongs at start of bordered details');
-  assert.equal(await signatureRows.nth(1).locator('td').evaluate(el=>getComputedStyle(el).borderLeftWidth),'3px','Gold line must start at employee name');
-  assert.equal(await signatureRows.nth(1).locator('td').evaluate(el=>getComputedStyle(el).borderLeftColor),'rgb(176, 138, 91)','Signature border must use COLORA gold');
+  assert.equal(await signatureRows.nth(1).locator('td').first().evaluate(el=>getComputedStyle(el).borderLeftWidth),'3px','Gold line must start at employee name');
+  assert.equal(await signatureRows.nth(1).locator('td').first().evaluate(el=>getComputedStyle(el).borderLeftColor),'rgb(176, 138, 91)','Signature border must use COLORA gold');
   const emailNode=signatureRows.nth(1).locator('a[href="mailto:example%40colora.vn"]');
   const phoneNode=signatureRows.nth(1).locator('a[href^="tel:"]');
   assert.equal(await emailNode.count(),1,'Email link is missing');
