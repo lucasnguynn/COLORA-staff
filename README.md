@@ -8,7 +8,7 @@ A simple integrated COLORA Staff Portal on GitHub Pages. All published HTML entr
 
 | Area | Route | Source | Gate |
 | --- | --- | --- | --- |
-| Dashboard, Email Signature, Website Generator | / | COLORA-staff | Staff password |
+| Dashboard, Resource Library, Email Signature, Website Generator | / | COLORA-staff | Staff password |
 | Client Care Academy | /apps/client-care/ | CSKH-COLORA | Staff password |
 | Learning Studio | /apps/learning/ | QnA-COLORA | Staff password |
 | QR Generator | /apps/qr/ | QR-V1 | Staff password |
@@ -60,6 +60,24 @@ Requires Node 22 and StatiCrypt 3.5.4.
 
 CI pull-request validation uses disposable demo passwords and NEVER deploys. Only deploy from main after real secrets are set.
 
+## V2: Website hoàn thiện trước khi kích hoạt tên miền
+
+- Dashboard và layout COLORA đồng nhất, responsive trên desktop/tablet/mobile.
+- Resource Library: 8 bài đọc về thương hiệu, triết lý, vật liệu, thiết kế, chăm sóc, khách hàng, media và sử dụng portal. Có tìm kiếm không dấu, lọc danh mục và liên kết trực tiếp đến từng bài.
+- Learning Studio, Client Care Academy, QR Generator và JD Library được lắp vào cùng điều hướng; có chế độ mở rộng iframe, mở tab riêng.
+- Email Signature: live preview, copy chữ ký HTML định dạng bảng tương thích email, download một file HTML độc lập.
+- Website Generator: ba theme HTML tĩnh (Editorial / Announcement / Minimal), xem trước trực tiếp trong iframe sandbox, download HTML hoặc copy code. Nội dung nhập được escape trước khi tạo markup.
+- Các công cụ không kết nối dữ liệu Haravan và không gửi thông tin nhập form về máy chủ.
+
+### Kiểm thử
+
+Workflow pull request chạy kiểm tra hai ứng dụng Academy, build bốn module, sau đó dùng Playwright/Chromium để kiểm thử UI trên desktop/mobile, các module trong iframe, công cụ, tìm kiếm thư viện và lỗi tràn màn hình. Ảnh QA được lưu trong Actions artifact có tên colora-staff-ui-qa. Tiếp theo, CI dùng password minh họa chỉ cho kiểm thử để mã hóa năm trang HTML, rồi kiểm tra không xuất bản HTML chưa mã hóa hoặc mã JD JavaScript/CSS tách rời.
+
+Không coi kiểm thử local là bằng chứng website thật đã online. Sau khi cấu hình GitHub Pages, mật khẩu và CNAME tại BKNS, vẫn cần kiểm tra HTTPS, direct URL và đăng nhập riêng JD trên domain cuối.
+
+### Cập nhật thư viện
+
+Chỉnh nội dung tại site/library.js. Tất cả nội dung trong repo này vẫn có thể được đọc trên GitHub public, kể cả khi bản HTML được mã hóa. KHÔNG được đưa thông tin mật, dữ liệu khách hàng, tài khoản, giá vốn, lương hoặc API key vào thư viện.
 ## Visual system
 
 Ivory #F4EDE1, Navy #002451, accent Gold #B08A5B. Heading Cormorant Garamond and body Open Sans. No Haravan API, Firebase, Netlify or Cloudflare is required. Keep BKNS DNS and Haravan website as they are, except the one new staff CNAME.
