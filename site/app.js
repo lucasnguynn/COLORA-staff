@@ -120,15 +120,16 @@
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw Error('Vui lòng nhập email công việc hợp lệ.');
     const emailHref='mailto:'+encodeURIComponent(email);
     const phoneHref='tel:'+encodeURIComponent(phone.replace(/[^+\d]/g,''));
-    const phoneCell=phone?'<span style="color:#53647a"> · </span><a style="color:#53647a;text-decoration:none" href="'+phoneHref+'">'+escapeHTML(phone)+'</a>':'';
+    const phoneCell=phone?'<div style="font-size:11px;margin-top:6px"><a style="color:#53647a;text-decoration:none" href="'+phoneHref+'">'+escapeHTML(phone)+'</a></div>':'';
     return [
-      '<table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;color:#002451;border-collapse:collapse;max-width:520px"><tr><td style="padding:5px 0 18px 20px">',
+      '<table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;color:#002451;border-collapse:collapse;max-width:520px"><tr><td style="padding:5px 0 18px 0">',
       '<div style="min-height:36px"><img src="https://staff.colora.vn/apps/qr/assets/colora-lettermark.png" alt="COLORA" width="148" style="display:block;border:0;width:148px;height:auto;max-width:100%"></div>',
       '<div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:2.1px;color:#B08A5B;margin-top:2px">COLOR YOUR AURA</div>',
       '</td></tr><tr><td style="border-left:3px solid #B08A5B;padding:2px 0 5px 17px">',
       '<div style="font-weight:bold;font-size:14px;margin:0">'+name+'</div>',
       '<div style="font-size:11px;color:#53647a;margin:4px 0 12px">'+role+'</div>',
-      '<div style="font-size:11px"><a style="color:#53647a;text-decoration:none" href="'+emailHref+'">'+escapeHTML(email)+'</a>'+phoneCell+'</div>',
+      '<div style="font-size:11px"><a style="color:#53647a;text-decoration:none" href="'+emailHref+'">'+escapeHTML(email)+'</a></div>',
+      phoneCell,
       '<div style="margin-top:9px;font-size:11px"><a href="https://colora.vn/" style="text-decoration:none;color:#002451">colora.vn</a></div>',
       '</td></tr></table>'
     ].join('');
