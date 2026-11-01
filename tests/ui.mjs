@@ -125,6 +125,8 @@ try{
         console.error('SCROLL DEBUG',JSON.stringify(deep));
       }
       assert(sizes.scroll<=sizes.frame+110,'Nested scroll detected ('+view+'): '+JSON.stringify(sizes));
+      fs.mkdirSync('test-results',{recursive:true});
+      await page.screenshot({path:'test-results/'+view+'-integrated-desktop.png',fullPage:false});
     }
   }
   await page.locator('#module-expand').click();
