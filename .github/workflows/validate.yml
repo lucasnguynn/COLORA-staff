@@ -39,6 +39,7 @@ jobs:
           node --check site/library.js
           node --check site/library-ui.js
           node --check tests/ui.mjs
+          node --check tests/encrypted-login.mjs
           node --check scripts/build.mjs
           node --check scripts/encrypt.mjs
           node --check scripts/preflight.mjs
@@ -77,3 +78,8 @@ jobs:
           STAFF_PORTAL_PASSWORD: CI-STAFF-DEMO-DO-NOT-SHARE-2026
           SENIOR_JD_PASSWORD: CI-SENIOR-DEMO-DO-NOT-SHARE-2026
         run: node scripts/encrypt.mjs && node scripts/verify.mjs
+      - name: Verify encrypted login using synthetic test passwords
+        env:
+          STAFF_PORTAL_PASSWORD: CI-STAFF-DEMO-DO-NOT-SHARE-2026
+          SENIOR_JD_PASSWORD: CI-SENIOR-DEMO-DO-NOT-SHARE-2026
+        run: node tests/encrypted-login.mjs

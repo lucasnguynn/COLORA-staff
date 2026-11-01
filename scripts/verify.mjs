@@ -8,6 +8,7 @@ for(const rel of pages){
   const html=fs.readFileSync(file,'utf8');
   if(!/staticrypt/i.test(html))throw Error('Missing StatiCrypt marker: '+rel);
   if(html.length<1500)throw Error('Encrypted output too small: '+rel);
+  if(!html.includes('location.replace("https:"+location.href.substring(location.protocol.length))'))throw Error('Missing forced HTTPS redirect in '+rel);
   const forbidden=[
     '<div class="shell">',
     'An environment to <em>grow</em> together',
