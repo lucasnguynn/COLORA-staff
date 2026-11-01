@@ -47,11 +47,13 @@
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./brand-refinements.css">
   <link rel="stylesheet" href="./mail-guide.css">
+  <link rel="stylesheet" href="./jd-integrated.css">
   <script src="./library.js" defer></script>
   <script src="./module-host.js" defer></script>
   <script src="./app.js" defer></script>
   <script src="./library-ui.js" defer></script>
   <script src="./mail-guide.js" defer></script>
+  <script src="./jd-workspace.js" defer></script>
 </head>
 <body style="visibility:hidden">
   <a class="skip-link" href="#main">Đến nội dung chính</a>
@@ -126,6 +128,34 @@
           <div class="workspace-controls" id="module-controls">
             <nav class="workspace-subnav" id="module-subnav" aria-label="Các mục trong phân hệ"></nav>
             <label class="workspace-track-label" id="module-track-label"><span>Lộ trình</span><select id="module-track" aria-label="Chọn lộ trình đào tạo" hidden></select></label>
+          </div>
+          <div id="jd-workspace-controls" class="jd-workspace-controls" aria-label="Công cụ JD Library" hidden>
+            <div class="jd-workspace-row">
+              <label class="jd-position-field" for="jd-role-select"><span>Vị trí đang làm việc</span>
+                <select id="jd-role-select" aria-label="Chọn vị trí JD"></select></label>
+              <button id="jd-create" class="jd-action jd-action-gold" type="button">+ Tạo JD mới</button>
+              <div class="jd-workspace-spacer"></div>
+              <button id="jd-pdf" class="jd-action jd-action-primary" type="button">Xuất PDF ↗</button>
+            </div>
+            <div class="jd-workspace-row">
+              <div class="jd-mode-group" role="group" aria-label="Chế độ JD">
+                <button type="button" data-jd-mode="edit" aria-pressed="true">Chỉnh sửa</button>
+                <button type="button" data-jd-mode="preview" aria-pressed="false">Xem bản JD</button>
+              </div>
+              <div class="jd-workspace-spacer"></div>
+              <details class="jd-workspace-more">
+                <summary>Quản lý JD <span aria-hidden="true">⌄</span></summary>
+                <div class="jd-more-menu">
+                  <button type="button" id="jd-duplicate">Nhân bản vị trí</button>
+                  <button type="button" id="jd-settings">Brand settings</button>
+                  <button type="button" id="jd-export">Xuất dữ liệu JSON</button>
+                  <button type="button" onclick="document.getElementById('jd-import').click()">Nhập dữ liệu JSON</button>
+                  <button type="button" class="jd-destructive" id="jd-delete">Xóa vị trí đang chọn</button>
+                </div>
+              </details>
+              <input id="jd-import" type="file" accept="application/json" hidden aria-label="Nhập JD JSON">
+            </div>
+            <p id="jd-workspace-status" aria-live="polite"></p>
           </div>
           <p id="module-hint" class="module-hint">Nội dung COLORA được tích hợp trong cùng một workspace.</p>
           <p id="module-status" class="module-status" role="status" aria-live="polite" hidden></p>
