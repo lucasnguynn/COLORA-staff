@@ -112,26 +112,34 @@
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMobile();document.body.classList.remove('module-immersive');$('module-expand').textContent='Mở rộng ⤢';$('module-expand').setAttribute('aria-pressed','false')}});
 
   let signatureHTML = '';
+  // Email clients handle table rows + inline pixel line-heights more consistently
+  // than div margins (especially Gmail and desktop Outlook).
   function formatSignature(values) {
     const name=escapeHTML(values.get('name')).trim();
     const role=escapeHTML(values.get('role')).trim();
     const email=String(values.get('email')||'').trim();
     const phone=String(values.get('phone')||'').trim();
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw Error('Vui lòng nhập email công việc hợp lệ.');
+    if (!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(email)) throw Error('Vui lòng nhập email công việc hợp lệ.');
     const emailHref='mailto:'+encodeURIComponent(email);
-    const phoneHref='tel:'+encodeURIComponent(phone.replace(/[^+\d]/g,''));
-    const phoneCell=phone?'<div style="font-size:11px;margin-top:6px"><a style="color:#53647a;text-decoration:none" href="'+phoneHref+'">'+escapeHTML(phone)+'</a></div>':'';
+    const phoneHref='tel:'+encodeURIComponent(phone.replace(/[^+\\d]/g,''));
+    const rowStyle='font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:18px;mso-line-height-rule:exactly;padding:0;vertical-align:top;';
+    const roleRow=role?'<tr><td style="'+rowStyle+'padding-bottom:4px;color:#53647a;">'+role+'</td></tr>':'';
+    const phoneRow=phone?'<tr><td style="'+rowStyle+'"><a href="'+phoneHref+'" style="color:#53647a;text-decoration:none;">'+escapeHTML(phone)+'</a></td></tr>':'';
     return [
-      '<table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;color:#002451;border-collapse:collapse;max-width:520px"><tr><td style="padding:5px 0 18px 0">',
-      '<div style="min-height:36px"><img src="https://staff.colora.vn/apps/qr/assets/colora-lettermark.png" alt="COLORA" width="148" style="display:block;border:0;width:148px;height:auto;max-width:100%"></div>',
-      '<div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:2.1px;color:#B08A5B;margin-top:2px">COLOR YOUR AURA</div>',
-      '</td></tr><tr><td style="border-left:3px solid #B08A5B;padding:2px 0 5px 17px">',
-      '<div style="font-weight:bold;font-size:14px;margin:0">'+name+'</div>',
-      '<div style="font-size:11px;color:#53647a;margin:4px 0 12px">'+role+'</div>',
-      '<div style="font-size:11px"><a style="color:#53647a;text-decoration:none" href="'+emailHref+'">'+escapeHTML(email)+'</a></div>',
-      phoneCell,
-      '<div style="margin-top:9px;font-size:11px"><a href="https://colora.vn/" style="text-decoration:none;color:#002451">colora.vn</a></div>',
-      '</td></tr></table>'
+      '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;color:#002451;border-collapse:collapse;max-width:520px;">',
+      '<tr><td style="padding:5px 0 18px 0;border:0;vertical-align:top;">',
+      '<img src="https://staff.colora.vn/apps/qr/assets/colora-lettermark.png" alt="COLORA" width="148" style="display:block;border:0;width:148px;height:auto;max-width:100%;">',
+      // The PNG wordmark contains a small transparent inset before its first C.
+      // Offset the tagline by the same inset so both visible Cs align.
+      '<div style="padding:1px 0 0 5px;margin:0;font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:600;line-height:13px;mso-line-height-rule:exactly;letter-spacing:1.6px;white-space:nowrap;color:#B08A5B;">COLOR YOUR AURA</div>',
+      '</td></tr><tr><td style="border-left:3px solid #B08A5B;padding:2px 0 5px 17px;vertical-align:top;">',
+      '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">',
+      '<tr><td style="font-size:14px;font-weight:bold;line-height:20px;mso-line-height-rule:exactly;padding:0 0 6px;color:#002451;">'+name+'</td></tr>',
+      roleRow,
+      '<tr><td style="'+rowStyle+'"><a href="'+emailHref+'" style="color:#53647a;text-decoration:none;">'+escapeHTML(email)+'</a></td></tr>',
+      phoneRow,
+      '<tr><td style="'+rowStyle+'"><a href="https://colora.vn/" style="color:#002451;text-decoration:none;">colora.vn</a></td></tr>',
+      '</table></td></tr></table>'
     ].join('');
   }
   function downloadText(text,filename,mime='text/html;charset=utf-8'){
@@ -185,7 +193,7 @@
         return;
       }
       requestAnimationFrame(()=>requestAnimationFrame(()=>{
-        document.body.dataset.staffReady='true';
+        // Clear the synchronous body guard only after CSS, fonts and route setup.\n        document.body.style.removeProperty('visibility');\n        document.body.dataset.staffReady='true';
         document.documentElement.dataset.coloraReady='true';
       }));
     }).catch(()=>{
