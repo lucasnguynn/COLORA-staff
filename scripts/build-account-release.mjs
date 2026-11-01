@@ -9,7 +9,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import {randomBytes,pbkdf2Sync,createCipheriv} from 'node:crypto';
+import {randomBytes,pbkdf2Sync,createCipheriv,timingSafeEqual} from 'node:crypto';
 const cwd=process.cwd(),dist=path.join(cwd,'dist');
 const output=path.join(cwd,'account-release'),pub=path.join(output,'public');
 const source=path.join(cwd,'account-auth');
@@ -51,6 +51,33 @@ for(const [role,bytes] of Object.entries(roleDocuments)){
  if(role==='staff'&&(html.includes('id="bundled-jd"')||html.includes('data-view="jd"')))throw Error('Staff document contains JD');
  if(role==='senior'&&!html.includes('id="bundled-jd"'))throw Error('Senior document lacks JD');
 }
+// Preserve already-random per-user KDF salts and opaque IDs across ordinary
+// deployments when the employee's email+password has NOT changed. This lets
+// an opted-in browser CryptoKey keep decrypting new AES-GCM ciphertext for
+// its 30-day remember window. Every deployment STILL uses a fresh 96-bit
+// AES-GCM IV; a changed password gets a new random salt and ID.
+// No employee emails, passwords or raw keys are retrieved from the website.
+let oldEntries=[];
+try{
+ let old;
+ if(process.env.COLORA_PREVIOUS_ACCOUNT_MANIFEST_PATH){
+   old=JSON.parse(fs.readFileSync(process.env.COLORA_PREVIOUS_ACCOUNT_MANIFEST_PATH,'utf8'));
+ }else if(process.env.COLORA_REUSE_DEPLOYED_ACCOUNTS==='true'){
+   const response=await fetch('https://staff.colora.vn/account-entries.json',{
+     cache:'no-store',signal:AbortSignal.timeout(7500)
+   });
+   if(response.ok)old=await response.json();
+ }
+ if(old?.version===1 && Array.isArray(old.entries) && old.entries.length===5){
+   const entries=old.entries.filter(e=>typeof e?.id==='string'&&/^[a-f0-9]{32}$/.test(e.id) &&
+     typeof e.salt==='string'&&Buffer.from(e.salt,'base64').length===16 &&
+     typeof e.verifier==='string'&&Buffer.from(e.verifier,'base64').length===16);
+   if(entries.length===5 && new Set(entries.map(e=>e.id)).size===5)oldEntries=entries;
+ }
+}catch{
+ // A transient Pages/network failure must not block deploying the portal.
+ // It can instead require remembered browsers to sign in after this release.
+}
 fs.rmSync(output,{recursive:true,force:true});
 fs.mkdirSync(path.join(pub,'account-files'),{recursive:true});
 function copyStatic(src,dst){
@@ -76,13 +103,24 @@ const manifest={version:1,entries:[]};
 for(const member of users){
  const email=member.email.toLowerCase().trim();
  const role=member.role;
- const salt=randomBytes(16),iv=randomBytes(12);
  const material=Buffer.from(JSON.stringify([email,member.password]),'utf8');
- const kdf=pbkdf2Sync(material,salt,600000,48,'sha256');
+ let salt, kdf, id;
+ for(const entry of oldEntries){
+   const candidateSalt=Buffer.from(entry.salt,'base64');
+   const candidate=pbkdf2Sync(material,candidateSalt,600000,48,'sha256');
+   if(timingSafeEqual(candidate.subarray(0,16),Buffer.from(entry.verifier,'base64'))){
+     salt=candidateSalt;kdf=candidate;id=entry.id;break;
+   }
+ }
+ if(!kdf){
+   salt=randomBytes(16);
+   kdf=pbkdf2Sync(material,salt,600000,48,'sha256');
+   id=randomBytes(16).toString('hex');
+ }
+ const iv=randomBytes(12);
  const verifier=kdf.subarray(0,16),key=kdf.subarray(16,48);
  const cipher=createCipheriv('aes-256-gcm',key,iv);
  const ciphertext=Buffer.concat([cipher.update(roleDocuments[role]),cipher.final(),cipher.getAuthTag()]);
- const id=randomBytes(16).toString('hex');
  manifest.entries.push({id,salt:salt.toString('base64'),verifier:verifier.toString('base64')});
  fs.writeFileSync(path.join(pub,'account-files',id+'.json'),
    JSON.stringify({iv:iv.toString('base64'),ciphertext:ciphertext.toString('base64')}));

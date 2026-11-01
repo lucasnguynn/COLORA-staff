@@ -21,6 +21,7 @@ jobs:
           node --check scripts/build-account-release.mjs
           node --check tests/account-release.mjs
           node --check tests/static-login.mjs
+          node --check tests/remember-deploy-stability.mjs
           node --check tests/account-secret-diagnostics.mjs
           node tests/account-secret-diagnostics.mjs
           node --check site/library.js
@@ -73,6 +74,13 @@ jobs:
           COLORA_ACCOUNT_CREDENTIALS_JSON: '[{"email":"ci-staff-one@colora.vn","password":"Ci000001","role":"staff"},{"email":"ci-staff-two@colora.vn","password":"Ci000002","role":"staff"},{"email":"ci-staff-three@colora.vn","password":"Ci000003","role":"staff"},{"email":"ci-senior-one@colora.vn","password":"Ci000004","role":"senior"},{"email":"ci-senior-two@colora.vn","password":"Ci000005","role":"senior"}]'
         run: |
           node scripts/build-account-release.mjs
+          node tests/account-release.mjs
+          # Simulate a second deployment with UNCHANGED credentials. Previous
+          # random salts/IDs must remain valid; new AES-GCM IVs must rotate.
+          cp account-release/public/account-entries.json /tmp/colora-prev-entries.json
+          cp -r account-release/public/account-files /tmp/colora-prev-envelopes
+          COLORA_PREVIOUS_ACCOUNT_MANIFEST_PATH=/tmp/colora-prev-entries.json node scripts/build-account-release.mjs
+          node tests/remember-deploy-stability.mjs /tmp/colora-prev-entries.json /tmp/colora-prev-envelopes
           node tests/account-release.mjs
       - name: Install browser for UI smoke tests
         run: npx playwright install chromium

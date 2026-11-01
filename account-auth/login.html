@@ -6,11 +6,11 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'self' about: blob:; base-uri 'self'; form-action 'self'; object-src 'none'">
 <meta name="theme-color" content="#F4EDE1">
 <title>Staff Access | COLORA</title>
-<link rel="stylesheet" href="/account-login.css?v=20261102-centered-brand">
+<link rel="stylesheet" href="/account-login.css?v=20261102-remember-v1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="/account-login.js?v=20261102-static1" defer></script>
+<script src="/account-login.js?v=20261102-remember-v1" defer></script>
 </head>
 <body>
 <main class="access-page" id="access-page">
@@ -27,6 +27,10 @@
       <input id="staff-email" type="email" inputmode="email" autocomplete="username" placeholder="name@colora.vn" required maxlength="254" spellcheck="false">
       <label for="staff-password">Mật khẩu Workspace</label>
       <input id="staff-password" type="password" autocomplete="current-password" minlength="8" required placeholder="Nhập mật khẩu cá nhân">
+      <label class="remember-choice" for="remember-device">
+        <input id="remember-device" type="checkbox" autocomplete="off">
+        <span>Ghi nhớ đăng nhập trên thiết bị này trong 30 ngày</span>
+      </label>
       <button type="submit" id="signin-submit" class="primary">Đăng nhập <span aria-hidden="true">↗</span></button>
       <p class="feedback" id="signin-feedback" role="status" aria-live="polite"></p>
     </form>
@@ -36,6 +40,7 @@
 </main>
 <div id="workspace" hidden>
  <iframe id="workspace-frame" title="COLORA Staff Workspace" referrerpolicy="no-referrer"></iframe>
+ <p id="workspace-notice" class="workspace-notice" role="status" aria-live="polite" hidden></p>
  <button type="button" id="workspace-signout" aria-label="Đăng xuất khỏi Staff Workspace">Đăng xuất ↗</button>
 </div>
 </body></html>
