@@ -13,6 +13,9 @@ const users=JSON.parse(process.env.COLORA_ACCOUNT_CREDENTIALS_JSON||'null');
 assert(Array.isArray(users)&&users.length===5,'Exactly 5 test credentials');
 assert.equal(records.version,1);assert.equal(records.entries.length,5);
 assert(html.includes('id="staff-email"')&&html.includes('id="staff-password"'));
+assert(html.includes("frame-src 'self' about: blob:"),'Account CSP must permit local module Blob frames');
+assert(!html.includes("frame-src *"),'Do not allow arbitrary frame hosts');
+
 assert(!html.includes('supabase')&&!script.includes('supabase'));
 assert(!html.includes('id="bundled-jd"'));
 assert(!fs.existsSync(path.join(pub,'senior-gateway.json')));
