@@ -24,6 +24,7 @@ jobs:
           node --check scripts/encrypt.mjs
           node --check scripts/preflight.mjs
           node --check scripts/jd-source.mjs
+          node --check scripts/recover-jd-source.mjs
           node --check scripts/verify.mjs
           (cd modules/learning && node scripts/validate.mjs)
           (cd modules/client-care && node tests/publication.cjs && node tests/ops.cjs && node tests/smoke.cjs)
@@ -97,6 +98,23 @@ jobs:
           node scripts/verify.mjs
           cmp dist/apps/jd/index.html "$RUNNER_TEMP/original-senior-encrypted.html"
           node tests/encrypted-login.mjs
+      - name: Verify PINNED public JD source can recover Senior login after key mismatch
+        env:
+          STAFF_PORTAL_PASSWORD: "Test8!Aa"
+          SENIOR_JD_PASSWORD: "Test8!Dd"
+          JD_SOURCE_DIR: .sources/jd
+          JD_BUILD_MODE: fresh
+        shell: bash
+        run: |
+          # The reviewed source commit is public; no production secret is
+          # available in pull-request CI. Use disposable passwords only.
+          node scripts/recover-jd-source.mjs .sources/jd
+          node scripts/build.mjs
+          node scripts/encrypt.mjs
+          node scripts/verify.mjs
+          node tests/encrypted-login.mjs
+          test ! -f dist/apps/jd/app.js
+          test -f .sources/jd/index.html
       - name: Save branded login screenshots
         if: always()
         uses: actions/upload-artifact@v4
