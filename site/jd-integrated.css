@@ -1,0 +1,81 @@
+/* JD integrated view — single COLORA Staff design language.
+   Only present inside the independently encrypted Senior workspace. */
+#jd-workspace-controls[hidden]{display:none!important}
+#jd-workspace-controls{margin:0 0 16px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:17px 0 15px;color:var(--navy);font-family:"Open Sans",Arial,sans-serif}
+.jd-workspace-row{display:flex;align-items:end;flex-wrap:wrap;gap:12px}
+.jd-workspace-row+.jd-workspace-row{margin-top:13px}
+.jd-position-field{display:grid;gap:7px;min-width:210px;flex:2 1 290px}
+.jd-position-field>span{font:700 10px/1.4 "Open Sans",Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8E744F}
+#jd-role-select{appearance:auto;width:100%;min-height:43px;border:1px solid #D8CDBE;border-radius:2px;background:#FFFDF9;color:#002451;font:600 12px "Open Sans",Arial,sans-serif;padding:9px 12px}
+.jd-action{border:1px solid #D8CDBE;background:#FFFDF9;min-height:43px;cursor:pointer;padding:10px 16px;font:600 11px "Open Sans",Arial,sans-serif;color:#002451;white-space:nowrap}
+.jd-action:hover{border-color:#B08A5B;background:#FFF7EB}
+.jd-action:focus-visible,#jd-role-select:focus-visible,.jd-workspace-controls summary:focus-visible{outline:2px solid #B08A5B;outline-offset:3px}
+.jd-action-primary{background:#002451;border-color:#002451;color:#FFF}
+.jd-action-primary:hover{background:#17385C;color:#FFF}
+.jd-action-gold{border-color:#B08A5B;color:#002451}
+.jd-mode-group{display:inline-flex;gap:3px;padding:3px;border:1px solid #D8CDBE;background:#F5F0E9;flex-wrap:nowrap}
+.jd-mode-group button{border:0;cursor:pointer;padding:9px 14px;background:transparent;color:#526379;min-height:36px;font:700 11px "Open Sans",Arial,sans-serif;white-space:nowrap}
+.jd-mode-group button[aria-pressed="true"]{background:#FFFDF9;color:#002451;box-shadow:0 2px 6px rgba(0,36,81,.07)}
+.jd-mode-group button:focus-visible{outline:2px solid #B08A5B;outline-offset:-2px}
+.jd-workspace-spacer{flex:1 1 auto}
+.jd-workspace-controls details{position:relative}
+.jd-workspace-controls summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;min-height:43px;border:1px solid #D8CDBE;background:#FFFDF9;padding:10px 15px;color:#002451}
+.jd-workspace-controls summary::-webkit-details-marker{display:none}
+.jd-more-menu{position:absolute;right:0;top:calc(100% + 4px);z-index:8;min-width:190px;padding:7px;background:#FFFCF8;border:1px solid #D8CDBE;box-shadow:0 14px 30px rgba(0,36,81,.12)}
+.jd-more-menu button{width:100%;text-align:left;border:0;background:transparent;color:#002451;padding:11px 10px;font:600 11px "Open Sans",Arial,sans-serif;cursor:pointer}
+.jd-more-menu button:hover{background:#F4EDE1}
+.jd-more-menu .jd-destructive{color:#9B463E}
+#jd-workspace-status{color:#738096;font:400 11px/1.7 "Open Sans",Arial,sans-serif;flex:1 1 100%;margin:0}
+#module[data-active-module="jd"] .module-heading{margin-bottom:20px}
+#module[data-active-module="jd"] .module-heading p{max-width:740px}
+#module[data-active-module="jd"] #module-frame{min-height:450px;background:transparent;visibility:hidden}
+#module[data-active-module="jd"] #module-frame[data-jd-loaded="true"]{visibility:visible}
+#module[data-active-module="jd"] #module-hint{display:none!important}
+@media(max-width:760px){
+  .jd-workspace-row{gap:9px}
+  .jd-position-field{flex-basis:100%;min-width:0}
+  .jd-workspace-spacer{display:none}
+  .jd-action{flex:1 1 auto;padding:10px 11px}
+  .jd-mode-group{width:100%;display:flex}
+  .jd-mode-group button{flex:1}
+  #jd-workspace-controls details{margin-left:auto}
+  .jd-more-menu{right:0}
+}
+@media(max-width:420px){.jd-action-primary{flex:1 1 100%}}
+
+/* Below this line, all selectors are scoped inside the separately encrypted
+   Senior JD document. The original JD application's event handlers and
+   browser-local autosave/export data stay fully intact. */
+@media screen {
+ html[data-colora-embed="jd"],html[data-colora-embed="jd"] body{background:transparent!important;min-height:0!important;height:auto!important;overflow:visible!important}
+ html[data-colora-embed="jd"] .app-shell{display:block!important;grid-template-columns:1fr!important;width:100%!important;min-height:0!important;height:auto!important;background:transparent!important}
+ html[data-colora-embed="jd"] .app-shell>.sidebar{display:none!important}
+ html[data-colora-embed="jd"] .app-shell>.workspace{display:block!important;min-height:0!important;width:100%!important;overflow:visible!important}
+ html[data-colora-embed="jd"] .workspace>.topbar,html[data-colora-embed="jd"] .workspace>.toolbar{display:none!important}
+ html[data-colora-embed="jd"] .editor-layout{display:block!important;grid-template-columns:1fr!important;min-height:0!important;overflow:visible!important}
+ html[data-colora-embed="jd"] .editor-panel{display:block!important;padding:0!important;max-height:none!important;height:auto!important;overflow:visible!important}
+ html[data-colora-embed="jd"] .preview-panel{display:none!important}
+ html[data-colora-embed="jd"] body.preview-only .editor-panel{display:none!important}
+ html[data-colora-embed="jd"] body.preview-only .preview-panel{display:block!important;max-height:none!important;height:auto!important;overflow:visible!important;padding:12px!important;border:1px solid #E1D8CD!important;background:#EFEAE1!important}
+ html[data-colora-embed="jd"] .form-card{background:#FFFCF8!important;box-shadow:none!important;border:1px solid #DED5CA!important;border-radius:3px!important;padding:19px!important;margin-bottom:14px!important;overflow:visible!important}
+ html[data-colora-embed="jd"] .form-card h3{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:clamp(24px,2.8vw,31px)!important;line-height:1.15!important;margin-bottom:15px!important}
+ html[data-colora-embed="jd"] .form-grid{gap:13px!important}
+ html[data-colora-embed="jd"] .field label{font-size:10px!important;line-height:1.5!important;letter-spacing:.08em!important;margin-bottom:6px!important}
+ html[data-colora-embed="jd"] .field input,html[data-colora-embed="jd"] .field textarea,html[data-colora-embed="jd"] .field select{font-size:12px!important;min-height:40px!important;padding:10px 11px!important;background:#FFF!important;border-radius:2px!important}
+ html[data-colora-embed="jd"] .field textarea{min-height:90px!important}
+ html[data-colora-embed="jd"] .modal-backdrop:not([hidden]){position:absolute!important;inset:0!important;min-height:560px!important;align-items:start!important;padding:18px 6px!important}
+ html[data-colora-embed="jd"] .modal-card{width:min(740px,100%)!important;max-height:78vh!important;border-radius:3px!important}
+ html[data-colora-embed="jd"] .print-sheet{max-width:100%!important}
+}
+@media(max-width:640px){
+ html[data-colora-embed="jd"] .form-grid{grid-template-columns:1fr!important}
+ html[data-colora-embed="jd"] .form-card{padding:14px!important}
+ html[data-colora-embed="jd"] body.preview-only .preview-panel{padding:4px!important}
+ html[data-colora-embed="jd"] .print-sheet{zoom:1!important}
+}
+@media print{
+ html[data-colora-embed="jd"] .editor-panel{display:none!important}
+ html[data-colora-embed="jd"] .preview-panel{display:block!important;max-height:none!important;overflow:visible!important;background:#FFF!important;border:0!important;padding:0!important}
+ html[data-colora-embed="jd"] .app-shell>.workspace,html[data-colora-embed="jd"] .editor-layout{display:block!important}
+ html[data-colora-embed="jd"] .print-sheet{width:210mm!important;max-width:none!important}
+}
