@@ -27,7 +27,7 @@ function copyModule(name,sourceName){
 
 fs.rmSync(dist,{recursive:true,force:true});
 fs.mkdirSync(dist,{recursive:true});
-for(const file of ['index.html','styles.css','brand-refinements.css','embedded-apps.css','module-host.js','library.js','library-ui.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
+for(const file of ['index.html','styles.css','brand-refinements.css','mail-guide.css','embedded-apps.css','module-host.js','library.js','library-ui.js','mail-guide.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
 
 copyModule('client-care','client-care');
 copyModule('learning','learning');
