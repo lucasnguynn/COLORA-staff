@@ -39,9 +39,9 @@ StatiCrypt encrypts HTML only. JS, CSS, JSON, and images in the normal CSKH/QnA/
 
 1. Review and merge the feature pull request into main.
 2. In repository **Settings > Secrets and variables > Actions**, create two secrets:
-   - STAFF_PORTAL_PASSWORD: distinct, random, at least 20 characters (the build enforces >=16).
-   - SENIOR_JD_PASSWORD: different, random, at least 20 characters (the build enforces >=16).
-   Do NOT put passwords in commits, logs or README.
+   - STAFF_PORTAL_PASSWORD: distinct, random, ideally 16–20+ characters (the build enforces >=8).
+   - SENIOR_JD_PASSWORD: different, random, ideally 16–20+ characters (the build enforces >=8).
+   A length of 8 characters is the technical minimum, not a security recommendation. Avoid names, simple words, and reused passwords; prefer long random passphrases. Do NOT put passwords in commits, logs or README.
 3. In **Settings > Pages**, change **Build and deployment > Source** to **GitHub Actions**. Do not publish the plaintext site/ branch directly.
 4. Go to **Actions > Deploy COLORA Staff Portal > Run workflow**; wait for build and security verification to pass. If secrets are missing, build fails safely without publishing.
 5. In **Settings > Pages > Custom domain** enter staff.colora.vn and save BEFORE changing DNS. Enable Enforce HTTPS when available.
