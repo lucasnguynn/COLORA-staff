@@ -31,7 +31,10 @@ function encryptFile(file, password, salt, isSenior){
     const outdir=path.join(temp,'encrypted');
     fs.mkdirSync(path.dirname(input),{recursive:true});
     fs.copyFileSync(file,input);
-    const args=['--no-install','staticrypt',input,'--directory',outdir,'--config','false','--salt',salt,
+    // StatiCrypt prompts interactively for short passwords by default.
+    // Our explicit >=8-character preflight is authoritative; --short prevents
+    // CI from silently skipping encryption when an 8-13 character secret is used.
+    const args=['--no-install','staticrypt',input,'--short','--directory',outdir,'--config','false','--salt',salt,
       '--template',path.join(root,'site','login-template.html'),
       '--template-title',isSenior?'Management Access':'Staff Workspace',
       '--template-instructions',isSenior?'Nhập mật khẩu quản lý.':'Nhập mật khẩu Staff.',
