@@ -27,12 +27,15 @@ function copyModule(name,sourceName){
 
 fs.rmSync(dist,{recursive:true,force:true});
 fs.mkdirSync(dist,{recursive:true});
-for(const file of ['index.html','styles.css','library.js','library-ui.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
+for(const file of ['index.html','styles.css','brand-refinements.css','library.js','library-ui.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
 
 copyModule('client-care','client-care');
 copyModule('learning','learning');
 copyAssets(path.join(app('learning'),'assets'),path.join(dist,'apps','learning','assets'));
 copyModule('qr','qr');
+ // Pin the original QR engine locally: no third-party JavaScript runs from a CDN.
+ const qrRuntime=path.join(root,'node_modules','qr-code-styling','lib','qr-code-styling.js');
+ copyRequired(qrRuntime,path.join(dist,'apps','qr','vendor','qr-code-styling.js'));
 copyAssets(path.join(app('qr'),'assets'),path.join(dist,'apps','qr','assets'));
 /**
  * Bundle the FULL HTML of all normal tools into the ONE encrypted staff page.

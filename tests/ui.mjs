@@ -21,6 +21,10 @@ try{
   await page.goto('http://127.0.0.1:'+server.address().port+'/');
   await page.locator('#dashboard').waitFor();
   assert.equal(await page.locator('.feature-card').count(),7);
+  const logo=page.locator('.brand-logo');
+  assert.equal(await logo.isVisible(),true,'Official COLORA logo should be visible');
+  assert.equal(await logo.evaluate(el=>el.complete&&el.naturalWidth>0),true,'Official COLORA logo must load correctly');
+  assert.equal(await page.locator('.sidebar').evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(0, 36, 81)','Sidebar must use COLORA deep navy');
   await page.locator('[data-view="library"].nav-btn').click();
   assert.equal(await page.locator('.library-card').count(),8);
   await page.locator('#library-search').fill('giac cat');
@@ -55,6 +59,11 @@ try{
     catch(error){
       console.error('MODULE DEBUG',view,await page.locator('#module-frame').evaluate(e=>({src:e.getAttribute('src'),srcdoc:e.hasAttribute('srcdoc'),href:e.contentWindow?.location?.href,body:e.contentDocument?.body?.innerText?.slice(0,250)})).catch(e=>String(e)));
       throw error;
+    }
+    if(view==='qr'){
+      await embedded.locator('#qrPreview canvas, #qrPreview svg').first().waitFor({state:'attached',timeout:16000});
+      assert.equal(await embedded.locator('script[src*="unpkg.com"]').count(),0,'QR engine must be self-hosted');
+      assert.equal(await embedded.locator('script[src*="vendor/qr-code-styling.js"]').count(),1,'Local QR library missing');
     }
     if(view!=='jd'){
       assert.equal(await embedded.locator('#staticrypt-password').count(),0,'A duplicate login should not appear inside '+view);

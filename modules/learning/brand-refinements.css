@@ -1,0 +1,11 @@
+/* Harmonize COLORA Learning Studio with COLORA Staff Brand DNA. */
+:root{--ivory:#F4EDE1;--navy:#002451;--ink:#123052;--gold:#B08A5B;--white:#FFFCF8;--pale:#FBF8F2;--heading:"Cormorant Garamond",Georgia,serif;--body:"Open Sans",Arial,sans-serif}
+body,button,input,select,textarea{font-family:var(--body)}
+h1,h2,h3{font-family:var(--heading)}
+@media(max-width:640px){body{font-size:14px;line-height:1.7}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* The official COLORA lettermark lives in the integrated QR assets. */
+.side-logo{height:52px;min-height:52px;max-width:188px;margin:0 auto;width:100%;font-size:0!important;letter-spacing:0!important;overflow:hidden;background:url("/apps/qr/assets/colora-lettermark.png") no-repeat center / contain;filter:brightness(0) invert(1)}
+.mobile-header .wordmark{display:block;width:145px;min-height:34px;font-size:0!important;letter-spacing:0!important;background:url("/apps/qr/assets/colora-lettermark.png") no-repeat left center / contain;filter:brightness(0) invert(1)}
+.boot .wordmark{width:190px;height:70px;margin:0 auto;font-size:0!important;letter-spacing:0!important;background:url("/apps/qr/assets/colora-lettermark.png") no-repeat center / contain}
