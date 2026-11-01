@@ -70,15 +70,18 @@ jobs:
         run: node scripts/build.mjs
       - name: Build and verify five encrypted accounts with disposable CI identities (not real employees)
         env:
-          COLORA_ACCOUNT_CREDENTIALS_JSON: '[{"email":"ci-staff-one@colora.vn","password":"CI-INDIVIDUAL-STAFF-ONE-PASSWORD-2026-X1","role":"staff"},{"email":"ci-staff-two@colora.vn","password":"CI-INDIVIDUAL-STAFF-TWO-PASSWORD-2026-X2","role":"staff"},{"email":"ci-staff-three@colora.vn","password":"CI-INDIVIDUAL-STAFF-THREE-PASSWORD-2026-X3","role":"staff"},{"email":"ci-senior-one@colora.vn","password":"CI-INDIVIDUAL-SENIOR-ONE-PASSWORD-2026-Y1","role":"senior"},{"email":"ci-senior-two@colora.vn","password":"CI-INDIVIDUAL-SENIOR-TWO-PASSWORD-2026-Y2","role":"senior"}]'
+          COLORA_ACCOUNT_CREDENTIALS_JSON: '[{"email":"ci-staff-one@colora.vn","password":"Ci000001","role":"staff"},{"email":"ci-staff-two@colora.vn","password":"Ci000002","role":"staff"},{"email":"ci-staff-three@colora.vn","password":"Ci000003","role":"staff"},{"email":"ci-senior-one@colora.vn","password":"Ci000004","role":"senior"},{"email":"ci-senior-two@colora.vn","password":"Ci000005","role":"senior"}]'
         run: |
           node scripts/build-account-release.mjs
           node tests/account-release.mjs
       - name: Install browser for UI smoke tests
         run: npx playwright install chromium
+      # The five disposable credentials above are intentionally EXACTLY eight
+      # characters long. Both encryption and browser login must work at the
+      # configured minimum, with seven-character rejection tested separately.
       - name: End-to-end static login with disposable Staff and Senior accounts
         env:
-          COLORA_ACCOUNT_CREDENTIALS_JSON: '[{"email":"ci-staff-one@colora.vn","password":"CI-INDIVIDUAL-STAFF-ONE-PASSWORD-2026-X1","role":"staff"},{"email":"ci-staff-two@colora.vn","password":"CI-INDIVIDUAL-STAFF-TWO-PASSWORD-2026-X2","role":"staff"},{"email":"ci-staff-three@colora.vn","password":"CI-INDIVIDUAL-STAFF-THREE-PASSWORD-2026-X3","role":"staff"},{"email":"ci-senior-one@colora.vn","password":"CI-INDIVIDUAL-SENIOR-ONE-PASSWORD-2026-Y1","role":"senior"},{"email":"ci-senior-two@colora.vn","password":"CI-INDIVIDUAL-SENIOR-TWO-PASSWORD-2026-Y2","role":"senior"}]'
+          COLORA_ACCOUNT_CREDENTIALS_JSON: '[{"email":"ci-staff-one@colora.vn","password":"Ci000001","role":"staff"},{"email":"ci-staff-two@colora.vn","password":"Ci000002","role":"staff"},{"email":"ci-staff-three@colora.vn","password":"Ci000003","role":"staff"},{"email":"ci-senior-one@colora.vn","password":"Ci000004","role":"senior"},{"email":"ci-senior-two@colora.vn","password":"Ci000005","role":"senior"}]'
         run: |
           node tests/static-login.mjs
           rm -rf account-release
