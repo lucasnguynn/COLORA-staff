@@ -12,7 +12,8 @@
     const search = normalize($('library-search').value.trim());
     const visible = resources.filter(r => {
       const matchesCategory=activeCategory === 'Tất cả' || r.category===activeCategory;
-      const matchesSearch=!search||normalize([r.title,r.summary,r.category,...(r.tags||[])].join(' ')).includes(search);
+      const text=[r.title,r.summary,r.category,...(r.tags||[]),...(r.sections||[]).flatMap(x=>[x.title,...(x.body||[]),...(x.points||[])])].join(' ');
+      const matchesSearch=!search||normalize(text).includes(search);
       return matchesCategory&&matchesSearch;
     });
     filterButtons.innerHTML=categories.map(c=>'<button type="button" class="filter-btn'+(c===activeCategory?' active':'')+'" data-filter="'+escape(c)+'" aria-pressed="'+String(c===activeCategory)+'">'+escape(c)+'</button>').join('');
