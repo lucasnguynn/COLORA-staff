@@ -32,7 +32,13 @@ window.COLORA_MODULE_HOST=(()=>{
   }
   function mount(view,frame,markup,nav,track,status){
     cleanup();
-    const url=URL.createObjectURL(new Blob([markup],{type:'text/html;charset=utf-8'}));
+    // Blob documents cannot resolve relative <base href="/apps/.../"> URLs.
+    // Rewrite the build-time base to this *same* Staff origin before mounting
+    // so JS, CSS, images and the QnA JSON fetches all resolve correctly.
+    const baseURL=new URL('/apps/'+view+'/',window.location.origin).href;
+    const docMarkup=markup.replace(/<base href="\/apps\/[a-z-]+\/">/i,'<base href="'+baseURL+'">');
+    if(docMarkup===markup)throw Error('Missing expected internal app base: '+view);
+    const url=URL.createObjectURL(new Blob([docMarkup],{type:'text/html;charset=utf-8'}));
     const data={view,frame,url,closed:false,listener:null,resizeObserver:null,mutationObserver:null};
     current=data;
     nav.replaceChildren();
