@@ -42,7 +42,7 @@ try{
   await page.route(base+'/',async route=>{
     const response=await route.fetch();
     const html=await response.text();
-    const cold=html.replace(/<link rel="preload" href="\\/(?:styles|brand-refinements)\\.css" as="style">/g,'');
+    const cold=html.replaceAll('<link rel="preload" href="/styles.css" as="style">','').replaceAll('<link rel="preload" href="/brand-refinements.css" as="style">','');
     await route.fulfill({response,body:cold});
   });
   await page.goto(base+'/',{waitUntil:'domcontentloaded'});
