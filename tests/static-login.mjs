@@ -84,7 +84,20 @@ try{
         await app.locator('#qrPreview canvas, #qrPreview svg').first().waitFor({state:'attached',timeout:20000});
         // A technically rendered QR is not enough: the default brand symbol
         // must be visible in the preview and included by the SVG renderer.
-        await app.locator('#qrPreview svg image').first().waitFor({state:'attached',timeout:20000});
+        try {
+          await app.locator('#qrPreview svg image').first().waitFor({state:'attached',timeout:16000});
+        } catch (error) {
+          // No customer data here: inspect only QR rendering structure/assets.
+          const diag=await app.locator('#qrPreview').evaluate(el=>({
+            qrTags:[...el.children].map(n=>n.tagName), imageCount:el.querySelectorAll('image').length,
+            thumbnail:document.querySelector('#logoThumb')?.getAttribute('src')?.slice(0,55),
+            thumbWidth:document.querySelector('#logoThumb')?.naturalWidth,
+            logoStatus:document.querySelector('#logoName')?.textContent,
+            urlError:document.querySelector('#urlError')?.textContent
+          })).catch(()=>({error:'QR preview inaccessible'}));
+          console.error('QR SIGNATURE DIAGNOSTIC',role,JSON.stringify(diag));
+          throw error;
+        }
         const logo=await app.locator('#logoThumb').getAttribute('src');
         assert(logo?.startsWith('data:image/png;base64,'),'Default COLORA badge must be normalized into a square PNG');
         const badgeSize=await app.locator('#logoThumb').evaluate(async el=>{
