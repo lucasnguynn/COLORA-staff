@@ -1,3 +1,12 @@
+## Brand alignment and P0 security hardening — November 2026
+
+- Typography: Cormorant Garamond for display, Open Sans for body and UI. Colors: Navy #002451, Ivory #F4EDE1, muted Gold #B08A5B.
+- All logo treatments use the actual COLORA lettermark and symbol image files under modules/qr/assets. No reconstructed wordmarks or AI-generated brand logos.
+- QR code generator JS library is a pinned npm build dependency copied to same-origin apps/qr/vendor/ rather than loaded as executable JS from a third-party CDN. CI validates it renders a QR.
+- Public training data and answers remain directly downloadable from GitHub Pages; static encryption of the entry HTML is not server-side authorization. Never include confidential HR, customers or proprietary assessments in this architecture.
+- Sandboxing a same-origin iframe with both allow-scripts and allow-same-origin is not secure isolation; denying same-origin breaks QnA data fetch and local storage. Do not claim iframe isolation until an alternate origin and data delivery are explicitly designed.
+- Some Learning Studio questions are simulations or pending SKU/QC approval. Training results are not an official staff accreditation; filter approved content and move exam keys server-side before formal grading.
+
 # COLORA Staff Workspace
 
 **COLORA - COLOR YOUR AURA**
