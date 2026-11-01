@@ -92,6 +92,15 @@ try{
           return [el.naturalWidth,el.naturalHeight];
         });
         assert.deepEqual(badgeSize,[512,512],'Default logo badge must preserve square proportions');
+        if(role==='staff'){
+          for(const [button,extension] of [['#downloadPng','png'],['#downloadSvg','svg']]){
+            const downloaded=page.waitForEvent('download',{timeout:20000});
+            await app.locator(button).click();
+            const result=await downloaded;
+            assert(result.suggestedFilename().endsWith('.'+extension),'QR export extension mismatch: '+extension);
+            await result.delete().catch(()=>{});
+          }
+        }
         assert.equal(await app.locator('script[src*="unpkg.com"]').count(),0,'QR must use local vendor library');
       }
     }catch(error){
