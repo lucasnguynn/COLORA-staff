@@ -219,10 +219,16 @@ try{
 
   // The Senior shell is a second plaintext staging artifact only in local
   // CI; production distributes it as a separate encrypted gateway payload.
-  await page.goto('http://127.0.0.1:'+server.address().port+'/senior/index.html');
+  // Cold deep-link should initialize the JD integration before routing.
+  await page.goto('http://127.0.0.1:'+server.address().port+'/senior/index.html#jd');
   await page.locator('#dashboard').waitFor({state:'visible'});
   assert.equal(await page.locator('.feature-card').count(),6,'Senior workspace should include JD card');
   assert.equal(await page.locator('body').getAttribute('data-staff-role'),'senior');
+  await page.locator('#jd-workspace-controls').waitFor({state:'visible',timeout:15000});
+  await page.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:15000});
+  assert.equal(await page.locator('#module-frame').getAttribute('data-jd-loaded'),'true','Direct #jd must initialize bridge before app route');
+  await page.locator('.nav-btn[data-view="home"]').click();
+  await page.locator('#dashboard').waitFor({state:'visible'});
   await page.locator('.nav-btn[data-view="jd"]').click();
   await page.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:15000});
   await page.locator('#jd-workspace-controls').waitFor({state:'visible'});
