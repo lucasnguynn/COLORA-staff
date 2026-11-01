@@ -40,6 +40,10 @@ jobs:
       - name: Encrypt five independent email-password envelopes
         env:
           COLORA_ACCOUNT_CREDENTIALS_JSON: ${{ secrets.COLORA_ACCOUNT_CREDENTIALS_JSON }}
+          # Only the five public opaque salt/verifier/ID records are fetched.
+          # Reuse each record only when the owner-supplied email+password still
+          # matches; new ciphertext always gets a fresh random AES-GCM IV.
+          COLORA_REUSE_DEPLOYED_ACCOUNTS: 'true'
         run: node scripts/build-account-release.mjs
       - name: Assert correct role decryption and no private plaintext exposure
         env:
