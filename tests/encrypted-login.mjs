@@ -67,9 +67,44 @@ try{
     await page.screenshot({path:'test-results/login-staff-mobile.png',fullPage:true});
     await page.setViewportSize({width:1280,height:800});
   }
-  await unlock(page,staff);
-  await page.locator('#dashboard h1').waitFor({state:'visible',timeout:15000});
-  await page.locator('body[data-staff-ready="true"]').waitFor({state:'attached',timeout:15000});
+  // Reproduce the reported 1-second flash: decrypt the real, encrypted
+  // production page while deliberately holding its main stylesheet.
+  // Unstyled dashboard text must NEVER be visible during this interval.
+  let releaseCSS;
+  let cssRequested;
+  const pendingCSS=new Promise(resolve=>{cssRequested=resolve});
+  const permitCSS=new Promise(resolve=>{releaseCSS=resolve});
+  await page.route('**/styles.css',async route=>{
+    cssRequested();
+    await permitCSS;
+    await route.continue();
+  });
+  await page.locator('#staticrypt-password').fill(staff);
+  await page.locator('#staticrypt-form input[type="submit"]').click({noWaitAfter:true});
+  try{
+    await Promise.race([
+      pendingCSS,
+      new Promise((_,reject)=>setTimeout(()=>reject(Error('Encrypted Staff never requested main stylesheet')),12000))
+    ]);
+    await page.waitForFunction(()=>!!document.getElementById('dashboard'),null,{timeout:12000});
+    const early=await page.evaluate(()=>({
+      cssGuard:!!document.getElementById('colora-first-paint'),
+      bodyVisibility:getComputedStyle(document.body).visibility,
+      headerContent:getComputedStyle(document.documentElement,'::before').content,
+      ready:document.documentElement.dataset.coloraReady||'false'
+    }));
+    assert.equal(early.cssGuard,true,'Missing inline anti-FOUC guard in decrypted HTML');
+    assert.equal(early.bodyVisibility,'hidden','Raw Staff text must stay hidden when stylesheet is slow');
+    assert(early.headerContent.includes('COLORA'),'Waiting state should retain COLORA branding');
+    assert.notEqual(early.ready,'true','Staff must not be declared ready before CSS arrives');
+  }finally{
+    releaseCSS();
+  }
+  await page.unroute('**/styles.css');
+  await page.locator('#dashboard h1').waitFor({state:'visible',timeout:20000});
+  await page.locator('body[data-staff-ready="true"]').waitFor({state:'attached',timeout:20000});
+  assert.equal(await page.locator('html').getAttribute('data-colora-ready'),'true','Decrypted page should reveal only after stylesheet/font readiness');
+  assert.equal(await page.locator('body').evaluate(el=>getComputedStyle(el).visibility),'visible','Staff UI must become visible after CSS is ready');
   assert((await page.locator('#dashboard').innerText()).includes('learn'),'Dashboard did not decrypt');
 
   // ONE staff login: navigate three copied apps inside the encrypted
