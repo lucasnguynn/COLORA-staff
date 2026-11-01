@@ -1,49 +1,43 @@
-# COLORA Staff — 5 individual email/password credentials, without Supabase
+# COLORA Staff — Individual email/password access (no Supabase)
 
-**STAGED ONLY.** No third-party identity service, backend database, DNS change, or subscription is required for this option. The production website continues using the existing Staff/Senior StatiCrypt passwords until the owner **explicitly** activates it. This implements **static encrypted access**, not a server-authenticated user identity system.
+**Passwords: minimum 8 characters; different for every employee.** This is a static encrypted gateway, not server-verified identity or ownership of an email inbox.
 
-## Who can access which content?
+## Staff roles
 
-The owner-approved roster consists of **3 Staff and 2 Senior**. Their actual company addresses were supplied privately, so do **not** commit them in this public repository.
+The owner-approved roster contains **3 Staff and 2 Senior**. Keep the real employee email list and their passwords in the protected GitHub environment secret; never commit the roster to this public repository.
 
-Each employee is given ONE **independent, unique, randomly generated Workspace password**; it must not be their BKNS mailbox password. Only the correct email + that password decrypts that employee's encrypted content. Staff envelopes exclude the JD Library source entirely; Senior envelopes include JD. Changing a page URL, role value, or CSS does not make encrypted JD readable with a Staff password.
+Each approved email/password pair decrypts its own HTML envelope. Staff envelopes contain only the ordinary Staff Workspace, while Senior envelopes also contain JD Library. Each employee must use a **different** password. Passwords are independent of their BKNS mailbox passwords.
 
-## How this works (the security boundary)
+## Security limitations
 
-GitHub Pages serves an elegant email/password login and a list of five randomly named envelopes with unique salts. A browser derives an AES-256-GCM key from **email + password** using PBKDF2-HMAC-SHA256 (600,000 iterations) and tests the five 16-byte verifiers. Only one matching, authenticated ciphertext is fetched/decrypted in memory; nothing is stored in browser localStorage, URLs, Git files, or cookies. The public manifests contain no employee email addresses or plaintext passwords.
+GitHub Pages serves encrypted files publicly, so attackers can download encrypted content and attempt password guesses **offline**, without hitting the login form. Eight-character passwords are accepted, but a weak, predictable eight-character password offers much less protection than a long, randomly generated one. **For Senior, prefer 16–20+ truly random characters even though eight is accepted.**
 
-**This is not server authentication.** Because all encrypted files are publicly downloadable, someone can attempt password guesses offline, independently of the login page. Rate limiting, two-factor authentication, email ownership checks, self-service password recovery, per-employee access logs, and immediate revocation of content already downloaded are **not possible on a static site alone**. Use long **random passwords of 20+ characters** generated in a password manager and distribute them individually over a trusted channel. This solution is for a small internal **low-sensitivity** team portal, not confidential personnel/customer/finance data.
+This system cannot verify mailbox ownership, provide MFA, rate-limit offline attacks, log individual access, recover passwords automatically, or immediately revoke previously downloaded encrypted content. Do not use it for confidential HR, customer or finance information. Previously published public JD code/assets are not retroactively protected by this gateway.
 
-## One-time activation
+## Activation
 
-1. In a password manager, generate **five unique, random passwords, 20–32+ characters each**. Collect the five approved email addresses and their exact roles (3 Staff / 2 Senior) in a private JSON array of objects with fields `email», `password», `role». Example schema using **fictional test data only**:
+1. Prepare an array of exactly **five objects** in the JSON structure below. Keep their real values private. The minimum allowed password length is **8 characters**; the maximum is **512 characters**. Passwords must be unique across all five employees.
 
    ```json
    [
-     {"email":"example.employee@colora.vn","password":"REPLACE-WITH-STRONG-RANDOM-PASSWORD","role":"staff"}
+     {"email":"example.employee@colora.vn","password":"REPLACE_WITH_AN_UNIQUE_PASSWORD","role":"staff"}
    ]
    ```
 
-   **Do not paste actual emails or passwords in GitHub issues, pull requests, chat, tracked files or Actions logs.**
+   This is just one illustrative object. Your actual secret must contain five entries with **3** `staff` and **2** `senior` roles. No real passwords, account emails or JSON credentials should be pasted into GitHub source, an issue, Actions logs, or chat.
 
-2. In GitHub → `lucasnguynn/COLORA-staff» → **Settings → Environments → github-pages → Environment secrets**, create `COLORA_ACCOUNT_CREDENTIALS_JSON» and store the complete private five-object JSON as the value. The script enforces five unique addresses, five different passwords at least 20 characters, exactly 3 staff / 2 senior, and addresses under `@colora.vn». Keep the existing `SENIOR_JD_PASSWORD» temporarily: it decrypts the historical JD archive **inside the trusted GitHub Actions runner**, not for employee login. Do not copy that shared password into the user array.
+2. Open GitHub repository **Settings → Environments → github-pages → Environment secrets**. Create or update **`COLORA_ACCOUNT_CREDENTIALS_JSON`** with the complete five-person JSON. Retain `SENIOR_JD_PASSWORD` for the existing encrypted JD archive build.
 
-3. Set a GitHub **repository variable** (not secret): `STAFF_AUTH_MODE=static-accounts» under **Settings → Secrets and variables → Actions → Variables**. Do this only after the five credentials are configured. Until then, leave it unset and the current production login stays in place.
+3. Open **Settings → Secrets and variables → Actions → Variables**, set repository variable `STAFF_AUTH_MODE` to `static-accounts`. The old Staff workflow skips itself when this mode is active.
 
-4. Open **Actions → Deploy COLORA individual encrypted accounts (opt-in)** and choose **Run workflow** on `main». This builds separate Staff and Senior plaintext only on the temporary runner, encrypts them into five random files, tests wrong emails/passwords and Staff/JD isolation in Chrome, destroys the plaintext staging files and publishes **only the new login and encrypted user blobs** to GitHub Pages. The legacy Pages workflow is skipped while this mode is selected.
+4. Open **Actions → Deploy COLORA individual encrypted accounts (opt-in) → Run workflow** (branch `main`). The job builds five independent AES-256-GCM encrypted role envelopes, tests correct/wrong credentials and Senior-only JD access in Chrome, then publishes only the login and encrypted content on GitHub Pages.
 
-5. Privately provide each employee their own randomly generated Workspace password. Test login for all 5 in private browser sessions, test switching roles and signout, and test a fake email or wrong password. Do not enable auto-save of passwords on shared devices.
+5. After the workflow reports **Success**, open https://staff.colora.vn/ in a private browser and test all five accounts, logout and Senior JD Library. If it fails, read the workflow error. For invalid passwords, the build reports **Account #1–#5** with a reason but never prints the email or password.
 
-## Password changes and departure
+## Replacing a password or revoking an employee
 
-There is **no self-service password reset**: the administrator generates a replacement password, edits that user's entry inside the protected `COLORA_ACCOUNT_CREDENTIALS_JSON» GitHub environment secret, and reruns the opt-in deployment. To remove an employee, use a *new* replacement private roster (still exactly five for this initial implementation) or migrate to a server-backed access-control service when headcount changes. Changing a record only prevents access to the **newly published ciphertext**. A former employee who saved old encrypted files and knows the old password can still decrypt those saved copies; browser-local JD drafts/exports and other downloaded content cannot be remotely removed.
+To change any password, replace only that member's `password` in `COLORA_ACCOUNT_CREDENTIALS_JSON`, update the whole GitHub Secret, and rerun the encrypted account workflow. The current build requires **exactly five** members; changing headcount requires a code update. Rebuilt ciphertext blocks decryption of the *newly deployed* site with old credentials, but previously downloaded encrypted documents cannot be remotely erased.
 
-## Rollback without losing the existing portal
+## Rollback
 
-Set `STAFF_AUTH_MODE=legacy» or remove that repository variable, then manually run **Deploy COLORA Staff Portal** (`.github/workflows/pages.yml»). The existing legacy Staff and Senior secrets remain configured until migration is independently validated. Keep this recovery route ready.
-
-## Important source visibility reminder
-
-The original repositories and previous public commits (including the original JD repository) may still contain publicly accessible job-description templates and assets. Changing the new login cannot unpublish past commits or enforce user authentication on separate old sites. Normal training resource JS/JSON and media are still public; only the Staff/Senior HTML document is password-encrypted in this design.
-
-This implementation intentionally needs no Supabase, Firebase, Google Sheets, Apps Script, Cloudflare or other identity provider.
+Set repository variable `STAFF_AUTH_MODE` to `legacy` or remove it, then manually run **Actions → Deploy COLORA Staff Portal** (`.github/workflows/pages.yml`). Keep the legacy Staff and Senior Secrets until you've verified the new gateway is usable. This does not change DNS, Haravan or company email settings.
