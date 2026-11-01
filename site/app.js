@@ -119,9 +119,9 @@
     const role=escapeHTML(values.get('role')).trim();
     const email=String(values.get('email')||'').trim();
     const phone=String(values.get('phone')||'').trim();
-    if (!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(email)) throw Error('Vui lòng nhập email công việc hợp lệ.');
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw Error('Vui lòng nhập email công việc hợp lệ.');
     const emailHref='mailto:'+encodeURIComponent(email);
-    const phoneHref='tel:'+encodeURIComponent(phone.replace(/[^+\\d]/g,''));
+    const phoneHref='tel:'+encodeURIComponent(phone.replace(/[^+\d]/g,''));
     const rowStyle='font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:18px;mso-line-height-rule:exactly;padding:0;vertical-align:top;';
     const roleRow=role?'<tr><td style="'+rowStyle+'padding-bottom:4px;color:#53647a;">'+role+'</td></tr>':'';
     const phoneRow=phone?'<tr><td style="'+rowStyle+'"><a href="'+phoneHref+'" style="color:#53647a;text-decoration:none;">'+escapeHTML(phone)+'</a></td></tr>':'';
@@ -193,7 +193,9 @@
         return;
       }
       requestAnimationFrame(()=>requestAnimationFrame(()=>{
-        // Clear the synchronous body guard only after CSS, fonts and route setup.\n        document.body.style.removeProperty('visibility');\n        document.body.dataset.staffReady='true';
+        // Clear the synchronous body guard only after CSS, fonts and route setup.
+        document.body.style.removeProperty('visibility');
+        document.body.dataset.staffReady='true';
         document.documentElement.dataset.coloraReady='true';
       }));
     }).catch(()=>{
