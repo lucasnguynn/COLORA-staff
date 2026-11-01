@@ -1,0 +1,6 @@
+/* Harmonize COLORA Learning Studio with COLORA Staff Brand DNA. */
+:root{--ivory:#F4EDE1;--navy:#002451;--ink:#123052;--gold:#B08A5B;--white:#FFFCF8;--pale:#FBF8F2;--heading:"Cormorant Garamond",Georgia,serif;--body:"Open Sans",Arial,sans-serif}
+body,button,input,select,textarea{font-family:var(--body)}
+h1,h2,h3{font-family:var(--heading)}
+@media(max-width:640px){body{font-size:14px;line-height:1.7}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
