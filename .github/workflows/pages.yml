@@ -80,6 +80,26 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Cancel stale Pages deployment from old branch publishing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          # A past branch-based deployment is stuck on GitHub's Pages backend.
+          # Cancel ONLY the commit SHA shown in the Pages API error.
+          # This step can be removed after the first successful deployment.
+          STALE_SHA="822a80fd2c4fcd13e8ffbd60ff3fd5708bcffba5"
+          STATUS=$(curl -sS -o "$RUNNER_TEMP/pages-cancel-response.txt" -w '%{http_code}' \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2026-03-10" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/pages/deployments/$STALE_SHA/cancel")
+          case "$STATUS" in
+            204) echo "Stale Pages deployment was cancelled." ;;
+            404|409|422) echo "::warning::Stale deployment may already be cleared (HTTP $STATUS); attempting fresh deployment." ;;
+            *) echo "::error::Could not cancel stale Pages deployment (HTTP $STATUS). Check Pages write permission and GitHub status."; exit 1 ;;
+          esac
       - name: Deploy published-only artifact
         uses: actions/deploy-pages@v4
         id: deployment
