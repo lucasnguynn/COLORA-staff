@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 const dist=path.resolve('dist');
-const pages=['index.html','apps/client-care/index.html','apps/learning/index.html','apps/qr/index.html','apps/jd/index.html'];
+const pages=['index.html','apps/jd/index.html'];
 for(const rel of pages){
   const file=path.join(dist,rel);
   if(!fs.existsSync(file))throw Error('Missing '+rel);
@@ -21,9 +21,16 @@ for(const rel of pages){
   ];
   for(const plain of forbidden)if(html.includes(plain))throw Error('Unencrypted HTML found in '+rel+': '+plain);
 }
-for(const rel of ['apps/jd/app.js','apps/jd/styles.css','apps/jd/luxury.css','apps/jd/refinements.css','apps/jd/print-polish.css']){
+for(const rel of ['apps/learning/index.html','apps/client-care/index.html','apps/qr/index.html','apps/jd/app.js','apps/jd/styles.css','apps/jd/luxury.css','apps/jd/refinements.css','apps/jd/print-polish.css']){
   if(fs.existsSync(path.join(dist,rel)))throw Error('Senior source exposed in published artifact: '+rel);
 }
 const rootLinks=['apps/client-care/styles.css','apps/client-care/content.js','apps/learning/app.js','apps/learning/data/questions.json','apps/qr/assets/colora-logo.png','app.js','library.js','library-ui.js','styles.css'];
 for(const rel of rootLinks)if(!fs.existsSync(path.join(dist,rel)))throw Error('Missing integrated dependency: '+rel);
-console.log('Verified: all five HTML pages encrypted; JD bundle sealed; required assets present.');
+const encryptedRoot=fs.readFileSync(path.join(dist,'index.html'),'utf8');
+for(const module of ['learning','client-care','qr']){
+  // Original application HTML is embedded INSIDE the encrypted staff payload,
+  // so it cannot be read directly via an unencrypted public app URL.
+  if(fs.existsSync(path.join(dist,'apps',module,'index.html')))throw Error('Ungated subapp HTML found: '+module);
+}
+if(encryptedRoot.includes('id="bundled-learning"') || encryptedRoot.includes('id="bundled-qr"'))throw Error('Bundled application templates leaked outside the encrypted payload.');
+console.log('Verified: one encrypted Staff entry with 3 bundled applications; separate encrypted JD; no public child HTML routes.');
