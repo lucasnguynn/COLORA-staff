@@ -51,7 +51,11 @@ try{
   for(const [view,selector] of [['learning','#app'],['client-care','#main-content'],['qr','#downloadPng'],['jd','#workspaceTitle']]){
     await page.locator('.nav-btn[data-view="'+view+'"]').click();
     const embedded=page.frameLocator('#module-frame');
-    await embedded.locator(selector).waitFor({timeout:20000});
+    try{await embedded.locator(selector).waitFor({timeout:12000});}
+    catch(error){
+      console.error('MODULE DEBUG',view,await page.locator('#module-frame').evaluate(e=>({src:e.getAttribute('src'),srcdoc:e.hasAttribute('srcdoc'),href:e.contentWindow?.location?.href,body:e.contentDocument?.body?.innerText?.slice(0,250)})).catch(e=>String(e)));
+      throw error;
+    }
     if(view!=='jd'){
       assert.equal(await embedded.locator('#staticrypt-password').count(),0,'A duplicate login should not appear inside '+view);
       assert((await page.locator('#module-frame').getAttribute('srcdoc'))?.includes('<base href="/apps/'+view+'/">'),'Source HTML not integrated into Staff: '+view);
