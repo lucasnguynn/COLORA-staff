@@ -440,7 +440,7 @@
   }
   function getOptions(size){
     return {
-      width:size,height:size,type:"svg",data:normalizeUrl($("url").value),image:currentLogo || undefined,margin:Number($("margin").value),
+      width:size,height:size,type:"svg",data:normalizeUrl($("url").value),margin:Number($("margin").value),
       qrOptions:{errorCorrectionLevel:"H"},
       imageOptions:{margin:Math.max(9,Math.round(size*.014)),imageSize:Number($("logoSize").value),hideBackgroundDots:true,crossOrigin:"anonymous"},
       dotsOptions:{color:$("fg").value,type:$("dotStyle").value},
@@ -450,18 +450,50 @@
     };
   }
 
-  // Do not construct an SVG without the brand image and then race an
-  // asynchronous QRCodeStyling.update(). Initial construction must already
-  // contain the final image; otherwise its SVG can remain image-less.
+  // QRCodeStyling v1.6's SVG output is inconsistent with embedded data
+  // images in nested Blob workspaces. Keep its matrix/dots and apply the
+  // official COLORA mark directly to the completed SVG instead. This same
+  // composition is used for the SVG and PNG downloads.
+  const SVG_NS="http://www.w3.org/2000/svg";
+  function badgeBox(size){
+    const width=Math.round(size*Number($("logoSize").value));
+    return {x:(size-width)/2,y:(size-width)/2,width};
+  }
+  function placeLogoOnSVG(svg,size){
+    if(!currentLogo || svg.querySelector('[data-colora-signature]'))return;
+    const {x,y,width}=badgeBox(size);
+    const back=svg.ownerDocument.createElementNS(SVG_NS,"rect");
+    back.setAttribute("data-colora-signature","back");
+    back.setAttribute("x",x);back.setAttribute("y",y);
+    back.setAttribute("width",width);back.setAttribute("height",width);
+    back.setAttribute("rx",Math.round(width*.08));
+    back.setAttribute("fill",$("bg").value);
+    const image=svg.ownerDocument.createElementNS(SVG_NS,"image");
+    image.setAttribute("data-colora-signature","logo");
+    image.setAttribute("x",x);image.setAttribute("y",y);
+    image.setAttribute("width",width);image.setAttribute("height",width);
+    image.setAttribute("preserveAspectRatio","xMidYMid meet");
+    image.setAttribute("href",currentLogo);
+    svg.append(back,image);
+  }
+  const qrPreviewEl=$("qrPreview");
+  new MutationObserver(()=>{
+    const svg=qrPreviewEl.querySelector("svg");
+    if(svg && currentLogo && !svg.querySelector('[data-colora-signature]'))
+      placeLogoOnSVG(svg,420);
+  }).observe(qrPreviewEl,{childList:true,subtree:true});
   let previewQR=null;
   function renderPreview(){
     if(!currentLogo)return;
+    qrPreviewEl.querySelectorAll('[data-colora-signature]').forEach(el=>el.remove());
     if(!previewQR){
       previewQR=new QRCodeStyling(getOptions(420));
-      previewQR.append($("qrPreview"));
+      previewQR.append(qrPreviewEl);
     }else{
       previewQR.update(getOptions(420));
     }
+    const svg=qrPreviewEl.querySelector("svg");
+    if(svg)placeLogoOnSVG(svg,420);
   }
 
   function updateQR(){
@@ -478,18 +510,61 @@
     $("fgValue").textContent=$("fg").value.toUpperCase(); $("bgValue").textContent=$("bg").value.toUpperCase(); updateContrast();
     return true;
   }
+  function saveBlob(blob,filename){
+    const url=URL.createObjectURL(blob);
+    const link=document.createElement("a");
+    link.href=url;link.download=filename;link.style.display="none";
+    document.body.append(link);link.click();link.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),3000);
+  }
+  async function loadImage(url){
+    const image=new Image();
+    await new Promise((resolve,reject)=>{
+      image.onload=resolve;image.onerror=()=>reject(Error("Không tải được ảnh để xuất QR."));
+      image.src=url;
+    });
+    return image;
+  }
   async function downloadQR(extension){
     if (!customLogo) {
       const ready = await symbolReady;
       if (!ready) {
-        $("urlError").textContent = "Không tải được logo COLORA. Vui lòng tải lại trang hoặc chọn logo khác.";
+        $("urlError").textContent="Không tải được logo COLORA. Vui lòng tải lại trang hoặc chọn logo khác.";
         return;
       }
     }
-    if(!updateQR()) return;
-    const exportQR=new QRCodeStyling(getOptions(Number($("size").value)));
-    // Download waits for the logo image to be resolved by QRCodeStyling.
-    await exportQR.download({name:"colora-qr",extension});
+    if(!updateQR())return;
+    const size=Number($("size").value);
+    const qr=new QRCodeStyling(getOptions(size));
+    const raw=await qr.getRawData("svg");
+    if(!raw)throw Error("Không thể tạo SVG QR.");
+    const source=await raw.text();
+    if(extension==="svg"){
+      const doc=new DOMParser().parseFromString(source,"image/svg+xml");
+      const svg=doc.documentElement;
+      if(svg.localName!=="svg"||doc.querySelector("parsererror"))throw Error("SVG QR không hợp lệ.");
+      placeLogoOnSVG(svg,size);
+      const xml=new XMLSerializer().serializeToString(svg);
+      saveBlob(new Blob([xml],{type:"image/svg+xml;charset=utf-8"}),"colora-qr.svg");
+      return;
+    }
+    // Rasterize QR paths first, then paint the logo as a second bitmap layer:
+    // browser SVG security policies cannot strip the center badge from PNG.
+    const svgUrl=URL.createObjectURL(new Blob([source],{type:"image/svg+xml"}));
+    let qrImage;
+    try{qrImage=await loadImage(svgUrl)}finally{URL.revokeObjectURL(svgUrl)}
+    const canvas=document.createElement("canvas");
+    canvas.width=canvas.height=size;
+    const ctx=canvas.getContext("2d");
+    ctx.drawImage(qrImage,0,0,size,size);
+    const {x,y,width}=badgeBox(size);
+    ctx.fillStyle=$("bg").value;
+    ctx.fillRect(x,y,width,width);
+    const badge=await loadImage(currentLogo);
+    ctx.drawImage(badge,x,y,width,width);
+    const blob=await new Promise((resolve,reject)=>canvas.toBlob(
+      value=>value?resolve(value):reject(Error("Không thể xuất PNG QR.")),"image/png"));
+    saveBlob(blob,"colora-qr.png");
   }
 
   $("generateBtn").addEventListener("click",updateQR);
