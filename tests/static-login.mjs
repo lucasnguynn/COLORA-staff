@@ -82,6 +82,16 @@ try{
         await app.locator('#main-content').getByText(/kịch bản/i).first().waitFor({state:'visible',timeout:12000});
       } else {
         await app.locator('#qrPreview canvas, #qrPreview svg').first().waitFor({state:'attached',timeout:20000});
+        // A technically rendered QR is not enough: the default brand symbol
+        // must be visible in the preview and included by the SVG renderer.
+        await app.locator('#qrPreview svg image').first().waitFor({state:'attached',timeout:20000});
+        const logo=await app.locator('#logoThumb').getAttribute('src');
+        assert(logo?.startsWith('data:image/png;base64,'),'Default COLORA badge must be normalized into a square PNG');
+        const badgeSize=await app.locator('#logoThumb').evaluate(async el=>{
+          await el.decode();
+          return [el.naturalWidth,el.naturalHeight];
+        });
+        assert.deepEqual(badgeSize,[512,512],'Default logo badge must preserve square proportions');
         assert.equal(await app.locator('script[src*="unpkg.com"]').count(),0,'QR must use local vendor library');
       }
     }catch(error){
