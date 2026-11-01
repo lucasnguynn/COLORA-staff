@@ -50,7 +50,12 @@ try{
   assert.equal((await html).suggestedFilename(),'colora-landing-page.html');
   for(const [view,selector] of [['learning','#app'],['client-care','#main-content'],['qr','#downloadPng'],['jd','#workspaceTitle']]){
     await page.locator('.nav-btn[data-view="'+view+'"]').click();
-    await page.frameLocator('#module-frame').locator(selector).waitFor({timeout:20000});
+    const embedded=page.frameLocator('#module-frame');
+    await embedded.locator(selector).waitFor({timeout:20000});
+    if(view!=='jd'){
+      assert.equal(await embedded.locator('#staticrypt-password').count(),0,'A duplicate login should not appear inside '+view);
+      assert((await page.locator('#module-frame').getAttribute('srcdoc'))?.includes('<base href="/apps/'+view+'/">'),'Source HTML not integrated into Staff: '+view);
+    }
   }
   await page.locator('#module-expand').click();
   assert(await page.locator('body').evaluate(x=>x.classList.contains('module-immersive')));
