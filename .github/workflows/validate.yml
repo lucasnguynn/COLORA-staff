@@ -1,0 +1,50 @@
+name: Validate COLORA Staff Portal
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: lucasnguynn/CSKH-COLORA
+          path: .sources/client-care
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: lucasnguynn/QnA-COLORA
+          path: .sources/learning
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: lucasnguynn/QR-V1
+          path: .sources/qr
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: lucasnguynn/COLORA-JD
+          path: .sources/jd
+          persist-credentials: false
+          token: ${{ secrets.SENIOR_SOURCE_TOKEN || github.token }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate JavaScript
+        run: |
+          node --check site/app.js
+          node --check scripts/build.mjs
+          node --check scripts/encrypt.mjs
+          node --check scripts/verify.mjs
+          (cd .sources/learning && node scripts/validate.mjs)
+          (cd .sources/client-care && node tests/publication.cjs && node tests/ops.cjs && node tests/smoke.cjs)
+      - run: npm install --no-save --no-package-lock staticrypt@3.5.4
+      - run: node scripts/build.mjs
+      - name: Encryption smoke test (demo passwords, NO deploy)
+        env:
+          STAFF_PORTAL_PASSWORD: CI-STAFF-DEMO-DO-NOT-SHARE-2026
+          SENIOR_JD_PASSWORD: CI-SENIOR-DEMO-DO-NOT-SHARE-2026
+        run: node scripts/encrypt.mjs && node scripts/verify.mjs
