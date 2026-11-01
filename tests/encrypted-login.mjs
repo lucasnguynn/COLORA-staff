@@ -187,6 +187,9 @@ try{
   assert.equal(await seniorPage.locator('#bundled-jd').count(),1,'Only Senior ciphertext should contain JD');
   await seniorPage.locator('.nav-btn[data-view="jd"]').click();
   await seniorPage.frameLocator('#module-frame').locator('#workspaceTitle').waitFor({state:'visible',timeout:20000});
+  const visibleLiteralNewline=await seniorPage.frameLocator('#module-frame').locator('body').evaluate(el=>
+    [...el.childNodes].filter(n=>n.nodeType===3).some(n=>n.textContent.includes('\\n')));
+  assert.equal(visibleLiteralNewline,false,'Encrypted Senior JD must not show literal backslash-n');
   assert.equal(await seniorPage.frameLocator('#module-frame').locator('#staticrypt-password').count(),0,'Senior must not face second password');
   await seniorPage.close();
 
