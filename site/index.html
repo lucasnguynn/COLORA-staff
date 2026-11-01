@@ -46,10 +46,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./brand-refinements.css">
+  <link rel="stylesheet" href="./mail-guide.css">
   <script src="./library.js" defer></script>
   <script src="./module-host.js" defer></script>
   <script src="./app.js" defer></script>
   <script src="./library-ui.js" defer></script>
+  <script src="./mail-guide.js" defer></script>
 </head>
 <body style="visibility:hidden">
   <a class="skip-link" href="#main">Đến nội dung chính</a>
@@ -67,6 +69,7 @@
         <p class="menu-label">CREATIVE UTILITIES</p>
         <button data-view="qr" class="nav-btn"><span class="nav-symbol">▦</span>QR Generator</button>
         <button data-view="signature" class="nav-btn"><span class="nav-symbol">✉</span>Email Signature</button>
+        <button type="button" data-view="mail-setup" class="nav-btn"><span class="nav-symbol">▣</span>Cài đặt Email</button>
         
         <p class="menu-label">MANAGEMENT</p>
         <button data-view="jd" class="nav-btn"><span class="nav-symbol">♢</span>JD Library <span class="lock-label">Senior</span></button>
@@ -128,7 +131,43 @@
           <p id="module-status" class="module-status" role="status" aria-live="polite" hidden></p>
           <iframe id="module-frame" title="Nội dung phân hệ COLORA" loading="eager" referrerpolicy="no-referrer"></iframe>
         </section>
-        <section id="signature-tool" class="tool-view view" hidden><div class="eyebrow">COLORA · BRAND UTILITIES</div><h1>Email <em>Signature</em></h1><p class="tool-intro">Tạo chữ ký theo nhận diện thương hiệu. Không có dữ liệu nào được gửi lên máy chủ.</p><div class="tool-grid"><form id="signature-form" class="tool-panel"><h2>Thông tin nhân viên</h2><label>Họ và tên <input name="name" required maxlength="90" placeholder="Nguyễn Văn A"></label><label>Chức danh <input name="role" required maxlength="100" placeholder="Client Experience Executive"></label><label>Email công việc <input name="email" type="email" required maxlength="130" placeholder="name@colora.vn"></label><label>Số điện thoại (tùy chọn) <input name="phone" maxlength="35" placeholder="+84 ..."></label><div class="form-actions"><button type="submit" class="primary-button">Sao chép chữ ký đẹp</button><button type="button" id="signature-download" class="outline-button">Tải HTML ↓</button></div><p id="signature-status" class="form-status" role="status"></p></form><div class="tool-panel preview-panel"><h2>Xem trước</h2><div id="signature-preview" class="signature-preview"><p>Nhập thông tin để xem trước chữ ký COLORA.</p></div><p class="helper">Dán chữ ký vào trình chỉnh sửa chữ ký Gmail/ứng dụng email. Một số trình email có thể thay đổi định dạng.</p></div></div></section>
+        <section id="mail-guide" class="mail-guide-view view" hidden>
+          <div class="eyebrow">COLORA / STAFF UTILITIES</div>
+          <h1>Mailbox <em>Setup.</em></h1>
+          <p class="mail-guide-lede">Hướng dẫn cài đặt hộp thư COLORA trên máy Mac. Chọn ứng dụng, xem minh hoạ từng bước và đối chiếu đúng thông số IMAP/SMTP từ BKNS.</p>
+          <div class="mail-guide-intro">
+            <div>
+              <label for="mail-guide-email">Địa chỉ mailbox cần cài đặt</label>
+              <input id="mail-guide-email" type="email" inputmode="email" spellcheck="false" autocomplete="off" aria-describedby="mail-guide-email-hint">
+              <p id="mail-guide-email-hint">Thay bằng địa chỉ mailbox được cấp, ví dụ mail@colora.vn hoặc dat.ndq@colora.vn. Không nhập mật khẩu vào website này.</p>
+            </div>
+            <div class="mail-guide-app-picker" role="tablist" aria-label="Chọn ứng dụng email">
+              <button type="button" role="tab" aria-selected="true" data-mail-platform="outlook">Outlook for Mac</button>
+              <button type="button" role="tab" aria-selected="false" data-mail-platform="apple">Apple Mail</button>
+            </div>
+          </div>
+          <section class="mail-guide-connection" aria-labelledby="mail-guide-config-title">
+            <div class="mail-guide-connection-head">
+              <div><span class="mail-guide-kicker">BKNS / CONNECTION SETTINGS</span><h2 id="mail-guide-config-title">Thông số <em>kết nối.</em></h2></div>
+              <div class="mail-guide-copy-actions"><button type="button" id="mail-guide-copy" class="outline-button">Sao chép thông số</button><span id="mail-guide-copy-status" role="status" aria-live="polite"></span></div>
+            </div>
+            <div id="mail-guide-settings"></div>
+            <p class="mail-guide-security-note">Mật khẩu là mật khẩu riêng của mailbox tại BKNS, không phải mật khẩu đăng nhập Staff Workspace. Nếu tài khoản dùng nhà cung cấp khác, hãy xác nhận máy chủ và cổng trước khi cài đặt.</p>
+          </section>
+          <div class="mail-guide-steps-head"><div><span class="mail-guide-kicker">STEP-BY-STEP WALKTHROUGH</span><h2>Thiết lập với <em id="mail-guide-current-app">Microsoft Outlook</em></h2></div><p>06 bước · macOS · hình minh hoạ giao diện</p></div>
+          <div id="mail-guide-steps" class="mail-guide-steps"></div>
+          <section class="mail-guide-help" aria-labelledby="mail-guide-help-title">
+            <h2 id="mail-guide-help-title">Nếu không thể kết nối</h2>
+            <div class="mail-guide-help-grid">
+              <p><strong>Không nhận email:</strong> kiểm tra Account Type = IMAP, máy chủ và port <b>993</b>, bật SSL/TLS.</p>
+              <p><strong>Không gửi được email:</strong> kiểm tra SMTP port <b>465</b>, bật SSL/TLS và xác thực SMTP bằng cùng username/mật khẩu mailbox.</p>
+              <p><strong>Báo sai mật khẩu:</strong> thử đăng nhập webmail BKNS để xác nhận mật khẩu, không gửi mật khẩu qua chat hay lưu vào tài liệu.</p>
+            </div>
+            <p class="mail-guide-official">Hướng dẫn từ nhà cung cấp phần mềm: <a id="mail-guide-source-outlook" target="_blank" rel="noopener noreferrer" href="https://support.microsoft.com/en-us/outlook/add-an-email-account-to-outlook-for-mac">Microsoft Outlook for Mac ↗</a> · <a id="mail-guide-source-apple" target="_blank" rel="noopener noreferrer" href="https://support.apple.com/guide/mail/add-and-manage-email-accounts-mail35803/mac">Apple Mail ↗</a>. Minh hoạ trong Staff là sơ đồ giao diện, có thể khác phiên bản đang sử dụng.</p>
+          </section>
+          <dialog id="mail-guide-dialog" aria-labelledby="mail-guide-dialog-heading"><div class="mail-guide-dialog-head"><h3 id="mail-guide-dialog-heading">Chi tiết bước</h3><button type="button" id="mail-guide-dialog-close" aria-label="Đóng hình minh họa">✕</button></div><div class="mail-guide-modal-art"></div><p>Hình minh họa thao tác, không phải ảnh chụp phiên bản ứng dụng hiện tại.</p></dialog>
+        </section>
+        <section id="signature-tool" class="tool-view view" hidden><div class="eyebrow">COLORA · BRAND UTILITIES</div><h1>Email <em>Signature</em></h1><p class="tool-intro">Tạo chữ ký theo nhận diện thương hiệu. Không có dữ liệu nào được gửi lên máy chủ. <button type="button" class="mail-guide-inline-link" data-view="mail-setup">Hướng dẫn cài mailbox BKNS ↗</button></p><div class="tool-grid"><form id="signature-form" class="tool-panel"><h2>Thông tin nhân viên</h2><label>Họ và tên <input name="name" required maxlength="90" placeholder="Nguyễn Văn A"></label><label>Chức danh <input name="role" required maxlength="100" placeholder="Client Experience Executive"></label><label>Email công việc <input name="email" type="email" required maxlength="130" placeholder="name@colora.vn"></label><label>Số điện thoại (tùy chọn) <input name="phone" maxlength="35" placeholder="+84 ..."></label><div class="form-actions"><button type="submit" class="primary-button">Sao chép chữ ký đẹp</button><button type="button" id="signature-download" class="outline-button">Tải HTML ↓</button></div><p id="signature-status" class="form-status" role="status"></p></form><div class="tool-panel preview-panel"><h2>Xem trước</h2><div id="signature-preview" class="signature-preview"><p>Nhập thông tin để xem trước chữ ký COLORA.</p></div><p class="helper">Dán chữ ký vào trình chỉnh sửa chữ ký Gmail/ứng dụng email. Một số trình email có thể thay đổi định dạng.</p></div></div></section>
         
       </main>
       <footer class="footer"><span>COLORA - COLOR YOUR AURA</span><span>Learn thoughtfully. Create meaningfully.</span></footer>
