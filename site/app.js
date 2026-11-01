@@ -6,6 +6,9 @@
     qr: {title: 'QR Generator', eyebrow: '04 / CREATIVE TOOL', description: 'Tạo QR, xem trước và xuất PNG/SVG theo mẫu COLORA.', url: './apps/qr/index.html'},
     jd: {title: 'JD Library', eyebrow: '07 / SENIOR ACCESS', description: 'Chỉ dành cho người được cung cấp mật khẩu quản lý riêng. Không lưu dữ liệu nhân sự mật trong công cụ website tĩnh.', url: './apps/jd/index.html'}
   };
+  // Role is part of the encrypted shell, not an access-control flag by
+  // itself. Only Senior-encrypted HTML includes the actual bundled JD app.
+  const isSenior=document.body.dataset.staffRole==='senior';
   const labels = {home:'Staff Workspace',library:'Resource Library',learning:'Learning Studio','client-care':'Client Care Academy',qr:'QR Generator',signature:'Email Signature','mail-setup':'Cài đặt Email',jd:'JD Library'};
   const $$ = s => [...document.querySelectorAll(s)];
   const $ = id => document.getElementById(id);
@@ -27,7 +30,7 @@
   function closeMobile(){sidebar.classList.remove('open');shade.hidden=true;document.body.classList.remove('menu-open');menuButton.setAttribute('aria-expanded','false');}
 
   function navigate(view) {
-    if (!Object.prototype.hasOwnProperty.call(labels,view)) view = 'home';
+    if (!Object.prototype.hasOwnProperty.call(labels,view) || (view==='jd'&&!isSenior)) view = 'home';
     window.COLORA_MODULE_HOST?.cleanup();
     ['dashboard','library-view','module','signature-tool','mail-guide'].forEach(id=>$(id).hidden=true);
     const isModule=Object.prototype.hasOwnProperty.call(modules,view);
@@ -43,16 +46,20 @@
       const trackLabel=$('module-track-label');
       const expand=$('module-expand');
       if(view==='jd'){
-        // Actual management app remains separately encrypted and isolated
-        // from general training and must retain its second password.
+        const packed=document.getElementById('bundled-jd');
+        if(!isSenior || !packed)throw Error('JD is available only inside the encrypted Senior workspace');
+        const markup=JSON.parse(packed.textContent);
         controls.hidden=true;
         trackLabel.hidden=true;
         expand.hidden=false;
-        frame.removeAttribute('srcdoc');
-        frame.src=data.url;
-        $('module-open').hidden=false;
-        $('module-open').href=data.url;
-        $('module-hint').textContent='Khu vực quản lý có mật khẩu truy cập riêng. Không đưa thông tin nhân sự nhạy cảm vào website tĩnh.';
+        // The Senior envelope already decrypted JD source during the outer
+        // login. srcdoc shares the Staff origin and retains local JD drafts.
+        // No secret is placed into the URL, web storage, iframe, or logs.
+        frame.removeAttribute('src');
+        frame.srcdoc=markup.replace('<base href="/apps/jd/">',
+          '<base href="'+new URL('/apps/jd/',location.origin).href+'">');
+        $('module-open').hidden=true;
+        $('module-hint').textContent='JD Library · Senior access. Dữ liệu JD được lưu trên chính trình duyệt này.';
         $('module-hint').hidden=false;
         $('module-status').hidden=true;
       } else {
@@ -88,7 +95,17 @@
     window.scrollTo({top:0,behavior:'instant'});
   }
   function applyRoute(){const route=decodeURIComponent(location.hash.slice(1)||'home');const [view,detail]=route.split('/');navigate(view);if(view==='library'&&typeof window.COLORA_LIBRARY_OPEN==='function')window.COLORA_LIBRARY_OPEN(detail||'');if(view==='mail-setup'&&typeof window.COLORA_MAIL_GUIDE_SHOW==='function')window.COLORA_MAIL_GUIDE_SHOW(detail||'outlook');}
-  document.querySelectorAll('[data-view]').forEach(btn=>btn.addEventListener('click',()=>{
+  // An explicit switch-account action clears only the Staff remember-me
+  // credentials, so a remembered Staff session cannot trap Senior users.
+  const switchAccount=$('switch-account');
+  switchAccount?.addEventListener('click',()=>{
+    try {
+      localStorage.removeItem('staticrypt_passphrase');
+      localStorage.removeItem('staticrypt_expiration');
+    } catch (_) {}
+    location.assign('/?staticrypt_logout=1');
+  });
+    document.querySelectorAll('[data-view]').forEach(btn=>btn.addEventListener('click',()=>{
     const route=btn.dataset.view+(btn.dataset.article?'/'+btn.dataset.article:'');
     if(location.hash==='#'+route) applyRoute(); else location.hash=route;
   }));
