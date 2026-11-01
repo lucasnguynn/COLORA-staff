@@ -1,0 +1,25 @@
+name: Check LIVE COLORA Staff password alignment
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-live:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      deployment: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --no-package-lock playwright@1.56.1
+      - run: npx playwright install chromium
+      - name: Check current secrets on LIVE https://staff.colora.vn
+        env:
+          STAFF_PORTAL_PASSWORD: ${{ secrets.STAFF_PORTAL_PASSWORD }}
+          SENIOR_JD_PASSWORD: ${{ secrets.SENIOR_JD_PASSWORD }}
+        run: node tests/live-password-check.mjs
