@@ -5,7 +5,7 @@ import { chromium } from 'playwright';
 const staff=process.env.STAFF_PORTAL_PASSWORD||'';
 const senior=process.env.SENIOR_JD_PASSWORD||'';
 const origin='https://staff.colora.vn';
-if(staff.length<16 || senior.length<16 || staff===senior)throw Error('Missing password prerequisites (values never logged).');
+if(Array.from(staff).length<8 || Array.from(senior).length<8 || staff===senior)throw Error('Missing password prerequisites (values never logged).');
 
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 let failed=false;

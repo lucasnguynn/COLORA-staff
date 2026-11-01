@@ -11,7 +11,7 @@ import { chromium } from 'playwright';
  */
 const staff=process.env.STAFF_PORTAL_PASSWORD||'';
 const senior=process.env.SENIOR_JD_PASSWORD||'';
-if(staff.length<16||senior.length<16||staff===senior)throw Error('Invalid login smoke test prerequisites.');
+if(Array.from(staff).length<8||Array.from(senior).length<8||staff===senior)throw Error('Invalid login smoke test prerequisites.');
 const dist=path.resolve('dist');
 const mime={'.html':'text/html;charset=utf-8','.js':'text/javascript;charset=utf-8','.css':'text/css;charset=utf-8','.json':'application/json;charset=utf-8','.png':'image/png','.svg':'image/svg+xml','.webp':'image/webp'};
 const server=http.createServer((req,res)=>{

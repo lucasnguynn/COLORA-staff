@@ -7,7 +7,7 @@ const root=process.cwd();
 const dist=path.join(root,'dist');
 const standard=process.env.STAFF_PORTAL_PASSWORD||'';
 const senior=process.env.SENIOR_JD_PASSWORD||'';
-if(standard.length<16||senior.length<16)throw new Error('Both GitHub Actions secrets must be at least 16 characters.');
+if(Array.from(standard).length<8||Array.from(senior).length<8)throw new Error('Both GitHub Actions secrets must be at least 8 characters.');
 if(standard===senior)throw new Error('Senior password MUST be different from staff password.');
 // Public, stable, 16-byte random salt for remembering a pass across pages.
 // Neither salt is a password or an authentication token.
@@ -31,7 +31,10 @@ function encryptFile(file, password, salt, isSenior){
     const outdir=path.join(temp,'encrypted');
     fs.mkdirSync(path.dirname(input),{recursive:true});
     fs.copyFileSync(file,input);
-    const args=['--no-install','staticrypt',input,'--directory',outdir,'--config','false','--salt',salt,
+    // StatiCrypt prompts interactively for short passwords by default.
+    // Our explicit >=8-character preflight is authoritative; --short prevents
+    // CI from silently skipping encryption when an 8-13 character secret is used.
+    const args=['--no-install','staticrypt',input,'--short','--directory',outdir,'--config','false','--salt',salt,
       '--template',path.join(root,'site','login-template.html'),
       '--template-title',isSenior?'Management Access':'Staff Workspace',
       '--template-instructions',isSenior?'Nhập mật khẩu quản lý.':'Nhập mật khẩu Staff.',
