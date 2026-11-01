@@ -10,13 +10,17 @@ if(Array.from(staff).length<8 || Array.from(senior).length<8 || staff===senior)t
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 let failed=false;
 try{
-  const context=await browser.newContext({ignoreHTTPSErrors:false});
-  const page=await context.newPage();
+  // Each role needs an independent, clean browser context. Reusing one
+  // context carries over StatiCrypt's remembered Staff passphrase and
+  // auto-unlocks Staff on the next navigation, hiding the Senior input.
+  // That used to generate a FALSE Senior timeout in LIVE verification.
   for(const [type,route,password,selector] of [
     ['staff','/',staff,'body[data-staff-role="staff"][data-staff-ready="true"]'],
     ['senior workspace','/#jd',senior,'body[data-staff-role="senior"][data-staff-ready="true"]'],
     ['senior JD direct','/apps/jd/',senior,'#workspaceTitle']
   ]){
+    const context=await browser.newContext({ignoreHTTPSErrors:false});
+    const page=await context.newPage();
     try{
       const response=await page.goto(origin+route,{waitUntil:'domcontentloaded',timeout:18000});
       const secure=await page.evaluate(()=>window.isSecureContext&&!!window.crypto?.subtle);
@@ -45,6 +49,9 @@ try{
       failed=true;
       console.error('FAIL: '+type+' CURRENT Actions secret does not unlock LIVE site, or live TLS/site initialization failed. Do not paste secrets into logs. Check that Pages is serving the build generated after the last secret rotation.');
       console.error('Failure category: '+(err?.name||'Unknown'));
+    }finally{
+      // Destroy all remembered passphrases and cookies before next role.
+      await context.close();
     }
   }
 }finally{await browser.close();}
