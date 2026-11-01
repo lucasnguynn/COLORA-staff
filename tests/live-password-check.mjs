@@ -13,8 +13,9 @@ try{
   const context=await browser.newContext({ignoreHTTPSErrors:false});
   const page=await context.newPage();
   for(const [type,route,password,selector] of [
-    ['staff','/',staff,'#dashboard h1'],
-    ['senior JD','/apps/jd/',senior,'#workspaceTitle']
+    ['staff','/',staff,'body[data-staff-role="staff"][data-staff-ready="true"]'],
+    ['senior workspace','/',senior,'body[data-staff-role="senior"][data-staff-ready="true"]'],
+    ['senior JD direct','/apps/jd/',senior,'#workspaceTitle']
   ]){
     try{
       const response=await page.goto(origin+route,{waitUntil:'domcontentloaded',timeout:18000});
@@ -22,7 +23,15 @@ try{
       if(!secure){console.error('FAIL: '+type+' live login requires working HTTPS/WebCrypto.');failed=true;continue;}
       await page.locator('#staticrypt-password').fill(password,{timeout:10000});
       await page.locator('#staticrypt-form input[type="submit"]').click();
-      await page.locator(selector).waitFor({state:'visible',timeout:12000});
+      await page.locator(selector).waitFor({state:'visible',timeout:18000});
+      if(type==='staff'){
+        if(await page.locator('[data-view="jd"]').count())throw Error('Staff role unexpectedly exposes JD route');
+      }
+      if(type==='senior workspace'){
+        await page.locator('.nav-btn[data-view="jd"]').click();
+        await page.frameLocator('#module-frame').locator('#workspaceTitle').waitFor({state:'visible',timeout:18000});
+        if(await page.frameLocator('#module-frame').locator('#staticrypt-password').count())throw Error('Senior JD prompted for a second password');
+      }
       console.log('PASS: '+type+' secret decrypts LIVE site on HTTPS. HTTP bookmarks must be changed to HTTPS.');
     }catch(err){
       failed=true;
