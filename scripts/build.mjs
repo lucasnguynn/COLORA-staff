@@ -132,7 +132,7 @@ if(!seniorJD.includes('id="workspaceTitle"')||!seniorJD.includes('</body>')){
   fail('JD source must be a complete unencrypted HTML application before Senior envelope encryption.');
 }
 const seniorEmbedded=seniorJD.replace(/<head([^>]*)>/i,
-  '<head$1>\\n<base href="/apps/jd/">');
+  '<head$1>\n<base href="/apps/jd/">');
 const seniorBundle=JSON.stringify(seniorEmbedded)
   .replace(/</g,'\\u003c').replace(/>/g,'\\u003e').replace(/&/g,'\\u0026');
 const seniorRole=portal
@@ -141,7 +141,7 @@ const seniorRole=portal
   // decrypted ciphertext replaces /index.html at runtime. Parent-relative
   // assets resolve to the site root in BOTH contexts.
   .replace(/(href|src)="\.\//g,'$1="../')
-  .replace('</body>','<script id="bundled-jd" type="application/json">'+seniorBundle+'</script>\\n</body>');
+  .replace('</body>','<script id="bundled-jd" type="application/json">'+seniorBundle+'</script>\n</body>');
 const seniorDir=path.join(dist,'senior');
 fs.mkdirSync(seniorDir,{recursive:true});
 fs.writeFileSync(path.join(seniorDir,'index.html'),seniorRole);
