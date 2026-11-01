@@ -1,10 +1,10 @@
 'use strict';
 (function () {
   const modules = {
-    learning: {title: 'Learning Studio', eyebrow: '01 / LEARNING', description: 'Kiến thức thương hiệu, sản phẩm, khách hàng và bộ câu hỏi thực hành.', url: './apps/learning/index.html'},
-    'client-care': {title: 'Client Care Academy', eyebrow: '02 / CLIENT EXPERIENCE', description: 'Quy trình tư vấn, kỹ năng dịch vụ, kiến thức đá quý và tình huống thực tế mô phỏng.', url: './apps/client-care/index.html'},
+    learning: {title: 'Learning Studio', eyebrow: '01 / LEARNING', description: 'Thư viện học tập nội bộ. Một số nội dung còn chờ duyệt; kết quả bài thi hiện không phải chứng nhận năng lực chính thức.', url: './apps/learning/index.html'},
+    'client-care': {title: 'Client Care Academy', eyebrow: '02 / CLIENT EXPERIENCE', description: 'Kiến thức và tình huống tư vấn mô phỏng. Khi tư vấn thật, đối chiếu chính sách và hồ sơ SKU đã được phê duyệt.', url: './apps/client-care/index.html'},
     qr: {title: 'QR Generator', eyebrow: '04 / CREATIVE TOOL', description: 'Tạo QR, xem trước và xuất PNG/SVG theo mẫu COLORA.', url: './apps/qr/index.html'},
-    jd: {title: 'JD Library', eyebrow: '07 / SENIOR ACCESS', description: 'Chỉ dành cho người được cung cấp mật khẩu quản lý riêng. Mã nguồn cũ đang public, không lưu dữ liệu mật tại đây.', url: './apps/jd/index.html'}
+    jd: {title: 'JD Library', eyebrow: '07 / SENIOR ACCESS', description: 'Chỉ dành cho người được cung cấp mật khẩu quản lý riêng. Không lưu dữ liệu nhân sự mật trong công cụ website tĩnh.', url: './apps/jd/index.html'}
   };
   const labels = {home:'Staff Workspace',library:'Resource Library',learning:'Learning Studio','client-care':'Client Care Academy',qr:'QR Generator',signature:'Email Signature',web:'Website Generator',jd:'JD Library'};
   const $$ = s => [...document.querySelectorAll(s)];
@@ -57,7 +57,7 @@
         frame.removeAttribute('src');
         if(frame.srcdoc!==childHTML)frame.srcdoc=childHTML;
         $('module-open').hidden=true;
-        $('module-hint').textContent='Đã tích hợp vào Staff Workspace. Bạn không cần nhập lại mật khẩu để sử dụng ứng dụng này.';
+        $('module-hint').textContent=view==='learning'?'Đã tích hợp vào Staff Workspace, không cần đăng nhập lại. Lưu ý: nội dung chờ duyệt chỉ để tham khảo; kết quả thi không phải chứng nhận nhân sự.':'Đã tích hợp vào Staff Workspace. Bạn không cần nhập lại mật khẩu để sử dụng ứng dụng này.';
       }
     } else {
       // Stop background module execution when using local tools.
