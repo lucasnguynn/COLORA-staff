@@ -120,7 +120,7 @@ try{
           return {view:el.title,body:d?.body?.scrollHeight,html:d?.documentElement?.scrollHeight,
             targetScroll:target?.scrollHeight,targetRect:target?.getBoundingClientRect().toJSON(),
             appScroll:d?.querySelector('#app')?.scrollHeight,
-            shellScroll:d?.querySelector('.shell')?.scrollHeight,src:el.getAttribute('src')};
+            shellScroll:d?.querySelector('.shell')?.scrollHeight,src:el.getAttribute('src'),frameStyle:el.style.cssText,frameComputed:getComputedStyle(el).height,moduleComputed:getComputedStyle(el.parentElement).display,embedStylesheet:[...document.styleSheets].some(st=>{try{return [...st.cssRules].some(rule=>rule.selectorText?.includes('#module #module-frame'))}catch{return false}})};
         });
         console.error('SCROLL DEBUG',JSON.stringify(deep));
       }
