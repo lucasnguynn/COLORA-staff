@@ -103,7 +103,7 @@ try{
           active:el.contentDocument?.querySelector('.nav-link.active')?.getAttribute('data-page')
         }));
         console.log('CARE NAV DIAGNOSTIC',JSON.stringify(careState));
-        assert((await embedded.locator('body').innerText()).includes('Kịch bản'),'Client Care scripts failed to navigate');
+        assert((await embedded.locator('#main-content').innerText()).toLowerCase().includes('kịch bản'),'Client Care scripts failed to navigate');
         assert.equal((await embedded.locator('body').innerText()).includes('File not found'),false,'GitHub 404 inside Client Care');
         await page.locator('.workspace-subnav-btn[data-subroute="learn"]').click();
       }
