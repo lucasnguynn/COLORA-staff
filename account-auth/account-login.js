@@ -84,11 +84,17 @@
        !html.includes('id="module-frame"'))throw Error('Invalid role content');
     return html;
   }
-  function activate(html,expiresAt=0){
+  function activate(html,entryId,expiresAt=0){
+    // The opaque public account record ID is only a browser-draft namespace,
+    // NOT a permission token or confidentiality guarantee. Never expose email,
+    // password, or a decryption key in the decrypted workspace.
+    if(!validEntryId(entryId)||!html.includes('</head>'))throw Error('Invalid account scope');
+    const scopeScript='<script>Object.defineProperty(window,"COLORA_ACCOUNT_SCOPE",'+
+      '{value:"'+entryId+'",writable:false,configurable:false});</'+'script>';
     rememberUntil=expiresAt;
     $('access-page').hidden=true;
     $('workspace').hidden=false;
-    frame.srcdoc=html;
+    frame.srcdoc=html.replace('</head>',scopeScript+'</head>');
     $('staff-password').value='';
     feedback.textContent='';
     showNotice('');
@@ -134,7 +140,7 @@
     }else{
       await safelyForget();
     }
-    activate(html,expiresAt);
+    activate(html,match.id,expiresAt);
     if(rememberWarning)showNotice(rememberWarning);
   }
   async function logout(broadcast=true){
@@ -203,7 +209,7 @@
       const entry=manifest.entries.find(e=>e.id===saved.entryId);
       if(!entry)throw Error('Account envelope was rotated');
       const html=await openEnvelope(entry,saved.key);
-      activate(html,saved.expiresAt);
+      activate(html,saved.entryId,saved.expiresAt);
     }catch{await safelyForget()}
   }
 
