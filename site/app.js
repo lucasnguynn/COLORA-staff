@@ -134,6 +134,16 @@
     const route=btn.dataset.view+(btn.dataset.article?'/'+btn.dataset.article:'');
     if(location.hash==='#'+route) applyRoute(); else location.hash=route;
   }));
+  // Native buttons avoid about:srcdoc hash-link navigation replacing the
+  // decrypted Staff iframe with a fresh login document.
+  document.querySelectorAll('[data-brand-target]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const target=button.dataset.brandTarget;
+      if(!['identity-logo','identity-pattern','identity-moodboard','identity-packaging'].includes(target))return;
+      location.hash='brand-guide/'+target;
+      requestAnimationFrame(()=>document.getElementById(target)?.scrollIntoView({block:'start'}));
+    });
+  });
   $('quick-library').addEventListener('click',()=>{
     location.hash='library';
     setTimeout(()=>{const input=$('library-search');input?.focus();},0);
