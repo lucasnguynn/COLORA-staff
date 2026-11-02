@@ -129,6 +129,24 @@ window.COLORA_MODULE_HOST=(()=>{
       frame.removeEventListener('load',data.listener);
       status.hidden=true;
       if(view==='client-care'){
+        // <base href="/apps/client-care/"> is necessary for CSS/JS assets,
+        // but it changes resolution of <a href="#/cases">. The browser would
+        // follow that relative link to /apps/client-care/#/cases, an HTML
+        // endpoint intentionally NOT published (404). Keep ALL app routes
+        // on the already decrypted Blob document instead. Event delegation
+        // also covers dynamically generated lesson/case/gemstone links.
+        doc.addEventListener('click',event=>{
+          const anchor=event.target?.closest?.('a[href^="#/"]');
+          if(!anchor)return;
+          const hash=anchor.getAttribute('href');
+          if(!/^#\/[a-z0-9][a-z0-9/_-]*(?:%[a-f0-9]{2})*$/i.test(hash))return;
+          event.preventDefault();
+          const appWindow=doc.defaultView;
+          // Direct location.hash assignment uses the current Blob URL,
+          // unlike following an href resolved through the <base> element.
+          if(appWindow.location.hash!==hash)appWindow.location.hash=hash;
+          else appWindow.dispatchEvent(new Event('hashchange'));
+        },true);
         const original=doc.getElementById('role-select');
         if(original){
           track.innerHTML=original.innerHTML;
