@@ -61,6 +61,24 @@ try{
   await wrapper.locator('body[data-staff-role="'+role+'"][data-staff-ready="true"]').waitFor({state:'attached',timeout:20000});
   const jd=await wrapper.locator('[data-view="jd"]').count();
   assert.equal(jd>0,role==='senior','Staff role must never see JD navigation');
+  // Global urgent reference is available in both Staff and Senior shells,
+  // without asking employees to reopen or search individual applications.
+  await wrapper.locator('#quick-library').click();
+  await wrapper.locator('#quick-search-overlay').waitFor({state:'visible'});
+  await wrapper.locator('#quick-search-input').fill('da long');
+  assert((await wrapper.locator('.quick-search-answer').first().innerText()).includes('Đá lỏng'));
+  await wrapper.locator('.quick-search-answer').first().locator('summary').click();
+  assert((await wrapper.locator('.quick-search-warning').first().innerText()).includes('Không hứa'));
+  await wrapper.locator('button[data-quick-route="client-care/case/loose-stone"]').first().click();
+  const emergencyFrame=wrapper.frameLocator('#module-frame');
+  await emergencyFrame.locator('#main-content .detail-hero h1').waitFor({state:'visible',timeout:18000});
+  assert.equal(await emergencyFrame.locator('#main-content .detail-hero h1').innerText(),'Viên đá có dấu hiệu lỏng');
+  await wrapper.locator('#quick-library').click();
+  await wrapper.locator('#quick-search-input').fill('Sapphire');
+  assert(await wrapper.locator('.quick-search-doc').count()>0,
+    'Cross-source index must include gemstone content on both roles');
+  await wrapper.locator('button[data-quick-close]').click();
+  assert.equal(await wrapper.locator('#quick-search-overlay').isVisible(),false);
   // Email Templates: Staff sees everyday drafts; Senior additionally sees
   // onboarding / account-access templates. No passwords are pre-filled.
   await wrapper.locator('.nav-btn[data-view="email-templates"]').click();
