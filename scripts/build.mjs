@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {makeSearchIndex} from './build-quick-search.mjs';
 
 const root=process.cwd();
 const dist=path.join(root,'dist');
@@ -27,7 +28,7 @@ function copyModule(name,sourceName){
 
 fs.rmSync(dist,{recursive:true,force:true});
 fs.mkdirSync(dist,{recursive:true});
-for(const file of ['index.html','styles.css','brand-refinements.css','brand-guide.css','mail-guide.css','email-templates.css','jd-integrated.css','embedded-apps.css','module-host.js','library.js','library-ui.js','mail-guide.js','email-templates.js','jd-workspace.js','jd-storage-gate.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
+for(const file of ['index.html','styles.css','brand-refinements.css','brand-guide.css','mail-guide.css','email-templates.css','quick-search.css','jd-integrated.css','embedded-apps.css','module-host.js','library.js','library-ui.js','mail-guide.js','email-templates.js','quick-search.js','jd-workspace.js','jd-storage-gate.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
 
 // Use actual brand vectors archived from COLORA's Identity/Pattern Drive folder.
 for(const image of ['facet-symbol.svg','facet-pattern.svg'])copyRequired(path.join(site,'brand-assets',image),path.join(dist,'brand-assets',image));
@@ -36,6 +37,8 @@ copyModule('client-care','client-care');
 copyModule('learning','learning');
 copyAssets(path.join(app('learning'),'assets'),path.join(dist,'apps','learning','assets'));
 copyModule('qr','qr');
+// Public reference-only index. No account, JD, pricing or supplier data.
+fs.writeFileSync(path.join(dist,'quick-search-index.js'),makeSearchIndex(root));
  // Pin the original QR engine locally: no third-party JavaScript runs from a CDN.
  const qrRuntime=path.join(root,'node_modules','qr-code-styling','lib','qr-code-styling.js');
  copyRequired(qrRuntime,path.join(dist,'apps','qr','vendor','qr-code-styling.js'));
