@@ -60,16 +60,23 @@
         // The Senior envelope already decrypted JD source during the outer
         // login. srcdoc shares the Staff origin and retains local JD drafts.
         // No secret is placed into the URL, web storage, iframe, or logs.
-        frame.removeAttribute('src');
-        window.COLORA_JD_WORKSPACE?.mount(frame);
-        frame.srcdoc=markup.replace('<base href="/apps/jd/">',
-          '<base href="'+new URL('/apps/jd/',window.parent.location.origin).href+'">').trim();
+        // A one-time migration gate prevents automatically exposing legacy
+        // origin-wide JD drafts to whichever Senior account logs in first.
+        // The original shared drafts are NEVER removed or overwritten.
+        const mayOpen=window.COLORA_JD_STORAGE?.beforeMount(()=>navigate('jd'))!==false;
         $('module-open').hidden=true;
         $('module-hint').hidden=true;
-        // A missing/delayed JD bridge should never leave a silent blank.
-        // A late bridge self-mounts and clears this notice when ready.
-        $('module-status').textContent='Đang khởi tạo JD Library… Nếu nội dung chưa xuất hiện, hãy tải lại trang.';
-        $('module-status').hidden=!!window.COLORA_JD_WORKSPACE?.mount;
+        if(mayOpen){
+          frame.removeAttribute('src');
+          window.COLORA_JD_WORKSPACE?.mount(frame);
+          frame.srcdoc=markup.replace('<base href="/apps/jd/">',
+            '<base href="'+new URL('/apps/jd/',window.parent.location.origin).href+'">').trim();
+          // A missing/delayed JD bridge should never leave a silent blank.
+          $('module-status').textContent='Đang khởi tạo JD Library… Nếu nội dung chưa xuất hiện, hãy tải lại trang.';
+          $('module-status').hidden=!!window.COLORA_JD_WORKSPACE?.mount;
+        }else{
+          $('module-status').hidden=true;
+        }
       } else {
         const packed=document.getElementById('bundled-'+view);
         if(!packed)throw Error('Missing integrated Staff section: '+view);
