@@ -75,6 +75,7 @@ jobs:
       - name: Build with synthetic JD fixture (no privileged secrets in PR CI)
         env:
           JD_SOURCE_DIR: tests/fixtures/jd
+          COLORA_JD_SCOPED_STORAGE: 'true'
         run: node scripts/build.mjs
       - name: Build and verify five encrypted accounts with disposable CI identities (not real employees)
         env:
