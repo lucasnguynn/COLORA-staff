@@ -15,7 +15,7 @@ export function makeSearchIndex(root){
     return context.window[key];
   };
   const index=[];
-  const plain=value=>String(value||'').replace(/[\r\n\t]+/g,' ').replace(/\s{2,}/g,' ').trim();
+  const plain=value=>String(value||'').replace(/[\u2013\u2014]/g,'-').replace(/[\r\n\t]+/g,' ').replace(/\s{2,}/g,' ').trim();
   const put=(id,kind,title,summary,terms,route,priority=1)=>{
     if(!id||!title||!route||/[<>]/.test(route))throw Error('Invalid search index entry');
     index.push({id,kind,title:plain(title),summary:plain(summary).slice(0,380),
