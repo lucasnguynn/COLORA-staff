@@ -8,7 +8,7 @@ const expectedRoot=new Set([
   'account-files','apps','brand-assets',
   'styles.css','brand-refinements.css','brand-guide.css','mail-guide.css',
   'jd-integrated.css','embedded-apps.css','module-host.js','library.js',
-  'library-ui.js','mail-guide.js','jd-workspace.js','app.js','CNAME','.nojekyll'
+  'library-ui.js','mail-guide.js','jd-workspace.js','jd-storage-gate.js','app.js','CNAME','.nojekyll'
 ]);
 assert(fs.existsSync(root),'No built public release to audit');
 const actual=fs.readdirSync(root);
