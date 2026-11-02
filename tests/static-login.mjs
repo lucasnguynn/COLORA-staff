@@ -252,7 +252,14 @@ try{
   const seniors=users.filter(u=>u.role==='senior');
   const context=await browser.newContext({acceptDownloads:true}),page=await context.newPage();
   await page.goto(base+'/',{waitUntil:'domcontentloaded'});
-  const legacyRole=[{id:'legacy-saved-jd',title:'Original browser JD backup'}];
+  const legacyRole=[{
+    id:'legacy-saved-jd',title:'Original browser JD backup',
+    department:'Operations',reportsTo:'Manager',level:'Junior',location:'',
+    employmentType:'',summary:'Training-only synthetic JD, no employee details.',
+    responsibilities:[{title:'Primary Ownership',weight:'100%',bullets:['Demonstrate safe migration.']}],
+    mustHave:[],niceToHave:[],kpis:[],development:'',whatYouGet:'',
+    updatedAt:'2026-11-02T00:00:00.000Z'
+  }];
   await page.evaluate(role=>{
     localStorage.setItem('colora_jd_library_v1',JSON.stringify(role));
     localStorage.setItem('colora_jd_settings_v1',JSON.stringify({companyName:'COLORA'}));
