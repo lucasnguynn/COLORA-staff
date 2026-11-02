@@ -3,6 +3,9 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import {chromium} from 'playwright';
+import jsQR from 'jsqr';
+import {PNG} from 'pngjs';
+
 const root=path.resolve('account-release/public');
 const users=JSON.parse(process.env.COLORA_ACCOUNT_CREDENTIALS_JSON||'null');
 if(!Array.isArray(users)||users.length!==5)throw Error('Missing disposable five-account test roster');
@@ -130,11 +133,28 @@ try{
         });
         assert.deepEqual(badgeSize,[512,512],'Default logo badge must preserve square proportions');
         if(role==='staff'){
+          // A generated image is only useful when a DIFFERENT QR decoder can
+          // recover its destination. Scan exported pixels, not the QR library's
+          // own logical data, so a too-large central badge fails the release.
+          const expectedURL='https://colora.vn/';
+          await app.locator('#url').fill(expectedURL);
+          await app.locator('#generateBtn').click();
           for(const [button,extension] of [['#downloadPng','png'],['#downloadSvg','svg']]){
             const downloaded=page.waitForEvent('download',{timeout:20000});
             await app.locator(button).click();
             const result=await downloaded;
             assert(result.suggestedFilename().endsWith('.'+extension),'QR export extension mismatch: '+extension);
+            const bytes=fs.readFileSync(await result.path());
+            if(extension==='png'){
+              const png=PNG.sync.read(bytes);
+              const decoded=jsQR(new Uint8ClampedArray(png.data),png.width,png.height,
+                {inversionAttempts:'attemptBoth'});
+              assert.equal(decoded?.data,expectedURL,'Exported COLORA PNG QR must be optically scannable');
+            }else{
+              const svg=bytes.toString('utf8');
+              assert(svg.includes('data-colora-signature="logo"'),
+                'SVG export must retain the embedded COLORA signature');
+            }
             await result.delete().catch(()=>{});
           }
         }

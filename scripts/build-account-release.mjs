@@ -150,6 +150,14 @@ for(const member of users){
    JSON.stringify({iv:iv.toString('base64'),ciphertext:ciphertext.toString('base64')}));
 }
 fs.writeFileSync(path.join(pub,'account-entries.json'),JSON.stringify(manifest));
+// Public, non-sensitive release identity for detecting stale CDN/Pages builds.
+// A successful login against an older version is not proof that this
+// particular GitHub Actions deployment has reached the production domain.
+const buildSha=process.env.COLORA_BUILD_SHA||process.env.GITHUB_SHA||'';
+if(buildSha && !/^[a-f0-9]{40}$/.test(buildSha))throw Error('Invalid release commit SHA');
+fs.writeFileSync(path.join(pub,'release-version.json'),JSON.stringify({
+  schema:1,commit:buildSha||'local-unversioned'
+}));
 const all=[];
 function scan(dir,rel=''){
  for(const e of fs.readdirSync(dir,{withFileTypes:true})){

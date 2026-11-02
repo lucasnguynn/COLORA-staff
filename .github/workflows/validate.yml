@@ -38,6 +38,11 @@ jobs:
           node --check scripts/verify.mjs
           (cd modules/learning && node scripts/validate.mjs)
           (cd modules/client-care && node tests/publication.cjs && node tests/ops.cjs && node tests/smoke.cjs)
+      - name: Verify immutable pinned JD fallback can be recovered without a secret
+        run: |
+          node scripts/recover-jd-source.mjs .sources/jd-pin-smoke
+          test -f .sources/jd-pin-smoke/index.html
+          rm -rf .sources/jd-pin-smoke
       - name: Validate password preflight using disposable test secrets
         env:
           STAFF_PORTAL_PASSWORD: CI-STAFF-DEMO-DO-NOT-SHARE-2026
@@ -66,7 +71,7 @@ jobs:
             echo "Preflight unexpectedly accepted a missing staff secret"
             exit 1
           fi
-      - run: npm install --no-save --no-package-lock staticrypt@3.5.4 playwright@1.56.1 qr-code-styling@1.6.0-rc.1
+      - run: npm install --no-save --no-package-lock staticrypt@3.5.4 playwright@1.56.1 qr-code-styling@1.6.0-rc.1 jsqr@1.4.0 pngjs@7.0.0
       - name: Build with synthetic JD fixture (no privileged secrets in PR CI)
         env:
           JD_SOURCE_DIR: tests/fixtures/jd

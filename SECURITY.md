@@ -22,7 +22,8 @@ Updated: 2026-11-02. This is a low-sensitivity learning and creative-tools porta
 ## Current build and deploy controls
 
 - `deploy-accounts.yml` is the production path when `STAFF_AUTH_MODE=static-accounts`. It validates modules, exercises encrypted Staff/Senior sign-ins, checks integrated UI and audits an explicit allowlist of public release files **before** publishing.
-- `check-live-login.yml` runs after the current account deployment succeeds (or when manually dispatched). It verifies the actual email/password form and both roles, not the historical StatiCrypt form. It does not print or screenshot credentials.
+- `check-live-login.yml` runs after the current account deployment succeeds (or when manually dispatched). It verifies the actual email/password form for all five accounts and compares the public `release-version.json` commit to the triggering deployment SHA; secrets are not printed.
+- `rotate-jd-password.yml` intentionally uses an explicit workflow dispatch after committing with `GITHUB_TOKEN`. GitHub does not trigger `push` workflows from its own `GITHUB_TOKEN` pushes, so this is **not** a duplicate deploy. It does not print or screenshot credentials.
 - `pages.yml` is **legacy rollback only**: it requires `STAFF_AUTH_MODE=legacy` **and** a manual workflow_dispatch. A missing variable cannot silently switch security architecture.
 - PR validation uses disposable credentials and a synthetic JD fixture, never production employee passwords or decrypted Senior material.
 - Two-way isolation is limited: the Staff ciphertext does not contain JD markup, but publicly served training JSON/code are not access controlled.

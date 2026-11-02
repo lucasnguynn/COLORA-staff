@@ -31,4 +31,5 @@ jobs:
       - name: Confirm deployed five-user email login and role isolation (no credential logs)
         env:
           COLORA_ACCOUNT_CREDENTIALS_JSON: ${{ secrets.COLORA_ACCOUNT_CREDENTIALS_JSON }}
+          EXPECTED_DEPLOY_SHA: ${{ github.event.workflow_run.head_sha }}
         run: node tests/live-password-check.mjs
