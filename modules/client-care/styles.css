@@ -134,3 +134,14 @@
 @media(max-width:1180px){.ops-review-layout{grid-template-columns:minmax(0,1fr) 250px}}
 @media(max-width:900px){.ops-review-layout,.ops-steps{grid-template-columns:1fr}.ops-review-layout .aside-panel{position:static}}
 @media(max-width:620px){.ops-summary{grid-template-columns:1fr}.ops-summary>div{padding:13px 20px}.ops-step{padding:17px}.ops-panel{padding:22px 19px}.ops-rubric-row{flex-direction:column;align-items:stretch;gap:12px}.ops-rubric-row label{flex-basis:auto}.ops-empty{padding:36px 18px}.ops-result>strong{font-size:35px}}
+
+/* Color gemstone conversation library: readable and touch-friendly on mobile. */
+.stone-talks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0 32px}
+.stone-talk{min-width:0;background:#fffdfa;border:1px solid #e1d6c7;padding:16px 18px}
+.stone-talk[open]{border-color:#a8885e}
+.stone-talk summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:8px;line-height:1.5;color:#002451}
+.stone-talk summary::-webkit-details-marker{display:none}
+.stone-talk summary strong{font-size:13px}
+.stone-talk p{font-size:12px;line-height:1.8;margin:12px 0 0}
+.stone-talk .care-note{background:#f8f2e9;padding:10px 12px;margin-top:12px}
+@media(max-width:740px){.stone-talks{grid-template-columns:1fr}.stone-talk{padding:15px}}
