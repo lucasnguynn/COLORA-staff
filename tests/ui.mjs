@@ -32,6 +32,39 @@ try{
   assert.equal(await logo.isVisible(),true,'Official COLORA logo should be visible');
   assert.equal(await logo.evaluate(el=>el.complete&&el.naturalWidth>0),true,'Official COLORA logo must load correctly');
   assert.equal(await page.locator('.sidebar').evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(0, 36, 81)','Sidebar must use COLORA deep navy');
+  // Search all educational sources without opening multiple sections.
+  await page.locator('#quick-library').click();
+  await page.locator('#quick-search-overlay').waitFor({state:'visible'});
+  assert.equal(await page.locator('.quick-search-answer').count(),6);
+  await page.locator('#quick-search-input').fill('da long');
+  assert(await page.locator('.quick-search-answer').count()>0,'Accent-insensitive search failed');
+  assert((await page.locator('.quick-search-answer').first().innerText()).includes('Đá lỏng'));
+  await page.locator('.quick-search-answer').first().locator('summary').click();
+  assert.equal(await page.locator('[data-copy-answer="help-01"]').count(),1);
+  await page.keyboard.press('Escape');
+  assert.equal(await page.locator('#quick-search-overlay').isVisible(),false);
+  await page.keyboard.press('Control+k');
+  assert.equal(await page.locator('#quick-search-overlay').isVisible(),true);
+  await page.locator('#quick-search-input').fill('peridot');
+  assert(await page.locator('.quick-search-doc').count()>0);
+  assert(await page.locator('[data-quick-route="learning/portfolio"]').count()>0);
+  await page.locator('[data-quick-route="learning/portfolio"]').first().click();
+  await page.frameLocator('#module-frame').locator('.gem-learning-profile').first().waitFor({state:'visible',timeout:12000});
+  assert.equal(await page.frameLocator('#module-frame').locator('.gem-learning-profile').count(),9);
+  await page.locator('#quick-library').click();
+  await page.locator('#quick-search-input').fill('ruby');
+  assert(await page.locator('[data-quick-route="client-care/stone/ruby"]').count()>0);
+  await page.locator('[data-quick-route="client-care/stone/ruby"]').first().click();
+  await page.frameLocator('#module-frame').locator('.detail-hero h1').waitFor({state:'visible',timeout:12000});
+  assert.equal(await page.frameLocator('#module-frame').locator('.detail-hero h1').innerText(),'Ruby');
+  await page.setViewportSize({width:390,height:844});
+  await page.locator('#quick-library').click();
+  const rapidLayout=await page.locator('#quick-search-overlay').evaluate(el=>({
+    width:el.scrollWidth,screen:innerWidth,panel:el.querySelector('.quick-search-panel').scrollWidth
+  }));
+  assert(rapidLayout.width<=rapidLayout.screen+1,'Search overflows phone: '+JSON.stringify(rapidLayout));
+  await page.keyboard.press('Escape');
+  await page.setViewportSize({width:1440,height:900});
   await page.locator('[data-view="library"].nav-btn').click();
   assert.equal(await page.locator('.library-card').count(),8);
   await page.locator('#library-search').fill('giac cat');
