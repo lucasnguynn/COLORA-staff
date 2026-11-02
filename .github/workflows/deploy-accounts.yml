@@ -43,6 +43,7 @@ jobs:
             echo "JD source restored."
           else
             rm -rf .sources/jd
+            echo "::warning title=JD archive key mismatch::The stored encrypted JD archive does not match SENIOR_JD_PASSWORD. Using the reviewed pinned JD source fallback. This may omit browser-local edits. Rekey the archive using the dedicated rotation workflow when the previous key is available."
             node scripts/recover-jd-source.mjs .sources/jd
           fi
       - name: Install pinned QR dependency
