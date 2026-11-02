@@ -127,6 +127,13 @@ try{
   await page.locator('.mail-guide-inline-link').click();
   await page.locator('#mail-guide').waitFor({state:'visible'});
   assert.equal(await page.locator('#mail-guide').isVisible(),true);
+  // The new illustrated Brand & Packaging field guide is a native Staff
+  // section, not a standalone login or an external embedded app.
+  await page.locator('.nav-btn[data-view="brand-guide"]').click();
+  await page.locator('#brand-guide').waitFor({state:'visible'});
+  assert.equal(await page.locator('#brand-guide .identity-swatch').count(),7);
+  assert.equal(await page.locator('#brand-guide .identity-package-card').count(),4);
+  assert((await page.locator('#brand-guide').innerText()).includes('Túi giấy Ivory'));
   // Removed routes should safely resolve to dashboard; no orphaned generator.
   await page.evaluate(()=>location.hash='#web');
   await page.locator('#dashboard').waitFor({state:'visible'});
