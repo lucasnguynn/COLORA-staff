@@ -113,7 +113,7 @@
     document.title=labels[view]+' | COLORA Staff';
     window.scrollTo({top:0,behavior:'instant'});
   }
-  function applyRoute(){const route=decodeURIComponent(location.hash.slice(1)||'home');const [view,detail]=route.split('/');navigate(view);if(view==='library'&&typeof window.COLORA_LIBRARY_OPEN==='function')window.COLORA_LIBRARY_OPEN(detail||'');if(view==='mail-setup'&&typeof window.COLORA_MAIL_GUIDE_SHOW==='function')window.COLORA_MAIL_GUIDE_SHOW(detail||'outlook');}
+  function applyRoute(){const route=decodeURIComponent(location.hash.slice(1)||'home');const [view,detail]=route.split('/');navigate(view);if(view==='library'&&typeof window.COLORA_LIBRARY_OPEN==='function')window.COLORA_LIBRARY_OPEN(detail||'');if(view==='brand-guide'&&['identity-logo','identity-pattern','identity-moodboard','identity-packaging'].includes(detail))requestAnimationFrame(()=>document.getElementById(detail)?.scrollIntoView({block:'start'}));if(view==='mail-setup'&&typeof window.COLORA_MAIL_GUIDE_SHOW==='function')window.COLORA_MAIL_GUIDE_SHOW(detail||'outlook');}
   // An explicit switch-account action clears only the Staff remember-me
   // credentials, so a remembered Staff session cannot trap Senior users.
   const switchAccount=$('switch-account');
