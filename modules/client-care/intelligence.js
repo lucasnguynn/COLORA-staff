@@ -1,10 +1,26 @@
-/* Research-grounded public gemstone reference and practice schemas. No COLORA product inventory. */
+/* Public educational reference. No verified COLORA SKU inventory. */
 window.COLORA_INTELLIGENCE = {
   "version": "2.0",
   "date": "2026-10-31",
   "type": "PUBLIC_EDUCATION_NOT_INVENTORY",
   "disclaimer": "Kiến thức GIA là dữ liệu tham khảo khoáng vật học, KHÔNG chứng minh COLORA đang bán loại đá này. Mọi thông tin SKU và quyền lợi phải kiểm tra hồ sơ/phiên bản chính sách đã duyệt.",
   "gems": [
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "family": "Corundum",
+      "mohs": "9",
+      "toughness": "Tốt",
+      "caution": "Xác minh treatment, đặc biệt gia nhiệt hoặc lấp thủy tinh",
+      "wear": "Có thể phù hợp nhẫn đeo nhiều nếu viên đá và thiết kế đúng.",
+      "care": "Chăm sóc theo hướng dẫn thành phẩm đã duyệt, không mặc định siêu âm/hơi nước.",
+      "risk": "Natural không đồng nghĩa untreated hay không lấp khe nứt.",
+      "sources": [
+        "https://www.gia.edu/ruby",
+        "https://www.gia.edu/ruby-care-cleaning"
+      ],
+      "corePortfolio": true
+    },
     {
       "id": "sapphire",
       "name": "Sapphire",
@@ -18,7 +34,115 @@ window.COLORA_INTELLIGENCE = {
       "sources": [
         "https://www.gia.edu/sapphire-care-cleaning",
         "https://www.gia.edu/birthstones/september-birthstones"
-      ]
+      ],
+      "corePortfolio": true
+    },
+    {
+      "id": "garnet",
+      "name": "Garnet",
+      "family": "Garnet group",
+      "mohs": "6,5-7,5",
+      "toughness": "Khá đến tốt (tùy loại)",
+      "caution": "Nhóm đa dạng; tính chất khác nhau theo loại",
+      "wear": "Dùng được nhiều kiểu trang sức nhưng cần tránh va đập mạnh; xác minh giống garnet cụ thể.",
+      "care": "GIA hướng dẫn nước xà phòng ấm; không khuyến nghị hơi nước. Đá có khe nứt/trám đòi hỏi thận trọng hơn.",
+      "risk": "Không sử dụng một thông số đồng nhất cho mọi giống garnet.",
+      "sources": [
+        "https://www.gia.edu/garnet-care-cleaning"
+      ],
+      "corePortfolio": true
+    },
+    {
+      "id": "topaz",
+      "name": "Topaz",
+      "family": "Topaz",
+      "mohs": "8",
+      "toughness": "Kém do tính cát khai",
+      "caution": "Sốc nhiệt, lực ép hoặc va đập có thể làm nứt",
+      "wear": "Với nhẫn dùng nhiều nên chú ý thiết kế bảo vệ, tránh những tình huống va đập mạnh.",
+      "care": "GIA khuyên nước xà phòng ấm; tránh siêu âm và hơi nước. Lớp phủ màu có thể nhạy với mài bóng.",
+      "risk": "Mohs 8 KHÔNG đồng nghĩa bền va đập hơn mọi đá Mohs 7.",
+      "sources": [
+        "https://www.gia.edu/topaz-care-cleaning"
+      ],
+      "corePortfolio": true
+    },
+    {
+      "id": "aquamarine",
+      "name": "Aquamarine",
+      "family": "Beryl",
+      "mohs": "7,5-8",
+      "toughness": "Tốt (theo GIA)",
+      "caution": "Nứt và bao thể lỏng có thể ảnh hưởng cách vệ sinh",
+      "wear": "Có thể phù hợp nhiều loại trang sức, kể cả nhẫn, nếu setting giảm tác động mạnh.",
+      "care": "GIA khuyên nước xà phòng ấm. Máy siêu âm/hơi nước cần loại trừ bao thể lỏng, khe nứt và xử lý đặc biệt.",
+      "risk": "Độ trong cao không thay thế bằng chứng nguồn gốc và treatment.",
+      "sources": [
+        "https://www.gia.edu/aquamarine-care-cleaning"
+      ],
+      "corePortfolio": true
+    },
+    {
+      "id": "citrine",
+      "name": "Citrine",
+      "family": "Quartz",
+      "mohs": "7",
+      "toughness": "Tốt nếu không có khuyết tật đáng kể",
+      "caution": "Citrine trên thị trường có thể có màu sau gia nhiệt",
+      "wear": "Tông vàng cam phù hợp nhiều thiết kế, tránh ma sát mạnh khi đeo nhẫn.",
+      "care": "Kiểm tra lớp phủ và treatment; tránh nhiệt/ánh sáng mạnh kéo dài.",
+      "risk": "Không tuyên bố mọi Citrine untreated hoặc màu bền tuyệt đối.",
+      "sources": [
+        "https://www.gia.edu/citrine",
+        "https://www.gia.edu/citrine-care-cleaning"
+      ],
+      "corePortfolio": true
+    },
+    {
+      "id": "peridot",
+      "name": "Peridot",
+      "family": "Olivine",
+      "mohs": "6,5-7",
+      "toughness": "Khá",
+      "caution": "Tránh va đập, cọ xát và sốc nhiệt",
+      "wear": "Màu xanh lục đặc trưng; ưu tiên kết cấu bảo vệ cho nhẫn.",
+      "care": "Không khuyến nghị siêu âm/hơi nước khi chưa có hướng dẫn thành phẩm.",
+      "risk": "Không hứa chống trầy, chống mẻ hoặc bền hơn mọi đá khác.",
+      "sources": [
+        "https://www.gia.edu/peridot",
+        "https://www.gia.edu/peridot-care-cleaning"
+      ],
+      "corePortfolio": true
+    },
+    {
+      "id": "spinel",
+      "name": "Spinel",
+      "family": "Spinel",
+      "mohs": "8",
+      "toughness": "Tốt",
+      "caution": "Bao thể, khe nứt và treatment có thể thay đổi rủi ro",
+      "wear": "Độ cứng và độ dai khá tốt cho nhiều loại trang sức, nhưng không bảo đảm chống sứt.",
+      "care": "GIA xem nước xà phòng ấm là phương án an toàn; tránh chủ quan với đá có khe nứt hoặc fracture filling.",
+      "risk": "Không suy diễn mọi viên spinel đều natural/untreated.",
+      "sources": [
+        "https://www.gia.edu/spinel-care-cleaning"
+      ],
+      "corePortfolio": true
+    },
+    {
+      "id": "tourmaline",
+      "name": "Tourmaline",
+      "family": "Tourmaline group",
+      "mohs": "7-7,5",
+      "toughness": "Trung bình (fair)",
+      "caution": "Nhạy cảm nhiệt cao và thay đổi nhiệt độ đột ngột",
+      "wear": "Có thể dùng làm trang sức, nhưng nên cân nhắc môi trường sử dụng và bảo vệ viền đá.",
+      "care": "Nước xà phòng ấm được GIA khuyên dùng; không khuyến nghị máy siêu âm hoặc hơi nước.",
+      "risk": "Cần xác nhận treatment; irradiation có thể gây độ ổn định màu khác.",
+      "sources": [
+        "https://www.gia.edu/tourmaline-care-cleaning"
+      ],
+      "corePortfolio": true
     },
     {
       "id": "amethyst",
@@ -33,83 +157,14 @@ window.COLORA_INTELLIGENCE = {
       "sources": [
         "https://archive.gia.edu/amethyst-care-cleaning",
         "https://www.gia.edu/gia-news-research-tips-caring-jewelry"
-      ]
-    },
-    {
-      "id": "garnet",
-      "name": "Garnet",
-      "family": "Garnet group",
-      "mohs": "6,5–7,5",
-      "toughness": "Khá đến tốt (tùy loại)",
-      "caution": "Nhóm đa dạng; tính chất khác nhau theo loại",
-      "wear": "Dùng được nhiều kiểu trang sức nhưng cần tránh va đập mạnh; xác minh giống garnet cụ thể.",
-      "care": "GIA hướng dẫn nước xà phòng ấm; không khuyến nghị hơi nước. Đá có khe nứt/trám đòi hỏi thận trọng hơn.",
-      "risk": "Không sử dụng một thông số đồng nhất cho mọi giống garnet.",
-      "sources": [
-        "https://www.gia.edu/garnet-care-cleaning"
-      ]
-    },
-    {
-      "id": "tourmaline",
-      "name": "Tourmaline",
-      "family": "Tourmaline group",
-      "mohs": "7–7,5",
-      "toughness": "Trung bình (fair)",
-      "caution": "Nhạy cảm nhiệt cao và thay đổi nhiệt độ đột ngột",
-      "wear": "Có thể dùng làm trang sức, nhưng nên cân nhắc môi trường sử dụng và bảo vệ viền đá.",
-      "care": "Nước xà phòng ấm được GIA khuyên dùng; không khuyến nghị máy siêu âm hoặc hơi nước.",
-      "risk": "Cần xác nhận treatment; irradiation có thể gây độ ổn định màu khác.",
-      "sources": [
-        "https://www.gia.edu/tourmaline-care-cleaning"
-      ]
-    },
-    {
-      "id": "aquamarine",
-      "name": "Aquamarine",
-      "family": "Beryl",
-      "mohs": "7,5–8",
-      "toughness": "Tốt (theo GIA)",
-      "caution": "Nứt và bao thể lỏng có thể ảnh hưởng cách vệ sinh",
-      "wear": "Có thể phù hợp nhiều loại trang sức, kể cả nhẫn, nếu setting giảm tác động mạnh.",
-      "care": "GIA khuyên nước xà phòng ấm. Máy siêu âm/hơi nước cần loại trừ bao thể lỏng, khe nứt và xử lý đặc biệt.",
-      "risk": "Độ trong cao không thay thế bằng chứng nguồn gốc và treatment.",
-      "sources": [
-        "https://www.gia.edu/aquamarine-care-cleaning"
-      ]
-    },
-    {
-      "id": "topaz",
-      "name": "Topaz",
-      "family": "Topaz",
-      "mohs": "8",
-      "toughness": "Kém do tính cát khai",
-      "caution": "Sốc nhiệt, lực ép hoặc va đập có thể làm nứt",
-      "wear": "Với nhẫn dùng nhiều nên chú ý thiết kế bảo vệ, tránh những tình huống va đập mạnh.",
-      "care": "GIA khuyên nước xà phòng ấm; tránh siêu âm và hơi nước. Lớp phủ màu có thể nhạy với mài bóng.",
-      "risk": "Mohs 8 KHÔNG đồng nghĩa bền va đập hơn mọi đá Mohs 7.",
-      "sources": [
-        "https://www.gia.edu/topaz-care-cleaning"
-      ]
-    },
-    {
-      "id": "spinel",
-      "name": "Spinel",
-      "family": "Spinel",
-      "mohs": "8",
-      "toughness": "Tốt",
-      "caution": "Bao thể, khe nứt và treatment có thể thay đổi rủi ro",
-      "wear": "Độ cứng và độ dai khá tốt cho nhiều loại trang sức, nhưng không bảo đảm chống sứt.",
-      "care": "GIA xem nước xà phòng ấm là phương án an toàn; tránh chủ quan với đá có khe nứt hoặc fracture filling.",
-      "risk": "Không suy diễn mọi viên spinel đều natural/untreated.",
-      "sources": [
-        "https://www.gia.edu/spinel-care-cleaning"
-      ]
+      ],
+      "corePortfolio": false
     },
     {
       "id": "emerald",
       "name": "Emerald",
       "family": "Beryl",
-      "mohs": "7,5–8",
+      "mohs": "7,5-8",
       "toughness": "Trung bình đến tốt; thường có khe nứt",
       "caution": "Dầu/nhựa trám khe nứt có thể chịu tác động bởi hóa chất và nhiệt",
       "wear": "Nên giải thích rõ việc tránh va đập, nên ưu tiên cấu trúc bảo vệ và chăm sóc thận trọng.",
@@ -117,13 +172,14 @@ window.COLORA_INTELLIGENCE = {
       "risk": "Natural không đồng nghĩa untreated; không tự nhận mọi emerald đều không dầu.",
       "sources": [
         "https://www.gia.edu/emerald-care-cleaning"
-      ]
+      ],
+      "corePortfolio": false
     },
     {
       "id": "opal",
       "name": "Opal",
       "family": "Opal",
-      "mohs": "5–6,5",
+      "mohs": "5-6,5",
       "toughness": "Rất kém đến trung bình",
       "caution": "Nhạy với nhiệt cao, thay đổi nhiệt độ và nguy cơ nứt crazing",
       "wear": "Chỉ nên đề xuất nếu người đeo chấp nhận yêu cầu bảo quản cẩn trọng; cân nhắc pendant/earring có bảo vệ.",
@@ -131,13 +187,14 @@ window.COLORA_INTELLIGENCE = {
       "risk": "Không áp dụng hướng dẫn ngâm/tẩy phổ quát cho mọi opal và kết cấu ghép.",
       "sources": [
         "https://www.gia.edu/opal-care-cleaning"
-      ]
+      ],
+      "corePortfolio": false
     },
     {
       "id": "moonstone",
       "name": "Moonstone",
       "family": "Feldspar",
-      "mohs": "6–6,5",
+      "mohs": "6-6,5",
       "toughness": "Kém",
       "caution": "Có cát khai, dễ nứt do va đập hoặc sốc nhiệt",
       "wear": "Tương đối phù hợp các sản phẩm ít va chạm như dây chuyền, bông tai hơn nhẫn lao động tay nhiều.",
@@ -145,7 +202,8 @@ window.COLORA_INTELLIGENCE = {
       "risk": "Hiệu ứng ánh trăng không thể thay thế tư vấn độ bền kỹ thuật.",
       "sources": [
         "https://www.gia.edu/moonstone-care-cleaning"
-      ]
+      ],
+      "corePortfolio": false
     }
   ],
   "proof": [
@@ -413,5 +471,101 @@ window.COLORA_INTELLIGENCE = {
       "setting": "Kiểm tra độ nhô vòm, viền và điểm tỳ khi đeo."
     }
   ],
-  "gemSafetyNote": "Dữ liệu là tham khảo khoáng vật học theo GIA, không thể quyết định an toàn vệ sinh của thành phẩm COLORA khi thiếu thông tin đá, treatment, kim loại, lớp phủ, keo và cấu trúc setting."
+  "gemSafetyNote": "Dữ liệu là tham khảo khoáng vật học theo GIA, không thể quyết định an toàn vệ sinh của thành phẩm COLORA khi thiếu thông tin đá, treatment, kim loại, lớp phủ, keo và cấu trúc setting.",
+  "conversations": [
+    {
+      "id": "nine-stone-case-01",
+      "question": "Vì sao COLORA chọn 9 dòng đá?",
+      "reply": "COLORA lựa chọn vì phổ màu, đặc tính phù hợp nhiều thiết kế và nhiều mức ngân sách. Mỗi loại có điểm riêng về độ bền và chăm sóc. Bạn thích màu nào và thường đeo thế nào?",
+      "avoid": "Không nói 9 loại luôn bền hơn mọi đá khác."
+    },
+    {
+      "id": "nine-stone-case-02",
+      "question": "Ruby và Garnet đỏ khác nhau thế nào?",
+      "reply": "Cả hai có thể có màu đỏ nhưng khác khoáng vật. Ruby thuộc Corundum, Mohs 9; Garnet có nhiều giống, Mohs khoảng 6,5-7,5. Mình sẽ xem màu và mẫu cụ thể.",
+      "avoid": "Không gọi Garnet là Ruby giá thấp."
+    },
+    {
+      "id": "nine-stone-case-03",
+      "question": "Sapphire và Aquamarine xanh nên chọn loại nào?",
+      "reply": "Sapphire Mohs 9, Aquamarine khoảng 7,5-8. Aquamarine thường xanh nhẹ hơn, còn Sapphire có nhiều sắc độ. Bạn thích xanh dịu hay xanh đậm và đeo thường xuyên không?",
+      "avoid": "Không mặc định mọi Sapphire xanh đậm."
+    },
+    {
+      "id": "nine-stone-case-04",
+      "question": "Topaz Mohs 8 có khó vỡ không?",
+      "reply": "Mohs chủ yếu nói về chống trầy. Topaz có cát khai nên vẫn cần tránh va đập mạnh, nhất là khi đeo nhẫn nhiều.",
+      "avoid": "Không hứa Topaz chống vỡ."
+    },
+    {
+      "id": "nine-stone-case-05",
+      "question": "Citrine có phải đá tự nhiên không?",
+      "reply": "Citrine thuộc Quartz. Có Citrine màu tự nhiên và loại có màu sau gia nhiệt. Mình cần kiểm tra hồ sơ đúng viên đá trong sản phẩm.",
+      "avoid": "Không khẳng định untreated khi thiếu hồ sơ."
+    },
+    {
+      "id": "nine-stone-case-06",
+      "question": "Tôi thích nhẫn xanh lục để đeo nhiều.",
+      "reply": "Nếu thích Peridot, mình sẽ lưu ý thêm về va đập và ma sát. Bạn thường đeo nhẫn khi làm việc tay nhiều không? Mình sẽ đối chiếu đúng mẫu.",
+      "avoid": "Không xác định tên đá chỉ bằng màu."
+    },
+    {
+      "id": "nine-stone-case-07",
+      "question": "Đeo lâu đá có bị xước không?",
+      "reply": "Đá có mức chống trầy khác nhau. Rủi ro mẻ còn phụ thuộc va đập và kết cấu giữ đá. COLORA sẽ tư vấn theo đúng sản phẩm.",
+      "avoid": "Không hứa không bao giờ trầy hoặc vỡ."
+    },
+    {
+      "id": "nine-stone-case-08",
+      "question": "Đá nào may mắn hay chữa lành?",
+      "reply": "Một số dòng đá có liên tưởng văn hóa riêng. COLORA khuyến khích bạn chọn theo sở thích, nhưng không cam kết tác dụng chữa bệnh hay vận mệnh.",
+      "avoid": "Không áp đặt niềm tin hoặc chế giễu khách."
+    },
+    {
+      "id": "nine-stone-case-09",
+      "question": "Tại sao hai mẫu cùng loại đá khác giá?",
+      "reply": "Ngoài tên đá còn có màu, cỡ, giác cắt, chất lượng viên đá, thiết kế và độ hoàn thiện. Mình có thể đối chiếu thông tin được duyệt của từng mẫu.",
+      "avoid": "Không suy đoán giá vốn hoặc cam kết độ hiếm."
+    },
+    {
+      "id": "nine-stone-case-10",
+      "question": "Có bảo đảm untreated hoặc có chứng thư?",
+      "reply": "Mình cần kiểm tra hồ sơ đúng SKU trước khi trả lời tình trạng xử lý hoặc chứng thư và sẽ phản hồi lại khi có thông tin.",
+      "avoid": "Chuyển Product/QC khi thiếu hồ sơ."
+    },
+    {
+      "id": "nine-stone-case-11",
+      "question": "Spinel đỏ có phải Ruby không?",
+      "reply": "Spinel và Ruby là hai khoáng vật khác nhau dù có thể cùng màu đỏ. Ruby Mohs 9 và Spinel Mohs 8. Mình sẽ so màu và thiết kế của các mẫu được xác nhận.",
+      "avoid": "Không nhầm Spinel với Ruby."
+    },
+    {
+      "id": "nine-stone-case-12",
+      "question": "Tourmaline nhiều màu có chăm sóc khác không?",
+      "reply": "Tourmaline có thể có nhiều vùng màu trên cùng viên. Nên tránh va đập và sốc nhiệt. Mình sẽ kiểm tra hướng dẫn thành phẩm trước khi tư vấn vệ sinh.",
+      "avoid": "Không tự khuyên siêu âm hoặc hơi nước."
+    }
+  ],
+  "portfolio": {
+    "ids": [
+      "ruby",
+      "sapphire",
+      "garnet",
+      "topaz",
+      "aquamarine",
+      "citrine",
+      "peridot",
+      "spinel",
+      "tourmaline"
+    ],
+    "criteria": [
+      "Độ bền",
+      "Màu sắc",
+      "Câu chuyện",
+      "Giá cả",
+      "Thiết kế",
+      "Chất lượng"
+    ],
+    "note": "Định hướng 9 dòng đá của COLORA, không phải dữ liệu tồn kho hoặc hồ sơ SKU"
+  }
 };

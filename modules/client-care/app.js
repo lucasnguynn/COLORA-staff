@@ -101,7 +101,7 @@
 
   // V2 is public learning reference. It contains NO verified COLORA inventory or customer data.
   function gemCard(g){
-    return '<a class="gem-card" href="'+href("stone/"+g.id)+'"><span class="gem-card-top"><span class="eyebrow">GIA REFERENCE · NOT COLORA STOCK</span><span class="gem-mohs">'+esc(g.mohs)+'</span></span><h3>'+esc(g.name)+'</h3><p class="gem-family">'+esc(g.family)+' · Mohs '+esc(g.mohs)+'</p><p>'+esc(g.caution)+'</p><div class="gem-card-bottom"><span>Độ dai: '+esc(g.toughness)+'</span><b>Khám phá ↗</b></div></a>';
+    return '<a class="gem-card" href="'+href("stone/"+g.id)+'"><span class="gem-card-top"><span class="eyebrow">'+(g.corePortfolio?'9 DÒNG CHỦ ĐẠO':'ĐÁ THAM KHẢO')+' · GIA REFERENCE</span><span class="gem-mohs">'+esc(g.mohs)+'</span></span><h3>'+esc(g.name)+'</h3><p class="gem-family">'+esc(g.family)+' · Mohs '+esc(g.mohs)+'</p><p>'+esc(g.caution)+'</p><div class="gem-card-bottom"><span>Độ dai: '+esc(g.toughness)+'</span><b>Khám phá ↗</b></div></a>';
   }
   function cutShape(id){
     var shapes={
@@ -120,12 +120,14 @@
       var hay=[g.name,g.family,g.mohs,g.toughness,g.caution,g.wear,g.risk].join(" ").toLocaleLowerCase("vi");
       return hay.indexOf(state.stoneSearch.toLocaleLowerCase("vi").trim())>-1;
     });
-    ROOT.innerHTML='<div class="page">'+titleBlock("COLORA PRODUCT INTELLIGENCE","Hiểu sản phẩm, trước khi tư vấn","Độ bền, giác cắt, vật liệu và bằng chứng phải được hiểu theo từng viên đá và từng SKU. Đây là kho kiến thức công khai, KHÔNG phải danh mục sản phẩm đang bán.")+
+    ROOT.innerHTML='<div class="page">'+titleBlock("COLORA PRODUCT INTELLIGENCE","Hiểu sản phẩm, trước khi tư vấn","Gồm chín dòng đá màu chủ đạo của COLORA và các loại đá khác để tham khảo. Kiến thức không phải hồ sơ sản phẩm đang bán.")+
       '<div class="notice"><strong>Định nghĩa nguồn:</strong> “GIA reference” = kiến thức khoáng vật học từ GIA. “Verified COLORA SKU” = hồ sơ của đúng mã hàng đã được QC xác nhận. Hiện Academy không chứa hồ sơ SKU đã phê duyệt và không chứng minh COLORA có bán các loại đá dưới đây.</div>'+
       '<div class="intelligence-actions"><a class="intelligence-link" href="'+href("evidence")+'"><span class="eyebrow">THE PROOF</span><h3>SKU Evidence Gate</h3><p>7 nhóm thông tin cần xác minh, bằng chứng và owner trước khi tư vấn.</p><span>Kiểm tra tiêu chuẩn ↗</span></a><a class="intelligence-link" href="'+href("roleplay")+'"><span class="eyebrow">THE PRACTICE</span><h3>Advisor Role-play</h3><p>Viết phản hồi cho tình huống giả định và tự chấm theo rubric.</p><span>Luyện tập ↗</span></a></div>'+
-      sectionHead("Gemstone Reference Library","Chọn một loại đá để xem độ cứng, độ dai, điểm cần lưu ý và nguồn GIA.")+
+      sectionHead("Gemstone Guide - 9 dòng đá chủ đạo","Các dòng đá COLORA lựa chọn làm định hướng danh mục được hiển thị trước. Xem nhóm, độ bền, lưu ý và nguồn GIA.")+
       '<div class="toolbar"><input id="stone-search" type="search" class="searchbox" placeholder="Tìm đá, thông số hoặc rủi ro..." aria-label="Tìm kiến thức đá" value="'+esc(state.stoneSearch)+'"><span class="count-label" id="stone-count">'+gems.length+' loại đá tham khảo</span></div>'+
       '<div class="gem-grid" id="gem-list">'+(gems.length?gems.map(gemCard).join(""):'<div class="empty-state"><strong>Không có kết quả</strong>Hãy thử từ khóa khác.</div>')+'</div>'+
+      sectionHead("12 tình huống tư vấn đá màu","Mở từng câu hỏi để xem cách trả lời ngắn, dễ hiểu. Ví dụ học tập, không thay hồ sơ SKU hoặc chính sách đã duyệt.")+
+      '<div class="stone-talks">'+I.conversations.map(function(x,i){return '<details class="stone-talk"><summary><span class="eyebrow">TÌNH HUỐNG '+String(i+1).padStart(2,"0")+'</span><strong>'+esc(x.question)+'</strong></summary><p>'+esc(x.reply)+'</p><p class="care-note"><strong>Cần nhớ:</strong> '+esc(x.avoid)+'</p></details>';}).join("")+'</div>'+
       sectionHead("Cut & Silhouette","Hình phác thảo nguyên lý, không biểu thị độ sâu hoặc tỷ lệ kỹ thuật của viên đá thật.")+
       '<div class="cut-grid">'+I.cuts.map(function(c){return '<article class="cut-card">'+cutShape(c.shape)+'<h3>'+esc(c.name)+'</h3><p><strong>'+esc(c.focus)+'</strong></p><p>'+esc(c.tradeoff)+'</p><p class="cut-note">'+esc(c.setting)+'</p></article>';}).join("")+'</div>'+
       '<div class="insight-band"><div><h3>Hardness ≠ Toughness ≠ Stability</h3><p>Không dùng thang Mohs như chỉ số duy nhất để khẳng định đeo hằng ngày an toàn.</p></div><a class="btn btn-navy" target="_blank" rel="noopener noreferrer" href="'+esc(I.generalSources[0].url)+'">Đọc kiến thức GIA ↗</a></div></div>';
@@ -141,7 +143,7 @@
     if(!g){notFound();return;}
     var rows=[["Nhóm khoáng vật",g.family],["Mohs (độ cứng chống trầy)",g.mohs],["Toughness (độ dai)",g.toughness],["Lưu ý",g.caution]];
     ROOT.innerHTML='<div class="page"><button class="detail-back" type="button" data-go="intelligence">← Trở lại Gemstone Library</button>'+
-      '<section class="detail-hero"><p class="eyebrow">GIA GEMSTONE REFERENCE / KHÔNG PHẢI HÀNG TỒN COLORA</p><h1>'+esc(g.name)+'</h1><p>'+esc(g.family)+' · Bản hướng dẫn tham khảo từ GIA. Đặc tính từng viên đá và sản phẩm hoàn thiện phải được xác minh riêng.</p><div class="detail-meta"><span class="pill">Mohs '+esc(g.mohs)+'</span><span class="pill">Toughness: '+esc(g.toughness)+'</span></div></section>'+
+      '<section class="detail-hero"><p class="eyebrow">'+(g.corePortfolio?'9 DÒNG ĐÁ COLORA / THAM KHẢO GIA':'ĐÁ THAM KHẢO GIA')+' / KHÔNG PHẢI HÀNG TỒN COLORA</p><h1>'+esc(g.name)+'</h1><p>'+esc(g.family)+' · Bản hướng dẫn tham khảo từ GIA. Đặc tính từng viên đá và sản phẩm hoàn thiện phải được xác minh riêng.</p><div class="detail-meta"><span class="pill">Mohs '+esc(g.mohs)+'</span><span class="pill">Toughness: '+esc(g.toughness)+'</span></div></section>'+
       '<div class="detail-grid"><article class="lesson-article">'+
       '<section class="article-section"><p class="eyebrow">01 / PROPERTY</p><h2>Thông số tham khảo</h2><div class="stone-properties">'+rows.map(function(x){return '<div><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong></div>';}).join("")+'</div></section>'+
       '<section class="article-section"><p class="eyebrow">02 / WEARABILITY</p><h2>Ngữ cảnh sử dụng</h2><p>'+esc(g.wear)+'</p></section>'+

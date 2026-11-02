@@ -130,6 +130,24 @@ try{
         await wrapper.locator('.workspace-subnav-btn[data-subroute="learn"]').waitFor({state:'visible'});
         await wrapper.locator('.workspace-subnav-btn[data-subroute="review"]').click();
         await wrapper.locator('.workspace-subnav-btn[data-subroute="learn"]').click();
+        // The independent 14B educational supplement is available to both
+        // roles inside the encrypted Learning Studio, with no effect on V10.2.
+        await app.locator('#open-portfolio').waitFor({state:'visible',timeout:12000});
+        await app.locator('#open-portfolio').click();
+        await app.locator('.gem-learning-profile').first().waitFor({state:'visible'});
+        assert.equal(await app.locator('.gem-learning-profile').count(),9,
+          'Gemstone 14B must show all nine COLORA stones');
+        assert.equal(await app.locator('.gem-learning-criterion').count(),6,
+          'Gemstone 14B must explain six founder-selected criteria');
+        await app.locator('#gem-spinel summary').click();
+        assert((await app.locator('#gem-spinel').innerText()).includes('Ruby'),
+          'Spinel profile must differentiate from Ruby');
+        await app.locator('#portfolio-start').click();
+        assert((await app.locator('#app .question').innerText()).includes('COLORA lựa chọn chín dòng đá'));
+        await app.locator('[data-gem-choice="1"]').click();
+        assert((await app.locator('#app .feedback').innerText()).includes('Chính xác'));
+        await app.locator('#portfolio-exit').click();
+        await app.locator('#portfolio-return').click();
       } else if(view==='client-care'){
         await wrapper.locator('.workspace-subnav-btn[data-subroute="scripts"]').waitFor({state:'visible'});
         await wrapper.locator('.workspace-subnav-btn[data-subroute="scripts"]').click();
@@ -137,6 +155,18 @@ try{
         // Regression: in a bundled Blob iframe, <base href="/apps/client-care/">
         // is for assets ONLY. Native <a href="#/..."> navigation otherwise
         // resolves to that unpublished GitHub Pages HTML URL and shows 404.
+        await wrapper.locator('.workspace-subnav-btn[data-subroute="intelligence"]').click();
+        await app.locator('#main-content .gem-card').first().waitFor({state:'visible',timeout:12000});
+        assert.equal(await app.locator('#main-content .gem-card').count(),13,
+          'Reference library must have all nine core stones and four comparison stones');
+        assert.equal(await app.locator('#main-content .stone-talk').count(),12,
+          'Gemstone Guide must include all twelve client conversation samples');
+        await app.locator('#main-content .stone-talk summary').first().click();
+        assert((await app.locator('#main-content .stone-talk').first().innerText()).includes('Cần nhớ'));
+        await app.locator('#main-content a[href="#/stone/ruby"]').click();
+        await app.locator('#main-content .detail-hero h1').waitFor({state:'visible'});
+        assert.equal(await app.locator('#main-content .detail-hero h1').innerText(),'Ruby');
+        await app.locator('#main-content button[data-go="intelligence"]').first().click();
         await wrapper.locator('.workspace-subnav-btn[data-subroute="cases"]').click();
         await app.locator('#main-content a[href^="#/case/"]').first().waitFor({state:'visible',timeout:12000});
         await app.locator('#main-content a[href^="#/case/"]').first().click();
