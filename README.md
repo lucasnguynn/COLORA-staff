@@ -1,3 +1,14 @@
+## Illustrated Brand & Packaging guide — November 2026
+
+The Staff and Senior encrypted workspaces include a **Brand & Packaging** navigation section with illustrations of the official COLORA logo, seven brand colors, typography, original facet SVG files, moodboard principles and a packaging reference board.
+
+- Original vector symbols: `site/brand-assets/facet-symbol.svg` and `site/brand-assets/facet-pattern.svg`, sourced from COLORA's Identity/Pattern Drive folder. They are intentionally public after bundling; do not store confidential imagery in `site/brand-assets`.
+- Official brand typography: Cormorant Garamond (display) and Open Sans (body/UI). Main color pair: Ivory `#F4EDE1` and Deep Navy `#002451`.
+- Current packaging, per owner confirmation: jewelry box, outer box, **Ivory paper bag**, shipping box.
+- Planned packaging (not included by default): pouch, story/thank-you cards, COA/warranty materials, ribbon/pattern wrapping, gift voucher and specialty inserts. Draft specifications and some earlier Navy shopping-bag artwork from Google Drive are proposals, **not proof of current inventory or final production dimensions**.
+- Packaging shapes on the page are explicitly **schematic**. Images and supplier documents remain linked to the original Drive for review; moodboard inspirational photographs have not been copied into the public GitHub repository.
+- Jump buttons route within the decrypted workspace and do not reload the login iframe. Verify the visual guide on mobile and desktop in Playwright and manual smoke tests.
+
 ## Brand alignment and P0 security hardening — November 2026
 
 - Typography: Cormorant Garamond for display, Open Sans for body and UI. Colors: Navy #002451, Ivory #F4EDE1, muted Gold #B08A5B.
