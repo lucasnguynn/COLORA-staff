@@ -348,10 +348,9 @@
 
 <script>
   const $ = id => document.getElementById(id);
-  // Always build the central signature from the official COLORA asset.
-  // The original portrait PNG is much taller than a QR module: embedding
-  // that raw image at 19% made the mark nearly invisible amongst navy dots.
-  // A square, background-matched badge keeps it legible in preview AND export.
+  // Use the official COLORA symbol, not a square logo tile. A slender oval
+  // clearance keeps dark QR modules from crossing the fine gemstone facets.
+  // The same geometry is used by live preview, SVG and PNG downloads.
   const symbolSource = new URL("./assets/colora-symbol.png", document.baseURI).href;
   const symbolImage = new Image();
   let currentLogo = "";
@@ -365,16 +364,31 @@
     const canvas = document.createElement("canvas");
     canvas.width = canvas.height = 512;
     const ctx = canvas.getContext("2d");
-    // The quiet square behind the symbol takes the QR background color.
-    // Keep broad enough padding that the finder/data modules remain legible.
-    ctx.fillStyle = $("bg").value;
-    ctx.fillRect(0, 0, 512, 512);
-    const maxWidth = 235, maxHeight = 364;
-    const scale = Math.min(maxWidth / symbolImage.naturalWidth,
-                           maxHeight / symbolImage.naturalHeight);
-    const w = symbolImage.naturalWidth * scale;
-    const h = symbolImage.naturalHeight * scale;
-    ctx.drawImage(symbolImage, (512 - w) / 2, (512 - h) / 2, w, h);
+    // Preserve transparency. Previously the symbol was painted on an
+    // opaque 512x512 ivory square, so every export showed a visible tile.
+    // Tighten transparent padding in the official PNG to let the symbol
+    // read clearly at the same modest QR logo-size preset.
+    const source = document.createElement("canvas");
+    source.width = symbolImage.naturalWidth;
+    source.height = symbolImage.naturalHeight;
+    const sourceCtx = source.getContext("2d",{willReadFrequently:true});
+    sourceCtx.drawImage(symbolImage,0,0);
+    const pixels = sourceCtx.getImageData(0,0,source.width,source.height).data;
+    let left=source.width,top=source.height,right=-1,bottom=-1;
+    for(let y=0;y<source.height;y++){
+      for(let x=0;x<source.width;x++){
+        if(pixels[(y*source.width+x)*4+3]>24){
+          left=Math.min(left,x);right=Math.max(right,x);
+          top=Math.min(top,y);bottom=Math.max(bottom,y);
+        }
+      }
+    }
+    if(right<left||bottom<top)return "";
+    const naturalW=right-left+1,naturalH=bottom-top+1;
+    const scale=Math.min(438/naturalW,455/naturalH);
+    const w=naturalW*scale,h=naturalH*scale;
+    ctx.drawImage(symbolImage,left,top,naturalW,naturalH,
+      (512-w)/2,(512-h)/2,w,h);
     return canvas.toDataURL("image/png");
   }
 
@@ -455,26 +469,30 @@
   // official COLORA mark directly to the completed SVG instead. This same
   // composition is used for the SVG and PNG downloads.
   const SVG_NS="http://www.w3.org/2000/svg";
-  function badgeBox(size){
-    const width=Math.round(size*Number($("logoSize").value));
-    return {x:(size-width)/2,y:(size-width)/2,width};
+  function signatureGeometry(size){
+    const diameter=size*Number($("logoSize").value);
+    // Taller than wide, following the vertical gemstone silhouette.
+    // Covers roughly the same central QR area as the former square.
+    const radiusX=diameter*.52,radiusY=diameter*.63;
+    const imageSide=diameter*.95;
+    return {cx:size/2,cy:size/2,radiusX,radiusY,
+      imageX:(size-imageSide)/2,imageY:(size-imageSide)/2,imageSide};
   }
   function placeLogoOnSVG(svg,size){
     if(!currentLogo || svg.querySelector('[data-colora-signature]'))return;
-    const {x,y,width}=badgeBox(size);
-    const back=svg.ownerDocument.createElementNS(SVG_NS,"rect");
-    back.setAttribute("data-colora-signature","back");
-    back.setAttribute("x",x);back.setAttribute("y",y);
-    back.setAttribute("width",width);back.setAttribute("height",width);
-    back.setAttribute("rx",Math.round(width*.08));
-    back.setAttribute("fill",$("bg").value);
+    const g=signatureGeometry(size);
+    const clearance=svg.ownerDocument.createElementNS(SVG_NS,"ellipse");
+    clearance.setAttribute("data-colora-signature","clearance");
+    clearance.setAttribute("cx",g.cx);clearance.setAttribute("cy",g.cy);
+    clearance.setAttribute("rx",g.radiusX);clearance.setAttribute("ry",g.radiusY);
+    clearance.setAttribute("fill",$("bg").value);
     const image=svg.ownerDocument.createElementNS(SVG_NS,"image");
     image.setAttribute("data-colora-signature","logo");
-    image.setAttribute("x",x);image.setAttribute("y",y);
-    image.setAttribute("width",width);image.setAttribute("height",width);
+    image.setAttribute("x",g.imageX);image.setAttribute("y",g.imageY);
+    image.setAttribute("width",g.imageSide);image.setAttribute("height",g.imageSide);
     image.setAttribute("preserveAspectRatio","xMidYMid meet");
     image.setAttribute("href",currentLogo);
-    svg.append(back,image);
+    svg.append(clearance,image);
   }
   const qrPreviewEl=$("qrPreview");
   new MutationObserver(()=>{
@@ -548,8 +566,8 @@
       saveBlob(new Blob([xml],{type:"image/svg+xml;charset=utf-8"}),"colora-qr.svg");
       return;
     }
-    // Rasterize QR paths first, then paint the logo as a second bitmap layer:
-    // browser SVG security policies cannot strip the center badge from PNG.
+    // Rasterize QR paths, then apply the same subtle oval clearance and
+    // transparent brand symbol as the SVG and live preview.
     const svgUrl=URL.createObjectURL(new Blob([source],{type:"image/svg+xml"}));
     let qrImage;
     try{qrImage=await loadImage(svgUrl)}finally{URL.revokeObjectURL(svgUrl)}
@@ -557,11 +575,13 @@
     canvas.width=canvas.height=size;
     const ctx=canvas.getContext("2d");
     ctx.drawImage(qrImage,0,0,size,size);
-    const {x,y,width}=badgeBox(size);
+    const g=signatureGeometry(size);
+    ctx.beginPath();
+    ctx.ellipse(g.cx,g.cy,g.radiusX,g.radiusY,0,0,Math.PI*2);
     ctx.fillStyle=$("bg").value;
-    ctx.fillRect(x,y,width,width);
-    const badge=await loadImage(currentLogo);
-    ctx.drawImage(badge,x,y,width,width);
+    ctx.fill();
+    const signature=await loadImage(currentLogo);
+    ctx.drawImage(signature,g.imageX,g.imageY,g.imageSide,g.imageSide);
     const blob=await new Promise((resolve,reject)=>canvas.toBlob(
       value=>value?resolve(value):reject(Error("Không thể xuất PNG QR.")),"image/png"));
     saveBlob(blob,"colora-qr.png");

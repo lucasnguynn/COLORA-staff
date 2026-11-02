@@ -126,12 +126,21 @@ try{
           throw error;
         }
         const logo=await app.locator('#logoThumb').getAttribute('src');
-        assert(logo?.startsWith('data:image/png;base64,'),'Default COLORA badge must be normalized into a square PNG');
-        const badgeSize=await app.locator('#logoThumb').evaluate(async el=>{
+        assert(logo?.startsWith('data:image/png;base64,'),'COLORA symbol must render as a normalized local PNG');
+        const logoPixels=await app.locator('#logoThumb').evaluate(async el=>{
           await el.decode();
-          return [el.naturalWidth,el.naturalHeight];
+          const c=document.createElement('canvas');c.width=el.naturalWidth;c.height=el.naturalHeight;
+          const ctx=c.getContext('2d');ctx.drawImage(el,0,0);
+          const cornerAlpha=ctx.getImageData(0,0,1,1).data[3];
+          const centerAlpha=ctx.getImageData(c.width/2|0,c.height/2|0,1,1).data[3];
+          return {width:c.width,height:c.height,cornerAlpha,centerAlpha};
         });
-        assert.deepEqual(badgeSize,[512,512],'Default logo badge must preserve square proportions');
+        assert.deepEqual([logoPixels.width,logoPixels.height],[512,512],'Keep normalized transparent canvas size');
+        assert.equal(logoPixels.cornerAlpha,0,'Default COLORA symbol must not contain an opaque square tile');
+        assert(await app.locator('#qrPreview svg [data-colora-signature="clearance"]').count()>0,
+          'QR preview must have the subtle oval symbol clearance');
+        assert.equal(await app.locator('#qrPreview svg [data-colora-signature="back"]').count(),0,
+          'QR preview must not have the previous square center badge');
         if(role==='staff'){
           // A generated image is only useful when a DIFFERENT QR decoder can
           // recover its destination. Scan exported pixels, not the QR library's
@@ -154,6 +163,10 @@ try{
               const svg=bytes.toString('utf8');
               assert(svg.includes('data-colora-signature="logo"'),
                 'SVG export must retain the embedded COLORA signature');
+              assert(svg.includes('<ellipse')&&svg.includes('data-colora-signature="clearance"'),
+                'SVG export must keep the slender oval clearance');
+              assert(!svg.includes('data-colora-signature="back"'),
+                'SVG export must not reintroduce the former square badge');
             }
             await result.delete().catch(()=>{});
           }
