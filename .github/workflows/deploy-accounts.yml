@@ -5,25 +5,30 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
 concurrency:
   group: colora-staff-pages
   cancel-in-progress: false
 jobs:
-  build-and-deploy:
+  build:
     if: vars.STAFF_AUTH_MODE == 'static-accounts'
     runs-on: ubuntu-latest
+    # Secrets are available ONLY in this build job. No Pages deployment
+    # privileges or OIDC token are granted while decrypting source material.
+    permissions:
+      contents: read
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      deployment: false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Scan tracked sources for accidental credentials before reading production secrets
+        run: node scripts/security-audit.mjs
       - name: Validate source safety and training integrity before encrypting
         run: |
+          node --check scripts/security-audit.mjs
           node --check scripts/build.mjs
           node --check scripts/build-account-release.mjs
           node --check account-auth/account-login.js
@@ -84,6 +89,20 @@ jobs:
       - uses: actions/upload-pages-artifact@v4
         with:
           path: account-release/public
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: vars.STAFF_AUTH_MODE == 'static-accounts'
+    # Only this isolated job can publish the already-verified Pages artifact.
+    # It never checks out code or has employee/JD secrets in its environment.
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Publish encrypted five-person login, never plaintext
         id: deployment
         uses: actions/deploy-pages@v4
