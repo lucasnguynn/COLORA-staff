@@ -142,6 +142,47 @@ try{
         assert.equal(await app.locator('#qrPreview svg [data-colora-signature="back"]').count(),0,
           'QR preview must not have the previous square center badge');
         if(role==='staff'){
+          // Changing the QR foreground must also tint the official default
+          // COLORA symbol. Check real rendered PNG pixels, not just UI labels.
+          const paletteColors=['#002451','#8E2F2A','#0F6857','#4A2E23'];
+          for(const [index,expected] of paletteColors.entries()){
+            await app.locator('.palette-btn').nth(index).click();
+            const sample=await app.locator('#logoThumb').evaluate(async el=>{
+              await el.decode();
+              const c=document.createElement('canvas');
+              c.width=el.naturalWidth;c.height=el.naturalHeight;
+              const ctx=c.getContext('2d');
+              ctx.drawImage(el,0,0);
+              const p=ctx.getImageData(0,0,c.width,c.height).data;
+              let rgb=null,visible=0;
+              for(let j=0;j<p.length;j+=4){
+                if(p[j+3]===255){
+                  visible++;
+                  if(rgb===null)rgb=[p[j],p[j+1],p[j+2]];
+                }
+              }
+              return {rgb,visible,corner:p[3]};
+            });
+            const rgb=expected.slice(1).match(/../g).map(n=>parseInt(n,16));
+            assert(sample.visible>50,'COLORA logo lost its visible opaque pixels');
+            assert.deepEqual(sample.rgb,rgb,'Default COLORA logo must track QR color '+expected);
+            assert.equal(sample.corner,0,'Recolored logo must remain transparent outside symbol');
+            assert.equal(await app.locator('#fg').inputValue(),expected.toLowerCase(),
+              'Palette foreground control out of sync');
+          }
+          // Also cover a manually selected foreground (not just presets).
+          await app.locator('#fg').fill('#314159');
+          const manualColor=await app.locator('#logoThumb').evaluate(async el=>{
+            await el.decode();
+            const c=document.createElement('canvas');c.width=el.naturalWidth;c.height=el.naturalHeight;
+            const ctx=c.getContext('2d');ctx.drawImage(el,0,0);
+            const p=ctx.getImageData(0,0,c.width,c.height).data;
+            for(let j=0;j<p.length;j+=4)if(p[j+3]===255)return [p[j],p[j+1],p[j+2]];
+            return null;
+          });
+          assert.deepEqual(manualColor,[49,65,89],'Manual QR foreground must tint default symbol');
+          // Run PNG optical scan and SVG export on a NON-default palette.
+          await app.locator('.palette-btn').nth(1).click();
           // A generated image is only useful when a DIFFERENT QR decoder can
           // recover its destination. Scan exported pixels, not the QR library's
           // own logical data, so a too-large central badge fails the release.
@@ -163,6 +204,17 @@ try{
               const svg=bytes.toString('utf8');
               assert(svg.includes('data-colora-signature="logo"'),
                 'SVG export must retain the embedded COLORA signature');
+              const embedded=svg.match(/href="data:image\/png;base64,([^"]+)"/);
+              assert(embedded,'SVG must embed a self-contained recolored symbol');
+              const embeddedPng=PNG.sync.read(Buffer.from(embedded[1],'base64'));
+              let symbolColor=null;
+              for(let j=0;j<embeddedPng.data.length;j+=4){
+                if(embeddedPng.data[j+3]===255){
+                  symbolColor=Array.from(embeddedPng.data.slice(j,j+3));break;
+                }
+              }
+              assert.deepEqual(symbolColor,[142,47,42],
+                'SVG embedded COLORA symbol must match Burgundy foreground');
               assert(svg.includes('<ellipse')&&svg.includes('data-colora-signature="clearance"'),
                 'SVG export must keep the slender oval clearance');
               assert(!svg.includes('data-colora-signature="back"'),
