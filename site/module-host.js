@@ -126,6 +126,14 @@ window.COLORA_MODULE_HOST=(()=>{
       if(!href.startsWith('blob:'))return;
       const doc=frame.contentDocument;
       if(!doc)return;
+      // Global search shortcut also works while keyboard focus is inside a
+      // same-origin learning or care iframe, without leaking query content.
+      doc.addEventListener('keydown',event=>{
+        if((event.metaKey||event.ctrlKey)&&event.key.toLowerCase()==='k'){
+          event.preventDefault();
+          window.COLORA_QUICK_SEARCH?.open();
+        }
+      },true);
       frame.removeEventListener('load',data.listener);
       status.hidden=true;
       if(view==='client-care'){
