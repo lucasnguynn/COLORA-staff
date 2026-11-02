@@ -4,7 +4,7 @@ Updated: 2026-11-02. This is a low-sensitivity learning and creative-tools porta
 
 ## Non-negotiable publication boundary
 
-- This repository and the site served by GitHub Pages are **public**. Users can fetch all published static assets, notably Learning Studio JSON question/answer banks. A login screen does not make those assets private.
+- **Current status:** this repository and the site served by GitHub Pages are **public**. Users can fetch all published static assets, notably Learning Studio JSON question/answer banks. A login screen does not make those assets private. The team is considering PRIVATE source plus PUBLIC artifact hosting. Review [safe no-cost privacy migration](docs/SOURCE_PRIVACY_MIGRATION.md) before touching repository visibility: GitHub Free will unpublish Pages from an existing repo changed to Private.
 - **Never commit or enter** client names, phone numbers, order records, passwords, API tokens, confidential prices/BOMs/QC supplier data, salary information or unapproved human-resources content.
 - The five email/password pairs, and the JD archive key, belong only in protected GitHub Actions / `github-pages` environment secrets. Never paste them into repository files, Actions logs, Issues, PRs or screenshots.
 - The five AES-GCM account envelopes are publicly downloadable and subject to **offline** password guessing. Eight characters is only a minimum; use unique randomly generated passwords (prefer 16–20+ characters, especially Senior). Public salt/verifier metadata and downloaded historical ciphertext cannot be remotely revoked.
@@ -21,7 +21,8 @@ Updated: 2026-11-02. This is a low-sensitivity learning and creative-tools porta
 
 ## Current build and deploy controls
 
-- `deploy-accounts.yml` is the production path when `STAFF_AUTH_MODE=static-accounts`. It validates modules, exercises encrypted Staff/Senior sign-ins, checks integrated UI and audits an explicit allowlist of public release files **before** publishing.
+- `deploy-accounts.yml` is the production path when `STAFF_AUTH_MODE=static-accounts`. It validates modules, exercises encrypted Staff/Senior sign-ins, checks integrated UI and audits an explicit allowlist of public release files **before** publishing. The **build** job has read-only repository permissions and protected secrets but NO Pages/OIDC publishing permissions; a separate **deploy** job can publish only the audited artifact and does not check out source or use employee passwords.
+- `scripts/security-audit.mjs` runs in PR validation and production before building. It blocks recognized private key/token patterns and forbidden tracked credential filenames. It does not scan previous commits, external assets or unknown secret formats. A successful check is NOT proof that all sensitive data are absent.
 - `check-live-login.yml` runs after the current account deployment succeeds (or when manually dispatched). It verifies the actual email/password form for all five accounts and compares the public `release-version.json` commit to the triggering deployment SHA; secrets are not printed.
 - `rotate-jd-password.yml` intentionally uses an explicit workflow dispatch after committing with `GITHUB_TOKEN`. GitHub does not trigger `push` workflows from its own `GITHUB_TOKEN` pushes, so this is **not** a duplicate deploy. It does not print or screenshot credentials.
 - `pages.yml` is **legacy rollback only**: it requires `STAFF_AUTH_MODE=legacy` **and** a manual workflow_dispatch. A missing variable cannot silently switch security architecture.
