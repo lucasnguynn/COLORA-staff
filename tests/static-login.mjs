@@ -204,7 +204,7 @@ try{
               const svg=bytes.toString('utf8');
               assert(svg.includes('data-colora-signature="logo"'),
                 'SVG export must retain the embedded COLORA signature');
-              const embedded=svg.match(/href="data:image\\/png;base64,([^"]+)"/);
+              const embedded=svg.match(/href="data:image\/png;base64,([^"]+)"/);
               assert(embedded,'SVG must embed a self-contained recolored symbol');
               const embeddedPng=PNG.sync.read(Buffer.from(embedded[1],'base64'));
               let symbolColor=null;
