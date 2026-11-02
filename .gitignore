@@ -6,3 +6,9 @@ node_modules/
 .staticrypt.json
 .DS_Store
 .migration/
+account-release/
+test-results/
+playwright-report/
+*.log
+*.pem
+*.key

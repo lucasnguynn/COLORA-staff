@@ -22,6 +22,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Validate source safety and training integrity before encrypting
+        run: |
+          node --check scripts/build.mjs
+          node --check scripts/build-account-release.mjs
+          node --check account-auth/account-login.js
+          node --check site/app.js
+          node --check site/module-host.js
+          node --check site/jd-workspace.js
+          node --check tests/live-password-check.mjs
+          node tests/account-secret-diagnostics.mjs
+          (cd modules/learning && node scripts/validate.mjs)
+          (cd modules/client-care && node tests/publication.cjs && node tests/ops.cjs && node tests/smoke.cjs)
       - name: Restore protected JD source without exposing a password
         env:
           SENIOR_JD_PASSWORD: ${{ secrets.SENIOR_JD_PASSWORD }}
@@ -31,6 +43,7 @@ jobs:
             echo "JD source restored."
           else
             rm -rf .sources/jd
+            echo "::warning title=JD archive key mismatch::The stored encrypted JD archive does not match SENIOR_JD_PASSWORD. Using the reviewed pinned JD source fallback. This may omit browser-local edits. Rekey the archive using the dedicated rotation workflow when the previous key is available."
             node scripts/recover-jd-source.mjs .sources/jd
           fi
       - name: Install pinned QR dependency
@@ -55,6 +68,10 @@ jobs:
         env:
           COLORA_ACCOUNT_CREDENTIALS_JSON: ${{ secrets.COLORA_ACCOUNT_CREDENTIALS_JSON }}
         run: node tests/static-login.mjs
+      - name: Validate desktop, mobile and embedded Staff/JD tools before publishing
+        run: node tests/ui.mjs
+      - name: Check public artifact allowlist and absence of private sources
+        run: node tests/published-asset-audit.mjs
       - name: Erase staging plaintext and private test fixtures
         run: |
           rm -rf dist .sources
