@@ -90,7 +90,7 @@
     // password, or a decryption key in the decrypted workspace.
     if(!validEntryId(entryId)||!html.includes('</head>'))throw Error('Invalid account scope');
     const scopeScript='<script>Object.defineProperty(window,"COLORA_ACCOUNT_SCOPE",'+
-      '{value:"'+entryId+'",writable:false,configurable:false});<\\/script>';
+      '{value:"'+entryId+'",writable:false,configurable:false});</'+'script>';
     rememberUntil=expiresAt;
     $('access-page').hidden=true;
     $('workspace').hidden=false;
