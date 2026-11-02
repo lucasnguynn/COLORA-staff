@@ -121,18 +121,18 @@ let jdEngine=fs.readFileSync(path.join(jdSource,'app.js'),'utf8');
 // temporary built Senior document. No raw JD source is committed or published.
 // The legacy static rollback remains unchanged when this flag is off.
 if(process.env.COLORA_JD_SCOPED_STORAGE==='true'){
-  const legacyKeys="const STORAGE_KEY = 'colora_jd_library_v1';\\nconst SETTINGS_KEY = 'colora_jd_settings_v1';";
+  const legacyKeys="const STORAGE_KEY = 'colora_jd_library_v1';\nconst SETTINGS_KEY = 'colora_jd_settings_v1';";
   const scopedKeys=[
     "const COLORA_JD_ACCOUNT_ID = window.parent.COLORA_ACCOUNT_SCOPE;",
     "if(!/^[a-f0-9]{32}$/.test(COLORA_JD_ACCOUNT_ID||'')) throw Error('Senior account context missing');",
     "const STORAGE_KEY = 'colora_jd_library_v2_' + COLORA_JD_ACCOUNT_ID;",
     "const SETTINGS_KEY = 'colora_jd_settings_v2_' + COLORA_JD_ACCOUNT_ID;"
-  ].join('\\n');
+  ].join('\n');
   if(jdEngine.includes(legacyKeys))jdEngine=jdEngine.replace(legacyKeys,scopedKeys);
   else if(!/[/\\\\]tests[/\\\\]fixtures[/\\\\]jd$/.test(jdSource))
     fail('Pinned JD storage format changed; refusing to build without explicit scoped keys');
 }
-jd=jd.replace('<script src="app.js"></script>','<script>\\n'+jdEngine.replace(/<\\/script/gi,'<\\\\/script')+'\\n</script>');
+jd=jd.replace('<script src="app.js"></script>','<script>\n'+jdEngine.replace(/<\\/script/gi,'<\\\\/script')+'\n</script>');
 jd=jd.replace(/family=Bodoni\+Moda:[^"&]+&family=Open\+Sans:/,'family=Cormorant+Garamond:wght@400;500;600&family=Open+Sans:');
 jd=jd.replace('</head>','<style>h1,h2,h3,.serif,.brand-name{font-family:"Cormorant Garamond",Georgia,serif!important}</style>\n<meta name="robots" content="noindex,nofollow,noarchive">\n</head>');
 fs.mkdirSync(jdDir,{recursive:true});
