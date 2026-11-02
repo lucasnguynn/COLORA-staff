@@ -1,0 +1,64 @@
+
+/* Accessible, local-only rapid reference search for Staff and Senior. */
+body.quick-search-active{overflow:hidden}
+.quick-search-overlay{position:fixed;inset:0;z-index:1200;display:flex;align-items:flex-start;justify-content:center;background:rgba(0,23,51,.65);padding:clamp(10px,4vh,42px) 18px 18px;overflow-y:auto;overscroll-behavior:contain}
+.quick-search-panel{width:min(100%,870px);max-height:calc(100dvh - 35px);min-width:0;display:flex;flex-direction:column;background:#fffcf8;border:1px solid #d7c9b8;box-shadow:0 25px 90px rgba(0,20,50,.25);color:#002451}
+.quick-search-header{padding:23px 28px 15px;display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex:0 0 auto}
+.quick-search-header .eyebrow{margin:0 0 7px}
+.quick-search-header h2{font-size:clamp(32px,4vw,45px);line-height:1.08;margin:0 0 7px}
+.quick-search-header h2 em{font-weight:400;color:#b08a5b}
+.quick-search-header p:not(.eyebrow){font-size:12px;line-height:1.65;color:#617083;max-width:600px;margin:0}
+.quick-search-close{background:transparent;border:1px solid #d8cbb9;color:#002451;flex:0 0 auto;min-height:39px;padding:6px 12px;font-size:11px}
+.quick-search-close span{font-size:20px;vertical-align:middle;margin-left:5px}
+.quick-search-input-wrap{margin:0 28px;display:flex;align-items:center;gap:12px;border:1px solid #a99578;background:#fff;padding:0 15px;min-height:54px;flex:0 0 auto}
+.quick-search-input-wrap svg{flex:0 0 auto;color:#7b684f}
+.quick-search-input-wrap:focus-within{outline:2px solid #b08a5b;outline-offset:2px}
+.quick-search-input-wrap input{width:100%;min-width:0;border:0;background:transparent;outline:none!important;box-shadow:none!important;color:#002451;font-size:16px;line-height:1.5;padding:14px 0}
+.quick-search-input-wrap kbd{white-space:nowrap;color:#657080;font:10px "Open Sans",Arial,sans-serif;border:1px solid #e3d9ca;padding:5px 7px}
+.quick-search-topics{display:flex;gap:7px;overflow-x:auto;max-width:100%;min-width:0;scrollbar-width:thin;padding:13px 28px 15px;flex:0 0 auto}
+.quick-search-topics button{white-space:nowrap;flex:0 0 auto;background:transparent;border:1px solid #d7c9b8;color:#002451;padding:8px 11px;font-size:11px}
+.quick-search-topics button:hover,.quick-search-topics button:focus-visible{border-color:#b08a5b}
+.quick-search-alert{border-left:2px solid #b08a5b;margin:0 28px 9px;padding:8px 12px;color:#645645;background:#faf5ed;font-size:11px;line-height:1.8;flex:0 0 auto}
+.quick-search-status{margin:0;padding:7px 28px 13px;font-size:11px;color:#657080;flex:0 0 auto}
+.quick-search-results{padding:0 28px 24px;min-height:110px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;min-width:0;flex:1}
+.quick-search-group+.quick-search-group{margin-top:24px}
+.quick-search-group-head{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #e3d9ca;padding:0 0 9px;margin-bottom:12px}
+.quick-search-group-head h3{margin:0;font:600 23px "Cormorant Garamond",Georgia,serif}
+.quick-search-group-head span{font-size:10px;color:#657080}
+.quick-search-item{background:#fff;border:1px solid #e2d9ce;padding:15px 17px;margin-bottom:9px;min-width:0}
+.quick-search-item-head{display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.quick-search-source{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#947c5b;font-weight:700}
+.quick-search-item-head strong{font-size:13px;line-height:1.65}
+.quick-search-item>p,.quick-search-draft p{font-size:12px;line-height:1.85;color:#445774;margin:9px 0}
+.quick-search-draft{margin-top:10px;border-top:1px solid #ece5db;padding-top:10px}
+.quick-search-draft summary{color:#002451;font-weight:700;font-size:11px;cursor:pointer}
+.quick-search-draft[open] summary{margin-bottom:12px}
+.quick-search-draft[open]>p:first-of-type{font-size:13px;color:#002451;white-space:pre-wrap}
+.quick-search-warning{border-left:2px solid #b08a5b;padding-left:10px}
+.quick-search-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+.quick-search-actions button,.quick-search-doc-footer button{min-height:42px;padding:9px 13px;background:#002451;color:white;border:1px solid #002451;font-weight:600;font-size:11px}
+.quick-search-actions button+button{background:transparent;color:#002451;border-color:#cbbba7}
+.quick-search-doc-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:9px;margin-top:11px}
+.quick-search-doc-footer span{color:#7a6d5b;font-size:10px}
+.quick-search-empty{padding:22px 0}
+.quick-search-empty strong{font-size:14px}
+.quick-search-empty p{font-size:12px;line-height:1.8;color:#657080}
+.quick-search-footer{border-top:1px solid #e3d9ca;padding:12px 28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:#788093;font-size:10px;flex:0 0 auto}
+.topbar-quick svg{display:inline-block;vertical-align:middle;flex:0 0 auto}
+@media(max-width:760px){
+ .quick-search-overlay{padding:0;align-items:stretch}
+ .quick-search-panel{min-height:100dvh;max-height:100dvh;width:100%;border:0}
+ .quick-search-header{padding:21px 19px 12px}
+ .quick-search-header h2{font-size:37px}
+ .quick-search-header p:not(.eyebrow){font-size:11px}
+ .quick-search-close{padding:8px;min-width:46px}
+ .quick-search-input-wrap{margin:0 19px;min-height:53px}
+ .quick-search-input-wrap kbd{display:none}
+ .quick-search-topics{padding:13px 19px}
+ .quick-search-alert{margin:0 19px 7px;font-size:10px}
+ .quick-search-status{padding:7px 19px 10px}
+ .quick-search-results{padding:0 19px 22px}
+ .quick-search-footer{padding:11px 19px}
+}
+@media(max-width:380px){.quick-search-header{gap:8px}.quick-search-header h2{font-size:32px}.quick-search-input-wrap input{font-size:16px}.quick-search-item{padding:12px}}
+@media(prefers-reduced-motion:reduce){.quick-search-overlay,.quick-search-panel{scroll-behavior:auto}}

@@ -84,9 +84,9 @@ fs.mkdirSync(path.join(pub,'account-files'),{recursive:true});
 // recursive copy would inadvertently publish any future private build file
 // ending in .json/.js/.txt. Unexpected artifacts now BLOCK deployment.
 const publicRoot=new Set([
-  'styles.css','brand-refinements.css','brand-guide.css','mail-guide.css','email-templates.css',
+  'styles.css','brand-refinements.css','brand-guide.css','mail-guide.css','email-templates.css','quick-search.css',
   'jd-integrated.css','embedded-apps.css','module-host.js','library.js',
-  'library-ui.js','mail-guide.js','email-templates.js','jd-workspace.js','jd-storage-gate.js','app.js','CNAME','.nojekyll'
+  'library-ui.js','mail-guide.js','email-templates.js','quick-search.js','quick-search-index.js','jd-workspace.js','jd-storage-gate.js','app.js','CNAME','.nojekyll'
 ]);
 const publicAssetTypes=/\.(?:css|js|json|svg|png|webp|jpe?g)$/i;
 function copyStatic(src,dst,relative=''){

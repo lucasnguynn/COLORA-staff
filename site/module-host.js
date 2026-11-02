@@ -31,7 +31,7 @@ window.COLORA_MODULE_HOST=(()=>{
     if(current.url)URL.revokeObjectURL(current.url);
     current=null;
   }
-  function mount(view,frame,markup,nav,track,status){
+  function mount(view,frame,markup,nav,track,status,initialRoute=''){
     cleanup();
     // Blob documents cannot resolve relative <base href="/apps/.../"> URLs.
     // Rewrite the build-time base to this *same* Staff origin before mounting
@@ -126,6 +126,14 @@ window.COLORA_MODULE_HOST=(()=>{
       if(!href.startsWith('blob:'))return;
       const doc=frame.contentDocument;
       if(!doc)return;
+      // Global search shortcut also works while keyboard focus is inside a
+      // same-origin learning or care iframe, without leaking query content.
+      doc.addEventListener('keydown',event=>{
+        if((event.metaKey||event.ctrlKey)&&event.key.toLowerCase()==='k'){
+          event.preventDefault();
+          window.COLORA_QUICK_SEARCH?.open();
+        }
+      },true);
       frame.removeEventListener('load',data.listener);
       status.hidden=true;
       if(view==='client-care'){
@@ -191,6 +199,13 @@ window.COLORA_MODULE_HOST=(()=>{
           schedule();
         });
         data.mutationObserver.observe(target,{childList:true,subtree:true,attributes:false});
+      }
+      // Navigate to the exact search result only after the decrypted Blob app
+      // is loaded. Never request unpublished /apps/*/index.html endpoints.
+      if(initialRoute&&/^[a-z0-9_-]+(?:\/[a-z0-9_-]+)?$/i.test(initialRoute)
+        &&(view==='learning'||view==='client-care')){
+        data.defaultOpened=true;
+        goTo(initialRoute);
       }
       schedule();
       setTimeout(schedule,120);

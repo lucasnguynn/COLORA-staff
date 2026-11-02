@@ -31,7 +31,7 @@
 
   function isModuleName(view){return Object.prototype.hasOwnProperty.call(modules,view)}
 
-  function navigate(view) {
+  function navigate(view, initialDetail='') {
     if (!Object.prototype.hasOwnProperty.call(labels,view) || (view==='jd'&&!isSenior)) view = 'home';
     window.COLORA_MODULE_HOST?.cleanup();
     window.COLORA_JD_WORKSPACE?.dispose();
@@ -92,7 +92,7 @@
           if(!window.COLORA_MODULE_HOST?.mount)throw Error('Module host unavailable');
           window.COLORA_MODULE_HOST.mount(
             view,frame,childHTML,
-            $('module-subnav'),$('module-track'),$('module-status')
+            $('module-subnav'),$('module-track'),$('module-status'),initialDetail
           );
         }catch(_error){
           // A runtime/URL error must not leave a seemingly successful but
@@ -120,7 +120,7 @@
     document.title=labels[view]+' | COLORA Staff';
     window.scrollTo({top:0,behavior:'instant'});
   }
-  function applyRoute(){const route=decodeURIComponent(location.hash.slice(1)||'home');const [view,detail]=route.split('/');navigate(view);if(view==='library'&&typeof window.COLORA_LIBRARY_OPEN==='function')window.COLORA_LIBRARY_OPEN(detail||'');if(view==='brand-guide'&&['identity-logo','identity-pattern','identity-moodboard','identity-packaging'].includes(detail))requestAnimationFrame(()=>document.getElementById(detail)?.scrollIntoView({block:'start'}));if(view==='mail-setup'&&typeof window.COLORA_MAIL_GUIDE_SHOW==='function')window.COLORA_MAIL_GUIDE_SHOW(detail||'outlook');}
+  function applyRoute(){const route=decodeURIComponent(location.hash.slice(1)||'home');const [view,...parts]=route.split('/');const detail=parts.join('/');navigate(view,detail);if(view==='library'&&typeof window.COLORA_LIBRARY_OPEN==='function')window.COLORA_LIBRARY_OPEN(detail||'');if(view==='brand-guide'&&['identity-logo','identity-pattern','identity-moodboard','identity-packaging'].includes(detail))requestAnimationFrame(()=>document.getElementById(detail)?.scrollIntoView({block:'start'}));if(view==='mail-setup'&&typeof window.COLORA_MAIL_GUIDE_SHOW==='function')window.COLORA_MAIL_GUIDE_SHOW(detail||'outlook');}
   // An explicit switch-account action clears only the Staff remember-me
   // credentials, so a remembered Staff session cannot trap Senior users.
   const switchAccount=$('switch-account');
@@ -151,10 +151,8 @@
       requestAnimationFrame(()=>document.getElementById(target)?.scrollIntoView({block:'start'}));
     });
   });
-  $('quick-library').addEventListener('click',()=>{
-    location.hash='library';
-    setTimeout(()=>{const input=$('library-search');input?.focus();},0);
-  });
+  // The global Quick Search owns the header search action and Cmd/Ctrl + K.
+  // Do not redirect users to only the old Resource Library search.
   $('module-expand').addEventListener('click',()=>{
     const enabled=document.body.classList.toggle('module-immersive');
     $('module-expand').setAttribute('aria-pressed',String(enabled));
