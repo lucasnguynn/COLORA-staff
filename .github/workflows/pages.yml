@@ -13,7 +13,9 @@ jobs:
   build:
     # Once individual accounts are activated, never overwrite their gateway
     # with the old shared-password StatiCrypt portal on the next commit.
-    if: vars.STAFF_AUTH_MODE != 'static-accounts'
+    # Explicit rollback only. A missing/incorrect auth mode MUST NOT
+    # silently deploy the obsolete shared-password login.
+    if: vars.STAFF_AUTH_MODE == 'legacy' && github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     # github-pages secrets stored in Settings > Environments can only be
     # read by a job that explicitly references this environment.
