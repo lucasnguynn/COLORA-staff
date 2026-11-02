@@ -229,6 +229,16 @@ try{
   // The Senior shell is a second plaintext staging artifact only in local
   // CI; production distributes it as a separate encrypted gateway payload.
   // Cold deep-link should initialize the JD integration before routing.
+  // The plaintext Senior page exists ONLY in local CI staging. The real
+  // encrypted login adds a validated opaque account scope before this page
+  // runs; reproduce that context here without weakening production checks.
+  await page.addInitScript(()=>{
+    if(location.pathname.startsWith('/senior/'))
+      Object.defineProperty(window,'COLORA_ACCOUNT_SCOPE',{
+        value:'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        writable:false,configurable:false
+      });
+  });
   await page.goto('http://127.0.0.1:'+server.address().port+'/senior/index.html#jd');
   await page.locator('#module[data-active-module="jd"]').waitFor({state:'visible',timeout:15000});
   assert.equal(await page.locator('.feature-card').count(),6,'Senior workspace should include JD card');
@@ -316,6 +326,13 @@ try{
   // bridge even though the intended HTML order is now corrected. A Senior
   // bookmarked #jd must still recover and never remain a blank section.
   const lateBridge=await browser.newPage({viewport:{width:1280,height:800}});
+  await lateBridge.addInitScript(()=>{
+    if(location.pathname.startsWith('/senior/'))
+      Object.defineProperty(window,'COLORA_ACCOUNT_SCOPE',{
+        value:'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        writable:false,configurable:false
+      });
+  });
   await lateBridge.route('**/senior/index.html',async route=>{
     const response=await route.fetch();
     const html=await response.text();
