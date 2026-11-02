@@ -80,16 +80,37 @@ try{
 }
 fs.rmSync(output,{recursive:true,force:true});
 fs.mkdirSync(path.join(pub,'account-files'),{recursive:true});
-function copyStatic(src,dst){
+// Allowlist the exact public root and supported static assets; the previous
+// recursive copy would inadvertently publish any future private build file
+// ending in .json/.js/.txt. Unexpected artifacts now BLOCK deployment.
+const publicRoot=new Set([
+  'styles.css','brand-refinements.css','brand-guide.css','mail-guide.css',
+  'jd-integrated.css','embedded-apps.css','module-host.js','library.js',
+  'library-ui.js','mail-guide.js','jd-workspace.js','app.js','CNAME','.nojekyll'
+]);
+const publicAssetTypes=/\.(?:css|js|json|svg|png|webp|jpe?g)$/i;
+function copyStatic(src,dst,relative=''){
  for(const entry of fs.readdirSync(src,{withFileTypes:true})){
+  const rel=relative?relative+'/'+entry.name:entry.name;
   const input=path.join(src,entry.name),out=path.join(dst,entry.name);
+  if(entry.isSymbolicLink())throw Error('Symlink is forbidden in public release: '+rel);
+  if(!relative&&(entry.name==='senior'||entry.name==='index.html'))continue;
   if(entry.isDirectory()){
-   if(entry.name==='senior'||entry.name.startsWith('.'))continue;
-   fs.mkdirSync(out,{recursive:true});copyStatic(input,out);
+   if(!relative && !['apps','brand-assets'].includes(entry.name))
+     throw Error('Unexpected public directory: '+rel);
+   if(relative && !/^(?:apps\/(?:learning|client-care|qr)(?:\/(?:assets|data|vendor))?|brand-assets)(?:\/.*)?$/.test(rel))
+     throw Error('Unapproved nested public directory: '+rel);
+   fs.mkdirSync(out,{recursive:true});
+   copyStatic(input,out,rel);
   }else if(entry.isFile()){
-   // Never publish the plain role documents or old senior ciphertext.
-   if(entry.name.endsWith('.html')||entry.name==='senior-gateway.json')continue;
+   if(!relative){
+     if(!publicRoot.has(entry.name))throw Error('Unapproved public root file: '+rel);
+   }else if(!publicAssetTypes.test(entry.name)||/\.map$|\.html$/i.test(entry.name)){
+     throw Error('Unapproved public asset file: '+rel);
+   }
    fs.copyFileSync(input,out);
+  }else{
+   throw Error('Unexpected artifact type in public release: '+rel);
   }
  }
 }
