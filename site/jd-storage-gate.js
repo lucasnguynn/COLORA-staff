@@ -59,6 +59,11 @@ window.COLORA_JD_STORAGE=(()=>{
     }
     if(safeRead(scoped('library',id))!==null || safeRead(scoped('settings',id))!==null)
       return true;
+    const skipKey='colora-jd-start-fresh-'+id;
+    if(sessionStorage.getItem(skipKey)==='1'){
+      sessionStorage.removeItem(skipKey);
+      return true;
+    }
 
     const rawRoles=safeRead(LEGACY_ROLES),rawSettings=safeRead(LEGACY_SETTINGS);
     if(rawRoles===null&&rawSettings===null)return true;
@@ -113,6 +118,7 @@ window.COLORA_JD_STORAGE=(()=>{
     const fresh=uiButton('Tạo thư viện riêng, giữ bản cũ',()=>{
       if(!confirm('Bắt đầu thư viện riêng với các JD mẫu? Thư viện cũ vẫn được giữ nguyên trong trình duyệt này.'))return;
       // The JD app itself will seed and persist this account's scoped keys.
+      sessionStorage.setItem('colora-jd-start-fresh-'+id,'1');
       gate.remove();frame.hidden=false;onRetry();
     },'fresh');
     actions.append(backup,copy,fresh);
