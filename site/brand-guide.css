@@ -15,8 +15,8 @@
 #brand-guide h1 em{color:var(--id-gold);font-weight:400}
 #brand-guide .identity-hero p:not(.identity-overline){max-width:610px;font-size:14px}
 #brand-guide .identity-jumplinks{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
-#brand-guide .identity-jumplinks a{text-decoration:none;border:1px solid #cbb9a5;padding:12px 15px;font-size:11px;letter-spacing:.025em;transition:border-color .2s,background .2s}
-#brand-guide .identity-jumplinks a:hover{border-color:var(--id-ink);background:#fffaf4}
+#brand-guide .identity-jumplinks button{cursor:pointer;background:transparent;color:var(--id-ink);font-family:"Open Sans",Arial,sans-serif;text-decoration:none;border:1px solid #cbb9a5;padding:12px 15px;font-size:11px;letter-spacing:.025em;transition:border-color .2s,background .2s}
+#brand-guide .identity-jumplinks button:hover{border-color:var(--id-ink);background:#fffaf4}
 #brand-guide .identity-hero-art{min-height:390px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#002451;overflow:hidden;padding:46px 22px 32px}
 #brand-guide .identity-hero-art:before{content:"";position:absolute;inset:24px;border:1px solid rgba(244,237,225,.21);pointer-events:none}
 #brand-guide .identity-hero-art>img:first-child{width:min(290px,80%);height:auto;max-height:85px;object-fit:contain;filter:brightness(0) invert(1)}
@@ -145,5 +145,5 @@
  .identity-home-link{display:block;margin:12px 0 0}
 }
 @media(prefers-reduced-motion:reduce){
- #brand-guide .identity-jumplinks a{transition:none}
+ #brand-guide .identity-jumplinks button{transition:none}
 }
