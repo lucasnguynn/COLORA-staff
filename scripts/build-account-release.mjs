@@ -94,6 +94,9 @@ function copyStatic(src,dst,relative=''){
   const rel=relative?relative+'/'+entry.name:entry.name;
   const input=path.join(src,entry.name),out=path.join(dst,entry.name);
   if(entry.isSymbolicLink())throw Error('Symlink is forbidden in public release: '+rel);
+  // The build intentionally stages raw JD HTML under dist/apps/jd, but that
+  // *entire directory* must never reach a GitHub Pages artifact.
+  if(relative==='apps'&&entry.name==='jd')continue;
   if(!relative&&(entry.name==='senior'||entry.name==='index.html'))continue;
   if(entry.isDirectory()){
    if(!relative && !['apps','brand-assets'].includes(entry.name))
