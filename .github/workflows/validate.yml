@@ -9,11 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Block accidental secret material in tracked repository content
+        run: node scripts/security-audit.mjs
       - name: Validate JavaScript
         run: |
+          node --check scripts/security-audit.mjs
           node --check site/app.js
           node --check site/mail-guide.js
           node --check site/jd-workspace.js
