@@ -75,7 +75,7 @@ try{
     contentWidth:el.scrollWidth,containerWidth:el.clientWidth
   }));
   assert(widthStatus.contentWidth<=widthStatus.containerWidth+2,'Brand guide overflows its workspace container');
-  await guide.locator('a[href="#brand-guide/identity-packaging"]').click();
+  await guide.locator('button[data-brand-target="identity-packaging"]').click();
   await wrapper.locator('#brand-guide:not([hidden])').waitFor({state:'visible'});
   assert.equal(await wrapper.locator('#identity-packaging').isVisible(),true,'Brand Guide deep link must remain in the guide');
 
