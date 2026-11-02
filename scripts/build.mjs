@@ -129,10 +129,10 @@ if(process.env.COLORA_JD_SCOPED_STORAGE==='true'){
     "const SETTINGS_KEY = 'colora_jd_settings_v2_' + COLORA_JD_ACCOUNT_ID;"
   ].join('\n');
   if(jdEngine.includes(legacyKeys))jdEngine=jdEngine.replace(legacyKeys,scopedKeys);
-  else if(!/[/\\\\]tests[/\\\\]fixtures[/\\\\]jd$/.test(jdSource))
+  else if(jdSource.split(path.sep).slice(-3).join('/')!=='tests/fixtures/jd')
     fail('Pinned JD storage format changed; refusing to build without explicit scoped keys');
 }
-jd=jd.replace('<script src="app.js"></script>','<script>\n'+jdEngine.replace(/<\\/script/gi,'<\\\\/script')+'\n</script>');
+jd=jd.replace('<script src="app.js"></script>','<script>\n'+jdEngine.replace(/<\/script/gi,'<\\/script')+'\n</script>');
 jd=jd.replace(/family=Bodoni\+Moda:[^"&]+&family=Open\+Sans:/,'family=Cormorant+Garamond:wght@400;500;600&family=Open+Sans:');
 jd=jd.replace('</head>','<style>h1,h2,h3,.serif,.brand-name{font-family:"Cormorant Garamond",Georgia,serif!important}</style>\n<meta name="robots" content="noindex,nofollow,noarchive">\n</head>');
 fs.mkdirSync(jdDir,{recursive:true});
