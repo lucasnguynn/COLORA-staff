@@ -47,6 +47,9 @@ try{
     assert(!brandLayout.horizontalOverflow,'Login page overflows screen at '+width);
     assert(!brandLayout.obsoleteText,'Obsolete BKNS sentence must not appear');
   }
+  assert.equal(await page.locator('#signin-submit svg[aria-hidden="true"]').count(),1,'Sign-in arrow must be SVG rather than an iOS emoji');
+  assert.equal(await page.locator('#workspace-signout svg[aria-hidden="true"]').count(),1,'Sign-out arrow must be SVG rather than an iOS emoji');
+  assert.equal(await page.locator('#signin-submit').innerText(),'Đăng nhập','No emoji arrow text in login button');
   await page.setViewportSize({width:1280,height:850});
   assert.equal(await page.locator('#remember-device').isChecked(),false,'Remember me must be opt-in');
   await page.locator('#staff-email').fill(user.email);
@@ -58,6 +61,30 @@ try{
   await wrapper.locator('body[data-staff-role="'+role+'"][data-staff-ready="true"]').waitFor({state:'attached',timeout:20000});
   const jd=await wrapper.locator('[data-view="jd"]').count();
   assert.equal(jd>0,role==='senior','Staff role must never see JD navigation');
+  // Email Templates: Staff sees everyday drafts; Senior additionally sees
+  // onboarding / account-access templates. No passwords are pre-filled.
+  await wrapper.locator('.nav-btn[data-view="email-templates"]').click();
+  await wrapper.locator('#email-templates:not([hidden])').waitFor({state:'visible'});
+  const emails=wrapper.locator('#email-templates');
+  assert.equal(await emails.locator('.email-template-option').count(),role==='senior'?10:7,
+    'Unexpected number of permitted templates for '+role);
+  assert.equal(await emails.locator('[data-template-filter="people"]').isVisible(),role==='senior');
+  if(role==='senior'){
+    const welcome=await emails.locator('#email-template-body').inputValue();
+    assert(welcome.includes('Chào mừng bạn gia nhập COLORA!'));
+    assert(welcome.includes('COLORA Tổng'));
+    assert(welcome.includes('Mật khẩu: [Được cấp riêng qua kênh bảo mật]'));
+    assert.equal(await emails.locator('#email-template-security').isVisible(),true);
+  }else{
+    assert.equal(await emails.locator('.email-template-option').filter({hasText:'Chào mừng thành viên mới'}).count(),0);
+  }
+  await emails.locator('[data-template-filter="clients"]').click();
+  assert.equal(await emails.locator('.email-template-option').count(),4);
+  await emails.locator('.email-template-option').first().click();
+  await emails.locator('#email-template-subject').fill('COLORA | Test');
+  await emails.locator('#email-template-reset').click();
+  assert.notEqual(await emails.locator('#email-template-subject').inputValue(),'COLORA | Test');
+  assert.equal(await emails.locator('input[type="password"],form[action]').count(),0);
   // Verify the visual field guide survives encrypted Staff/Senior login,
   // shows official vectors from Drive, and distinguishes current/planned packs.
   await wrapper.locator('.nav-btn[data-view="brand-guide"]').click();

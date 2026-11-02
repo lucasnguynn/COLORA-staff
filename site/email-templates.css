@@ -1,0 +1,41 @@
+
+/* COLORA Email Templates — editorial, accessible, browser-only. */
+.email-templates{max-width:1320px;margin-inline:auto}
+.email-templates h1{font:500 clamp(46px,6vw,75px)/1.04 "Cormorant Garamond",Georgia,serif;letter-spacing:-.025em;color:var(--navy);margin:10px 0 14px}
+.email-templates h1 em{font-weight:400;color:var(--gold)}
+.email-templates .template-lede{font-size:13px;line-height:1.85;color:#60718a;max-width:760px;margin:0 0 28px}
+.email-template-filters{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 18px}
+.email-template-filters button{background:transparent;border:1px solid #d4c8b6;color:var(--navy);padding:11px 15px;cursor:pointer;font:600 12px "Open Sans",Arial,sans-serif}
+.email-template-filters button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:white}
+.email-template-grid{display:grid;grid-template-columns:minmax(260px,.83fr) minmax(0,1.37fr);gap:22px;align-items:start}
+.email-template-directory,.email-template-editor{background:#fffdfa;border:1px solid #ded3c3;padding:25px 27px;min-width:0}
+.email-template-directory-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.email-template-directory h2,.email-template-editor h2{font:500 32px/1.14 "Cormorant Garamond",Georgia,serif;margin:0 0 18px;color:var(--navy)}
+#email-template-count,.email-template-kicker{font-size:10px;color:#8c6c48;letter-spacing:.1em;font-weight:700;text-transform:uppercase}
+.email-template-search{width:100%;min-height:45px;min-width:0;border:1px solid #d4c8b6;border-radius:0;padding:11px 13px;background:white;color:var(--navy);font:400 16px "Open Sans",Arial,sans-serif;margin:0 0 14px}
+.email-template-list{display:flex;flex-direction:column;gap:8px;max-height:670px;overflow-y:auto}
+.email-template-option{position:relative;text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-height:70px;padding:13px 40px 13px 14px;border:1px solid #e2d9ca;background:#fffdfa;color:var(--navy);cursor:pointer;font-family:"Open Sans",Arial,sans-serif;transition:background .15s,border-color .15s}
+.email-template-option.active,.email-template-option[aria-pressed="true"]{border-color:var(--gold);background:#f4ede1}
+.email-template-option-type{color:#856b4e;letter-spacing:.07em;text-transform:uppercase;font-size:9px;font-weight:700}
+.email-template-option strong{font-size:12px;line-height:1.55;font-weight:600}
+.email-template-option-arrow{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-family:Arial,sans-serif;font-size:18px}
+.email-template-empty{font-size:12px;color:#60718a;line-height:1.7}
+.email-template-editor-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:18px}
+.email-template-editor h2{margin:7px 0 0}
+.email-template-editor label{display:block;margin:18px 0 7px;font-size:11px;font-weight:700;color:var(--navy)}
+.email-template-editor input,.email-template-editor textarea{display:block;width:100%;max-width:100%;min-width:0;border:1px solid #d4c8b6;border-radius:0;background:#fff;color:var(--navy);padding:13px 15px;font:400 13px/1.75 "Open Sans",Arial,sans-serif}
+.email-template-editor input{min-height:49px;font-size:16px}
+.email-template-editor textarea{min-height:390px;resize:vertical;white-space:pre-wrap}
+.email-template-editor :is(input,textarea):focus-visible,.email-template-search:focus-visible,.email-template-option:focus-visible,.email-template-filters button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.email-template-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.email-template-actions button{padding:12px 16px;min-height:44px;border-radius:0;cursor:pointer;font:600 11px "Open Sans",Arial,sans-serif}
+.email-template-actions .main-action{background:var(--navy);color:white;border:1px solid var(--navy)}
+.email-template-actions .secondary-action{background:transparent;color:var(--navy);border:1px solid #cbbda9}
+.email-template-security{border-left:2px solid var(--gold);background:#faf5eb;color:#5e4f40;margin:16px 0;padding:12px 15px;font-size:11px;line-height:1.8}
+.email-template-status{color:#60718a;font-size:11px;line-height:1.8;min-height:22px;margin:14px 0 0}
+.email-template-privacy{color:#60718a;font-size:11px;line-height:1.8;border-top:1px solid #e6ddd0;padding-top:16px;margin-top:16px}
+@media(max-width:900px){.email-template-grid{grid-template-columns:1fr}.email-template-list{max-height:310px}.email-template-directory,.email-template-editor{padding:21px}}
+@media(max-width:580px){.email-templates h1{font-size:48px}.email-template-directory,.email-template-editor{padding:18px}.email-template-editor textarea{min-height:330px}.email-template-filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;padding-bottom:6px}.email-template-filters button{white-space:nowrap}.email-template-editor h2{font-size:29px}.email-template-actions button{flex:1 1 auto}.email-template-editor-head{align-items:center}}
+
+.email-template-editor-head #email-template-reset{border:1px solid #cbbda9;background:transparent;color:var(--navy);padding:10px 13px;min-height:42px;cursor:pointer;font:600 11px "Open Sans",Arial,sans-serif;white-space:nowrap}
+.email-template-editor-head #email-template-reset:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
