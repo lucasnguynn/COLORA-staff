@@ -5,3 +5,9 @@
 .remember-choice span{flex:1}
 .workspace-notice[hidden]{display:none}
 .workspace-notice{position:fixed;z-index:100;left:50%;bottom:64px;transform:translateX(-50%);max-width:min(560px,calc(100% - 30px));padding:12px 16px;border:1px solid var(--gold);background:#FFFDF9;box-shadow:0 6px 24px #0024511f;color:var(--navy);font-size:12px;line-height:1.6;text-align:center}
+
+/* Monochrome inline vector icons: never fall back to iOS emoji glyphs. */
+.button-arrow{display:inline-flex;align-items:center;justify-content:center;flex:0 0 18px;line-height:0;color:inherit}
+.button-arrow svg{display:block;width:18px;height:18px;stroke:currentColor;fill:none;vector-effect:non-scaling-stroke}
+#workspace-signout{display:flex;align-items:center;gap:8px}
+@media(max-width:580px){.primary .button-arrow{margin-left:auto}.signin input{font-size:16px}#workspace-signout{bottom:max(9px,env(safe-area-inset-bottom));right:max(9px,env(safe-area-inset-right))}}
