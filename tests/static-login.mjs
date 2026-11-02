@@ -75,6 +75,9 @@ try{
     contentWidth:el.scrollWidth,containerWidth:el.clientWidth
   }));
   assert(widthStatus.contentWidth<=widthStatus.containerWidth+2,'Brand guide overflows its workspace container');
+  await guide.locator('a[href="#brand-guide/identity-packaging"]').click();
+  await wrapper.locator('#brand-guide:not([hidden])').waitFor({state:'visible'});
+  assert.equal(await wrapper.locator('#identity-packaging').isVisible(),true,'Brand Guide deep link must remain in the guide');
 
   // Verify all three nested applications INSIDE the real AES-GCM
   // email/password login. Previously CI checked only the JD Library, so
