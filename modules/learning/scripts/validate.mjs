@@ -12,6 +12,23 @@ const config=read('curriculum.json');
 const reviewManifest=read('essentials-review.json');
 const facts=read('brand-facts.json');
 const questions=[...base,...gem,...care,...applied];
+const portfolio=read('colora-gemstones.json');
+const nine=['ruby','sapphire','garnet','topaz','aquamarine','citrine','peridot','spinel','tourmaline'];
+assert.equal(portfolio.criteria.length,6);
+assert.equal(portfolio.gems.length,9);
+assert.deepEqual(portfolio.gems.map(g=>g.id),nine);
+assert.equal(portfolio.questions.length,24);
+assert.equal(new Set(portfolio.questions.map(q=>q.id)).size,24);
+for(const g of portfolio.gems){
+ assert(g.family&&g.mohs&&g.benefit&&g.caution&&g.reply&&g.source.startsWith('https://www.gia.edu/'));
+}
+for(const q of portfolio.questions){
+ assert(q.q.length>15&&q.options.length===4&&new Set(q.options).size===4);
+ assert(Number.isInteger(q.correct)&&q.correct>=0&&q.correct<4&&q.why.length>14);
+}
+assert(!/[\u2013\u2014]/.test(JSON.stringify(portfolio)),'Only plain hyphens permitted in gemstone curriculum');
+console.log('PASS gemstone supplement: 6 criteria, 9 profiles and 24 self-review questions; V10.2 exam unchanged');
+
 assert.equal(base.length,206);
 assert.equal(gem.length,53);
 assert.equal(care.length,32);
