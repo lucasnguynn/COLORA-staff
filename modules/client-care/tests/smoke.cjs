@@ -16,7 +16,12 @@ function loadData(){
 }
 const data=loadData();
 const intelligence=(function(){const ctx={window:{}};vm.runInNewContext(read("intelligence.js"),ctx,{timeout:2500});return ctx.window.COLORA_INTELLIGENCE;})();
-assert.equal(intelligence.gems.length,10);
+assert.equal(intelligence.gems.length,13);
+assert.equal(intelligence.portfolio.ids.length,9);
+assert.equal(intelligence.gems.filter(g=>g.corePortfolio).length,9);
+assert.equal(intelligence.conversations.length,12);
+for(const id of ['ruby','sapphire','garnet','topaz','aquamarine','citrine','peridot','spinel','tourmaline'])
+ assert(intelligence.gems.some(g=>g.id===id&&g.corePortfolio),'Missing COLORA core stone: '+id);
 assert.equal(intelligence.cuts.length,7);
 assert.equal(intelligence.proof.length,7);
 assert.equal(intelligence.situations.length,3);
@@ -107,6 +112,10 @@ for(const page of ["home","learn","scripts","cases","resources","progress","prac
 assert.ok(app.route("cases").includes("Viên đá có dấu hiệu lỏng"));
 assert.ok(app.route("resources").includes("Coming Soon"));
 assert.ok(app.route("intelligence").includes("Topaz"));
+assert.ok(app.route("intelligence").includes("12 tình huống tư vấn"));
+assert.ok(app.route("stone/ruby").includes("Ruby"));
+assert.ok(app.route("stone/citrine").includes("Citrine"));
+assert.ok(app.route("stone/peridot").includes("Peridot"));
 assert.ok(app.route("stone/topaz").includes("cát khai"));
 assert.ok(app.route("evidence").includes("CHƯA CÓ HỒ SƠ SKU"));
 assert.ok(app.route("roleplay").includes("Khách phát hiện đá lỏng"));
