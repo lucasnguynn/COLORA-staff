@@ -38,6 +38,11 @@ jobs:
           node --check scripts/verify.mjs
           (cd modules/learning && node scripts/validate.mjs)
           (cd modules/client-care && node tests/publication.cjs && node tests/ops.cjs && node tests/smoke.cjs)
+      - name: Verify immutable pinned JD fallback can be recovered without a secret
+        run: |
+          node scripts/recover-jd-source.mjs .sources/jd-pin-smoke
+          test -f .sources/jd-pin-smoke/index.html
+          rm -rf .sources/jd-pin-smoke
       - name: Validate password preflight using disposable test secrets
         env:
           STAFF_PORTAL_PASSWORD: CI-STAFF-DEMO-DO-NOT-SHARE-2026
