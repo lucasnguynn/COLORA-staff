@@ -51,7 +51,7 @@ try{
   assert((await page.locator('#signature-preview').innerText()).includes('Minh An'));
   assert.equal(await page.locator('#signature-preview img[alt="COLORA"]').count(),1,'Signature must use official COLORA logo');
   const signatureRows=page.locator('#signature-preview > table > tbody > tr');
-  assert.equal(await signatureRows.count(),2,'Signature should separate brand header from employee details');
+  assert.equal(await signatureRows.count(),3,'Signature needs brand header, employee details and final legal/environmental footer');
   assert.equal(await signatureRows.nth(0).locator('img[alt="COLORA"]').count(),1,'Official logo belongs in the unbordered header');
   const closing=signatureRows.nth(0).locator('p').first();
   assert.equal(await closing.innerText(),'Kính thư / Best regards,','Bilingual sign-off should appear before logo');
@@ -83,6 +83,23 @@ try{
   const emailTop=await emailNode.evaluate(el=>el.getBoundingClientRect().top);
   const phoneTop=await phoneNode.evaluate(el=>el.getBoundingClientRect().top);
   assert(phoneTop>emailTop+5,'Phone number must be on its own line below email');
+  // Both requested sentences must be at the END of the same generated
+  // signature, with intentional bold/italic formatting in real HTML.
+  const footer=signatureRows.nth(2);
+  const legalBlocks=footer.locator('p');
+  assert.equal(await legalBlocks.count(),2,'Signature footer must show two separate paragraphs');
+  const environmentText='Please consider your environmental responsibilities before printing emails and documents.';
+  const disclaimerText='This email and its attachments may be confidential and are intended solely for the use of the intended recipient. If you are not the intended recipient of this email and its attachments, you must take no action based upon them, nor must you copy them to anyone. Please contact the sender if you believe you have received this email in error.';
+  assert.equal(await legalBlocks.nth(0).innerText(),environmentText);
+  assert.equal(await legalBlocks.nth(0).locator('strong').innerText(),environmentText);
+  assert.equal(await legalBlocks.nth(1).locator('strong').innerText(),'(!) Disclaimer:');
+  assert.equal(await legalBlocks.nth(1).locator('em').innerText(),disclaimerText);
+  assert((await page.locator('#signature-preview').innerText()).endsWith(disclaimerText),
+    'Disclaimer must be the very last signature text');
+  assert.equal(await legalBlocks.nth(0).evaluate(el=>getComputedStyle(el).fontSize),'10px',
+    'Environmental line should remain an unobtrusive email-safe footer');
+  assert.equal(await legalBlocks.nth(1).evaluate(el=>getComputedStyle(el).fontSize),'10px',
+    'Disclaimer must use the same restrained type size');
   const signature=page.waitForEvent('download');
   await page.locator('#signature-download').click();
   const downloadedSignature=await signature;
@@ -93,6 +110,14 @@ try{
   assert(exportedHTML.includes('<strong style="font-weight:700;"><em style="font-style:italic;">Kính thư / Best regards,</em></strong>'),'Exported signature must keep the bold italic bilingual sign-off');
   assert(exportedHTML.includes('border-top:1px solid #B08A5B'),'Exported signature must keep gold separator');
   assert(exportedHTML.includes('padding:1px 0 0 5px'),'Exported tagline must retain the wordmark inset adjustment');
+  assert(exportedHTML.includes('<strong style="font-weight:700;">'+environmentText+'</strong>'),
+    'Downloaded HTML must include bold environmental reminder');
+  assert(exportedHTML.includes('<strong style="font-weight:700;">(!) Disclaimer:</strong> <em style="font-style:italic;">'+disclaimerText+'</em>'),
+    'Downloaded HTML must preserve disclaimer label, body and italics');
+  assert(exportedHTML.indexOf(environmentText)>exportedHTML.indexOf('colora.vn</a>'),
+    'Environmental reminder should follow employee contact details');
+  assert(exportedHTML.indexOf(disclaimerText)>exportedHTML.indexOf(environmentText),
+    'Disclaimer should be last in exported email signature');
   await page.locator('#signature-form [name="role"]').fill('');
   assert.equal(await detailRows.count(),4,'Empty role must not leave a phantom spacer row');
   await page.locator('#signature-form [name="role"]').fill('Client Advisor');
