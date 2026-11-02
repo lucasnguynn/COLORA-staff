@@ -21,7 +21,7 @@ try{
   page.on('requestfailed',r=>console.error('FAILED RESOURCE',r.url(),r.failure()?.errorText));
   await page.goto('http://127.0.0.1:'+server.address().port+'/');
   await page.locator('#dashboard').waitFor();
-  assert.equal(await page.locator('.feature-card').count(),5,'Staff dashboard must not expose Senior JD');
+  assert.equal(await page.locator('.feature-card').count(),6,'Staff dashboard should include Email Templates but not Senior JD');
   assert.equal(await page.locator('[data-view="jd"]').count(),0,'Staff role must not show JD links');
   assert.equal(await page.locator('#bundled-jd').count(),0,'No decrypted JD source may be bundled in Staff content');
   assert.equal(await page.locator('[data-view="web"]').count(),0,'Website Generator links must be removed');
@@ -43,6 +43,31 @@ try{
   await page.locator('.library-card[data-resource="brand-story"]').click();
   await page.locator('#library-article').waitFor({state:'visible',timeout:5000});
   await page.locator('#library-back').click();
+  // New copy-only email templates: normal Staff must never see the
+  // Senior onboarding cards, and mobile must have no horizontal overflow.
+  await page.locator('.nav-btn[data-view="email-templates"]').click();
+  await page.locator('#email-templates:not([hidden])').waitFor({state:'visible'});
+  assert.equal(await page.locator('.email-template-option').count(),7);
+  assert.equal(await page.locator('[data-template-filter="people"]').isVisible(),false);
+  assert((await page.locator('#email-template-body').inputValue()).includes('COLORA'));
+  await page.locator('#email-template-search').fill('bàn giao');
+  assert.equal(await page.locator('.email-template-option').count(),1);
+  await page.locator('#email-template-search').fill('');
+  await page.locator('[data-template-filter="internal"]').click();
+  assert.equal(await page.locator('.email-template-option').count(),3);
+  await page.locator('[data-template-filter="all"]').click();
+  await page.locator('#email-template-body').fill('Bản nháp thử nghiệm, không gửi');
+  await page.locator('#email-template-reset').click();
+  assert.notEqual(await page.locator('#email-template-body').inputValue(),'Bản nháp thử nghiệm, không gửi');
+  await page.setViewportSize({width:390,height:844});
+  await page.locator('#email-templates:not([hidden])').waitFor({state:'visible'});
+  const templateMobile=await page.evaluate(()=>({
+    scroll:document.documentElement.scrollWidth,screen:innerWidth,
+    layout:getComputedStyle(document.querySelector('.email-template-grid')).gridTemplateColumns
+  }));
+  assert(templateMobile.scroll<=templateMobile.screen+1,
+    'Email Templates mobile page must not overflow: '+JSON.stringify(templateMobile));
+  await page.setViewportSize({width:1440,height:900});
   await page.locator('[data-view="signature"].nav-btn').click();
   await page.locator('#signature-form [name="name"]').fill('Minh An');
   await page.locator('#signature-form [name="role"]').fill('Client Advisor');
