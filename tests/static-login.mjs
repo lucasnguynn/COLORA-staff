@@ -246,6 +246,76 @@ try{
   assert.equal(persistedAfterLogout,false,'Logout must remove persisted device capability');
   await context.close();
  }
+ // Account-scoped JD migration must never auto-claim or delete legacy
+ // browser drafts. Test TWO Senior accounts in the SAME browser profile.
+ {
+  const seniors=users.filter(u=>u.role==='senior');
+  const context=await browser.newContext({acceptDownloads:true}),page=await context.newPage();
+  await page.goto(base+'/',{waitUntil:'domcontentloaded'});
+  const legacyRole=[{id:'legacy-saved-jd',title:'Original browser JD backup'}];
+  await page.evaluate(role=>{
+    localStorage.setItem('colora_jd_library_v1',JSON.stringify(role));
+    localStorage.setItem('colora_jd_settings_v1',JSON.stringify({companyName:'COLORA'}));
+  },legacyRole);
+  async function enterSenior(user){
+    await page.locator('#staff-email').fill(user.email);
+    await page.locator('#staff-password').fill(user.password);
+    await page.locator('#signin-submit').click();
+    await page.locator('#workspace:not([hidden])').waitFor({state:'visible',timeout:60000});
+    const frame=page.frameLocator('#workspace-frame');
+    await frame.locator('body[data-staff-role="senior"][data-staff-ready="true"]')
+      .waitFor({state:'attached',timeout:20000});
+    const id=await frame.locator('body').evaluate(()=>window.COLORA_ACCOUNT_SCOPE);
+    assert(/^[a-f0-9]{32}$/.test(id),'Senior must receive an opaque scoped browser ID');
+    return {frame,id};
+  }
+  const first=await enterSenior(seniors[0]);
+  await first.frame.locator('.nav-btn[data-view="jd"]').click();
+  await first.frame.locator('#jd-migration-gate').waitFor({state:'visible',timeout:10000});
+  assert.equal(await first.frame.locator('#module-frame').isVisible(),false,
+    'Shared drafts cannot be automatically loaded by the first Senior account');
+  const backupDownload=page.waitForEvent('download',{timeout:15000});
+  await first.frame.locator('[data-jd-transfer-action="backup"]').click();
+  const backup=await backupDownload;
+  const bytes=fs.readFileSync(await backup.path());
+  const backupData=JSON.parse(bytes.toString('utf8'));
+  assert.equal(backupData.roles[0].id,'legacy-saved-jd','Legacy backup must include original saved roles');
+  await backup.delete().catch(()=>{});
+  page.once('dialog',dialog=>dialog.accept());
+  await first.frame.locator('[data-jd-transfer-action="import"]').click();
+  await first.frame.frameLocator('#module-frame').locator('#editorPanel')
+    .waitFor({state:'visible',timeout:15000});
+  const oldAndNew=await page.evaluate(id=>({
+    old:localStorage.getItem('colora_jd_library_v1'),
+    copy:localStorage.getItem('colora_jd_library_v2_'+id)
+  }),first.id);
+  assert.equal(oldAndNew.old,JSON.stringify(legacyRole),'Migration must not delete original data');
+  assert.equal(JSON.parse(oldAndNew.copy)[0].id,'legacy-saved-jd');
+  await page.locator('#workspace-signout').click();
+  await page.locator('#signin-form').waitFor({state:'visible'});
+
+  const second=await enterSenior(seniors[1]);
+  assert.notEqual(second.id,first.id,'Separate Senior accounts require distinct browser libraries');
+  await second.frame.locator('.nav-btn[data-view="jd"]').click();
+  await second.frame.locator('#jd-migration-gate').waitFor({state:'visible',timeout:10000});
+  assert.equal(await page.evaluate(id=>localStorage.getItem('colora_jd_library_v2_'+id),second.id),null,
+    'Second Senior must not silently inherit the first Senior drafts');
+  page.once('dialog',dialog=>dialog.accept());
+  await second.frame.locator('[data-jd-transfer-action="fresh"]').click();
+  await second.frame.frameLocator('#module-frame').locator('#editorPanel')
+    .waitFor({state:'visible',timeout:15000});
+  await page.evaluate(id=>localStorage.setItem('colora_jd_library_v2_'+id,
+    JSON.stringify([{id:'second-account-only',title:'Separate draft'}])),second.id);
+  const retained=await page.evaluate(id=>({
+    first:JSON.parse(localStorage.getItem('colora_jd_library_v2_'+id)),
+    legacy:JSON.parse(localStorage.getItem('colora_jd_library_v1'))
+  }),first.id);
+  assert.equal(retained.first[0].id,'legacy-saved-jd');
+  assert.equal(retained.legacy[0].id,'legacy-saved-jd');
+  await page.locator('#workspace-signout').click();
+  await context.close();
+  console.log('PASS: Separate Senior JD browser namespaces; legacy backup and explicit migration preserve originals.');
+ }
  // Wrong corporate address with an otherwise valid employee password.
  const u=users[0],context=await browser.newContext(),page=await context.newPage();
  await page.goto(base+'/',{waitUntil:'domcontentloaded'});
