@@ -23,9 +23,15 @@ const git=(args)=> {
 };
 try{
   const clone=path.join(scratch,'repo');
-  git(['clone','--depth','1','--quiet',repoURL,clone]);
-  const actual=git(['-C',clone,'rev-parse','HEAD']);
-  if(actual!==pinned)throw Error('JD upstream has changed; refusing to import unreviewed source.');
+  // Retrieve the *immutable reviewed commit*, never the repository's
+  // current HEAD. The old --depth 1 clone broke recovery as soon as upstream
+  // advanced, even while the reviewed commit remained available.
+  git(['init','--quiet',clone]);
+  git(['-C',clone,'remote','add','origin',repoURL]);
+  git(['-C',clone,'fetch','--quiet','--no-tags','--depth','1','origin',pinned]);
+  const actual=git(['-C',clone,'rev-parse','FETCH_HEAD']);
+  if(actual!==pinned)throw Error('Pinned JD recovery SHA mismatch; refusing unreviewed source.');
+  git(['-C',clone,'checkout','--quiet','--detach',actual]);
   if(fs.existsSync(out))throw Error('JD recovery destination already exists; refusing to overwrite files.');
   for(const file of files) {
     const source=path.join(clone,file);
