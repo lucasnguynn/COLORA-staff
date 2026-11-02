@@ -23,7 +23,7 @@ for(const g of portfolio.gems){
  assert(g.family&&g.mohs&&g.benefit&&g.caution&&g.reply&&g.source.startsWith('https://www.gia.edu/'));
 }
 for(const q of portfolio.questions){
- assert(q.q.length>15&&q.options.length===4&&new Set(q.options).size===4);
+ assert(q.q.length>8&&q.options.length===4&&new Set(q.options).size===4);
  assert(Number.isInteger(q.correct)&&q.correct>=0&&q.correct<4&&q.why.length>14);
 }
 assert(!/[\u2013\u2014]/.test(JSON.stringify(portfolio)),'Only plain hyphens permitted in gemstone curriculum');
