@@ -20,7 +20,9 @@ window.COLORA_JD_STORAGE=(()=>{
     if(rawRoles!==null){
       roles=JSON.parse(rawRoles);
       if(!Array.isArray(roles)||roles.length>500 ||
-         !roles.every(r=>r && typeof r==='object' && typeof r.id==='string' && typeof r.title==='string'))
+         !roles.every(r=>r && typeof r==='object' && typeof r.id==='string' &&
+           typeof r.title==='string' &&
+           ['responsibilities','mustHave','niceToHave','kpis'].every(k=>Array.isArray(r[k]))))
         throw Error('Thư viện JD cũ không đúng định dạng.');
     }
     if(rawSettings!==null){
