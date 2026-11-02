@@ -39,7 +39,7 @@
     "steps": "Kiểm tra mã đơn và trạng thái thực tế với đơn vị xử lý. Nếu chưa có ETA xác nhận, thông báo chưa có mốc chính thức và chủ động cập nhật khi có kết quả.",
     "reply": "Chào bạn, mình đã ghi nhận việc đơn hàng chưa đến như dự kiến. COLORA sẽ kiểm tra trạng thái với bộ phận vận chuyển và phản hồi khi có thông tin xác nhận. Mình chưa muốn hẹn một mốc nhận hàng khi chưa kiểm tra chính xác.",
     "warning": "Không tự cam kết thời gian giao, hoàn tiền hoặc voucher.",
-    "route": "client-care/case/color-difference",
+    "route": "client-care/case/rush-gift",
     "urgent": true
   },
   {
@@ -265,7 +265,7 @@
   overlay.addEventListener('keydown',e=>{
     if(e.key!=='Tab')return;
     const focusables=[...overlay.querySelectorAll('button:not([disabled]),input:not([disabled]),a[href],summary')]
-      .filter(el=>!el.closest('[hidden]')&&!el.closest('details:not([open])')&&el.offsetParent!==null);
+      .filter(el=>!el.closest('[hidden]')&&(!el.closest('details:not([open])')||el.tagName==='SUMMARY')&&el.offsetParent!==null);
     if(!focusables.length)return;
     if(e.shiftKey&&document.activeElement===focusables[0]){e.preventDefault();focusables.at(-1).focus()}
     else if(!e.shiftKey&&document.activeElement===focusables.at(-1)){e.preventDefault();focusables[0].focus()}
