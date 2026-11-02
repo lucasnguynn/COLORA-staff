@@ -46,6 +46,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./brand-refinements.css">
+  <link rel="stylesheet" href="./brand-guide.css">
   <link rel="stylesheet" href="./mail-guide.css">
   <link rel="stylesheet" href="./jd-integrated.css">
   <script src="./library.js" defer></script>
@@ -68,6 +69,7 @@
         <button data-view="home" class="nav-btn active"><span class="nav-symbol">⌂</span>Tổng quan</button>
         <button type="button" data-view="library" class="nav-btn"><span class="nav-symbol">▤</span>Thư viện tài liệu</button>
         <p class="menu-label">LEARNING & KNOWLEDGE</p>
+        <button type="button" data-view="brand-guide" class="nav-btn"><span class="nav-symbol">◈</span>Brand &amp; Packaging</button>
         <button data-view="learning" class="nav-btn"><span class="nav-symbol">◇</span>Learning Studio</button>
         <button data-view="client-care" class="nav-btn"><span class="nav-symbol">✧</span>Client Care Academy</button>
         <p class="menu-label">CREATIVE UTILITIES</p>
@@ -98,13 +100,133 @@
             
             <button class="feature-card feature-card-restricted" data-view="jd"><span class="card-index">06 / MANAGEMENT ONLY</span><span class="card-mark">♢</span><strong>JD Library <small>Senior access</small></strong><span>Soạn, quản lý và xuất Job Description. Cần mật khẩu riêng.</span><span class="card-cta">Restricted ↗</span></button>
           </div>
-          <section class="start-panel"><div><div class="eyebrow">NEW TO COLORA?</div><h2>Begin with the <em>essentials.</em></h2><p>Khám phá bản sắc thương hiệu trước, tiếp đến là sản phẩm và hành trình khách hàng. Bài học và bài thi thực hành nằm trong Learning Studio.</p><button type="button" class="text-link" data-view="library" data-article="brand-story">Đọc về Facets of Feeling ↗</button></div><div class="start-steps"><p><span>01</span> Discover the brand</p><p><span>02</span> Understand the product</p><p><span>03</span> Practice with confidence</p></div></section>
+          <section class="start-panel"><div><div class="eyebrow">NEW TO COLORA?</div><h2>Begin with the <em>essentials.</em></h2><p>Khám phá bản sắc thương hiệu trước, tiếp đến là sản phẩm và hành trình khách hàng. Bài học và bài thi thực hành nằm trong Learning Studio.</p><button type="button" class="text-link" data-view="library" data-article="brand-story">Đọc về Facets of Feeling ↗</button> <button type="button" class="text-link identity-home-link" data-view="brand-guide">Khám phá Brand &amp; Packaging ↗</button></div><div class="start-steps"><p><span>01</span> Discover the brand</p><p><span>02</span> Understand the product</p><p><span>03</span> Practice with confidence</p></div></section>
           <p class="privacy-note"><strong>Thông tin sử dụng:</strong> Staff Portal dành cho đào tạo và tiện ích không nhạy cảm. Không nhập dữ liệu khách hàng thật, thông tin lương, giá vốn hay API key. Kết quả học/thi lưu cục bộ trên thiết bị và chưa phải chứng nhận nhân sự.</p>
+        </section>
+
+        <!-- Reference board: authentic COLORA vector assets are copied from the identity Drive.
+             Packaging drawings below are explanatory diagrams, never photos or approved specs. -->
+        <section id="brand-guide" class="view identity-hub" hidden aria-labelledby="identity-title">
+          <div class="eyebrow">COLORA / VISUAL KNOWLEDGE</div>
+          <div class="identity-hero">
+            <div>
+              <p class="identity-overline">01 — 06 / BRAND SYSTEM</p>
+              <h1 id="identity-title">A language of<br><em>feeling.</em></h1>
+              <p>Hướng dẫn trực quan để mỗi thành viên hiểu COLORA qua logo, màu sắc, kiểu chữ, họa tiết, hình ảnh và trải nghiệm trao tặng. Đây là tài liệu học tập; các hạng mục còn trong giai đoạn đề xuất được ghi rõ trạng thái.</p>
+              <nav class="identity-jumplinks" aria-label="Đi đến nội dung">
+                <a href="#identity-logo">Identity</a><a href="#identity-pattern">Pattern</a><a href="#identity-moodboard">Moodboard</a><a href="#identity-packaging">Packaging</a>
+              </nav>
+            </div>
+            <div class="identity-hero-art" aria-label="Biểu tượng COLORA theo hệ màu Navy và Ivory">
+              <img src="./apps/qr/assets/colora-lettermark.png" alt="COLORA lettermark chính thức" loading="lazy">
+              <span>COLOR YOUR AURA</span>
+              <img class="identity-hero-symbol" src="./brand-assets/facet-symbol.svg" alt="Biểu tượng facet COLORA" loading="lazy">
+            </div>
+          </div>
+
+          <section class="identity-section" id="identity-logo">
+            <div class="identity-section-head"><span>01 / CORE ELEMENTS</span><h2>Brand identity</h2><p>Những thành phần giúp COLORA được nhận ra một cách nhất quán, ngay cả khi không có hình ảnh sản phẩm.</p></div>
+            <div class="identity-logo-grid">
+              <div class="identity-logo-board identity-logo-light">
+                <div class="identity-art-kicker">LETTERMARK</div>
+                <img src="./apps/qr/assets/colora-lettermark.png" alt="Logo chữ COLORA gốc" loading="lazy">
+                <p>Ưu tiên trên website, ấn phẩm và các điểm chạm có đủ không gian.</p>
+              </div>
+              <div class="identity-logo-board identity-logo-ivory">
+                <div class="identity-art-kicker">SYMBOL</div>
+                <img src="./brand-assets/facet-symbol.svg" alt="Ký hiệu hình học COLORA từ thư mục Pattern" loading="lazy">
+                <p>Dùng khi diện tích nhỏ hoặc cần nhắc lại ngôn ngữ facet; không tự chỉnh nét hoặc méo tỷ lệ.</p>
+              </div>
+            </div>
+            <div class="identity-knowledge-grid">
+              <div><h3>Logo system</h3><p>Gồm full logo, lettermark, symbol, bản màu sáng/tối và quy tắc safe area, kích thước tối thiểu, cách dùng sai. Nếu chưa có tài liệu chốt, không tự suy diễn kích thước hoặc thay đổi cấu trúc.</p></div>
+              <div><h3>Core idea</h3><p><strong>COLORA - COLOR YOUR AURA</strong>. Màu sắc và giác cắt được dùng để biểu đạt nhiều chiều cảm xúc và bản sắc riêng của mỗi người.</p></div>
+            </div>
+          </section>
+
+          <section class="identity-section">
+            <div class="identity-section-head"><span>02 / COLORS &amp; TYPE</span><h2>Palette &amp; typography</h2><p>Màu nền tạo khoảng thở; màu đậm giúp định hình tính cách; các màu nhấn chỉ nên xuất hiện có chủ đích.</p></div>
+            <div class="identity-color-grid">
+              <div class="identity-swatch" style="--swatch:#F4EDE1"><span class="identity-swatch-block"></span><strong>Ivory</strong><small>#F4EDE1 · Main canvas</small></div>
+              <div class="identity-swatch" style="--swatch:#002451"><span class="identity-swatch-block"></span><strong>Deep Navy</strong><small>#002451 · Primary dark</small></div>
+              <div class="identity-swatch" style="--swatch:#B08A5B"><span class="identity-swatch-block"></span><strong>Muted Gold</strong><small>#B08A5B · Accent</small></div>
+              <div class="identity-swatch" style="--swatch:#8E2F2A"><span class="identity-swatch-block"></span><strong>Burgundy</strong><small>#8E2F2A · Accent</small></div>
+              <div class="identity-swatch" style="--swatch:#0F6857"><span class="identity-swatch-block"></span><strong>Green</strong><small>#0F6857 · Accent</small></div>
+              <div class="identity-swatch" style="--swatch:#DBC9B4"><span class="identity-swatch-block"></span><strong>Sand</strong><small>#DBC9B4 · Supporting</small></div>
+              <div class="identity-swatch" style="--swatch:#4A2E23"><span class="identity-swatch-block"></span><strong>Brown</strong><small>#4A2E23 · Supporting</small></div>
+            </div>
+            <div class="identity-type-grid">
+              <div><span>DISPLAY / HEADINGS</span><strong class="identity-type-heading">Cormorant Garamond</strong><p>Editorial, giàu cảm xúc, thoáng và thanh lịch. Phù hợp với tiêu đề, thông điệp chủ đạo.</p></div>
+              <div><span>BODY / UI</span><strong class="identity-type-body">Open Sans</strong><p>Rõ ràng, dễ đọc, nhất quán cho nội dung, hướng dẫn, nhãn và giao diện số.</p></div>
+            </div>
+          </section>
+
+          <section class="identity-section" id="identity-pattern">
+            <div class="identity-section-head"><span>03 / FACET GRAPHICS</span><h2>Pattern &amp; motifs</h2><p>Đây là file vector gốc trong Drive COLORA. Giữ tỷ lệ, độ tinh giản và khoảng trống; dùng họa tiết như nhịp nền, không cạnh tranh với đá quý hoặc logo.</p></div>
+            <div class="identity-pattern-grid">
+              <figure class="identity-pattern-original"><div><img src="./brand-assets/facet-pattern.svg" alt="Pattern symbol + bling nguyên bản từ COLORA Drive" loading="lazy"></div><figcaption><strong>Original vector study</strong><span>Symbol + bling · File gốc COLORA</span></figcaption></figure>
+              <figure class="identity-pattern-study"><div aria-hidden="true"><img src="./brand-assets/facet-symbol.svg" alt=""><img src="./brand-assets/facet-symbol.svg" alt=""><img src="./brand-assets/facet-symbol.svg" alt=""></div><figcaption><strong>Scale &amp; rhythm study</strong><span>Minh họa ứng dụng 2–3 kích cỡ; không phải bản pattern phát hành chính thức.</span></figcaption></figure>
+            </div>
+            <div class="identity-guidance"><strong>Áp dụng</strong><p>Giữ một vùng thị giác chính, tránh lặp dày đặc. Ưu tiên hình thoi/kite kéo dài, đường facet rộng và chọn lọc; không đặt pattern đằng sau văn bản nhỏ hay chi tiết trang sức cần quan sát kỹ.</p></div>
+          </section>
+
+          <section class="identity-section" id="identity-moodboard">
+            <div class="identity-section-head"><span>04 / ART DIRECTION</span><h2>Moodboard</h2><p>Năm từ khóa lấy từ moodboard COLORA trong Drive. Đây là định hướng hình ảnh và cảm giác, không phải một bộ ảnh sản phẩm đã được duyệt.</p></div>
+            <div class="identity-mood-grid">
+              <div class="identity-mood-card mood-a"><span>01</span><strong>Authentic</strong><p>Chất liệu thật, khoảnh khắc thật, bàn tay người làm và người trao.</p></div>
+              <div class="identity-mood-card mood-b"><span>02</span><strong>Modern</strong><p>Không gian thoáng, bố cục có chủ đích, trang sức dành cho đời sống hôm nay.</p></div>
+              <div class="identity-mood-card mood-c"><span>03</span><strong>Heritage</strong><p>Chi tiết thủ công, sự bền bỉ, tinh thần trân trọng giá trị lâu dài.</p></div>
+              <div class="identity-mood-card mood-d"><span>04</span><strong>Emotional</strong><p>Một cử chỉ trao tặng, bàn tay nâng viên đá, khoảnh khắc chạm nhẹ.</p></div>
+              <div class="identity-mood-card mood-e"><span>05</span><strong>Refined</strong><p>Ánh sáng mềm, macro đá màu, độ tương phản vừa đủ và ít đạo cụ.</p></div>
+            </div>
+            <div class="identity-guidance"><strong>Photography direction</strong><p>Ưu tiên bàn tay nghệ nhân, người chọn và người đeo; không lấy khuôn mặt toàn phần làm trọng tâm. Sản phẩm COLORA và đá màu là chủ thể. Tránh hình ảnh trông như AI, bóng gắt, quá nhiều props hoặc dùng ảnh sản phẩm thương hiệu khác làm minh họa cho COLORA.</p></div>
+            <p class="identity-source-line"><a href="https://drive.google.com/file/d/1I5WzW8DYB259sn05pz2m_7VDYnNN_spJ/view" target="_blank" rel="noopener noreferrer">Mở moodboard gốc trên Drive ↗</a><span>Tài liệu tham khảo; quyền xem phụ thuộc tài khoản Drive.</span></p>
+          </section>
+
+          <section class="identity-section" id="identity-packaging">
+            <div class="identity-section-head"><span>05 / CUSTOMER EXPERIENCE</span><h2>Packaging system</h2><p>Phân biệt rõ <strong>4 loại bao bì đang có</strong> theo thông tin vận hành đã xác nhận và các cấu phần <strong>đang nghiên cứu/dự kiến</strong> trong bảng kế hoạch. Hình dưới là sơ đồ minh họa, không phải ảnh thành phẩm hay bản vẽ kỹ thuật.</p></div>
+            <div class="identity-status-title"><h3>Hiện tại</h3><span>4 hạng mục đã xác nhận</span></div>
+            <div class="identity-package-grid">
+              <article class="identity-package-card"><div class="identity-package-art"><div class="identity-art-box identity-jewel"><span>COLORA</span></div></div><div class="identity-package-info"><small>01 / JEWELRY BOX</small><h4>Hộp trang sức</h4><p>Lớp hộp giữ và bảo vệ trang sức. Kiểm tra khay/lót, độ chắc của nắp và khoảng hở để đá không chạm vào mặt trong hộp.</p></div></article>
+              <article class="identity-package-card"><div class="identity-package-art"><div class="identity-art-box identity-outer"><span>COLORA</span></div></div><div class="identity-package-info"><small>02 / OUTER BOX</small><h4>Hộp ngoài</h4><p>Lớp trình bày khi trao tặng, tạo trải nghiệm mở hộp. Phân biệt với hộp vận chuyển để tránh tư vấn nhầm.</p></div></article>
+              <article class="identity-package-card"><div class="identity-package-art"><div class="identity-art-bag"><span>COLORA</span></div></div><div class="identity-package-info"><small>03 / SHOPPING BAG</small><h4>Túi giấy Ivory</h4><p>Túi giấy màu Ivory đang sử dụng. Tài liệu thiết kế túi Navy trong Drive chỉ là phương án tham khảo, <strong>không phải màu hiện tại</strong>.</p></div></article>
+              <article class="identity-package-card"><div class="identity-package-art"><div class="identity-art-ship"><span>COLORA</span></div></div><div class="identity-package-info"><small>04 / SHIPPING BOX</small><h4>Hộp vận chuyển</h4><p>Lớp ngoài bảo vệ đơn hàng trong quá trình giao nhận, khác với outer box dùng cho trải nghiệm quà tặng.</p></div></article>
+            </div>
+            <div class="identity-status-title identity-planned-title"><h3>Dự kiến / đang đánh giá</h3><span>Chưa mặc định kèm mỗi đơn hàng</span></div>
+            <div class="identity-planned-grid">
+              <div><strong>Pouch bảo quản</strong><p>Túi microfiber/nhung mỏng cho bảo quản hoặc di chuyển; cần đánh giá chi phí và độ phù hợp với từng kiểu trang sức.</p></div>
+              <div><strong>Story / thank-you card</strong><p>Thiệp lời nhắn hoặc câu chuyện quà tặng; cần duyệt nội dung, giấy và quy cách trước khi phát hành.</p></div>
+              <div><strong>COA / warranty card</strong><p>Thẻ thông tin, xác thực hoặc bảo hành; không hứa tính năng serial/QR khi chưa triển khai.</p></div>
+              <div><strong>Ribbon &amp; wrapping</strong><p>Ruy băng satin, giấy gói có pattern; thử vật liệu, thao tác gói và tính nhất quán màu in.</p></div>
+              <div><strong>Gift voucher</strong><p>Phiếu quà tặng đang có thiết kế tham khảo; chỉ sử dụng khi quy tắc phát hành và thanh toán được duyệt.</p></div>
+              <div><strong>Khay lót chuyên dụng</strong><p>Các khay cho nhẫn, dây chuyền, vòng tay và bông tai dài; kích thước phải đối chiếu mẫu CAD/sản phẩm thật.</p></div>
+            </div>
+            <div class="identity-guidance"><strong>Lưu ý khi giới thiệu</strong><p>Không mô tả pouch, voucher, ribbon, thẻ COA hay giấy gói pattern là quà tặng mặc định. Những kích thước và màu Navy trong supplier brief là phương án để lấy báo giá, không thay thế xác nhận sản xuất hoặc thực tế túi Ivory.</p></div>
+            <p class="identity-source-line"><a href="https://docs.google.com/spreadsheets/d/1dWX6h1so6Xwbf0nL3y_BHzz1IFI2-4nfGsk5UJ4W5ao/edit" target="_blank" rel="noopener noreferrer">Packaging supplier brief ↗</a><a href="https://drive.google.com/drive/folders/17EGsujX_yZTLhFnhw8Bd-iO7guipBnFM" target="_blank" rel="noopener noreferrer">Thư mục mockup và in ấn ↗</a></p>
+          </section>
+
+          <section class="identity-section identity-last">
+            <div class="identity-section-head"><span>06 / WORKFLOW</span><h2>Before publishing</h2><p>Checklist nhanh cho designer, editor, marketing và client care.</p></div>
+            <div class="identity-check-grid">
+              <p><span>01</span> Logo và slogan đúng file, đúng tỷ lệ, đủ khoảng trống.</p>
+              <p><span>02</span> Màu, font, pattern hợp chuẩn và không làm chìm sản phẩm.</p>
+              <p><span>03</span> Hình ảnh thật, quyền sử dụng rõ ràng, cảm xúc và đá màu là trọng tâm.</p>
+              <p><span>04</span> Packaging hiện có và đang dự kiến được ghi đúng trạng thái.</p>
+            </div>
+            <div class="identity-references">
+              <span>Original references · COLORA Drive</span>
+              <a href="https://drive.google.com/file/d/1MWeCuf1hVMzApO6WFqgNNRjT5SDFYAYs/view" target="_blank" rel="noopener noreferrer">Visual Identity ↗</a>
+              <a href="https://drive.google.com/drive/folders/10pAhEVJfpXp1owwghqnqe-inhu3Z50Ap" target="_blank" rel="noopener noreferrer">Official Pattern ↗</a>
+              <a href="https://drive.google.com/file/d/1I5WzW8DYB259sn05pz2m_7VDYnNN_spJ/view" target="_blank" rel="noopener noreferrer">Moodboard ↗</a>
+              <a href="https://drive.google.com/drive/folders/17EGsujX_yZTLhFnhw8Bd-iO7guipBnFM" target="_blank" rel="noopener noreferrer">Packaging ↗</a>
+            </div>
+            <p class="identity-note">Tài liệu định hướng nội bộ • Minh họa mô phỏng không thay thế ảnh, bản in, thông số kỹ thuật hay xác nhận mẫu thực tế.</p>
+          </section>
         </section>
         <section id="library-view" class="view" hidden>
           <div class="eyebrow">COLORA / REFERENCE LIBRARY</div>
           <h1>A library of <em>meaning.</em></h1>
-          <p class="section-intro">Thư viện kiến thức nền tảng giúp mỗi thành viên làm việc nhất quán với tinh thần COLORA. Tài liệu này phục vụ học tập, không thay thế SOP/chính sách đã phê duyệt.</p>
+          <p class="section-intro">Thư viện kiến thức nền tảng giúp mỗi thành viên làm việc nhất quán với tinh thần COLORA. Tài liệu này phục vụ học tập, không thay thế SOP/chính sách đã phê duyệt.</p><p><button type="button" data-view="brand-guide" class="outline-button">Xem Brand Identity &amp; Packaging ↗</button></p>
           <div id="library-list">
             <div class="library-toolbar">
               <label class="search-field"><span aria-hidden="true">⌕</span><span class="sr-only">Tìm kiếm tài liệu</span><input id="library-search" type="search" placeholder="Tìm thương hiệu, sản phẩm, vận hành..." autocomplete="off"></label>
