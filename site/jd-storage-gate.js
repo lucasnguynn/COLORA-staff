@@ -48,6 +48,11 @@ window.COLORA_JD_STORAGE=(()=>{
     const frame=document.getElementById('module-frame');
     frame.hidden=false;
     const id=getScope();
+    if(!id && window.parent===window && document.body.dataset.staffRole==='senior'){
+      // Deliberately preserve the manual legacy StatiCrypt rollback, which
+      // cannot provide an individual five-account scope.
+      return true;
+    }
     if(!id) {
       // Fail closed in the modern, five-person account portal. Do not mount
       // unscoped JD using the old shared storage key.
@@ -90,8 +95,11 @@ window.COLORA_JD_STORAGE=(()=>{
         // Include exact original values in the backup, even if older formats
         // cannot be migrated automatically. Nothing is deleted on download.
         const raw={roles:rawRoles,settings:rawSettings};
+        let parsed={};
+        try{parsed=decodeDrafts(rawRoles,rawSettings)}catch{}
         downloadJSON({format:'COLORA-JD-LEGACY-BACKUP-v1',
-          exportedAt:new Date().toISOString(),raw},
+          exportedAt:new Date().toISOString(),roles:parsed.roles||[],
+          settings:parsed.settings||{},raw},
           'COLORA-JD-legacy-backup-'+new Date().toISOString().slice(0,10)+'.json');
         downloadedFor=id;copy.disabled=false;
         status.textContent='Đã khởi tạo tải bản sao lưu. Hãy kiểm tra file trong Downloads trước khi chọn chuyển dữ liệu.';
