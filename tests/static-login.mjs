@@ -55,6 +55,27 @@ try{
   await wrapper.locator('body[data-staff-role="'+role+'"][data-staff-ready="true"]').waitFor({state:'attached',timeout:20000});
   const jd=await wrapper.locator('[data-view="jd"]').count();
   assert.equal(jd>0,role==='senior','Staff role must never see JD navigation');
+  // Verify the visual field guide survives encrypted Staff/Senior login,
+  // shows official vectors from Drive, and distinguishes current/planned packs.
+  await wrapper.locator('.nav-btn[data-view="brand-guide"]').click();
+  await wrapper.locator('#brand-guide:not([hidden])').waitFor({state:'visible',timeout:12000});
+  const guide=wrapper.locator('#brand-guide');
+  assert.equal(await guide.locator('.identity-swatch').count(),7,'Brand palette must show all seven official colors');
+  assert.equal(await guide.locator('.identity-package-card').count(),4,'Only four confirmed current packaging types');
+  assert.equal(await guide.locator('.identity-planned-grid > div').count(),6,'Planned packaging must be separate');
+  assert((await guide.innerText()).includes('Túi giấy Ivory'),'Current shopping bag must remain Ivory');
+  assert((await guide.innerText()).includes('Dự kiến / đang đánh giá'),'Planned pack status label absent');
+  for(const asset of ['facet-symbol.svg','facet-pattern.svg']){
+    const displayed=await guide.locator('img[src*="'+asset+'"]').first().evaluate(async image=>{
+      await image.decode();return {width:image.naturalWidth,height:image.naturalHeight};
+    });
+    assert(displayed.width>0&&displayed.height>0,'Official brand vector did not load: '+asset);
+  }
+  const widthStatus=await guide.evaluate(el=>({
+    contentWidth:el.scrollWidth,containerWidth:el.clientWidth
+  }));
+  assert(widthStatus.contentWidth<=widthStatus.containerWidth+2,'Brand guide overflows its workspace container');
+
   // Verify all three nested applications INSIDE the real AES-GCM
   // email/password login. Previously CI checked only the JD Library, so
   // about:srcdoc origin errors and Blob CSP violations reached production.
