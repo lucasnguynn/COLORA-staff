@@ -14,7 +14,7 @@ h1,h2,h3,.article-view h2,.feature-card strong{font-family:var(--brand-display)}
 .brand{padding:34px 30px 26px}
 .brand-name{display:inline-flex;align-items:center;max-width:100%;min-height:48px}
 .brand-logo{display:block;width:min(184px,100%);height:auto;max-height:65px;object-fit:contain;object-position:left center;filter:brightness(0) invert(1)}
-.brand p{font-size:10px;letter-spacing:.17em;margin:9px 0 19px}
+.brand p{font-size:10px;letter-spacing:.17em;margin:9px 0 19px;width:min(184px,100%);text-align:center}
 .brand>span{font-size:10px}
 .hero-desc,.section-intro,.start-panel p{font-size:14px;line-height:1.85}
 .nav-btn{font-size:13px;line-height:1.5;padding:13px 12px}
