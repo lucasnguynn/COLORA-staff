@@ -389,6 +389,13 @@
     const w=naturalW*scale,h=naturalH*scale;
     ctx.drawImage(symbolImage,left,top,naturalW,naturalH,
       (512-w)/2,(512-h)/2,w,h);
+    // Tint only the official COLORA default symbol, preserving the source
+    // alpha and the transparent background of its slender oval clearance.
+    // The upload/custom-logo path intentionally retains original colors.
+    ctx.globalCompositeOperation = "source-in";
+    ctx.fillStyle = $("fg").value;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.globalCompositeOperation = "source-over";
     return canvas.toDataURL("image/png");
   }
 
