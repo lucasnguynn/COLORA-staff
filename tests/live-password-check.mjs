@@ -11,15 +11,19 @@ if(!Array.isArray(users)||users.length!==5||
    users.filter(u=>u.role==='senior').length!==2){
   throw Error('The protected five-account production roster is unavailable.');
 }
-const selected=['staff','senior'].map(role=>users.find(u=>u.role===role));
+// Check every configured account rather than only one representative of each
+// role. Never put employee addresses or secrets in log messages.
+const selected=users.map((user,i)=>({user,role:user.role,index:i+1}));
+const expected=process.env.EXPECTED_DEPLOY_SHA||'';
+if(expected && !/^[a-f0-9]{40}$/.test(expected))
+  throw Error('Invalid expected deployment SHA');
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 let failures=0;
 const sleep=ms=>new Promise(ok=>setTimeout(ok,ms));
 try{
   // Cloudflare/GitHub Pages may briefly serve the previous release after a
   // deployment is marked complete. Retry with isolated fresh browser contexts.
-  for(const role of ['staff','senior']){
-    const member=selected.find(u=>u.role===role);
+  for(const {user:member,role,index} of selected){
     let passed=false,lastCategory='Unavailable';
     for(let attempt=0;attempt<3&&!passed;attempt++){
       const context=await browser.newContext({ignoreHTTPSErrors:false,acceptDownloads:false});
@@ -27,6 +31,13 @@ try{
       try{
         const res=await page.goto(base+'/?verify='+Date.now(),{waitUntil:'domcontentloaded',timeout:20000});
         if(res?.status()!==200)throw Error('Unexpected HTTP status');
+        const versionResponse=await page.request.get(base+'/release-version.json?verify='+Date.now(),{
+          timeout:12000,failOnStatusCode:true
+        });
+        const version=await versionResponse.json();
+        if(version.schema!==1 || !/^[a-f0-9]{40}$/.test(version.commit))
+          throw Error('Release identity missing or invalid');
+        if(expected && version.commit!==expected)throw Error('Stale deployment SHA');
         if(!(await page.evaluate(()=>window.isSecureContext&&!!crypto.subtle)))throw Error('Secure context unavailable');
         await page.locator('#staff-email').waitFor({state:'visible',timeout:10000});
         await page.locator('#staff-email').fill(member.email);
@@ -52,7 +63,7 @@ try{
         await page.locator('#workspace-signout').click();
         await page.locator('#signin-form').waitFor({state:'visible',timeout:10000});
         passed=true;
-        console.log('PASS: production '+role+' login, module access and logout.');
+        console.log('PASS: production account #'+index+' ('+role+') login, module access and logout.');
       }catch(error){
         // Intentionally report ONLY failure categories, never user-supplied
         // strings, URLs, selector traces, or any credentials.
@@ -60,7 +71,7 @@ try{
       }finally{await context.close()}
       if(!passed&&attempt<2)await sleep(5500);
     }
-    if(!passed){failures++;console.error('FAIL: production '+role+' smoke check ('+lastCategory+').');}
+    if(!passed){failures++;console.error('FAIL: production account #'+index+' ('+role+') smoke check ('+lastCategory+').');}
   }
 }finally{await browser.close()}
 if(failures)process.exitCode=1;
