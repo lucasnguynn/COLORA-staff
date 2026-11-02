@@ -49,6 +49,8 @@ jobs:
       - name: Install pinned QR dependency
         run: npm install --no-save --no-package-lock qr-code-styling@1.6.0-rc.1 playwright@1.56.1 jsqr@1.4.0 pngjs@7.0.0
       - name: Build Staff and Senior plaintext in temporary runner ONLY
+        env:
+          COLORA_JD_SCOPED_STORAGE: 'true'
         run: node scripts/build.mjs
       - name: Encrypt five independent email-password envelopes
         env:
