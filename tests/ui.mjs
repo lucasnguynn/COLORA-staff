@@ -291,7 +291,7 @@ try{
   });
   await page.goto('http://127.0.0.1:'+server.address().port+'/senior/index.html#jd');
   await page.locator('#module[data-active-module="jd"]').waitFor({state:'visible',timeout:15000});
-  assert.equal(await page.locator('.feature-card').count(),6,'Senior workspace should include JD card');
+  assert.equal(await page.locator('.feature-card').count(),7,'Senior workspace should show Email Templates and JD card');
   assert.equal(await page.locator('body').getAttribute('data-staff-role'),'senior');
   await page.locator('#jd-workspace-controls').waitFor({state:'visible',timeout:15000});
   await page.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:15000});
