@@ -6,9 +6,9 @@ const root=path.resolve('account-release/public');
 const expectedRoot=new Set([
   'index.html','account-login.css','account-login.js','account-entries.json','release-version.json',
   'account-files','apps','brand-assets',
-  'styles.css','brand-refinements.css','brand-guide.css','mail-guide.css','email-templates.css',
+  'styles.css','brand-refinements.css','brand-guide.css','mail-guide.css','email-templates.css','quick-search.css',
   'jd-integrated.css','embedded-apps.css','module-host.js','library.js',
-  'library-ui.js','mail-guide.js','email-templates.js','jd-workspace.js','jd-storage-gate.js','app.js','CNAME','.nojekyll'
+  'library-ui.js','mail-guide.js','email-templates.js','quick-search.js','quick-search-index.js','jd-workspace.js','jd-storage-gate.js','app.js','CNAME','.nojekyll'
 ]);
 assert(fs.existsSync(root),'No built public release to audit');
 const actual=fs.readdirSync(root);
