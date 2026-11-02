@@ -55,3 +55,28 @@
 .teachback-work textarea:focus-visible{outline:3px solid #b08a5b;outline-offset:2px}
 .teachback-work .actions{flex-wrap:wrap;align-items:center}
 @media(max-width:680px){.track-panel>summary{padding:15px}.track-panel>.grid2{padding:12px}.track-panel>summary strong{font-size:21px}}
+
+/* 14B gemstone training uses existing learning typography and grid language. */
+.gem-learning-entry{margin:24px 0;background:#f7f1e7;border-color:#ddcdb7}
+.gem-learning-entry h2,.gem-learning-entry h3{margin:10px 0}
+.gem-learning-intro{margin:28px 0 18px;border-left:2px solid #a8885e;padding:5px 0 5px 19px}
+.gem-learning-intro p{font-size:14px;font-weight:650;line-height:1.9;color:#002451;max-width:760px}
+.gem-learning-criterion{min-width:0}
+.gem-learning-criterion h3{margin:10px 0}
+.gem-learning-criterion p{font-size:13px;line-height:1.8}
+.gem-learning-criterion>strong{display:block;font-size:12px;color:#002451;margin-top:14px;border-top:1px solid #e4d8c8;padding-top:12px}
+.gem-learning-gems{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.gem-learning-profile{min-width:0;margin:0;padding:19px 20px}
+.gem-learning-profile summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.gem-learning-profile summary::-webkit-details-marker{display:none}
+.gem-learning-profile summary b{font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;font-weight:600;color:#002451;display:block}
+.gem-learning-profile summary small{display:block;color:#667589;font-size:11px;line-height:1.6}
+.gem-learning-profile[open]{border-color:#a8885e;background:#fffdfa}
+.gem-learning-plus{font-size:20px;flex:0 0 20px;color:#a8885e}
+.gem-learning-profile[open] .gem-learning-plus{transform:rotate(45deg)}
+.gem-learning-profile p{font-size:12px;line-height:1.8;margin:12px 0 0}
+.gem-learning-profile a{display:inline-block;font-size:12px;margin-top:15px;color:#002451}
+.gem-learning-reply{background:#f6f0e8;border-left:2px solid #a8885e;padding:10px 12px;font-size:12px;line-height:1.8;margin-top:14px}
+.gem-learning-practice{margin:30px 0;background:#f7f1e7;border-color:#ddcdb7}
+.gem-learning-practice p{font-size:13px;line-height:1.8}
+@media(max-width:700px){.gem-learning-gems{grid-template-columns:1fr}.gem-learning-criteria{grid-template-columns:1fr}.gem-learning-profile{padding:17px}.gem-learning-entry{margin:18px 0}.gem-learning-intro p{font-size:12px}}
