@@ -107,6 +107,31 @@ try{
         await wrapper.locator('.workspace-subnav-btn[data-subroute="scripts"]').waitFor({state:'visible'});
         await wrapper.locator('.workspace-subnav-btn[data-subroute="scripts"]').click();
         await app.locator('#main-content').getByText(/kịch bản/i).first().waitFor({state:'visible',timeout:12000});
+        // Regression: in a bundled Blob iframe, <base href="/apps/client-care/">
+        // is for assets ONLY. Native <a href="#/..."> navigation otherwise
+        // resolves to that unpublished GitHub Pages HTML URL and shows 404.
+        await wrapper.locator('.workspace-subnav-btn[data-subroute="cases"]').click();
+        await app.locator('#main-content a[href^="#/case/"]').first().waitFor({state:'visible',timeout:12000});
+        await app.locator('#main-content a[href^="#/case/"]').first().click();
+        await app.locator('#main-content .detail-hero h1').waitFor({state:'visible',timeout:12000});
+        assert.equal(await app.locator('#main-content').getByText('File not found').count(),0,
+          'Case detail must never render the GitHub Pages 404');
+        let caseRoute=await wrapper.locator('#module-frame').evaluate(el=>el.contentWindow.location.href);
+        assert(caseRoute.startsWith('blob:') && caseRoute.includes('#/case/'),
+          'Case detail click must remain inside the decrypted Blob application: '+caseRoute.slice(0,90));
+        await app.locator('#main-content button[data-go="cases"]').first().click();
+        await app.locator('#main-content a[href^="#/case/"]').first().waitFor({state:'visible',timeout:12000});
+        await wrapper.locator('.workspace-subnav-btn[data-subroute="learn"]').click();
+        await app.locator('#main-content a[href^="#/lesson/"]').first().waitFor({state:'visible',timeout:12000});
+        await app.locator('#main-content a[href^="#/lesson/"]').first().click();
+        await app.locator('#main-content .detail-hero h1').waitFor({state:'visible',timeout:12000});
+        let lessonRoute=await wrapper.locator('#module-frame').evaluate(el=>el.contentWindow.location.href);
+        assert(lessonRoute.startsWith('blob:') && lessonRoute.includes('#/lesson/'),
+          'Lesson click must remain on Blob application: '+lessonRoute.slice(0,90));
+        await app.locator('#main-content a[href="#/practice"]').first().click();
+        await app.locator('#main-content').getByText(/luyện tập/i).first().waitFor({state:'visible',timeout:12000});
+        assert.equal((await wrapper.locator('#module-frame').getAttribute('src')).startsWith('blob:'),true,
+          'Client Care must not navigate to an unauthenticated HTML endpoint');
       } else {
         await app.locator('#qrPreview canvas, #qrPreview svg').first().waitFor({state:'attached',timeout:20000});
         // A technically rendered QR is not enough: the default brand symbol
