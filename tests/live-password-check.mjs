@@ -1,58 +1,66 @@
-import { chromium } from 'playwright';
+import {chromium} from 'playwright';
 
-// GitHub Actions-only check. Never log, screenshot, or export the password.
-// This tests the LAST SUCCESSFULLY DEPLOYED LIVE SITE, not the new build.
-const staff=process.env.STAFF_PORTAL_PASSWORD||'';
-const senior=process.env.SENIOR_JD_PASSWORD||'';
-const origin='https://staff.colora.vn';
-if(Array.from(staff).length<8 || Array.from(senior).length<8 || staff===senior)throw Error('Missing password prerequisites (values never logged).');
-
+// Post-deployment smoke test for the CURRENT five-user static AES-GCM gateway.
+// Only runs after a successful production Pages deployment, or by explicit
+// workflow_dispatch. Neither credentials nor personal data are logged.
+const base='https://staff.colora.vn';
+let users;
+try{users=JSON.parse(process.env.COLORA_ACCOUNT_CREDENTIALS_JSON||'null')}catch{}
+if(!Array.isArray(users)||users.length!==5||
+   users.filter(u=>u.role==='staff').length!==3||
+   users.filter(u=>u.role==='senior').length!==2){
+  throw Error('The protected five-account production roster is unavailable.');
+}
+const selected=['staff','senior'].map(role=>users.find(u=>u.role===role));
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
-let failed=false;
+let failures=0;
+const sleep=ms=>new Promise(ok=>setTimeout(ok,ms));
 try{
-  // Each role needs an independent, clean browser context. Reusing one
-  // context carries over StatiCrypt's remembered Staff passphrase and
-  // auto-unlocks Staff on the next navigation, hiding the Senior input.
-  // That used to generate a FALSE Senior timeout in LIVE verification.
-  for(const [type,route,password,selector] of [
-    ['staff','/',staff,'body[data-staff-role="staff"][data-staff-ready="true"]'],
-    ['senior workspace','/#jd',senior,'body[data-staff-role="senior"][data-staff-ready="true"]'],
-    ['senior JD direct','/apps/jd/',senior,'#workspaceTitle']
-  ]){
-    const context=await browser.newContext({ignoreHTTPSErrors:false});
-    const page=await context.newPage();
-    try{
-      const response=await page.goto(origin+route,{waitUntil:'domcontentloaded',timeout:18000});
-      const secure=await page.evaluate(()=>window.isSecureContext&&!!window.crypto?.subtle);
-      if(!secure){console.error('FAIL: '+type+' live login requires working HTTPS/WebCrypto.');failed=true;continue;}
-      await page.locator('#staticrypt-password').fill(password,{timeout:10000});
-      await page.locator('#staticrypt-form input[type="submit"]').click();
-      await page.locator(selector).waitFor({state:'visible',timeout:18000});
-      if(type==='staff'){
-        if(await page.locator('[data-view="jd"]').count())throw Error('Staff role unexpectedly exposes JD route');
-      }
-      if(type==='senior workspace'){
-        if(await page.locator('#module').getAttribute('data-active-module')!=='jd')throw Error('Senior #jd route did not initialize');
-        await page.locator('#jd-workspace-controls').waitFor({state:'visible',timeout:18000});
-        if(await page.locator('#module-frame').getAttribute('data-jd-loaded')!=='true'){
-          await page.locator('#module-frame[data-jd-loaded="true"]').waitFor({state:'attached',timeout:18000});
+  // Cloudflare/GitHub Pages may briefly serve the previous release after a
+  // deployment is marked complete. Retry with isolated fresh browser contexts.
+  for(const role of ['staff','senior']){
+    const member=selected.find(u=>u.role===role);
+    let passed=false,lastCategory='Unavailable';
+    for(let attempt=0;attempt<3&&!passed;attempt++){
+      const context=await browser.newContext({ignoreHTTPSErrors:false,acceptDownloads:false});
+      const page=await context.newPage();
+      try{
+        const res=await page.goto(base+'/?verify='+Date.now(),{waitUntil:'domcontentloaded',timeout:20000});
+        if(res?.status()!==200)throw Error('Unexpected HTTP status');
+        if(!(await page.evaluate(()=>window.isSecureContext&&!!crypto.subtle)))throw Error('Secure context unavailable');
+        await page.locator('#staff-email').waitFor({state:'visible',timeout:10000});
+        await page.locator('#staff-email').fill(member.email);
+        await page.locator('#staff-password').fill(member.password);
+        // Never opt in to device remembrance in CI.
+        if(await page.locator('#remember-device').isChecked())throw Error('Remember default must be off');
+        await page.locator('#signin-submit').click();
+        await page.locator('#workspace:not([hidden])').waitFor({state:'visible',timeout:45000});
+        const frame=page.frameLocator('#workspace-frame');
+        await frame.locator('body[data-staff-role="'+role+'"][data-staff-ready="true"]')
+          .waitFor({state:'attached',timeout:20000});
+        const jd=await frame.locator('[data-view="jd"]').count();
+        if((jd>0)!==(role==='senior'))throw Error('Role isolation mismatch');
+        await frame.locator('.nav-btn[data-view="brand-guide"]').click();
+        await frame.locator('#brand-guide:not([hidden])').waitFor({state:'visible',timeout:10000});
+        if(role==='senior'){
+          await frame.locator('.nav-btn[data-view="jd"]').click();
+          await frame.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:15000});
+        }else{
+          await frame.locator('.nav-btn[data-view="qr"]').click();
+          await frame.frameLocator('#module-frame').locator('#downloadPng').waitFor({state:'visible',timeout:14000});
         }
-        await page.frameLocator('#module-frame').locator('#editorPanel').waitFor({state:'visible',timeout:18000});
-        await page.locator('#jd-workspace-controls').waitFor({state:'visible',timeout:18000});
-        await page.locator('#jd-role-select option').first().waitFor({state:'attached',timeout:18000});
-        if(await page.frameLocator('#module-frame').locator('.app-shell > .sidebar').isVisible())throw Error('Nested JD sidebar still visible');
-        if(await page.frameLocator('#module-frame').locator('.workspace > .topbar').isVisible())throw Error('Nested JD header still visible');
-        if(await page.frameLocator('#module-frame').locator('#staticrypt-password').count())throw Error('Senior JD prompted for a second password');
-      }
-      console.log('PASS: '+type+' secret decrypts LIVE site on HTTPS. HTTP bookmarks must be changed to HTTPS.');
-    }catch(err){
-      failed=true;
-      console.error('FAIL: '+type+' CURRENT Actions secret does not unlock LIVE site, or live TLS/site initialization failed. Do not paste secrets into logs. Check that Pages is serving the build generated after the last secret rotation.');
-      console.error('Failure category: '+(err?.name||'Unknown'));
-    }finally{
-      // Destroy all remembered passphrases and cookies before next role.
-      await context.close();
+        await page.locator('#workspace-signout').click();
+        await page.locator('#signin-form').waitFor({state:'visible',timeout:10000});
+        passed=true;
+        console.log('PASS: production '+role+' login, module access and logout.');
+      }catch(error){
+        // Intentionally report ONLY failure categories, never user-supplied
+        // strings, URLs, selector traces, or any credentials.
+        lastCategory=String(error?.name||'CheckFailed').replace(/[^A-Za-z]/g,'').slice(0,48);
+      }finally{await context.close()}
+      if(!passed&&attempt<2)await sleep(5500);
     }
+    if(!passed){failures++;console.error('FAIL: production '+role+' smoke check ('+lastCategory+').');}
   }
-}finally{await browser.close();}
-if(failed)process.exit(1);
+}finally{await browser.close()}
+if(failures)process.exitCode=1;
