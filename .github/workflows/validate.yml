@@ -22,6 +22,8 @@ jobs:
           node --check tests/account-release.mjs
           node --check tests/static-login.mjs
           node --check tests/remember-deploy-stability.mjs
+          node --check tests/published-asset-audit.mjs
+          node --check tests/live-password-check.mjs
           node --check tests/account-secret-diagnostics.mjs
           node tests/account-secret-diagnostics.mjs
           node --check site/library.js
@@ -75,6 +77,7 @@ jobs:
         run: |
           node scripts/build-account-release.mjs
           node tests/account-release.mjs
+          node tests/published-asset-audit.mjs
           # Simulate a second deployment with UNCHANGED credentials. Previous
           # random salts/IDs must remain valid; new AES-GCM IVs must rotate.
           cp account-release/public/account-entries.json /tmp/colora-prev-entries.json
