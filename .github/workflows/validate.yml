@@ -19,6 +19,10 @@ jobs:
       - name: Validate JavaScript
         run: |
           node --check scripts/security-audit.mjs
+          node --check scripts/build-quick-search.mjs
+          node --check site/quick-search.js
+          node --check tests/quick-search-index.mjs
+          node tests/quick-search-index.mjs
           node --check site/app.js
           node --check site/mail-guide.js
           node --check site/jd-workspace.js
