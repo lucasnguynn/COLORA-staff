@@ -1,0 +1,431 @@
+{
+  "schema": 1,
+  "version": "2026-11-03",
+  "status": "Đào tạo tham khảo, không phải hồ sơ SKU đã duyệt",
+  "title": "Vì sao COLORA chọn chín dòng đá màu?",
+  "memory": "Độ bền - Màu sắc - Câu chuyện - Giá cả - Thiết kế - Chất lượng",
+  "criteria": [
+    {
+      "title": "Độ bền",
+      "detail": "Ưu tiên đặc tính phù hợp với trang sức sử dụng lâu dài. Mohs không phản ánh toàn bộ nguy cơ nứt, mẻ, biến màu.",
+      "remember": "Đá cứng không đồng nghĩa không thể vỡ."
+    },
+    {
+      "title": "Màu sắc",
+      "detail": "Chín dòng đá mang lại nhiều sắc đỏ, hồng, tím, lam, lục, vàng, cam. Hỏi màu khách thích trước khi đề xuất.",
+      "remember": "Không gán một màu với một cảm xúc bắt buộc."
+    },
+    {
+      "title": "Câu chuyện",
+      "detail": "Mỗi dòng đá có nhóm khoáng vật, quá trình hình thành, lịch sử và cách diễn giải văn hóa khác nhau.",
+      "remember": "Không khẳng định tác dụng phong thủy hay sức khỏe."
+    },
+    {
+      "title": "Giá cả",
+      "detail": "Sự đa dạng về loại đá, chất lượng và kích thước giúp xây dựng nhiều lựa chọn theo ngân sách.",
+      "remember": "Không mặc định một loại đá luôn rẻ hơn loại khác."
+    },
+    {
+      "title": "Thiết kế",
+      "detail": "Cân nhắc viên đá cùng kiểu dáng, ổ đá, giác cắt và hoàn cảnh sử dụng.",
+      "remember": "Không phải đá nào cũng hợp mọi kiểu nhẫn hay vòng tay."
+    },
+    {
+      "title": "Chất lượng",
+      "detail": "Định hướng đá màu tự nhiên, kiểm tra nguồn gốc, treatment, màu, lỗi, độ phù hợp với từng sản phẩm.",
+      "remember": "Natural không đồng nghĩa untreated; không cam kết thiếu hồ sơ."
+    }
+  ],
+  "gems": [
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "family": "Corundum",
+      "mohs": "9",
+      "color": "Đỏ",
+      "benefit": "Độ cứng cao; cùng khoáng vật với Sapphire.",
+      "caution": "Ruby có thể được gia nhiệt, lấp thủy tinh hoặc xử lý khác.",
+      "reply": "Ruby nổi bật bởi sắc đỏ và độ cứng cao. Mình sẽ kiểm tra mẫu và thông tin viên đá cụ thể.",
+      "source": "https://www.gia.edu/ruby"
+    },
+    {
+      "id": "sapphire",
+      "name": "Sapphire",
+      "family": "Corundum",
+      "mohs": "9",
+      "color": "Xanh lam và nhiều màu ngoài đỏ",
+      "benefit": "Độ cứng cao, phù hợp nhiều kiểu trang sức khi xử lý và setting phù hợp.",
+      "caution": "Không mặc định untreated hoặc tất cả Sapphire đều xanh lam.",
+      "reply": "Sapphire có nhiều sắc màu và độ cứng cao. Bạn muốn đeo thường xuyên hay dịp đặc biệt?",
+      "source": "https://www.gia.edu/sapphire"
+    },
+    {
+      "id": "garnet",
+      "name": "Garnet",
+      "family": "Nhóm Garnet",
+      "mohs": "6,5-7,5",
+      "color": "Đỏ, cam, xanh và nhiều màu khác",
+      "benefit": "Nhóm đá có nhiều giống; không phải Garnet nào cũng màu đỏ.",
+      "caution": "Xác nhận giống Garnet và đặc tính đúng viên.",
+      "reply": "Garnet có nhiều sắc màu. Mình sẽ đối chiếu giống đá ở mẫu bạn thích trước khi tư vấn.",
+      "source": "https://www.gia.edu/garnet"
+    },
+    {
+      "id": "topaz",
+      "name": "Topaz",
+      "family": "Topaz",
+      "mohs": "8",
+      "color": "Nhiều màu, trong đó có xanh lam",
+      "benefit": "Độ trong và màu sắc phong phú.",
+      "caution": "Có tính cát khai rõ, cần tránh lực mạnh và sốc nhiệt; xác nhận xử lý màu.",
+      "reply": "Topaz có nhiều sắc màu, nhưng nếu là nhẫn đeo thường xuyên mình sẽ lưu ý cách bảo vệ đá.",
+      "source": "https://www.gia.edu/topaz-care-cleaning"
+    },
+    {
+      "id": "aquamarine",
+      "name": "Aquamarine",
+      "family": "Beryl",
+      "mohs": "7,5-8",
+      "color": "Xanh lam đến lam pha lục",
+      "benefit": "Sắc xanh thường nhẹ và có thể có độ trong cao.",
+      "caution": "Kiểm tra bao thể lỏng, khe nứt, treatment và setting.",
+      "reply": "Aquamarine có sắc xanh dịu. Nếu thích tông màu nhẹ, mình có thể đối chiếu các mẫu phù hợp.",
+      "source": "https://www.gia.edu/aquamarine"
+    },
+    {
+      "id": "citrine",
+      "name": "Citrine",
+      "family": "Quartz",
+      "mohs": "7",
+      "color": "Vàng đến cam",
+      "benefit": "Tông màu ấm, đa dạng lựa chọn kích thước.",
+      "caution": "Citrine trên thị trường có thể được gia nhiệt; không mặc định untreated.",
+      "reply": "Citrine có tông vàng cam. Mình sẽ kiểm tra hồ sơ xử lý của viên trong mẫu cụ thể.",
+      "source": "https://www.gia.edu/citrine"
+    },
+    {
+      "id": "peridot",
+      "name": "Peridot",
+      "family": "Olivine",
+      "mohs": "6,5-7",
+      "color": "Xanh lục vàng",
+      "benefit": "Xanh lục đặc trưng, có thể hình thành trong môi trường địa chất sâu.",
+      "caution": "Tránh cọ xát, va đập và sốc nhiệt.",
+      "reply": "Peridot có màu xanh lục đặc trưng. Mình sẽ lưu ý thêm cách đeo và chăm sóc nếu bạn chọn nhẫn.",
+      "source": "https://www.gia.edu/peridot"
+    },
+    {
+      "id": "spinel",
+      "name": "Spinel",
+      "family": "Spinel",
+      "mohs": "8",
+      "color": "Đỏ, hồng, cam, tím, xanh và các màu khác",
+      "benefit": "Độ dai nhìn chung tốt, đa màu; khác khoáng vật Ruby dù có thể cùng màu đỏ.",
+      "caution": "Không gọi Spinel đỏ là Ruby; xác nhận natural/synthetic và treatment.",
+      "reply": "Spinel có nhiều màu. Nếu thích đỏ, mình có thể so sánh với Ruby theo màu thực tế và thiết kế.",
+      "source": "https://www.gia.edu/spinel"
+    },
+    {
+      "id": "tourmaline",
+      "name": "Tourmaline",
+      "family": "Nhóm Tourmaline",
+      "mohs": "7-7,5",
+      "color": "Rộng phổ màu, có thể nhiều vùng màu trong một viên",
+      "benefit": "Thành phần đa dạng có thể tạo vùng màu khác nhau trong một tinh thể.",
+      "caution": "Tránh va đập, sốc nhiệt; không khuyến nghị siêu âm hoặc hơi nước cho trang sức chưa được QC xác nhận.",
+      "reply": "Tourmaline có nhiều sắc màu. Bạn thích tông nào để mình kiểm tra những mẫu phù hợp?",
+      "source": "https://www.gia.edu/tourmaline"
+    }
+  ],
+  "questions": [
+    {
+      "id": "PORT-01",
+      "q": "COLORA lựa chọn chín dòng đá dựa trên nhóm yếu tố nào?",
+      "options": [
+        "Chỉ độ hiếm và giá cao nhất",
+        "Độ bền, màu, câu chuyện, giá, thiết kế, chất lượng",
+        "Chỉ đá không bao giờ trầy",
+        "Chỉ màu hợp phong thủy"
+      ],
+      "correct": 1,
+      "why": "Sáu yếu tố lựa chọn của COLORA"
+    },
+    {
+      "id": "PORT-02",
+      "q": "Độ cứng Mohs phản ánh rõ nhất điều gì?",
+      "options": [
+        "Khả năng chống trầy tương đối",
+        "Khả năng chống vỡ hoàn toàn",
+        "Giá trị thương mại",
+        "Nguồn gốc địa chất"
+      ],
+      "correct": 0,
+      "why": "Mohs là khả năng chống trầy tương đối"
+    },
+    {
+      "id": "PORT-03",
+      "q": "Ruby và Sapphire thuộc nhóm nào?",
+      "options": [
+        "Quartz",
+        "Beryl",
+        "Corundum",
+        "Olivine"
+      ],
+      "correct": 2,
+      "why": "Ruby và Sapphire thuộc corundum"
+    },
+    {
+      "id": "PORT-04",
+      "q": "Nhận xét nào đúng về Garnet?",
+      "options": [
+        "Luôn có màu đỏ",
+        "Chỉ là thủy tinh màu",
+        "Có nhiều giống và màu",
+        "Có Mohs cố định là 9"
+      ],
+      "correct": 2,
+      "why": "Garnet là nhóm đá nhiều giống, nhiều màu"
+    },
+    {
+      "id": "PORT-05",
+      "q": "Vì sao Topaz Mohs 8 vẫn cần lưu ý va đập?",
+      "options": [
+        "Do cát khai rõ",
+        "Do luôn được làm từ nhựa",
+        "Do không thể chế tác",
+        "Do Topaz luôn ở dạng tổng hợp"
+      ],
+      "correct": 0,
+      "why": "Topaz có cát khai rõ"
+    },
+    {
+      "id": "PORT-06",
+      "q": "Aquamarine thuộc nhóm nào?",
+      "options": [
+        "Corundum",
+        "Beryl",
+        "Garnet",
+        "Quartz"
+      ],
+      "correct": 1,
+      "why": "Aquamarine thuộc beryl"
+    },
+    {
+      "id": "PORT-07",
+      "q": "Citrine thuộc khoáng vật nào?",
+      "options": [
+        "Quartz",
+        "Olivine",
+        "Corundum",
+        "Topaz"
+      ],
+      "correct": 0,
+      "why": "Citrine thuộc quartz"
+    },
+    {
+      "id": "PORT-08",
+      "q": "Peridot thuộc nhóm nào?",
+      "options": [
+        "Beryl",
+        "Quartz",
+        "Olivine",
+        "Corundum"
+      ],
+      "correct": 2,
+      "why": "Peridot thuộc olivine"
+    },
+    {
+      "id": "PORT-09",
+      "q": "Đá natural có đồng nghĩa untreated không?",
+      "options": [
+        "Có",
+        "Không",
+        "Chỉ với Ruby",
+        "Chỉ với Sapphire"
+      ],
+      "correct": 1,
+      "why": "Natural và treatment là hai thông tin khác nhau"
+    },
+    {
+      "id": "PORT-10",
+      "q": "Nếu khách hỏi đá nào tốt nhất, bước đầu nên làm gì?",
+      "options": [
+        "Chọn viên đắt nhất",
+        "Hỏi màu, cách đeo và ngân sách",
+        "Chọn viên Mohs cao nhất bất kể mẫu",
+        "Cam kết không trầy vỡ"
+      ],
+      "correct": 1,
+      "why": "Nhu cầu khách quyết định gợi ý"
+    },
+    {
+      "id": "PORT-11",
+      "q": "Nhận xét nào đúng về Sapphire?",
+      "options": [
+        "Chỉ có xanh lam",
+        "Không có xử lý",
+        "Có nhiều màu ngoài đỏ",
+        "Mọi viên có giá giống nhau"
+      ],
+      "correct": 2,
+      "why": "Sapphire có nhiều màu ngoài đỏ"
+    },
+    {
+      "id": "PORT-12",
+      "q": "Hai viên cùng loại đá có thể có giá khác nhau vì sao?",
+      "options": [
+        "Chỉ do tên gọi",
+        "Màu, chất lượng, cắt, kích thước, xử lý và đặc điểm riêng",
+        "Vì một viên chắc chắn giả",
+        "Không thể khác giá"
+      ],
+      "correct": 1,
+      "why": "Giá do nhiều đặc tính của viên và sản phẩm"
+    },
+    {
+      "id": "PORT-13",
+      "q": "Cách nói nào phù hợp COLORA?",
+      "options": [
+        "Peridot không thể mẻ",
+        "Màu đỏ luôn đại diện tình yêu",
+        "Nhân viên cần xác nhận hồ sơ trước khi cam kết treatment",
+        "Tất cả đá đều có thể rửa siêu âm"
+      ],
+      "correct": 2,
+      "why": "Không suy đoán claim khi thiếu hồ sơ"
+    },
+    {
+      "id": "PORT-14",
+      "q": "Vì sao Shape không đồng nghĩa Cut Style?",
+      "options": [
+        "Shape là hình dáng, Cut Style là bố trí mặt giác",
+        "Shape quyết định mỏ đá",
+        "Cut Style chỉ là màu",
+        "Hai từ giống hệt nhau"
+      ],
+      "correct": 0,
+      "why": "Hình dáng khác bố cục mặt giác"
+    },
+    {
+      "id": "PORT-15",
+      "q": "Carat đo gì?",
+      "options": [
+        "Kích thước mm",
+        "Độ trong",
+        "Khối lượng",
+        "Độ cứng"
+      ],
+      "correct": 2,
+      "why": "1 ct = 0,2 gram"
+    },
+    {
+      "id": "PORT-16",
+      "q": "Khi khách hỏi viên Ruby trong SKU có untreated không, nhưng thiếu hồ sơ, bạn làm gì?",
+      "options": [
+        "Mặc định untreated",
+        "Nói tất cả Ruby đều gia nhiệt",
+        "Kiểm tra hồ sơ và phản hồi sau",
+        "Đoán theo màu đỏ"
+      ],
+      "correct": 2,
+      "why": "Không xác nhận khi thiếu chứng cứ"
+    },
+    {
+      "id": "PORT-17",
+      "q": "Câu nào mô tả đúng COLORA?",
+      "options": [
+        "Bán đá rời để đầu tư",
+        "Trang sức hoàn thiện với đá màu là điểm nhấn thiết kế",
+        "Chỉ bán các viên Sapphire xanh",
+        "Cam kết mọi màu đá đem lại sức khỏe"
+      ],
+      "correct": 1,
+      "why": "COLORA bán trang sức hoàn thiện gemstone-first"
+    },
+    {
+      "id": "PORT-18",
+      "q": "Cách chăm sóc an toàn khi chưa rõ treatment và chất phủ?",
+      "options": [
+        "Dùng siêu âm cho mọi sản phẩm",
+        "Ngâm hóa chất mạnh",
+        "Chỉ tư vấn theo hướng dẫn thành phẩm đã được duyệt; nếu chưa có thì yêu cầu xác nhận",
+        "Dùng hơi nước nóng"
+      ],
+      "correct": 2,
+      "why": "Hướng dẫn phải phù hợp đá, lớp phủ và setting"
+    },
+    {
+      "id": "PORT-19",
+      "q": "Khách thích xanh lam và đeo thường xuyên, nên bắt đầu tư vấn thế nào?",
+      "options": [
+        "Hỏi sắc xanh, mức độ đeo và đối chiếu Sapphire/Aquamarine theo SKU",
+        "Luôn chọn Aquamarine",
+        "Luôn chọn Sapphire không cần hỏi",
+        "Bảo đảm mọi Sapphire không xử lý"
+      ],
+      "correct": 0,
+      "why": "So sánh đúng nhu cầu và hồ sơ mẫu"
+    },
+    {
+      "id": "PORT-20",
+      "q": "Vì sao danh mục chín dòng đá không đồng nghĩa mọi SKU đều sử dụng đủ chín loại?",
+      "options": [
+        "Danh mục định hướng khác hồ sơ thực tế từng sản phẩm",
+        "Một sản phẩm bắt buộc phải gắn chín viên",
+        "Mọi viên màu đỏ đều là Ruby",
+        "Không cần hồ sơ SKU"
+      ],
+      "correct": 0,
+      "why": "Danh mục định hướng không là bằng chứng của SKU"
+    },
+    {
+      "id": "PORT-21",
+      "q": "Spinel và Ruby có mối quan hệ nào?",
+      "options": [
+        "Đều là Corundum",
+        "Spinel đỏ luôn là Ruby nhân tạo",
+        "Là hai khoáng vật khác nhau, dù có thể cùng màu đỏ",
+        "Spinel có Mohs 9, Ruby có Mohs 8"
+      ],
+      "correct": 2,
+      "why": "Ruby thuộc Corundum còn Spinel là khoáng vật riêng"
+    },
+    {
+      "id": "PORT-22",
+      "q": "Đặc điểm nào đúng về Spinel theo GIA?",
+      "options": [
+        "Mohs 8, độ dai nhìn chung tốt",
+        "Mohs 5, luôn dễ nứt",
+        "Chỉ có màu đỏ",
+        "Không thể có đá tổng hợp"
+      ],
+      "correct": 0,
+      "why": "Spinel Mohs 8 và độ dai nhìn chung tốt"
+    },
+    {
+      "id": "PORT-23",
+      "q": "Tourmaline có đặc tính nào đúng?",
+      "options": [
+        "Luôn chỉ có một màu xanh",
+        "Mohs 7-7,5, nhiều màu, có thể có phân vùng màu",
+        "Không bao giờ nhạy với nhiệt",
+        "Cùng khoáng vật với Peridot"
+      ],
+      "correct": 1,
+      "why": "Tourmaline đa màu và Mohs 7-7,5"
+    },
+    {
+      "id": "PORT-24",
+      "q": "Khách muốn vệ sinh nhẫn Tourmaline bằng máy siêu âm, nhân viên nên làm gì?",
+      "options": [
+        "Đồng ý vì Tourmaline có Mohs trên 7",
+        "Khuyên dùng hơi nước nóng",
+        "Đảm bảo mọi loại Tourmaline đều phù hợp",
+        "Không khuyến nghị siêu âm; kiểm tra hướng dẫn chăm sóc thành phẩm được duyệt"
+      ],
+      "correct": 3,
+      "why": "Cần chăm sóc dựa trên đúng đá và cấu trúc thành phẩm"
+    }
+  ],
+  "disclaimer": "Kiến thức tham khảo và định hướng thương hiệu. Không suy ra tồn kho, nguồn gốc, treatment, chứng thư, giá bán hoặc chính sách của bất kỳ SKU cụ thể nào. Mẫu trả lời phải đối chiếu hồ sơ được duyệt."
+}
