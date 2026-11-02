@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 
 const root=path.resolve('account-release/public');
 const expectedRoot=new Set([
-  'index.html','account-login.css','account-login.js','account-entries.json',
+  'index.html','account-login.css','account-login.js','account-entries.json','release-version.json',
   'account-files','apps','brand-assets',
   'styles.css','brand-refinements.css','brand-guide.css','mail-guide.css',
   'jd-integrated.css','embedded-apps.css','module-host.js','library.js',
@@ -46,6 +46,10 @@ assert(html.includes('id="signin-form"')&&html.includes('id="staff-email"'),'Exp
 assert(!html.includes('id="bundled-jd"'),'Encrypted JD source exposed in login HTML');
 assert(!html.includes('id="module-frame"'),'Unencrypted Staff source exposed in login HTML');
 assert(html.includes('Content-Security-Policy'),'Login CSP must be set');
+const release=JSON.parse(fs.readFileSync(path.join(root,'release-version.json'),'utf8'));
+assert.equal(release.schema,1);
+assert(/^[a-f0-9]{40}$/.test(release.commit)||release.commit==='local-unversioned',
+  'Public release version must be a commit SHA or explicit local fixture');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'account-entries.json'),'utf8'));
 assert.equal(manifest.version,1);
 assert.equal(manifest.entries.length,5);
