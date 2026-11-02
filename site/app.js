@@ -202,7 +202,14 @@
       '<tr><td style="'+rowStyle+'"><a href="'+emailHref+'" style="color:#53647a;text-decoration:none;">'+escapeHTML(email)+'</a></td></tr>',
       phoneRow,
       '<tr><td style="'+rowStyle+'"><a href="https://colora.vn/" style="color:#002451;text-decoration:none;">colora.vn</a></td></tr>',
-      '</table></td></tr></table>'
+      '</table></td></tr>',
+      // Signature-wide footer comes AFTER the employee block and is part
+      // of the same HTML string used for preview, rich clipboard and file.
+      // Use table-cell and inline styles for Gmail/Outlook compatibility.
+      '<tr><td style="padding:19px 0 0 0;vertical-align:top;font-family:Arial,Helvetica,sans-serif;color:#53647a;">',
+      '<p style="margin:0 0 10px 0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:16px;mso-line-height-rule:exactly;color:#53647a;"><strong style="font-weight:700;">Please consider your environmental responsibilities before printing emails and documents.</strong></p>',
+      '<p style="margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:16px;mso-line-height-rule:exactly;color:#53647a;"><strong style="font-weight:700;">(!) Disclaimer:</strong> <em style="font-style:italic;">This email and its attachments may be confidential and are intended solely for the use of the intended recipient. If you are not the intended recipient of this email and its attachments, you must take no action based upon them, nor must you copy them to anyone. Please contact the sender if you believe you have received this email in error.</em></p>',
+      '</td></tr></table>'
     ].join('');
   }
   function downloadText(text,filename,mime='text/html;charset=utf-8'){
