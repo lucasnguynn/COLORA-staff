@@ -28,6 +28,7 @@ try{
   assert.equal(await page.locator('#web-tool,#web-form,#web-preview').count(),0,'Website Generator DOM must be removed');
   assert.equal(await page.locator('.hero-art,.hero-facet,.hero-symbol').count(),0,'Decorative diagonal hero illustration must be removed');
   assert.equal(await page.locator('.hero-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns==='none'),true,'Homepage hero must not reserve empty illustration column');
+  assert.equal(await page.locator('.nav-btn[data-view="operations"] .nav-symbol').isVisible(),true,'Operations icon must align with desktop sidebar icons');
   // Operations Playbook: staff choose their own comparison rows and keep SOPs practical.
   await page.locator('.nav-btn[data-view="operations"]').click();
   await page.locator('#operations').waitFor({state:'visible'});
@@ -65,6 +66,7 @@ try{
   assert(await page.locator('#operations .ops-template-grid').isVisible(),'Optional email templates can expand');
   await page.locator('#operations .ops-collapsible summary').first().click();
   await page.setViewportSize({width:390,height:844});
+  assert.equal(await page.locator('.nav-btn[data-view="operations"] .nav-symbol').isVisible(),false,'Operations icon must stay hidden on mobile');
   const opsWidths=await page.evaluate(()=>[document.documentElement.scrollWidth,innerWidth]);
   assert(opsWidths[0]<=opsWidths[1]+2,'Simplified Operations overflows phone: '+opsWidths);
   assert.equal(await page.locator('#operations .ops-card').first().isVisible(),true,'Operations mobile cards remain visible');
