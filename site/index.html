@@ -76,24 +76,35 @@
   <section id="quick-search-overlay" class="quick-search-overlay" role="dialog" aria-modal="true" aria-label="Tra cứu nhanh trong COLORA Staff" aria-describedby="quick-search-description" hidden>
     <div class="quick-search-panel">
       <header class="quick-search-header">
-        <div><p class="eyebrow">COLORA / STAFF KNOWLEDGE</p><h2>Tra cứu <em>nhanh</em></h2><p id="quick-search-description">Tìm tình huống và tài liệu từ Learning Studio, Client Care Academy và Thư viện. Không cần chuyển qua nhiều module.</p></div>
+        <div><p class="eyebrow">COLORA / STAFF KNOWLEDGE</p><h2>Tra cứu <em>nhanh</em></h2><p id="quick-search-description">Tìm mọi nội dung và công cụ trong Staff Workspace: bài học, quy trình, email mẫu, CSKH, QR, Brand & Packaging và hơn thế nữa.</p></div>
         <button type="button" class="quick-search-close" data-quick-close aria-label="Đóng tra cứu">Đóng <span aria-hidden="true">×</span></button>
       </header>
       <label class="quick-search-input-wrap" for="quick-search-input">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 5 5"/></svg>
         <span class="sr-only">Tìm thông tin COLORA</span>
-        <input id="quick-search-input" type="search" placeholder="Ví dụ: đá lỏng, đổi trả, Sapphire, giao trễ..." autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="140">
+        <input id="quick-search-input" type="search" placeholder="Tìm công cụ, nội dung, quy trình... VD: QR, CAD, Ruby" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="140">
         <kbd>⌘ K</kbd>
       </label>
-      <div class="quick-search-topics" role="group" aria-label="Tình huống thường gặp">
+      <div class="quick-search-topics" role="group" aria-label="Gợi ý tìm kiếm">
+        <button type="button" data-quick-query="qr">QR Generator</button>
+        <button type="button" data-quick-query="chữ ký">Chữ ký email</button>
+        <button type="button" data-quick-query="CAD">CAD</button>
+        <button type="button" data-quick-query="agency">Agency</button>
         <button type="button" data-quick-query="đá lỏng">Đá lỏng</button>
-        <button type="button" data-quick-query="giao trễ">Giao trễ</button>
-        <button type="button" data-quick-query="đổi trả">Đổi trả</button>
-        <button type="button" data-quick-query="treatment">Xử lý đá</button>
-        <button type="button" data-quick-query="giá sản phẩm">Giá &amp; SKU</button>
-        <button type="button" data-quick-query="bảo hành">Bảo hành</button>
+        <button type="button" data-quick-query="mẫu email">Email mẫu</button>
+        <button type="button" data-quick-query="pattern">Pattern</button>
       </div>
-      <div class="quick-search-filters" role="group" aria-label="Lọc kết quả tra cứu"><button type="button" data-quick-filter="all" aria-pressed="true">Tất cả</button><button type="button" data-quick-filter="answers" aria-pressed="false">Phản hồi nhanh</button><button type="button" data-quick-filter="docs" aria-pressed="false">Tài liệu</button><button type="button" data-quick-filter="urgent" aria-pressed="false"><span aria-hidden="true">●</span> Cần xử lý gấp</button></div><div class="quick-search-alert"><strong>Chú ý khi tư vấn:</strong> Các câu trả lời là mẫu tham khảo. Giá, tồn kho, ETA, bảo hành, đổi trả, xử lý đá và chứng thư phải được đối chiếu hồ sơ đúng SKU hoặc chính sách đã duyệt trước khi xác nhận với khách.</div>
+      <div class="quick-search-filters" role="group" aria-label="Lọc kết quả tra cứu">
+        <button type="button" data-quick-filter="all" aria-pressed="true">Tất cả</button>
+        <button type="button" data-quick-filter="tools" aria-pressed="false">Công cụ &amp; trang</button>
+        <button type="button" data-quick-filter="operations" aria-pressed="false">Quy trình</button>
+        <button type="button" data-quick-filter="knowledge" aria-pressed="false">Kiến thức</button>
+        <button type="button" data-quick-filter="care" aria-pressed="false">CSKH</button>
+        <button type="button" data-quick-filter="templates" aria-pressed="false">Mẫu email</button>
+        <button type="button" data-quick-filter="answers" aria-pressed="false">Phản hồi nhanh</button>
+        <button type="button" data-quick-filter="urgent" aria-pressed="false">Cần xử lý gấp</button>
+      </div>
+      <div class="quick-search-alert">Nội dung học tập và mẫu trả lời chỉ để tham khảo. Giá, tồn kho, quyền lợi, thông tin đá và chính sách phải đối chiếu nguồn đã được duyệt trước khi sử dụng với khách.</div>
       <p id="quick-search-status" class="quick-search-status" role="status" aria-live="polite"></p>
       <div id="quick-search-results" class="quick-search-results"></div>
       <footer class="quick-search-footer"><span>Không lưu từ khóa, dữ liệu khách hay nội dung sao chép</span><span>Esc để đóng - Cmd/Ctrl + K để mở</span></footer>
