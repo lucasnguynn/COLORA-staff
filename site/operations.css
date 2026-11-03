@@ -38,6 +38,7 @@
 #operations .ops-timeline small{font:600 10px "Open Sans",Arial,sans-serif;color:#9c805e}
 #operations .ops-muted{font-size:11px!important;color:#6d7b8d!important;line-height:1.8}
 #operations .ops-panel-heading{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:17px;margin-bottom:24px}
+#operations .ops-download-actions{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
 #operations .ops-panel-heading h2{margin:0 0 8px}
 #operations .ops-panel-heading p{margin:0;color:#647386;font-size:12px}
 #operations .ops-panel-heading button,#operations .ops-template button,#operations .ops-back button,#operations .ops-next button{background:#002451;border:1px solid #002451;color:white;min-height:46px;padding:12px 17px;font:700 11px "Open Sans",Arial,sans-serif}
@@ -109,6 +110,7 @@
  #operations .ops-panel{padding-top:26px}
  #operations .ops-panel-heading{align-items:stretch}
  #operations .ops-panel-heading button{width:100%}
+ #operations .ops-download-actions{width:100%;flex-direction:column;align-items:stretch}
  #operations .ops-risk,#operations .ops-records{padding:17px}
 }
 @media(prefers-reduced-motion:reduce){#operations button{transition:none!important}}
