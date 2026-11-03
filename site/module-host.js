@@ -9,7 +9,7 @@
 window.COLORA_MODULE_HOST=(()=>{
   const NAV={
     learning:[
-      ['home','Tổng quan'],['learn','Chương trình học'],['review','Ôn tập'],
+      ['home','Tổng quan'],['learn','Chương trình học'],['portfolio','9 dòng đá'],['gem-value','Giá trị màu & tuyển chọn'],['review','Ôn tập'],
       ['exam','Kiểm tra'],['profile','Tiến độ & cá nhân']
     ],
     'client-care':[
@@ -76,7 +76,7 @@ window.COLORA_MODULE_HOST=(()=>{
       try{
         const doc=frame.contentDocument;
         if(view==='client-care')return (frame.contentWindow.location.hash||'#/learn').replace(/^#\//,'').split('/')[0];
-        if(view==='learning')return doc.querySelector('#app .sidebar [data-nav].active')?.dataset.nav||'learn';
+        if(view==='learning'){if(doc.getElementById('gem-value-page'))return 'gem-value';if(doc.querySelector('.gem-learning-intro'))return 'portfolio';return doc.querySelector('#app .sidebar [data-nav].active')?.dataset.nav||'learn';}
       }catch{}
       return 'home';
     }

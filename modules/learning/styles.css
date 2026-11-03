@@ -80,3 +80,45 @@
 .gem-learning-practice{margin:30px 0;background:#f7f1e7;border-color:#ddcdb7}
 .gem-learning-practice p{font-size:13px;line-height:1.8}
 @media(max-width:700px){.gem-learning-gems{grid-template-columns:1fr}.gem-learning-criteria{grid-template-columns:1fr}.gem-learning-profile{padding:17px}.gem-learning-entry{margin:18px 0}.gem-learning-intro p{font-size:12px}}
+
+/* Gemstone market-color guide and proposed COLORA selection rubric. */
+.gem-value-page{max-width:1120px}.gem-value-section{margin:34px 0 0}.gem-value-section>.eyebrow{margin-bottom:10px}
+.gem-value-basics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.gem-value-explain{background:#fffdfa;border:1px solid #e0d5c4;padding:17px 19px}
+.gem-value-explain h3{font:600 20px "Cormorant Garamond",Georgia,serif;color:#002451;margin:0 0 7px}
+.gem-value-explain p,.gem-value-small{font-size:12px;line-height:1.9;color:#53647a}
+.gem-value-select{max-width:440px;margin:11px 0 15px}
+.gem-value-profile{border:1px solid #d6c7b2;background:#fffdfa;padding:clamp(17px,3vw,27px)}
+.gem-value-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.gem-value-header h3{font:600 34px "Cormorant Garamond",Georgia,serif;color:#002451;margin:9px 0}
+.gem-value-context{font:700 10px "Open Sans",sans-serif;letter-spacing:.1em;color:#9a815d}
+.gem-value-tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.gem-value-tiers article{padding:16px;border:1px solid #e5dccc;background:#fbf7f0}
+.gem-value-tiers article:first-child{border-top:3px solid #718f81}
+.gem-value-tiers article:nth-child(2){border-top:3px solid #b7a489}
+.gem-value-tiers article:last-child{border-top:3px solid #b9a3a0}
+.gem-value-tiers small{display:block;font:700 10px "Open Sans",sans-serif;letter-spacing:.05em;color:#5b6a7c}
+.gem-value-tiers p,.gem-value-nuance p{font-size:12px;line-height:1.85;color:#2c425c}
+.gem-value-nuance{padding:13px 0;border-bottom:1px solid #e0d5c4}
+.gem-value-profile>a,.gem-value-references>a{display:inline-block;color:#002451;font-size:12px;margin:13px 15px 0 0}
+.gem-value-score-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(260px,.8fr);gap:15px;margin-top:18px;align-items:start}
+.gem-value-score-form{padding:10px 22px}
+.gem-value-score-row{display:grid;grid-template-columns:minmax(0,1fr) 75px 110px;gap:9px;align-items:center;padding:13px 0;border-bottom:1px solid #e5dccc}
+.gem-value-score-row:last-child{border:0}
+.gem-value-score-row label strong{font-size:12px;color:#002451;display:block;margin-bottom:3px}
+.gem-value-score-row label small{display:block;font-size:11px;line-height:1.7;color:#607083}
+.gem-value-max{color:#657384;font-size:11px;text-align:center}
+.gem-value-score-row select{min-height:38px;border:1px solid #c7b8a3;background:#fff;color:#002451;width:100%;font:12px "Open Sans",sans-serif}
+.gem-value-score-aside{padding:22px}.gem-value-total{font:600 45px "Cormorant Garamond",Georgia,serif;color:#002451;margin-top:10px}
+.gem-value-decision{font-size:12px;line-height:1.8;border-left:3px solid #b08a5b;padding:10px 12px;background:#fbf6eb}
+.gem-value-checks{display:grid;gap:14px;padding:15px 0}
+.gem-value-checks label{display:flex;align-items:flex-start;gap:9px;line-height:1.6;font-size:11px}
+.gem-value-checks input{width:17px;height:17px;flex:0 0 17px;margin:2px 0 0}
+.gem-value-score-aside .h3{font-size:22px;margin-top:20px}
+.gem-value-bands{margin:0;padding:0;list-style:none}.gem-value-bands li{display:grid;gap:4px;font-size:11px;line-height:1.7;padding:10px 0;border-bottom:1px solid #e9dfd0}
+.gem-value-bands li strong{color:#002451}.gem-value-method{border-top:1px solid #ded3c2;padding-top:25px}
+.gem-value-method ol{padding-left:20px;font-size:12px;line-height:1.9;color:#43546b}
+.gem-value-cta{margin-top:25px;border-color:#d6bfa0;background:#f9f3e9}
+.gem-value-cta p{font-size:12px;line-height:1.8}
+@media(max-width:950px){.gem-value-score-layout{grid-template-columns:1fr}.gem-value-tiers{grid-template-columns:1fr}}
+@media(max-width:640px){.gem-value-basics{grid-template-columns:1fr}.gem-value-header{flex-wrap:wrap}.gem-value-score-row{grid-template-columns:minmax(0,1fr) 98px}.gem-value-score-row label{grid-column:1/-1}.gem-value-max{text-align:left}.gem-value-score-form,.gem-value-score-aside{padding:17px}.gem-value-tiers article{padding:13px}}
