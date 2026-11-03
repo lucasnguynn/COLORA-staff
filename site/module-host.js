@@ -126,6 +126,7 @@ window.COLORA_MODULE_HOST=(()=>{
       if(!href.startsWith('blob:'))return;
       const doc=frame.contentDocument;
       if(!doc)return;
+      window.COLORA_MOBILE_MINIMAL?.watch(doc);
       // Global search shortcut also works while keyboard focus is inside a
       // same-origin learning or care iframe, without leaking query content.
       doc.addEventListener('keydown',event=>{

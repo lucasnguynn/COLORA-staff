@@ -11,3 +11,6 @@
 .button-arrow svg{display:block;width:18px;height:18px;stroke:currentColor;fill:none;vector-effect:non-scaling-stroke}
 #workspace-signout{display:flex;align-items:center;gap:8px}
 @media(max-width:580px){.primary .button-arrow{margin-left:auto}.signin input{font-size:16px}#workspace-signout{bottom:max(9px,env(safe-area-inset-bottom));right:max(9px,env(safe-area-inset-right))}}
+
+/* Mobile login and sign-out remain text-only, retaining the COLORA wordmark. */
+@media(max-width:760px){.button-arrow,.button-arrow svg{display:none!important}.primary,#workspace-signout{justify-content:center}}

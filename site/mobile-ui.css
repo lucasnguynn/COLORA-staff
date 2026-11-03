@@ -1,0 +1,30 @@
+/* Mobile text-first UI. Brand assets, QR preview and teaching diagrams remain. */
+@media(max-width:760px){
+  .mobile-decoration,.nav-symbol,.card-mark,
+  .quick-search-input-wrap svg[aria-hidden="true"],
+  .quick-search-close [aria-hidden="true"],
+  .quick-search-filters [aria-hidden="true"],
+  .search-field>span[aria-hidden="true"],
+  svg[aria-hidden="true"]{display:none!important}
+  .nav-btn{gap:0;padding-inline:16px}
+  .feature-card{min-height:0!important;gap:6px}
+  .feature-card .card-index{margin-bottom:4px}
+  .feature-card strong{margin:0 0 5px}
+  .feature-card .card-cta{margin-top:9px;padding-top:11px}
+  .topbar{padding-inline:14px!important;gap:9px!important}
+  .topbar-actions{gap:6px!important;flex:0 0 auto}
+  .topbar-quick{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:5px 7px;white-space:nowrap}
+  #mobile-menu{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:5px 4px;font:600 11px "Open Sans",Arial,sans-serif;white-space:nowrap}
+  #quick-library svg{display:none!important}
+  #quick-library span,#switch-account span{display:inline!important;font-size:0!important}
+  #quick-library span::after{content:"Tìm";font-size:11px!important}
+  #switch-account{font-size:0!important}
+  #switch-account span::after{content:"Đổi";font-size:11px!important}
+  .topbar-path{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .quick-search-close{min-height:42px}
+}
+@media(max-width:420px){
+  .topbar-path>span,.topbar-path>strong{display:none!important}
+  .topbar-path{font-size:11px!important;letter-spacing:.1em}
+  .topbar-actions{gap:3px!important}
+}
