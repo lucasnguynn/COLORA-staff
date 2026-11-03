@@ -62,3 +62,19 @@ body.quick-search-active{overflow:hidden}
 }
 @media(max-width:380px){.quick-search-header{gap:8px}.quick-search-header h2{font-size:32px}.quick-search-input-wrap input{font-size:16px}.quick-search-item{padding:12px}}
 @media(prefers-reduced-motion:reduce){.quick-search-overlay,.quick-search-panel{scroll-behavior:auto}}
+
+/* Calm, explicit triage filters with a single obvious copy action. */
+.quick-search-filters{display:flex;gap:7px;flex-wrap:wrap;margin:0 28px 13px}
+.quick-search-filters button{background:transparent;border:1px solid #dfd5c8;color:#526378;font:600 11px "Open Sans",Arial,sans-serif;padding:8px 12px;min-height:36px}
+.quick-search-filters button[aria-pressed="true"]{background:#002451;border-color:#002451;color:#fff}
+.quick-search-filters button:focus-visible{outline:2px solid #b08a5b;outline-offset:2px}
+.quick-search-filters button[data-quick-filter="urgent"] span{color:#b08a5b;font-size:10px;margin-right:3px}
+.quick-search-answer.is-urgent{border-left:3px solid #b08a5b}
+.quick-search-answer .quick-search-steps{margin:11px 0 0;color:#243c59}
+.quick-search-answer .quick-search-actions{margin-top:12px}
+.quick-search-actions .quick-search-secondary{background:transparent;color:#002451;border-color:#cbbba7}
+.quick-search-answer .quick-search-draft{margin-top:13px}
+.quick-search-more{width:100%;background:transparent;border:1px solid #d7c9b8;color:#002451;min-height:43px;font-size:11px;font-weight:700}
+.quick-search-more:hover,.quick-search-more:focus-visible{border-color:#b08a5b}
+.quick-search-index-note{font-size:11px;line-height:1.7;color:#785f43}
+@media(max-width:760px){.quick-search-filters{margin:0 19px 12px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin}.quick-search-filters button{white-space:nowrap;flex:0 0 auto}}
