@@ -95,7 +95,8 @@ window.COLORA_MODULE_HOST=(()=>{
       try{
         const win=frame.contentWindow;
         if(view==='learning'){
-          if(typeof win.nav==='function')win.nav(route);
+          if(/^(?:question|chapter)\/[a-z0-9-]+$/i.test(route)&&typeof win.COLORA_LEARNING_JUMP==='function')win.COLORA_LEARNING_JUMP(route);
+          else if(typeof win.nav==='function')win.nav(route);
           else{
             const original=win.document.querySelector('[data-nav="'+route+'"]');
             original?.click();
