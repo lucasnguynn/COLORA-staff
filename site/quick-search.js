@@ -166,10 +166,15 @@
     'nhan':['ring','ni nhan'],
     'sapphire':['corundum'],
     'aquamarin':['aquamarine'],
-    'spinel':['ruby'],
+    'giao cham':['giao tre','eta'],
+    'di ung':['kich ung','man do','ngua rat'],
+    'kich ung':['di ung','ngua rat'],
+    'roi da':['da long','chau long'],
+    'bao gia':['gia san pham','gia ban'],
     'tourmalin':['tourmaline']
   };
-  let lastFocus=null,lastItems=[],shown=false;
+  let lastFocus=null,lastItems=[],shown=false,filter='all',docLimit=12;
+  const filters=[...overlay.querySelectorAll('[data-quick-filter]')];
   function tokens(query){
     const n=norm(query),all=[n];
     for(const [term,extra] of Object.entries(synonyms)){
@@ -193,36 +198,49 @@
     if(t.length>2&&matched<Math.max(1,Math.floor(t.length/3)))return 0;
     return score>0?score+(rec.priority||0):0;
   }
+  function chooseFilter(value){
+    if(!['all','answers','docs','urgent'].includes(value))return;
+    filter=value;docLimit=12;
+    filters.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.quickFilter===filter)));
+    render();
+  }
   function render(){
     const query=input.value.trim().slice(0,140),word=tokens(query);
     const quick=answers.map(x=>({...x,score:scoreText(query,word,x)}))
       .filter(x=>query?x.score>0:true)
-      .sort((a,b)=>query?b.score-a.score:(Number(b.urgent)-Number(a.urgent)));
-    const docs=query?index.map(x=>({...x,score:scoreText(query,word,x)}))
-      .filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,12):[];
-    const top=quick.slice(0,query?7:6);
+      .filter(x=>filter!=='urgent'||x.urgent)
+      .sort((a,b)=>query?b.score-a.score||Number(b.urgent)-Number(a.urgent):Number(b.urgent)-Number(a.urgent));
+    const matchingDocs=query&&filter!=='urgent'?index.map(x=>({...x,score:scoreText(query,word,x)}))
+      .filter(x=>x.score>0).sort((a,b)=>b.score-a.score):[];
+    const top=filter==='docs'?[]:quick.slice(0,query?7:6);
+    const docs=filter==='answers'||filter==='urgent'?[]:matchingDocs.slice(0,docLimit);
     let html='';
     if(top.length){
-      html+='<section class="quick-search-group" aria-label="Phản hồi nhanh"><div class="quick-search-group-head"><h3>Phản hồi nhanh</h3><span>'+top.length+' tình huống</span></div>';
-      html+=top.map(x=>'<article class="quick-search-item quick-search-answer"><div class="quick-search-item-head"><span class="quick-search-source">HƯỚNG DẪN TÌNH HUỐNG</span><strong>'+escape(x.title)+'</strong></div><p class="quick-search-steps">'+escape(x.steps)+'</p><details class="quick-search-draft"><summary>Xem câu trả lời mẫu</summary><p>'+escape(x.reply)+'</p><p class="quick-search-warning"><strong>Trước khi gửi:</strong> '+escape(x.warning)+'</p><div class="quick-search-actions"><button type="button" data-copy-answer="'+x.id+'">Sao chép câu mẫu</button><button type="button" data-quick-route="'+escape(x.route)+'">Mở tài liệu liên quan</button></div></details></article>').join('');
+      html+='<section class="quick-search-group" aria-label="Phản hồi nhanh"><div class="quick-search-group-head"><h3>'+(filter==='urgent'?'Cần xử lý gấp':'Phản hồi nhanh')+'</h3><span>'+top.length+' tình huống</span></div>';
+      html+=top.map(x=>'<article class="quick-search-item quick-search-answer'+(x.urgent?' is-urgent':'')+'"><div class="quick-search-item-head"><span class="quick-search-source">'+(x.urgent?'ƯU TIÊN XỬ LÝ':'HƯỚNG DẪN TÌNH HUỐNG')+'</span><strong>'+escape(x.title)+'</strong></div><p class="quick-search-steps">'+escape(x.steps)+'</p><div class="quick-search-actions"><button type="button" data-copy-answer="'+escape(x.id)+'">Sao chép phản hồi</button><button type="button" class="quick-search-secondary" data-quick-route="'+escape(x.route)+'">Mở nguồn liên quan</button></div><details class="quick-search-draft"><summary>Xem câu trả lời và lưu ý</summary><p>'+escape(x.reply)+'</p><p class="quick-search-warning"><strong>Trước khi gửi:</strong> '+escape(x.warning)+'</p></details></article>').join('');
       html+='</section>';
     }
     if(docs.length){
-      html+='<section class="quick-search-group" aria-label="Tài liệu liên quan"><div class="quick-search-group-head"><h3>Tài liệu liên quan</h3><span>'+docs.length+' kết quả</span></div>';
-      html+=docs.map(x=>'<article class="quick-search-item quick-search-doc"><div class="quick-search-item-head"><span class="quick-search-source">'+escape(x.kind)+'</span><strong>'+escape(x.title)+'</strong></div><p>'+escape(x.summary)+'</p><div class="quick-search-doc-footer"><span>Tham khảo - chưa xác nhận theo SKU</span><button type="button" data-quick-route="'+escape(x.route)+'">Mở nguồn</button></div></article>').join('');
+      html+='<section class="quick-search-group" aria-label="Tài liệu liên quan"><div class="quick-search-group-head"><h3>Tài liệu liên quan</h3><span>'+matchingDocs.length+' kết quả</span></div>';
+      html+=docs.map(x=>'<article class="quick-search-item quick-search-doc"><div class="quick-search-item-head"><span class="quick-search-source">'+escape(x.kind)+'</span><strong>'+escape(x.title)+'</strong></div><p>'+escape(x.summary)+'</p><div class="quick-search-doc-footer"><span>Học liệu · đối chiếu SKU/chính sách</span><button type="button" data-quick-route="'+escape(x.route)+'">Mở nguồn</button></div></article>').join('');
+      if(docs.length<matchingDocs.length)html+='<button type="button" class="quick-search-more" data-show-more>Hiển thị thêm ('+(matchingDocs.length-docs.length)+' tài liệu)</button>';
       html+='</section>';
     }
     if(!top.length&&!docs.length){
-      html='<div class="quick-search-empty"><strong>Chưa tìm thấy thông tin phù hợp</strong><p>Thử cách gọi khác hoặc chọn một tình huống thường gặp. Với thông tin đơn hàng, giá, bảo hành hay SKU chưa xác minh, hãy chuyển bộ phận phụ trách thay vì tự trả lời.</p></div>';
+      html='<div class="quick-search-empty"><strong>Chưa tìm thấy thông tin phù hợp</strong><p>'+(filter==='urgent'?'Chưa có tình huống khẩn cấp phù hợp. Chọn Tất cả hoặc chuyển ngay cho người phụ trách.':'Thử từ khóa ngắn hơn hoặc chọn một tình huống thường gặp. Với đơn hàng, giá, bảo hành hay SKU chưa xác minh, hãy chuyển bộ phận phụ trách.')+'</p></div>';
     }
+    if(!index.length&&query&&filter!=='answers'&&filter!=='urgent')html+='<p class="quick-search-index-note">Chỉ mục tài liệu chưa tải được. Bạn vẫn có thể mở các tình huống nhanh hoặc vào Thư viện.</p>';
     results.innerHTML=html;
     lastItems=top;
-    status.textContent=query?'Có '+top.length+' hướng dẫn nhanh và '+docs.length+' tài liệu liên quan.':'Chọn một tình huống hoặc nhập câu hỏi để tìm trong các học phần.';
+    status.textContent=query?'Tìm được '+quick.length+' hướng dẫn nhanh và '+matchingDocs.length+' tài liệu tham khảo. Hãy kiểm tra thông tin trước khi báo khách.':
+      filter==='urgent'?'Ưu tiên an toàn, ghi nhận mã đơn và chuyển đúng bộ phận để xác minh.':
+      'Chọn tình huống hoặc nhập câu hỏi. Phím tắt Cmd/Ctrl + K.';
   }
   function open(prefill=''){
     if(shown){if(prefill){input.value=prefill;render()}input.focus();return}
     shown=true;lastFocus=document.activeElement;
     overlay.hidden=false;document.body.classList.add('quick-search-active');
+    filter='all';docLimit=12;filters.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.quickFilter===filter)));
     input.value=prefill;render();input.focus();
   }
   function close(){
@@ -251,15 +269,18 @@
   overlay.addEventListener('click',e=>{
     if(e.target===overlay||e.target.closest('[data-quick-close]')){close();return}
     const suggestion=e.target.closest('[data-quick-query]');
-    if(suggestion){input.value=suggestion.dataset.quickQuery;render();input.focus();return}
+    if(suggestion){input.value=suggestion.dataset.quickQuery;chooseFilter('all');input.focus();return}
+    const selected=e.target.closest('[data-quick-filter]');if(selected){chooseFilter(selected.dataset.quickFilter);return}
+    if(e.target.closest('[data-show-more]')){docLimit+=12;render();return}
     const action=e.target.closest('[data-copy-answer]');if(action){copy(action.dataset.copyAnswer);return}
     const link=e.target.closest('[data-quick-route]');if(link)go(link.dataset.quickRoute);
   });
-  input.addEventListener('input',render);
+  input.addEventListener('input',()=>{docLimit=12;render()});
   input.addEventListener('keydown',e=>{
     if(e.key==='Enter'&&!e.isComposing){
-      const button=results.querySelector('[data-copy-answer]')||results.querySelector('[data-quick-route]');
-      if(button){e.preventDefault();button.closest('details')?.setAttribute('open','');button.click()}
+      const first=results.querySelector('.quick-search-answer details');
+      if(first){e.preventDefault();first.open=true;first.querySelector('summary')?.focus();}
+      else{const source=results.querySelector('[data-quick-route]');if(source){e.preventDefault();source.focus();}}
     }
   });
   overlay.addEventListener('keydown',e=>{
