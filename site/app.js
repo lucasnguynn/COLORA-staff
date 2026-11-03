@@ -180,33 +180,28 @@
     const emailHref='mailto:'+encodeURIComponent(email);
     const phoneHref='tel:'+encodeURIComponent(phone.replace(/[^+\d]/g,''));
     const rowStyle='font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:18px;mso-line-height-rule:exactly;padding:0;vertical-align:top;';
-    const roleRow=role?'<tr><td style="'+rowStyle+'padding-bottom:4px;color:#53647a;">'+role+'</td></tr>':'';
-    const phoneRow=phone?'<tr><td style="'+rowStyle+'"><a href="'+phoneHref+'" style="color:#53647a;text-decoration:none;">'+escapeHTML(phone)+'</a></td></tr>':'';
+    const labelStyle=rowStyle+'width:22px;padding-right:12px;font-weight:700;color:#002451;';
+    const valueStyle=rowStyle+'color:#53647a;';
+    const roleRow=role?'<tr><td colspan="2" style="'+rowStyle+'padding:0 0 12px;color:#53647a;">'+role+' <span style="color:#9c8b78;">|</span> COLORA JEWELRY CO., LTD</td></tr>':'';
+    const phoneRow=phone?'<tr><td style="'+labelStyle+'">T</td><td style="'+valueStyle+'"><a href="'+phoneHref+'" style="color:#53647a;text-decoration:none;">'+escapeHTML(phone)+'</a></td></tr>':'';
     return [
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;color:#002451;border-collapse:collapse;max-width:520px;">',
       '<tr><td style="padding:5px 0 18px 0;border:0;vertical-align:top;">',
-      // A concise bilingual closing leads into the COLORA lockup. Keep styles
-      // inline so preview, rich clipboard and exported email HTML all match.
       '<p style="margin:0 0 11px 0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;mso-line-height-rule:exactly;color:#002451;"><strong style="font-weight:700;"><em style="font-style:italic;">Kính thư / Best regards,</em></strong></p>',
       '<p aria-hidden="true" style="margin:0 0 17px 0;padding:0;width:55px;height:0;font-size:0;line-height:0;border-top:1px solid #B08A5B;"></p>',
       '<img src="https://staff.colora.vn/apps/qr/assets/colora-lettermark.png" alt="COLORA" width="148" style="display:block;border:0;width:148px;height:auto;max-width:100%;">',
-      // The PNG wordmark contains a small transparent inset before its first C.
-      // Offset the tagline by the same inset so both visible Cs align.
       '<div style="padding:1px 0 0 5px;margin:0;font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:600;line-height:13px;mso-line-height-rule:exactly;letter-spacing:1.6px;white-space:nowrap;color:#B08A5B;">COLOR YOUR AURA</div>',
       '</td></tr><tr><td style="border-left:3px solid #B08A5B;padding:2px 0 5px 17px;vertical-align:top;">',
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">',
-      '<tr><td style="font-size:14px;font-weight:bold;line-height:20px;mso-line-height-rule:exactly;padding:0 0 6px;color:#002451;">'+name+'</td></tr>',
+      '<tr><td colspan="2" style="font-size:14px;font-weight:bold;line-height:20px;mso-line-height-rule:exactly;padding:0 0 5px;color:#002451;">'+name+'</td></tr>',
       roleRow,
-      '<tr><td style="'+rowStyle+'"><a href="'+emailHref+'" style="color:#53647a;text-decoration:none;">'+escapeHTML(email)+'</a></td></tr>',
       phoneRow,
-      '<tr><td style="'+rowStyle+'"><a href="https://colora.vn/" style="color:#002451;text-decoration:none;">colora.vn</a></td></tr>',
+      '<tr><td style="'+labelStyle+'">E</td><td style="'+valueStyle+'"><a href="'+emailHref+'" style="color:#53647a;text-decoration:none;overflow-wrap:anywhere;">'+escapeHTML(email)+'</a></td></tr>',
+      '<tr><td style="'+labelStyle+'">W</td><td style="'+valueStyle+'"><a href="https://colora.vn/" style="color:#002451;text-decoration:none;">colora.vn</a></td></tr>',
       '</table></td></tr>',
-      // Signature-wide footer comes AFTER the employee block and is part
-      // of the same HTML string used for preview, rich clipboard and file.
-      // Use table-cell and inline styles for Gmail/Outlook compatibility.
-      '<tr><td style="padding:19px 0 0 0;vertical-align:top;font-family:Arial,Helvetica,sans-serif;color:#53647a;">',
-      '<p style="margin:0 0 10px 0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:16px;mso-line-height-rule:exactly;color:#53647a;"><strong style="font-weight:700;">Please consider your environmental responsibilities before printing emails and documents.</strong></p>',
-      '<p style="margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:16px;mso-line-height-rule:exactly;color:#53647a;"><strong style="font-weight:700;">(!) Disclaimer:</strong> <em style="font-style:italic;">This email and its attachments may be confidential and are intended solely for the use of the intended recipient. If you are not the intended recipient of this email and its attachments, you must take no action based upon them, nor must you copy them to anyone. Please contact the sender if you believe you have received this email in error.</em></p>',
+      '<tr><td style="padding:20px 0 0 0;vertical-align:top;font-family:Arial,Helvetica,sans-serif;color:#53647a;">',
+      '<p style="margin:0 0 12px 0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:16px;mso-line-height-rule:exactly;color:#53647a;"><strong style="font-weight:700;">Please consider your environmental responsibilities before printing emails and documents.</strong></p>',
+      '<p style="margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:16px;mso-line-height-rule:exactly;color:#53647a;"><strong style="font-weight:700;">(!) Disclaimer:</strong> <em style="font-style:italic;">This email and any attachments may contain confidential or privileged information and are intended solely for the named recipient(s). If you have received this email in error, please notify the sender and delete it. You should not copy, distribute, disclose, or act on the contents of this email without authorization.</em></p>',
       '</td></tr></table>'
     ].join('');
   }
