@@ -5,7 +5,7 @@
  */
 window.COLORA_LIBRARY = Object.freeze([
   {
-    id:'brand-story',category:'Thương hiệu',title:'COLORA — Facets of Feeling',
+    id:'brand-story',category:'Thương hiệu',title:'COLORA - Facets of Feeling',
     summary:'Bản sắc, triết lý cảm xúc và cách COLORA kể câu chuyện trang sức.',
     tags:['brand','philosophy','identity','triết lý','thương hiệu'],
     sections:[
@@ -33,7 +33,7 @@ window.COLORA_LIBRARY = Object.freeze([
     sections:[
       {title:'Chúng ta nói với khách hàng như thế nào?',points:[
         'Tôn trọng, ấm áp, gần gũi, thanh lịch và tự nhiên.',
-        'Ưu tiên “chúng tôi – bạn”, kể những câu chuyện có thật, tránh lý thuyết hóa cảm xúc.',
+        'Ưu tiên “chúng tôi - bạn”, kể những câu chuyện có thật, tránh lý thuyết hóa cảm xúc.',
         'Truyền tải bằng hình ảnh cụ thể, ánh sáng và vật liệu thay vì dùng quá nhiều mỹ từ.',
         'Không hứa hẹn tính năng, tuổi thọ lớp mạ hay chứng nhận nếu chưa có tài liệu và kiểm định tương ứng.'
       ]},
@@ -46,18 +46,18 @@ window.COLORA_LIBRARY = Object.freeze([
     ]
   },
   {
-    id:'design-dna',category:'Sản phẩm',title:'Design DNA — Facets of Feeling',
+    id:'design-dna',category:'Sản phẩm',title:'Design DNA - Facets of Feeling',
     summary:'Bảy nguyên tắc cốt lõi khi hình thành và phản biện thiết kế.',
     tags:['dna','cad','designer','ring','stone','geometry'],
     sections:[
       {title:'Bảy nguyên tắc thiết kế',points:[
-        '01 — Đá màu là điểm nhấn trung tâm; không để phần kim loại lấn át.',
-        '02 — Dáng thấp, ôm ngón tay, phù hợp với nhịp sống thường ngày.',
-        '03 — Các mặt cắt rộng và rõ nét; tiết chế những đường khía dày đặc.',
-        '04 — Ưu tiên hình thoi/kite kéo dài hơn việc lặp nhiều tam giác.',
-        '05 — Kết hợp silhouette mềm ở tổng thể với hình học chính xác trong chi tiết.',
-        '06 — Pavé chọn lọc; tránh đính đá nhỏ quá dày không cần thiết.',
-        '07 — Thiết kế cần dễ đeo, thoải mái và thuận tiện vệ sinh.'
+        '01 - Đá màu là điểm nhấn trung tâm; không để phần kim loại lấn át.',
+        '02 - Dáng thấp, ôm ngón tay, phù hợp với nhịp sống thường ngày.',
+        '03 - Các mặt cắt rộng và rõ nét; tiết chế những đường khía dày đặc.',
+        '04 - Ưu tiên hình thoi/kite kéo dài hơn việc lặp nhiều tam giác.',
+        '05 - Kết hợp silhouette mềm ở tổng thể với hình học chính xác trong chi tiết.',
+        '06 - Pavé chọn lọc; tránh đính đá nhỏ quá dày không cần thiết.',
+        '07 - Thiết kế cần dễ đeo, thoải mái và thuận tiện vệ sinh.'
       ]},
       {title:'Điểm cần kiểm tra khi review CAD',points:[
         'Tỷ lệ tổng thể và độ ôm khi đeo, không đánh giá chỉ từ một góc render.',
@@ -108,7 +108,7 @@ window.COLORA_LIBRARY = Object.freeze([
     ]
   },
   {
-    id:'care-guide',category:'Khách hàng',title:'Chăm sóc trang sức — nguyên tắc cơ bản',
+    id:'care-guide',category:'Khách hàng',title:'Chăm sóc trang sức - nguyên tắc cơ bản',
     summary:'Kiến thức nền để hướng dẫn khách một cách thận trọng và nhất quán.',
     tags:['care','after sales','service','repair','cleaning'],
     sections:[
@@ -127,7 +127,7 @@ window.COLORA_LIBRARY = Object.freeze([
     ]
   },
   {
-    id:'media-hands',category:'Thương hiệu',title:'Media Direction — Hands tell the story',
+    id:'media-hands',category:'Thương hiệu',title:'Media Direction - Hands tell the story',
     summary:'Đôi bàn tay là chủ thể xuyên suốt để kể câu chuyện chế tác, trao tặng và sử dụng.',
     tags:['media','photography','hands','editor','brand visual'],
     sections:[

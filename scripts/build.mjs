@@ -28,7 +28,7 @@ function copyModule(name,sourceName){
 
 fs.rmSync(dist,{recursive:true,force:true});
 fs.mkdirSync(dist,{recursive:true});
-for(const file of ['index.html','styles.css','brand-refinements.css','brand-guide.css','mail-guide.css','email-templates.css','quick-search.css','jd-integrated.css','embedded-apps.css','module-host.js','library.js','library-ui.js','mail-guide.js','email-templates.js','quick-search.js','jd-workspace.js','jd-storage-gate.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
+for(const file of ['index.html','styles.css','brand-refinements.css','brand-guide.css','mail-guide.css','email-templates.css','quick-search.css','jd-integrated.css','mobile-ui.css','embedded-apps.css','module-host.js','library.js','library-ui.js','mail-guide.js','email-templates.js','quick-search.js','mobile-ui.js','jd-workspace.js','jd-storage-gate.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
 
 // Use actual brand vectors archived from COLORA's Identity/Pattern Drive folder.
 for(const image of ['facet-symbol.svg','facet-pattern.svg'])copyRequired(path.join(site,'brand-assets',image),path.join(dist,'brand-assets',image));
@@ -138,6 +138,8 @@ if(process.env.COLORA_JD_SCOPED_STORAGE==='true'){
 jd=jd.replace('<script src="app.js"></script>','<script>\n'+jdEngine.replace(/<\/script/gi,'<\\/script')+'\n</script>');
 jd=jd.replace(/family=Bodoni\+Moda:[^"&]+&family=Open\+Sans:/,'family=Cormorant+Garamond:wght@400;500;600&family=Open+Sans:');
 jd=jd.replace('</head>','<style>h1,h2,h3,.serif,.brand-name{font-family:"Cormorant Garamond",Georgia,serif!important}</style>\n<meta name="robots" content="noindex,nofollow,noarchive">\n</head>');
+// Avoid long dash punctuation in even the encrypted Senior JD application.
+jd=jd.replace(/[–—]/g,'-');
 fs.mkdirSync(jdDir,{recursive:true});
 fs.writeFileSync(path.join(jdDir,'index.html'),jd);
 copyAssets(path.join(jdSource,'assets'),path.join(jdDir,'assets'));

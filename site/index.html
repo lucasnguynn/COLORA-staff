@@ -51,6 +51,7 @@
   <link rel="stylesheet" href="./email-templates.css">
   <link rel="stylesheet" href="./quick-search.css">
   <link rel="stylesheet" href="./jd-integrated.css">
+  <link rel="stylesheet" href="./mobile-ui.css">
   <script src="./library.js" defer></script>
   <script src="./module-host.js" defer></script>
   <!-- The JD bridge must exist before app.js resolves the initial #jd route.
@@ -63,6 +64,7 @@
   <script src="./quick-search-index.js" defer></script>
   <script src="./quick-search.js" defer></script>
   <script src="./app.js?v=20261101-jd-entry-fix2" defer></script>
+  <script src="./mobile-ui.js" defer></script>
 </head>
 <body style="visibility:hidden">
   <a class="skip-link" href="#main">Đến nội dung chính</a>
@@ -117,12 +119,12 @@
       <div class="sidebar-end"><div class="sidebar-note">Every feeling has a color.<br>Every facet holds a spectrum of feelings.</div><a href="https://colora.vn/" target="_blank" rel="noopener noreferrer">colora.vn ↗︎</a></div>
     </aside>
     <div class="right">
-      <header class="topbar"><button id="mobile-menu" class="menu-toggle" aria-label="Mở điều hướng" aria-controls="sidebar" aria-expanded="false">☰︎</button><div class="topbar-path">COLORA <span>/</span> <strong id="path-label">Staff Workspace</strong></div><div class="topbar-actions"><button type="button" id="quick-library" data-quick-search-open class="topbar-quick" title="Tra cứu nhanh, Cmd/Ctrl + K" aria-haspopup="dialog" aria-controls="quick-search-overlay"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 5 5"/></svg> <span>Tra cứu nhanh</span></button><button type="button" id="switch-account" class="topbar-quick" title="Đổi tài khoản Staff hoặc Senior">↪︎ <span>Đổi quyền truy cập</span></button><div class="topbar-tag">INTERNAL · 2026</div></div></header>
+      <header class="topbar"><button id="mobile-menu" class="menu-toggle" aria-label="Mở điều hướng" aria-controls="sidebar" aria-expanded="false">Menu</button><div class="topbar-path">COLORA <span>/</span> <strong id="path-label">Staff Workspace</strong></div><div class="topbar-actions"><button type="button" id="quick-library" data-quick-search-open class="topbar-quick" title="Tra cứu nhanh, Cmd/Ctrl + K" aria-haspopup="dialog" aria-controls="quick-search-overlay"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 5 5"/></svg> <span>Tra cứu nhanh</span></button><button type="button" id="switch-account" class="topbar-quick" title="Đổi tài khoản Staff hoặc Senior"><span>Đổi quyền truy cập</span></button><div class="topbar-tag">INTERNAL · 2026</div></div></header>
       <main id="main" tabindex="-1">
         <section id="dashboard" class="dashboard view">
           <div class="eyebrow">COLORA / OUR PEOPLE</div>
           <div class="hero-grid"><div><h1>A space to <em>learn,</em><br>create &amp; grow.</h1>
-          <p class="hero-desc">Một không gian dành riêng cho đội ngũ COLORA — học tập, chia sẻ kiến thức và cùng tạo nên những trải nghiệm tinh tế cho khách hàng.</p><div class="hero-actions"><button type="button" data-view="learning" class="primary-button">Bắt đầu học tập ↗︎</button><button type="button" data-quick-search-open class="outline-button">Tra cứu khi cần gấp</button><button type="button" data-view="library" class="outline-button">Khám phá tài liệu</button></div></div></div>
+          <p class="hero-desc">Một không gian dành riêng cho đội ngũ COLORA - học tập, chia sẻ kiến thức và cùng tạo nên những trải nghiệm tinh tế cho khách hàng.</p><div class="hero-actions"><button type="button" data-view="learning" class="primary-button">Bắt đầu học tập ↗︎</button><button type="button" data-quick-search-open class="outline-button">Tra cứu khi cần gấp</button><button type="button" data-view="library" class="outline-button">Khám phá tài liệu</button></div></div></div>
           <div class="hero-rule"></div>
           <div class="intro-row"><h2>Your workspace</h2><p>Chọn một không gian bên dưới để bắt đầu.</p></div>
           <div class="cards">
@@ -145,7 +147,7 @@
           <div class="eyebrow">COLORA / VISUAL KNOWLEDGE</div>
           <div class="identity-hero">
             <div>
-              <p class="identity-overline">01 — 06 / BRAND SYSTEM</p>
+              <p class="identity-overline">01 - 06 / BRAND SYSTEM</p>
               <h1 id="identity-title">A language of<br><em>feeling.</em></h1>
               <p>Hướng dẫn trực quan để mỗi thành viên hiểu COLORA qua logo, màu sắc, kiểu chữ, họa tiết, hình ảnh và trải nghiệm trao tặng. Đây là tài liệu học tập; các hạng mục còn trong giai đoạn đề xuất được ghi rõ trạng thái.</p>
               <nav class="identity-jumplinks" aria-label="Đi đến nội dung">
@@ -200,7 +202,7 @@
             <div class="identity-section-head"><span>03 / FACET GRAPHICS</span><h2>Pattern &amp; motifs</h2><p>Đây là file vector gốc trong Drive COLORA. Giữ tỷ lệ, độ tinh giản và khoảng trống; dùng họa tiết như nhịp nền, không cạnh tranh với đá quý hoặc logo.</p></div>
             <div class="identity-pattern-grid">
               <figure class="identity-pattern-original"><div><img src="./brand-assets/facet-pattern.svg" alt="Pattern symbol + bling nguyên bản từ COLORA Drive" loading="lazy"></div><figcaption><strong>Original vector study</strong><span>Symbol + bling · File gốc COLORA</span></figcaption></figure>
-              <figure class="identity-pattern-study"><div aria-hidden="true"><img src="./brand-assets/facet-symbol.svg" alt=""><img src="./brand-assets/facet-symbol.svg" alt=""><img src="./brand-assets/facet-symbol.svg" alt=""></div><figcaption><strong>Scale &amp; rhythm study</strong><span>Minh họa ứng dụng 2–3 kích cỡ; không phải bản pattern phát hành chính thức.</span></figcaption></figure>
+              <figure class="identity-pattern-study"><div aria-hidden="true"><img src="./brand-assets/facet-symbol.svg" alt=""><img src="./brand-assets/facet-symbol.svg" alt=""><img src="./brand-assets/facet-symbol.svg" alt=""></div><figcaption><strong>Scale &amp; rhythm study</strong><span>Minh họa ứng dụng 2-3 kích cỡ; không phải bản pattern phát hành chính thức.</span></figcaption></figure>
             </div>
             <div class="identity-guidance"><strong>Áp dụng</strong><p>Giữ một vùng thị giác chính, tránh lặp dày đặc. Ưu tiên hình thoi/kite kéo dài, đường facet rộng và chọn lọc; không đặt pattern đằng sau văn bản nhỏ hay chi tiết trang sức cần quan sát kỹ.</p></div>
           </section>
@@ -354,13 +356,13 @@
             </div>
             <p class="mail-guide-official">Hướng dẫn từ nhà cung cấp phần mềm: <a id="mail-guide-source-outlook" target="_blank" rel="noopener noreferrer" href="https://support.microsoft.com/en-us/outlook/add-an-email-account-to-outlook-for-mac">Microsoft Outlook for Mac ↗︎</a> · <a id="mail-guide-source-apple" target="_blank" rel="noopener noreferrer" href="https://support.apple.com/guide/mail/add-and-manage-email-accounts-mail35803/mac">Apple Mail ↗︎</a>. Minh hoạ trong Staff là sơ đồ giao diện, có thể khác phiên bản đang sử dụng.</p>
           </section>
-          <dialog id="mail-guide-dialog" aria-labelledby="mail-guide-dialog-heading"><div class="mail-guide-dialog-head"><h3 id="mail-guide-dialog-heading">Chi tiết bước</h3><button type="button" id="mail-guide-dialog-close" aria-label="Đóng hình minh họa">✕</button></div><div class="mail-guide-modal-art"></div><p>Hình minh họa thao tác, không phải ảnh chụp phiên bản ứng dụng hiện tại.</p></dialog>
+          <dialog id="mail-guide-dialog" aria-labelledby="mail-guide-dialog-heading"><div class="mail-guide-dialog-head"><h3 id="mail-guide-dialog-heading">Chi tiết bước</h3><button type="button" id="mail-guide-dialog-close" aria-label="Đóng hình minh họa">Đóng</button></div><div class="mail-guide-modal-art"></div><p>Hình minh họa thao tác, không phải ảnh chụp phiên bản ứng dụng hiện tại.</p></dialog>
         </section>
 
         <section id="email-templates" class="email-templates view" hidden aria-labelledby="email-templates-heading">
           <div class="eyebrow">COLORA / COMMUNICATION LIBRARY</div>
           <h1 id="email-templates-heading">Email <em>Templates</em></h1>
-          <p class="template-lede">Những lời nhắn dành cho khách hàng và đội ngũ COLORA — đủ rõ ràng để bắt đầu, đủ linh hoạt để cá nhân hóa theo từng câu chuyện. Chọn mẫu, điều chỉnh thông tin và sao chép vào ứng dụng email của bạn.</p>
+          <p class="template-lede">Những lời nhắn dành cho khách hàng và đội ngũ COLORA - đủ rõ ràng để bắt đầu, đủ linh hoạt để cá nhân hóa theo từng câu chuyện. Chọn mẫu, điều chỉnh thông tin và sao chép vào ứng dụng email của bạn.</p>
           <div class="email-template-filters" id="email-template-filters" role="group" aria-label="Lọc mẫu email">
             <button type="button" data-template-filter="all">Tất cả</button>
             <button type="button" data-template-filter="clients">Khách hàng</button>

@@ -800,14 +800,14 @@
     "q": "Khoảng giá dự kiến mới nhất của COLORA là bao nhiêu, và cần hiểu thế nào?",
     "a": [
       "Dải giá phổ biến trên thị trường demi-fine được COLORA dùng làm chuẩn đầu vào",
-      "Dải kế hoạch 2,3–8 triệu, không phải giá niêm yết mọi SKU.",
+      "Dải kế hoạch 2,3-8 triệu, không phải giá niêm yết mọi SKU.",
       "Ngưỡng chi tiêu tối thiểu đã được xác nhận của khách hàng mục tiêu",
       "Kết quả khảo sát khách xác nhận mức sẵn lòng chi bình quân của nhóm tuổi chính"
     ],
     "key": [
       1
     ],
-    "why": "Định hướng giá được người sáng lập cập nhật thành 2,3–8 triệu đồng mỗi sản phẩm. Đây là vùng giá kế hoạch, còn giá bán chính thức xác định theo từng SKU.",
+    "why": "Định hướng giá được người sáng lập cập nhật thành 2,3-8 triệu đồng mỗi sản phẩm. Đây là vùng giá kế hoạch, còn giá bán chính thức xác định theo từng SKU.",
     "apply": "Khi viết nội dung về giá, luôn đối chiếu giá SKU đang bán; đừng dùng dải dự kiến thay giá niêm yết.",
     "source": "PRICE",
     "status": "ĐÃ CẬP NHẬT NỘI BỘ",
@@ -1747,7 +1747,7 @@
     "a": [
       "Bất kỳ khách nào mua bạc dưới 500.000 đồng dù nhu cầu khác nhau",
       "Tất cả nam giới yêu cầu trang sức phong thủy chuyên biệt",
-      "Phụ nữ trẻ trưởng thành khoảng 22–38 tuổi, nhiều nhóm nhu cầu",
+      "Phụ nữ trẻ trưởng thành khoảng 22-38 tuổi, nhiều nhóm nhu cầu",
       "Chỉ nữ trên 40 tuổi có thói quen đầu tư vàng và đá quý"
     ],
     "key": [
@@ -1765,7 +1765,7 @@
     "pillar": "KHÁCH HÀNG",
     "topic": "Target Customer",
     "chapter": "09",
-    "q": "Có thể kết luận gì từ việc COLORA ưu tiên phụ nữ 22–38 tuổi?",
+    "q": "Có thể kết luận gì từ việc COLORA ưu tiên phụ nữ 22-38 tuổi?",
     "a": [
       "Mọi người trong nhóm đều có mức lương trên 30 triệu và mua một món mỗi quý",
       "Đó là tuổi ưu tiên nghiên cứu, chưa phải chân dung đủ chi tiết",
@@ -1789,7 +1789,7 @@
     "chapter": "09",
     "q": "Trong chiến lược khách hàng COLORA, “buyer” và “wearer” có phải luôn là một người?",
     "a": [
-      "Có nếu cả hai người cùng thuộc nhóm 22–38 tuổi",
+      "Có nếu cả hai người cùng thuộc nhóm 22-38 tuổi",
       "Không; người tặng và người thực sự đeo có thể khác nhau",
       "Chỉ khác nhau khi đặt hàng trên sàn, không khác với website",
       "Có; vì người thanh toán luôn là người sử dụng hàng hóa"
@@ -1941,7 +1941,7 @@
     "pillar": "KHÁCH HÀNG",
     "topic": "Target Customer",
     "chapter": "09",
-    "q": "Khách hàng mục tiêu có đồng nghĩa mọi khách nữ 22–38 đều phải được truyền thông như nhau không?",
+    "q": "Khách hàng mục tiêu có đồng nghĩa mọi khách nữ 22-38 đều phải được truyền thông như nhau không?",
     "a": [
       "Không; cần chia theo nhu cầu, sở thích, mục đích và bước hành trình.",
       "Có; nếu cùng xem một kênh TikTok thì nhu cầu bằng nhau.",
@@ -2051,17 +2051,17 @@
     "pillar": "KHÁCH HÀNG",
     "topic": "Income, ngân sách & giá trị",
     "chapter": "10",
-    "q": "Trong nghiên cứu khách hàng COLORA, dải giá dự kiến 2,3–8 triệu đồng/món được dùng như thế nào?",
+    "q": "Trong nghiên cứu khách hàng COLORA, dải giá dự kiến 2,3-8 triệu đồng/món được dùng như thế nào?",
     "a": [
       "Như dải thu nhập cá nhân mà COLORA đặt làm tiêu chí tuyển khách mục tiêu",
       "Như mức chi tiêu trung bình đã ghi nhận qua khách mua thực tế",
-      "Như ước tính mức sẵn lòng trả của toàn bộ phân khúc khách nữ 22–38",
+      "Như ước tính mức sẵn lòng trả của toàn bộ phân khúc khách nữ 22-38",
       "Dải giá kế hoạch, không phải mức thu nhập của khách."
     ],
     "key": [
       3
     ],
-    "why": "Khung giá dự kiến 2,3–8 triệu đồng dùng để xây giả thuyết phân khúc, không thay dữ liệu thu nhập, willingness to pay hoặc giá của từng SKU.",
+    "why": "Khung giá dự kiến 2,3-8 triệu đồng dùng để xây giả thuyết phân khúc, không thay dữ liệu thu nhập, willingness to pay hoặc giá của từng SKU.",
     "apply": "Khi phân tích target customer, tách giá dự kiến, ngân sách khách tự cho biết và thu nhập đã được khảo sát.",
     "source": "PRICE",
     "status": "ĐÃ CẬP NHẬT NỘI BỘ",
@@ -2846,7 +2846,7 @@
     "role": "CORE",
     "pillar": "KHÁCH HÀNG",
     "topic": "Chân dung",
-    "q": "Nhóm phụ nữ 22–38 tuổi là định hướng chính của COLORA. Điều gì không nên suy ra?",
+    "q": "Nhóm phụ nữ 22-38 tuổi là định hướng chính của COLORA. Điều gì không nên suy ra?",
     "a": [
       "Mọi người cùng độ tuổi có cùng gu và khả năng chi trả",
       "Cần tìm hiểu những yếu tố làm họ yên tâm khi mua online.",
@@ -4178,7 +4178,7 @@
     "role": "MKT",
     "pillar": "KHÁCH HÀNG",
     "topic": "Target segment",
-    "q": "Nhóm tuổi nữ 22–38 được ghi trong chiến lược. Bước cần làm để hiểu thực tế người mua?",
+    "q": "Nhóm tuổi nữ 22-38 được ghi trong chiến lược. Bước cần làm để hiểu thực tế người mua?",
     "a": [
       "Giữ nguyên suy đoán về tính cách của từng nhóm tuổi mà không cần số liệu.",
       "Viết một persona đại diện và dùng cho mọi chiến dịch lâu dài.",

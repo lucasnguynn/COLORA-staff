@@ -71,7 +71,7 @@ try{
   for(let i=0;i<3;i++)await gates.nth(i).check();
   assert((await rubric.locator('#gem-value-decision').innerText()).includes('QC'),'Even checked gates should defer to QC');
   await rubric.locator('#gem-value-reset').click();
-  assert.equal(await rubric.locator('#gem-value-score').innerText(),'— / 100','Reset must not retain assessment');
+  assert.equal(await rubric.locator('#gem-value-score').innerText(),'- / 100','Reset must not retain assessment');
   await page.setViewportSize({width:390,height:844});
   const gemMobile=await rubric.locator('#gem-value-page').evaluate(el=>({width:el.scrollWidth,client:el.clientWidth}));
   assert(gemMobile.width<=gemMobile.client+1,'Gem guide must not overflow phone: '+JSON.stringify(gemMobile));
@@ -82,6 +82,23 @@ try{
   await page.locator('[data-quick-route="client-care/stone/ruby"]').first().click();
   await page.frameLocator('#module-frame').locator('.detail-hero h1').waitFor({state:'visible',timeout:12000});
   assert.equal(await page.frameLocator('#module-frame').locator('.detail-hero h1').innerText(),'Ruby');
+  // Mobile header, cards and navigation remain usable without icon-only buttons.
+  await page.setViewportSize({width:390,height:844});
+  await page.locator('#dashboard').evaluate(()=>{location.hash='home'});
+  await page.locator('#dashboard').waitFor({state:'visible'});
+  assert.equal((await page.locator('#mobile-menu').innerText()).trim(),'Menu','Mobile menu needs a readable text label');
+  assert.equal(await page.locator('.nav-symbol').first().isVisible(),false,'Mobile sidebar decorative glyph must be hidden');
+  assert.equal(await page.locator('.card-mark').first().isVisible(),false,'Mobile card decorative glyph must be hidden');
+  assert.equal(await page.locator('#quick-library svg').isVisible(),false,'Mobile search icon must be hidden');
+  assert.equal(await page.locator('#quick-library').isVisible(),true,'Text search control must remain usable');
+  assert.equal(await page.locator('#switch-account').isVisible(),true,'Text account-switch control must remain usable');
+  await page.locator('#mobile-menu').click();
+  assert((await page.locator('#sidebar').getAttribute('class')).includes('open'),'Text menu must open the sidebar');
+  await page.locator('#mobile-shade').click({position:{x:300,y:70}});
+  assert(!(await page.locator('#sidebar').getAttribute('class')).includes('open'),'Backdrop must close the mobile sidebar');
+  const mobileTop=await page.locator('.topbar').evaluate(el=>({scroll:el.scrollWidth,client:el.clientWidth}));
+  assert(mobileTop.scroll<=mobileTop.client+1,'Mobile header must not overflow: '+JSON.stringify(mobileTop));
+  await page.setViewportSize({width:1440,height:900});
   await page.setViewportSize({width:390,height:844});
   await page.locator('#quick-library').click();
   const rapidLayout=await page.locator('#quick-search-overlay').evaluate(el=>({

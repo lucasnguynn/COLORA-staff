@@ -5,7 +5,7 @@
   var root=function(){return document.getElementById("main-content");};
   function esc(x){return String(x==null?"":x).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
   function n(v){if(v===""||v===null)return NaN;return Number(String(v).replace(",","."));}
-  function num(v){return Number.isFinite(v)?v.toLocaleString("vi-VN",{minimumFractionDigits:1,maximumFractionDigits:2}):"—";}
+  function num(v){return Number.isFinite(v)?v.toLocaleString("vi-VN",{minimumFractionDigits:1,maximumFractionDigits:2}):"-";}
   function panel(kicker,title,desc,body){return '<div class="page"><div class="practice-intro"><p class="eyebrow">'+kicker+'</p><h1>'+title+'</h1><p>'+desc+'</p></div>'+body+'</div>';}
   function fitBody(){
     return panel("FIT LAB / CALCULATION ONLY","Đo đúng trước khi chọn size",
@@ -13,8 +13,8 @@
       '<div class="notice"><strong>Giới hạn:</strong> Nhẫn: chu vi trong = π × đường kính trong. Vòng tay mềm: chiều dài minh họa = chu vi cổ tay + khoảng chừa do người dùng tự chọn. Chưa tính độ dày bản, khóa, charm, khả năng đi qua khớp tay hoặc cấu trúc bangle cứng.</div>'+
       '<div class="fit-tabbar"><button class="fit-tab '+(mode==="ring"?"selected":"")+'" data-fit-mode="ring" type="button">Nhẫn</button><button class="fit-tab '+(mode==="bracelet"?"selected":"")+'" data-fit-mode="bracelet" type="button">Vòng tay mềm</button></div>'+
       (mode==="ring"?
-        '<div class="fit-layout"><section class="fit-panel"><p class="eyebrow">INNER DIAMETER</p><h2>Đường kính trong</h2><label for="fit-d">Đường kính bên trong, đơn vị mm</label><input id="fit-d" type="number" min="10" max="28" step="0.01" inputmode="decimal" placeholder="Ví dụ: 17.15" value="'+esc(diameter)+'"><p class="fit-hint">Chỉ nhập số đo hình học, không nhập tên, số điện thoại hay thông tin đơn hàng.</p></section><section class="fit-result"><p class="eyebrow">INNER CIRCUMFERENCE</p><strong id="fit-value">—</strong><p id="fit-status">Nhập đường kính để xem chu vi.</p><small>Công thức: C = π × d. Kết quả không phải ni US/EU/JP hoặc ni riêng của COLORA.</small></section></div>':
-        '<div class="fit-layout"><section class="fit-panel"><p class="eyebrow">SOFT BRACELET</p><h2>Chu vi và độ chừa</h2><label for="fit-wrist">Chu vi cổ tay (cm)</label><input id="fit-wrist" type="number" min="10" max="30" step="0.1" inputmode="decimal" placeholder="Ví dụ: 15.5" value="'+esc(wrist)+'"><label for="fit-extra">Khoảng chừa do người hướng dẫn chọn (cm)</label><input id="fit-extra" type="number" min="0" max="5" step="0.1" inputmode="decimal" placeholder="Tự nhập, không có chuẩn mặc định" value="'+esc(allowance)+'"><p class="fit-hint">Đây là minh họa cộng số học, không phải công thức fit áp dụng chung cho mọi mẫu.</p></section><section class="fit-result"><p class="eyebrow">ILLUSTRATIVE LENGTH</p><strong id="fit-value">—</strong><p id="fit-status">Nhập cả chu vi và khoảng chừa.</p><small>Bangle cứng cần kiểm tra bàn tay, khớp và đường kính trong. Vòng charm/khóa đặc biệt cần đối chiếu SKU và QC.</small></section></div>')+
+        '<div class="fit-layout"><section class="fit-panel"><p class="eyebrow">INNER DIAMETER</p><h2>Đường kính trong</h2><label for="fit-d">Đường kính bên trong, đơn vị mm</label><input id="fit-d" type="number" min="10" max="28" step="0.01" inputmode="decimal" placeholder="Ví dụ: 17.15" value="'+esc(diameter)+'"><p class="fit-hint">Chỉ nhập số đo hình học, không nhập tên, số điện thoại hay thông tin đơn hàng.</p></section><section class="fit-result"><p class="eyebrow">INNER CIRCUMFERENCE</p><strong id="fit-value">-</strong><p id="fit-status">Nhập đường kính để xem chu vi.</p><small>Công thức: C = π × d. Kết quả không phải ni US/EU/JP hoặc ni riêng của COLORA.</small></section></div>':
+        '<div class="fit-layout"><section class="fit-panel"><p class="eyebrow">SOFT BRACELET</p><h2>Chu vi và độ chừa</h2><label for="fit-wrist">Chu vi cổ tay (cm)</label><input id="fit-wrist" type="number" min="10" max="30" step="0.1" inputmode="decimal" placeholder="Ví dụ: 15.5" value="'+esc(wrist)+'"><label for="fit-extra">Khoảng chừa do người hướng dẫn chọn (cm)</label><input id="fit-extra" type="number" min="0" max="5" step="0.1" inputmode="decimal" placeholder="Tự nhập, không có chuẩn mặc định" value="'+esc(allowance)+'"><p class="fit-hint">Đây là minh họa cộng số học, không phải công thức fit áp dụng chung cho mọi mẫu.</p></section><section class="fit-result"><p class="eyebrow">ILLUSTRATIVE LENGTH</p><strong id="fit-value">-</strong><p id="fit-status">Nhập cả chu vi và khoảng chừa.</p><small>Bangle cứng cần kiểm tra bàn tay, khớp và đường kính trong. Vòng charm/khóa đặc biệt cần đối chiếu SKU và QC.</small></section></div>')+
       '<div class="practice-rule"><h3>Trước khi tư vấn thực tế</h3><p>Đối chiếu kích thước đo được với bảng size đã phê duyệt cho đúng SKU/biến thể. Với nhẫn bản rộng, nhẫn có phần đầu lớn, vòng tay có charm hoặc khóa đặc biệt, không kết luận từ một phép tính.</p><a href="#/evidence">SKU Evidence Gate ↗</a></div>');
   }
   var careCases=[
@@ -36,11 +36,11 @@
     if(!display||!status)return;
     if(mode==="ring"){
       var d=n(diameter),valid=d>=10&&d<=28;
-      display.textContent=valid?num(Math.PI*d)+" mm":"—";
+      display.textContent=valid?num(Math.PI*d)+" mm":"-";
       status.textContent=valid?"Chu vi trong hình học, không phải mã ni.":"Nhập đường kính hợp lệ từ 10 đến 28 mm.";
     }else{
       var w=n(wrist),a=n(allowance),valid=w>=10&&w<=30&&a>=0&&a<=5;
-      display.textContent=valid?num(w+a)+" cm":"—";
+      display.textContent=valid?num(w+a)+" cm":"-";
       status.textContent=valid?"Chiều dài minh họa, cần kiểm tra cấu trúc thực tế.":"Nhập chu vi cổ tay và khoảng chừa hợp lệ.";
     }
   }

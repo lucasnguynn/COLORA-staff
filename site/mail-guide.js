@@ -1,4 +1,4 @@
-/* COLORA Staff — mailbox onboarding; illustrations are drawn in SVG,
+/* COLORA Staff - mailbox onboarding; illustrations are drawn in SVG,
  * not vendor screenshots. No credentials are requested, saved or sent. */
 'use strict';
 (function(){
