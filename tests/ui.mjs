@@ -107,7 +107,14 @@ try{
   // Search all educational sources without opening multiple sections.
   await page.locator('#quick-library').click();
   await page.locator('#quick-search-overlay').waitFor({state:'visible'});
-  assert.equal(await page.locator('.quick-search-answer').count(),6);
+  assert(await page.locator('.quick-search-doc').count()>=8,'Search default must expose tools and top-level pages');
+  assert.equal(await page.locator('[data-quick-route="qr"]').count(),1,'QR Generator discoverable immediately');
+  assert.equal(await page.locator('[data-quick-route="signature"]').count(),1,'Email Signature discoverable immediately');
+  assert.equal(await page.locator('[data-quick-route="jd"]').count(),0,'Staff must not see Senior JD entry');
+  await page.locator('#quick-search-input').fill('QR');
+  await page.locator('[data-quick-filter="tools"]').click();
+  assert(await page.locator('[data-quick-route="qr"]').count()>=1,'Search tools by name');
+  await page.locator('[data-quick-filter="all"]').click();
   await page.locator('#quick-search-input').fill('da long');
   assert(await page.locator('.quick-search-answer').count()>0,'Accent-insensitive search failed');
   assert((await page.locator('.quick-search-answer').first().innerText()).includes('Đá lỏng'));
@@ -123,6 +130,7 @@ try{
   await page.keyboard.press('Control+k');
   assert.equal(await page.locator('#quick-search-overlay').isVisible(),true);
   await page.locator('#quick-search-input').fill('peridot');
+  await page.locator('[data-quick-filter="tools"]').click();
   assert(await page.locator('.quick-search-doc').count()>0);
   assert(await page.locator('[data-quick-route="learning/portfolio"]').count()>0);
   await page.locator('[data-quick-route="learning/portfolio"]').first().click();
@@ -150,10 +158,42 @@ try{
   await page.setViewportSize({width:1440,height:900});
   await page.locator('#quick-library').click();
   await page.locator('#quick-search-input').fill('ruby');
+  await page.locator('[data-quick-filter="care"]').click();
   assert(await page.locator('[data-quick-route="client-care/stone/ruby"]').count()>0);
   await page.locator('[data-quick-route="client-care/stone/ruby"]').first().click();
   await page.frameLocator('#module-frame').locator('.detail-hero h1').waitFor({state:'visible',timeout:12000});
   assert.equal(await page.frameLocator('#module-frame').locator('.detail-hero h1').innerText(),'Ruby');
+
+  // Every common Staff tool and precise template can be opened by Quick Search.
+  await page.locator('#quick-library').click();
+  await page.locator('#quick-search-input').fill('chữ ký email');
+  await page.locator('[data-quick-filter="tools"]').click();
+  await page.locator('[data-quick-route="signature"]').first().click();
+  await page.locator('#signature-tool').waitFor({state:'visible'});
+  await page.locator('#quick-library').click();
+  await page.locator('#quick-search-input').fill('pattern');
+  await page.locator('[data-quick-filter="tools"]').click();
+  await page.locator('[data-quick-route="brand-guide/identity-pattern"]').first().click();
+  await page.locator('#identity-pattern').waitFor({state:'visible'});
+  await page.locator('#quick-library').click();
+  await page.locator('#quick-search-input').fill('Phản hồi yêu cầu tư vấn');
+  await page.locator('[data-quick-filter="templates"]').click();
+  await page.locator('[data-quick-route="email-templates/inquiry"]').first().click();
+  assert((await page.locator('#email-template-title').innerText()).includes('Phản hồi yêu cầu tư vấn'));
+  await page.locator('#quick-library').click();
+  await page.locator('#quick-search-input').fill('FN-001');
+  await page.locator('[data-quick-filter="knowledge"]').click();
+  assert(await page.locator('[data-quick-route="learning/question/FN-001"]').count()>0,'Public practice question indexed by ID');
+  await page.locator('[data-quick-route="learning/question/FN-001"]').first().click();
+  const qframe=page.frameLocator('#module-frame');
+  await qframe.locator('.question-box .question').waitFor({state:'visible',timeout:15000});
+  assert((await qframe.locator('.question-box .question').innerText()).includes('Demi-fine'));
+  await page.locator('#quick-library').click();
+  await page.locator('#quick-search-input').fill('agency giao sai brief');
+  await page.locator('[data-quick-filter="operations"]').click();
+  assert(await page.locator('[data-quick-route="operations/agency-revision"]').count()>0,'Workflow indexed');
+  await page.keyboard.press('Escape');
+
   // Mobile header, cards and navigation remain usable without icon-only buttons.
   await page.setViewportSize({width:390,height:844});
   await page.locator('#dashboard').evaluate(()=>{location.hash='home'});
