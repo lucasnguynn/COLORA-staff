@@ -28,7 +28,7 @@ function copyModule(name,sourceName){
 
 fs.rmSync(dist,{recursive:true,force:true});
 fs.mkdirSync(dist,{recursive:true});
-for(const file of ['index.html','styles.css','brand-refinements.css','brand-guide.css','mail-guide.css','email-templates.css','quick-search.css','jd-integrated.css','mobile-ui.css','embedded-apps.css','module-host.js','library.js','library-ui.js','mail-guide.js','email-templates.js','quick-search.js','mobile-ui.js','jd-workspace.js','jd-storage-gate.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
+for(const file of ['index.html','styles.css','brand-refinements.css','brand-guide.css','mail-guide.css','email-templates.css','quick-search.css','jd-integrated.css','mobile-ui.css','operations.css','embedded-apps.css','module-host.js','library.js','library-ui.js','mail-guide.js','email-templates.js','quick-search.js','mobile-ui.js','operations-data.js','operations.js','jd-workspace.js','jd-storage-gate.js','app.js','CNAME','.nojekyll'])copyRequired(path.join(site,file),path.join(dist,file));
 
 // Use actual brand vectors archived from COLORA's Identity/Pattern Drive folder.
 for(const image of ['facet-symbol.svg','facet-pattern.svg'])copyRequired(path.join(site,'brand-assets',image),path.join(dist,'brand-assets',image));
