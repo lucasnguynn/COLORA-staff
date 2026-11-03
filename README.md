@@ -1,3 +1,12 @@
+## Operations Playbook V3 - Action First
+
+- Six common work situations appear before the full Operations directory. Employees can search, filter or expand the complete 20-procedure list without opening additional websites.
+- Every procedure has 3-5 actionable steps, a person responsible and role to seek approval from, one direct action (blank CSV, short email template or another procedure), practical cautions, required evidence and relevant next steps.
+- New draft scenarios: design/CAD request, CAD mismatch, failed sample, SKU publication gate, supplier delay, agency revision, and safe Haravan publishing.
+- No supplier criteria, score weighting, ranking, mandatory form submission or extra icons on mobile. Supplier comparison remains a seven-column blank CSV for employee-selected rows and five vendors.
+- A proposal-only feedback template can be copied and sent through existing company channels; it does not send data to any service. No employee/customer/vendor records are saved by the frontend.
+- The company must approve signing and spending authority, official policies, SKU facts and document destinations separately. No Drive links or internal approver addresses have been invented.
+
 ## Operations Playbook - practical version
 
 - Staff and Senior have 13 short procedures for purchasing, budget exceptions, vendor communication, media agency coordination and operational handovers.
