@@ -140,3 +140,74 @@
  #operations .ops-steps{grid-template-columns:1fr}
  #operations .ops-collapsible{padding:14px 0}
 }
+
+
+/* V3 - Action First. No decorative icons on mobile or desktop playbook cards. */
+#operations .ops-situations{margin:32px 0 36px}
+#operations .ops-situation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+#operations .ops-situation{border:1px solid #d8cbb9;background:#fffcf8;text-align:left;min-height:72px;padding:17px 19px;color:#002451;font:600 15px/1.5 "Open Sans",Arial,sans-serif}
+#operations .ops-situation:hover,#operations .ops-situation:focus-visible{background:#f4eadd;border-color:#ab8b61}
+#operations .ops-library{margin-top:20px}
+#operations .ops-library .ops-section-title{margin-bottom:14px}
+#operations .ops-library .ops-section-title h2{font-size:clamp(30px,3vw,39px)}
+#operations .ops-card{gap:8px;padding:19px;min-height:173px}
+#operations .ops-card strong{font-size:25px}
+#operations .ops-card>span:nth-last-child(2){font-size:11px}
+#operations .ops-count{margin:0 0 14px}
+#operations .ops-cards{margin-bottom:15px}
+#operations .ops-all-toggle{display:block;margin:6px auto 34px;padding:12px 20px;min-height:46px;background:transparent;color:#002451;border:1px solid #9f8b72;font:700 11px/1.5 "Open Sans",Arial,sans-serif}
+#operations .ops-all-toggle:hover{background:#f7f0e6}
+#operations .ops-footnote{border-top:1px solid #dbcfbe;margin:30px 0;padding:17px 0;color:#6b7888;font-size:11px}
+#operations .ops-detail-shell{max-width:1100px;margin:auto}
+#operations .ops-detail-shell .ops-back{margin:4px 0 15px}
+#operations .ops-detail-shell .ops-back button{min-height:42px;padding:10px 14px}
+#operations .ops-detail{background:#fffcf8}
+#operations .ops-detail-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:9px}
+#operations .ops-detail-head .ops-kicker{margin:0}
+#operations .ops-draft{font:700 10px/1.5 "Open Sans",Arial,sans-serif;letter-spacing:.02em;color:#8b7757}
+#operations .ops-detail-title{font-size:clamp(36px,5vw,57px);line-height:1.08;margin:0 0 12px}
+#operations .ops-assignment{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;border-top:1px solid #e5d8c7;border-bottom:1px solid #e5d8c7;padding:12px 0;margin:16px 0 9px}
+#operations .ops-assignment>div{display:flex;flex-direction:column;gap:7px;min-width:0}
+#operations .ops-assignment span{font:700 10px/1.4 "Open Sans",Arial,sans-serif;color:#a0825e;text-transform:uppercase;letter-spacing:.08em}
+#operations .ops-assignment strong{font:600 12px/1.6 "Open Sans",Arial,sans-serif;color:#002451}
+#operations .ops-detail .ops-kicker{margin-top:22px}
+#operations .ops-detail .ops-steps{margin:12px 0 20px;grid-template-columns:1fr}
+#operations .ops-detail .ops-steps li{padding:12px 15px;border-color:#e2d8ca;align-items:baseline;background:#fff}
+#operations .ops-detail .ops-steps strong{font:600 12px/1.75 "Open Sans",Arial,sans-serif}
+#operations .ops-primary-action{border:1px solid #cbb99f;background:#f8f2e8;padding:17px;display:flex;justify-content:space-between;gap:15px;align-items:center}
+#operations .ops-primary-action>div{display:flex;flex-direction:column;gap:6px;min-width:0}
+#operations .ops-primary-action strong{font:600 23px/1.1 "Cormorant Garamond",Georgia,serif}
+#operations .ops-primary-action span{color:#687686;font-size:11px;line-height:1.7}
+#operations .ops-primary-action button{min-height:44px;padding:11px 15px;background:#002451;color:#fff;border:1px solid #002451;white-space:normal;flex:0 0 auto;font:700 11px/1.5 "Open Sans",Arial,sans-serif}
+#operations .ops-detail-grid{margin-top:13px}
+#operations .ops-detail-grid .ops-risk,#operations .ops-detail-grid .ops-records{background:#faf6ef;border:1px solid #e9ddcc;padding:17px}
+#operations .ops-detail-grid h2{font-size:25px;margin:0 0 9px}
+#operations .ops-detail-grid ul{margin:0 0 7px}
+#operations .ops-follow-on{border-top:1px solid #ddd0bc;margin-top:26px;padding-top:19px}
+#operations .ops-follow-on h2{font-size:29px}
+#operations .ops-next-links{display:flex;gap:9px;flex-wrap:wrap}
+#operations .ops-next-links button{border:1px solid #b2a087;background:#fff;color:#002451;min-height:45px;padding:10px 15px;font:600 12px/1.5 "Open Sans",Arial,sans-serif}
+#operations .ops-next-links button:hover{background:#f4eadd}
+#operations .ops-sop-feedback{border-top:1px solid #e6dacb;margin-top:24px;padding-top:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:#6c7788;font-size:11px}
+#operations .ops-sop-feedback button{background:transparent;border:0;border-bottom:1px solid #002451;color:#002451;padding:9px 0;font:700 11px "Open Sans",Arial,sans-serif}
+#operations .ops-copy-fallback{width:100%;min-height:90px;padding:12px;border:1px solid #c5b49e;color:#002451;background:#fff;font:12px/1.6 "Open Sans",Arial,sans-serif}
+#operations .ops-feedback{margin:10px 0;min-height:0}
+@media(max-width:1080px){#operations .ops-situation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+ #operations .ops-situations{margin:23px 0 27px}
+ #operations .ops-situation-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ #operations .ops-situation{font-size:12px;min-height:65px;padding:13px}
+ #operations .ops-card{min-height:0}
+ #operations .ops-detail-shell .ops-back{margin:0 0 10px}
+ #operations .ops-detail{padding:18px}
+ #operations .ops-detail-title{font-size:39px}
+ #operations .ops-assignment{grid-template-columns:1fr}
+ #operations .ops-primary-action{align-items:stretch;flex-direction:column;padding:15px}
+ #operations .ops-primary-action button{width:100%;flex:auto}
+ #operations .ops-detail .ops-steps li{padding:12px}
+ #operations .ops-follow-on{margin-top:20px}
+ #operations .ops-next-links{flex-direction:column}
+ #operations .ops-next-links button{width:100%;text-align:left}
+ #operations .ops-sop-feedback{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:370px){#operations .ops-situation-grid{grid-template-columns:1fr}}
