@@ -13,6 +13,8 @@ for(const k of ['Thư viện','Learning Studio','Client Care','Kịch bản tư 
  assert(kinds.has(k),'Missing search category '+k);
 for(const id of ['gem-ruby','gem-spinel','gem-tourmaline','gem-peridot','gem-value-ruby','gem-value-garnet','gem-value-tourmaline','gem-value-rubric'])
  assert(items.some(x=>x.id===id),'Missing core gemstone '+id);
+assert.equal(items.filter(x=>x.kind==='Operations Playbook').length,13,'All operations SOPs searchable');
+assert(items.some(x=>x.route==='operations/budget-overrun'));
 for(const x of items){
  assert(x.route&&!x.route.includes('jd')&&!x.route.includes('account'),'Forbidden search route '+x.id);
  assert(x.status.includes('kiểm tra hồ sơ'),'Unreviewed search item marked as verified '+x.id);
