@@ -138,6 +138,8 @@ if(process.env.COLORA_JD_SCOPED_STORAGE==='true'){
 jd=jd.replace('<script src="app.js"></script>','<script>\n'+jdEngine.replace(/<\/script/gi,'<\\/script')+'\n</script>');
 jd=jd.replace(/family=Bodoni\+Moda:[^"&]+&family=Open\+Sans:/,'family=Cormorant+Garamond:wght@400;500;600&family=Open+Sans:');
 jd=jd.replace('</head>','<style>h1,h2,h3,.serif,.brand-name{font-family:"Cormorant Garamond",Georgia,serif!important}</style>\n<meta name="robots" content="noindex,nofollow,noarchive">\n</head>');
+// Avoid long dash punctuation in even the encrypted Senior JD application.
+jd=jd.replace(/[–—]/g,'-');
 fs.mkdirSync(jdDir,{recursive:true});
 fs.writeFileSync(path.join(jdDir,'index.html'),jd);
 copyAssets(path.join(jdSource,'assets'),path.join(jdDir,'assets'));
