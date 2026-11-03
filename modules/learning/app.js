@@ -208,5 +208,32 @@ async function loadBank(){
 async function loadPortfolio(){const r=await fetch('./data/colora-gemstones.json');if(!r.ok)throw Error('Không tải được học phần chín dòng đá');const p=await r.json();if(p.criteria?.length!==6||p.gems?.length!==9||p.questions?.length!==24||new Set(p.gems.map(g=>g.id)).size!==9||p.valueGuide?.criteria?.reduce((n,c)=>n+c.weight,0)!==100)throw Error('Học phần chín dòng đá chưa hoàn chỉnh');return p}
 async function loadLessons(){const r=await fetch('./data/lessons.json');if(!r.ok)throw Error('Không tải được bài học nền tảng');const v=await r.json();if(!Array.isArray(v)||v.length!==17)throw Error('Bài học nền tảng không đủ 17 chương');return v}
 async function loadCurriculum(){const r=await fetch('./data/curriculum.json');if(!r.ok)throw Error('Không tải được cấu trúc V9');const x=await r.json();if(x.essential_ids?.length!==86)throw Error('V9 phải có 86 câu Essentials');return x}
-async function boot(){recover();try{state.curriculum=await loadCurriculum();state.bank=await loadBank();state.lessons=await loadLessons();state.portfolio=await loadPortfolio();markAssessmentVersion();if(saveObj.exam){const match=examRole(saveObj.exam)&&saveObj.exam.contentVersion===ASSESSMENT_VERSION&&saveObj.exam.bankId===ASSESSMENT_BANK_ID&&saveObj.exam.ids?.every(id=>state.bank.some(q=>q.id===id));if(match&&saveObj.exam.deadline>Date.now()){state.exam=saveObj.exam;state.route='exam'}else if(match){state.exam=saveObj.exam;submitExam(true);return}else{saveObj.exam=null;store()}}render()}catch(e){console.error(e);$('#app').innerHTML=`<div class="boot"><div class="wordmark">COLORA</div><p>Không tải được dữ liệu luyện tập.<br>${esc(e.message)}<br>Hãy mở website qua máy chủ HTTP hoặc GitHub Pages.</p><button class="btn" onclick="location.reload()">Thử lại</button></div>`}}
+async function boot(){recover();try{state.curriculum=await loadCurriculum();state.bank=await loadBank();state.lessons=await loadLessons();state.portfolio=await loadPortfolio();markAssessmentVersion();if(saveObj.exam){const match=examRole(saveObj.exam)&&saveObj.exam.contentVersion===ASSESSMENT_VERSION&&saveObj.exam.bankId===ASSESSMENT_BANK_ID&&saveObj.exam.ids?.every(id=>state.bank.some(q=>q.id===id));if(match&&saveObj.exam.deadline>Date.now()){state.exam=saveObj.exam;state.route='exam'}else if(match){state.exam=saveObj.exam;submitExam(true);return}else{saveObj.exam=null;store()}}render();if(pendingSearchJump){const jump=pendingSearchJump;pendingSearchJump='';window.COLORA_LEARNING_JUMP(jump)}}catch(e){console.error(e);$('#app').innerHTML=`<div class="boot"><div class="wordmark">COLORA</div><p>Không tải được dữ liệu luyện tập.<br>${esc(e.message)}<br>Hãy mở website qua máy chủ HTTP hoặc GitHub Pages.</p><button class="btn" onclick="location.reload()">Thử lại</button></div>`}}
+// Search deep-links only target public learning exercises and lesson chapters.
+// No exam answers, scores, saved progress, or private documents enter global search.
+let pendingSearchJump='';
+window.COLORA_LEARNING_JUMP=function(route){
+  if(!state.bank.length||!state.lessons.length){pendingSearchJump=route;return true;}
+  if(state.exam){alert('Bạn đang làm bài thi. Hoàn thành bài thi trước khi mở kết quả tra cứu.');return false;}
+  const qMatch=/^question\/([a-z0-9-]+)$/i.exec(route);
+  if(qMatch){
+    const q=state.bank.find(x=>x.id.toLowerCase()===qMatch[1].toLowerCase());
+    if(!q){nav('learn');return false;}
+    if(['BASIC','CARE','MKT'].includes(q.role)&&q.role!==state.role){
+      const ok=confirm('Câu hỏi này thuộc lộ trình '+ROLES[q.role].name+'. Chuyển lộ trình học để mở câu hỏi?');
+      if(!ok){nav('learn');return false;}
+      state.role=q.role;saveObj.role=q.role;store();
+    }
+    state.module='search';state.practice=[q];state.practiceAt=0;state.practiceAnswers={};
+    state.route='practice';render();scrollTo(0,0);return true;
+  }
+  const chapter=/^chapter\/([0-9]{2})$/i.exec(route);
+  if(chapter){
+    const mod=modules().find(x=>x.chapter===chapter[1]&&(x.role==='ESSENTIAL'||x.role==='ADVANCED'));
+    if(mod){openModule(mod.key);return true;}
+    nav('learn');return false;
+  }
+  return false;
+};
+
 boot();
