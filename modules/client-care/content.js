@@ -176,7 +176,7 @@ window.COLORA_DATA = {
       "sections": [
         {
           "h": "Sáu bước: mở, lắng nghe, giải thích, chọn lọc, xác nhận, theo sát",
-          "p": "Mở bằng một câu hỏi có mục đích; lắng nghe hoàn cảnh; giải thích bằng thông số đúng; đề xuất tối đa 1–3 mẫu và lý do; xác nhận tên SKU, size, đá, finish, giá, mốc giao và chính sách; theo sát cho đến khi khách thực sự nhận được hỗ trợ cần thiết."
+          "p": "Mở bằng một câu hỏi có mục đích; lắng nghe hoàn cảnh; giải thích bằng thông số đúng; đề xuất tối đa 1-3 mẫu và lý do; xác nhận tên SKU, size, đá, finish, giá, mốc giao và chính sách; theo sát cho đến khi khách thực sự nhận được hỗ trợ cần thiết."
         },
         {
           "h": "Đưa ra lựa chọn có cân nhắc",
@@ -306,7 +306,7 @@ window.COLORA_DATA = {
       "sections": [
         {
           "h": "Nhịp chăm sóc có mục đích",
-          "p": "Ngày nhận hàng: cảm ơn và hướng dẫn hỗ trợ. Sau khoảng 3–7 ngày: hỏi về fit và cảm giác đeo. Khoảng 14 ngày: hướng dẫn care/styling. Sau 30 ngày hoặc lâu hơn: một lời hỏi thăm đúng lúc nếu khách đồng ý. Thời điểm được đề xuất để pilot, không gửi tự động ồ ạt."
+          "p": "Ngày nhận hàng: cảm ơn và hướng dẫn hỗ trợ. Sau khoảng 3-7 ngày: hỏi về fit và cảm giác đeo. Khoảng 14 ngày: hướng dẫn care/styling. Sau 30 ngày hoặc lâu hơn: một lời hỏi thăm đúng lúc nếu khách đồng ý. Thời điểm được đề xuất để pilot, không gửi tự động ồ ạt."
         },
         {
           "h": "Biết khi nào nên im lặng",
@@ -380,7 +380,7 @@ window.COLORA_DATA = {
       "sections": [
         {
           "h": "Ba trụ cột độ bền",
-          "p": "Mohs chỉ là thang xếp hạng khả năng chống trầy tương đối, không phản ánh đầy đủ nguy cơ sứt, nứt hay đổi màu. Toughness là khả năng chống nứt/vỡ dưới tác động; stability là khả năng chịu ánh sáng, nhiệt, độ ẩm và hóa chất. Sapphire Mohs 9 có thể phù hợp dùng thường xuyên nhưng vẫn có thể sứt khi va đập; topaz Mohs 8 có cát khai, dễ nứt hơn nhiều người nghĩ; moonstone Mohs 6–6,5 có độ dai kém."
+          "p": "Mohs chỉ là thang xếp hạng khả năng chống trầy tương đối, không phản ánh đầy đủ nguy cơ sứt, nứt hay đổi màu. Toughness là khả năng chống nứt/vỡ dưới tác động; stability là khả năng chịu ánh sáng, nhiệt, độ ẩm và hóa chất. Sapphire Mohs 9 có thể phù hợp dùng thường xuyên nhưng vẫn có thể sứt khi va đập; topaz Mohs 8 có cát khai, dễ nứt hơn nhiều người nghĩ; moonstone Mohs 6-6,5 có độ dai kém."
         },
         {
           "h": "Không xếp đá bằng một bảng 'tốt nhất'",
@@ -912,7 +912,7 @@ window.COLORA_DATA = {
       "lesson": "advisor",
       "prompt": "Nên đề xuất bao nhiêu mẫu chính trong một lượt tư vấn?",
       "options": [
-        "1–3 mẫu có lý do",
+        "1-3 mẫu có lý do",
         "Ít nhất 20 mẫu",
         "Càng nhiều càng tốt",
         "Chỉ một mẫu đắt nhất"
@@ -1075,7 +1075,7 @@ window.COLORA_DATA = {
       "id": 30,
       "track": "care",
       "lesson": "relationship",
-      "prompt": "Một lời nhắc sau 3–7 ngày có mục đích tốt nhất là?",
+      "prompt": "Một lời nhắc sau 3-7 ngày có mục đích tốt nhất là?",
       "options": [
         "Bán ngay sản phẩm khác",
         "Kiểm tra size, fit và cảm giác đeo",
