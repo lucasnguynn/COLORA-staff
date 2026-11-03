@@ -5,7 +5,7 @@ window.COLORA_OPS_PLAYBOOK=(()=>{
   const root=document.getElementById('operations-root');
   if(!D||!root)return {open:()=>{}};
   const e=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'' :'&#39;'}[c]));
-  const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').toLowerCase().trim();
+  const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/đ/g,'d').trim();
   const templates={
     purchase:{title:'Yêu cầu mua hàng',text:[
       'Cần mua: [Tên hàng / dịch vụ]',
