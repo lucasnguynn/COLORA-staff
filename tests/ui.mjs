@@ -71,7 +71,7 @@ try{
   for(let i=0;i<3;i++)await gates.nth(i).check();
   assert((await rubric.locator('#gem-value-decision').innerText()).includes('QC'),'Even checked gates should defer to QC');
   await rubric.locator('#gem-value-reset').click();
-  assert.equal(await rubric.locator('#gem-value-score').innerText(),'— / 100','Reset must not retain assessment');
+  assert.equal(await rubric.locator('#gem-value-score').innerText(),'- / 100','Reset must not retain assessment');
   await page.setViewportSize({width:390,height:844});
   const gemMobile=await rubric.locator('#gem-value-page').evaluate(el=>({width:el.scrollWidth,client:el.clientWidth}));
   assert(gemMobile.width<=gemMobile.client+1,'Gem guide must not overflow phone: '+JSON.stringify(gemMobile));
