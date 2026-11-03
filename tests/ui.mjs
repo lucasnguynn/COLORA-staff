@@ -44,7 +44,8 @@ try{
   await page.waitForFunction(()=>!!document.querySelector('#operations-status')?.textContent);
   assert((await page.locator('#operations-status').innerText()).includes('mẫu'),'Action copies template or exposes fallback');
   await page.locator('#operations .ops-follow-on [data-ops-open="sample-revision"]').click();
-  assert((await page.locator('#operations .ops-detail-title').innerText()).includes('sample'));
+  await page.waitForFunction(()=>document.querySelector('#operations .ops-detail-title')?.textContent?.includes('sample'));
+  assert((await page.locator('#operations .ops-detail-title').innerText()).toLowerCase().includes('sample'));
   await page.locator('#operations [data-ops-feedback="sample-revision"]').click();
   await page.waitForFunction(()=>!!document.querySelector('#operations-status')?.textContent);
   await page.locator('#operations [data-ops-back]').first().click();
@@ -57,8 +58,10 @@ try{
   assert(await page.locator('#operations .ops-card').count()>=6,'Purchasing cases remain grouped');
   await page.locator('#operations [data-ops-filter="all"]').click();
   await page.locator('#operations .ops-card[data-ops-open="supplier-screening"]').click();
+  await page.locator('#operations [data-ops-primary="route:supplier-comparison"]').waitFor({state:'visible'});
   assert.equal(await page.locator('#operations [data-ops-primary="route:supplier-comparison"]').count(),1,'Screening action leads to comparison');
   await page.locator('#operations [data-ops-primary="route:supplier-comparison"]').click();
+  await page.locator('#operations [data-ops-primary="download:compare"]').waitFor({state:'visible'});
   assert((await page.locator('#operations .ops-detail-title').innerText()).includes('So sánh'));
   await page.locator('#operations [data-ops-primary="download:compare"]').click();
   const status=await page.locator('#operations-status').innerText();
