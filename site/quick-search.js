@@ -154,146 +154,156 @@
   }
 ];
   const index=window.COLORA_SEARCH_INDEX?.items||[];
-  const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/gi,'d').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
-  const synonyms={
-    'bao hanh':['bao tri','sua chua'],
-    'hoan tien':['refund','doi tra'],
-    'doi tra':['tra hang','return','hoan tien'],
-    'da long':['chau long','roi da','da lung lay'],
-    'giao tre':['giao cham','chua giao','eta'],
-    've sinh':['lam sach','cham soc'],
-    'nhan':['ring','ni nhan'],
-    'sapphire':['corundum'],
-    'aquamarin':['aquamarine'],
-    'giao cham':['giao tre','eta'],
-    'di ung':['kich ung','man do','ngua rat'],
-    'kich ung':['di ung','ngua rat'],
-    'roi da':['da long','chau long'],
-    'bao gia':['gia san pham','gia ban'],
-    'tourmalin':['tourmaline']
+  const senior=document.body.dataset.staffRole==='senior';
+  const items=index.filter(x=>x.access!=='senior'||senior);
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/đ/g,'d').replace(/[^a-z0-9]+/g,' ').trim();
+  const aliases={
+    'qr':['ma qr','qr generator','code'],
+    'chu ky':['signature','email signature'],
+    'mailbox':['email setup','bkns'],
+    'bao bi':['packaging','outer box','tui giay'],
+    'ban ve':['cad','3d','thiet ke'],
+    'doi tra':['hoan tien','refund','return'],
+    'giao cham':['giao tre','supplier delay'],
+    'da long':['chau long','roi da'],
+    'agency':['media agency','creative agency'],
+    'gia da':['gem value','gemstone'],
+    'ho so':['passport','profile']
   };
-  let lastFocus=null,lastItems=[],shown=false,filter='all',docLimit=12;
+  const groups=[
+    ['tools','Công cụ và trang'],['operations','Quy trình làm việc'],
+    ['templates','Biểu mẫu và email'],['knowledge','Bài học và kiến thức'],
+    ['care','Chăm sóc khách hàng']
+  ];
+  const defaultIds=['nav-qr','nav-signature','nav-email-templates','nav-operations','nav-learning','nav-client-care','nav-brand-guide','nav-mail-setup','nav-library','operations-purchase-intake'];
+  let shown=false,previousFocus=null,filter='all',limit=14;
   const filters=[...overlay.querySelectorAll('[data-quick-filter]')];
-  function tokens(query){
-    const n=norm(query),all=[n];
-    for(const [term,extra] of Object.entries(synonyms)){
-      if(n.includes(term))all.push(...extra.map(norm));
-    }
-    return [...new Set(all.join(' ').split(' ').filter(w=>w.length>1))];
+  function tokens(q){
+    const n=norm(q),all=[n];
+    for(const [k,v] of Object.entries(aliases))if(n.includes(k))all.push(...v.map(norm));
+    return [...new Set(all.join(' ').split(' ').filter(x=>x.length>1))];
   }
-  function scoreText(query,t,rec){
-    const title=norm(rec.title),terms=norm(rec.terms||''),
-      detail=norm(rec.summary||rec.steps||''),extra=norm(rec.reply||'');
-    const all=title+' '+terms+' '+detail+' '+extra;
-    const phrase=norm(query);
+  function score(q,words,item){
+    const title=norm(item.title),terms=norm(item.terms),summary=norm(item.summary),phrase=norm(q);
     if(!phrase)return 0;
-    let score=title.includes(phrase)?22:all.includes(phrase)?10:0,matched=0;
-    for(const word of t){
-      if(title.includes(word)){score+=6;matched++}
-      else if(terms.includes(word)){score+=3;matched++}
-      else if(detail.includes(word)||extra.includes(word)){score+=2;matched++}
+    let pts=title===phrase?110:title.includes(phrase)?42:terms.includes(phrase)?16:summary.includes(phrase)?13:0;
+    let matches=0;
+    for(const w of words){
+      if(title.includes(w)){pts+=7;matches++}
+      else if(terms.includes(w)){pts+=3;matches++}
+      else if(summary.includes(w)){pts+=2;matches++}
     }
-    if(t.length>1&&matched===0)return 0;
-    if(t.length>2&&matched<Math.max(1,Math.floor(t.length/3)))return 0;
-    return score>0?score+(rec.priority||0):0;
+    if(words.length>2&&matches<Math.floor(words.length/3))return 0;
+    return pts>0?pts+(item.priority||0):0;
   }
-  function chooseFilter(value){
-    if(!['all','answers','docs','urgent'].includes(value))return;
-    filter=value;docLimit=12;
+  function chooseFilter(next){
+    if(!['all','tools','operations','knowledge','care','templates','answers','urgent'].includes(next))return;
+    filter=next;limit=14;
     filters.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.quickFilter===filter)));
     render();
   }
   function render(){
-    const query=input.value.trim().slice(0,140),word=tokens(query);
-    const quick=answers.map(x=>({...x,score:scoreText(query,word,x)}))
-      .filter(x=>query?x.score>0:true)
-      .filter(x=>filter!=='urgent'||x.urgent)
-      .sort((a,b)=>query?b.score-a.score||Number(b.urgent)-Number(a.urgent):Number(b.urgent)-Number(a.urgent));
-    const matchingDocs=query&&filter!=='urgent'?index.map(x=>({...x,score:scoreText(query,word,x)}))
-      .filter(x=>x.score>0).sort((a,b)=>b.score-a.score):[];
-    const top=filter==='docs'?[]:quick.slice(0,query?7:6);
-    const docs=filter==='answers'||filter==='urgent'?[]:matchingDocs.slice(0,docLimit);
+    const query=input.value.trim().slice(0,140),words=tokens(query);
+    const showAnswers=filter==='all'||filter==='answers'||filter==='urgent';
+    const urgentOnly=filter==='urgent';
+    const help=showAnswers?answers.map(x=>({...x,score:score(query,words,{...x,summary:x.steps,terms:x.terms})}))
+      .filter(x=>query?x.score>0:filter!=='all')
+      .filter(x=>!urgentOnly||x.urgent)
+      .sort((a,b)=>query?b.score-a.score:Number(b.urgent)-Number(a.urgent)):[];
+    const base=query?items:filter==='all'?defaultIds.map(id=>items.find(x=>x.id===id)).filter(Boolean):items.filter(x=>x.scope===filter);
+    const docs=filter==='answers'||urgentOnly?[]:base.map((x,i)=>({...x,score:query?score(query,words,x):40-i}))
+      .filter(x=>(!query||x.score>0)&&(!['tools','operations','knowledge','care','templates'].includes(filter)||x.scope===filter))
+      .sort((a,b)=>query?b.score-a.score||a.title.localeCompare(b.title,'vi'):b.score-a.score);
+    const answerList=help.slice(0,query?5:6),visibleDocs=docs.slice(0,limit);
     let html='';
-    if(top.length){
-      html+='<section class="quick-search-group" aria-label="Phản hồi nhanh"><div class="quick-search-group-head"><h3>'+(filter==='urgent'?'Cần xử lý gấp':'Phản hồi nhanh')+'</h3><span>'+top.length+' tình huống</span></div>';
-      html+=top.map(x=>'<article class="quick-search-item quick-search-answer'+(x.urgent?' is-urgent':'')+'"><div class="quick-search-item-head"><span class="quick-search-source">'+(x.urgent?'ƯU TIÊN XỬ LÝ':'HƯỚNG DẪN TÌNH HUỐNG')+'</span><strong>'+escape(x.title)+'</strong></div><p class="quick-search-steps">'+escape(x.steps)+'</p><div class="quick-search-actions"><button type="button" data-copy-answer="'+escape(x.id)+'">Sao chép phản hồi</button><button type="button" class="quick-search-secondary" data-quick-route="'+escape(x.route)+'">Mở nguồn liên quan</button></div><details class="quick-search-draft"><summary>Xem câu trả lời và lưu ý</summary><p>'+escape(x.reply)+'</p><p class="quick-search-warning"><strong>Trước khi gửi:</strong> '+escape(x.warning)+'</p></details></article>').join('');
+    if(answerList.length){
+      html+='<section class="quick-search-group" aria-label="Phản hồi nhanh"><div class="quick-search-group-head"><h3>'+(urgentOnly?'Cần xử lý gấp':'Hướng dẫn phản hồi')+'</h3><span>'+answerList.length+' tình huống</span></div>';
+      html+=answerList.map(x=>'<article class="quick-search-item quick-search-answer'+(x.urgent?' is-urgent':'')+'"><div class="quick-search-item-head"><span class="quick-search-source">'+(x.urgent?'ƯU TIÊN XỬ LÝ':'MẪU TƯ VẤN')+'</span><strong>'+esc(x.title)+'</strong></div><p class="quick-search-steps">'+esc(x.steps)+'</p><div class="quick-search-actions"><button type="button" data-copy-answer="'+esc(x.id)+'">Sao chép phản hồi</button><button type="button" class="quick-search-secondary" data-quick-route="'+esc(x.route)+'">Mở nguồn</button></div><details class="quick-search-draft"><summary>Xem lời nhắn và lưu ý</summary><p>'+esc(x.reply)+'</p><p class="quick-search-warning"><strong>Trước khi gửi:</strong> '+esc(x.warning)+'</p></details></article>').join('');
       html+='</section>';
     }
-    if(docs.length){
-      html+='<section class="quick-search-group" aria-label="Tài liệu liên quan"><div class="quick-search-group-head"><h3>Tài liệu liên quan</h3><span>'+matchingDocs.length+' kết quả</span></div>';
-      html+=docs.map(x=>'<article class="quick-search-item quick-search-doc"><div class="quick-search-item-head"><span class="quick-search-source">'+escape(x.kind)+'</span><strong>'+escape(x.title)+'</strong></div><p>'+escape(x.summary)+'</p><div class="quick-search-doc-footer"><span>Học liệu · đối chiếu SKU/chính sách</span><button type="button" data-quick-route="'+escape(x.route)+'">Mở nguồn</button></div></article>').join('');
-      if(docs.length<matchingDocs.length)html+='<button type="button" class="quick-search-more" data-show-more>Hiển thị thêm ('+(matchingDocs.length-docs.length)+' tài liệu)</button>';
+    for(const [id,label] of groups){
+      const matches=visibleDocs.filter(x=>x.scope===id);
+      if(!matches.length)continue;
+      html+='<section class="quick-search-group" aria-label="'+label+'"><div class="quick-search-group-head"><h3>'+label+'</h3><span>'+matches.length+' mục</span></div>';
+      html+=matches.map(x=>{
+        const action=id==='tools'?'Mở công cụ':id==='operations'?'Xem quy trình':id==='templates'?'Mở mẫu':'Mở nội dung';
+        return '<article class="quick-search-item quick-search-doc"><div class="quick-search-item-head"><span class="quick-search-source">'+esc(x.kind)+'</span><strong>'+esc(x.title)+'</strong></div><p>'+esc(x.summary)+'</p><div class="quick-search-doc-footer"><span>'+esc(x.status||'Tài liệu tham khảo')+'</span><button type="button" data-quick-route="'+esc(x.route)+'">'+action+'</button></div></article>';
+      }).join('');
       html+='</section>';
     }
-    if(!top.length&&!docs.length){
-      html='<div class="quick-search-empty"><strong>Chưa tìm thấy thông tin phù hợp</strong><p>'+(filter==='urgent'?'Chưa có tình huống khẩn cấp phù hợp. Chọn Tất cả hoặc chuyển ngay cho người phụ trách.':'Thử từ khóa ngắn hơn hoặc chọn một tình huống thường gặp. Với đơn hàng, giá, bảo hành hay SKU chưa xác minh, hãy chuyển bộ phận phụ trách.')+'</p></div>';
+    if(visibleDocs.length<docs.length)html+='<button type="button" class="quick-search-more" data-show-more>Hiển thị thêm ('+(docs.length-visibleDocs.length)+' kết quả)</button>';
+    if(!answerList.length&&!visibleDocs.length){
+      html='<div class="quick-search-empty"><strong>Chưa tìm thấy nội dung phù hợp</strong><p>Thử tên công cụ, từ khóa ngắn hơn hoặc chọn nhóm khác. Thông tin nhạy cảm và bản nháp chưa được duyệt không có trong chỉ mục.</p></div>';
     }
-    if(!index.length&&query&&filter!=='answers'&&filter!=='urgent')html+='<p class="quick-search-index-note">Chỉ mục tài liệu chưa tải được. Bạn vẫn có thể mở các tình huống nhanh hoặc vào Thư viện.</p>';
+    if(!index.length)html+='<p class="quick-search-index-note">Chưa tải được chỉ mục tài liệu. Bạn vẫn có thể mở các khu vực từ menu.</p>';
     results.innerHTML=html;
-    lastItems=top;
-    status.textContent=query?'Tìm được '+quick.length+' hướng dẫn nhanh và '+matchingDocs.length+' tài liệu tham khảo. Hãy kiểm tra thông tin trước khi báo khách.':
-      filter==='urgent'?'Ưu tiên an toàn, ghi nhận mã đơn và chuyển đúng bộ phận để xác minh.':
-      'Chọn tình huống hoặc nhập câu hỏi. Phím tắt Cmd/Ctrl + K.';
+    status.textContent=query?'Có '+docs.length+' kết quả từ Staff và '+help.length+' tình huống phản hồi. Chọn Mở để tới nội dung.':
+      filter==='urgent'?'Chỉ hiển thị các tình huống cần ưu tiên xử lý.':
+      'Tra cứu '+items.length+' mục công cụ và học liệu. Phím tắt Cmd/Ctrl + K.';
   }
-  function open(prefill=''){
-    if(shown){if(prefill){input.value=prefill;render()}input.focus();return}
-    shown=true;lastFocus=document.activeElement;
+  function open(query=''){
+    if(shown){if(query){input.value=query;render()}input.focus();return;}
+    shown=true;previousFocus=document.activeElement;
     overlay.hidden=false;document.body.classList.add('quick-search-active');
-    filter='all';docLimit=12;filters.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.quickFilter===filter)));
-    input.value=prefill;render();input.focus();
+    filter='all';limit=14;filters.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.quickFilter===filter)));
+    input.value=query;render();input.focus();
   }
   function close(){
-    if(!shown)return;shown=false;overlay.hidden=true;
-    document.body.classList.remove('quick-search-active');
-    input.value='';results.replaceChildren();lastFocus?.focus?.();
+    if(!shown)return;
+    shown=false;overlay.hidden=true;document.body.classList.remove('quick-search-active');
+    input.value='';results.replaceChildren();previousFocus?.focus?.();
   }
   function go(route){
-    if(!/^(?:library|learning|client-care|brand-guide|email-templates|operations)(?:\/[a-z0-9/_-]+)?$/.test(route))return;
-    close();const dest='#'+route;
-    if(location.hash===dest)window.dispatchEvent(new Event('hashchange'));
-    else location.hash=route;
+    if(!/^(?:home|library|learning|client-care|brand-guide|email-templates|operations|qr|signature|mail-setup|jd)(?:\/[a-z0-9_-]+){0,2}$/i.test(route))return;
+    if(route==='jd'&&!senior)return;
+    close();
+    if(location.hash==='#'+route)window.dispatchEvent(new Event('hashchange'));
+    else location.hash='#'+route;
   }
   async function copy(id){
     const a=answers.find(x=>x.id===id);if(!a)return;
-    try{
-      await navigator.clipboard.writeText(a.reply);
-      status.textContent='Đã sao chép câu mẫu. Xác minh thông tin và điều chỉnh theo tình huống khách trước khi gửi.';
-    }catch{
-      const textarea=document.createElement('textarea');textarea.value=a.reply;
-      textarea.style.cssText='position:fixed;opacity:0';document.body.appendChild(textarea);textarea.select();
-      const ok=document.execCommand('copy');textarea.remove();
-      status.textContent=ok?'Đã sao chép. Hãy kiểm tra trước khi gửi.':'Không thể sao chép tự động. Hãy chọn câu mẫu để sao chép thủ công.';
+    try{await navigator.clipboard.writeText(a.reply);status.textContent='Đã sao chép. Vui lòng kiểm tra nội dung trước khi gửi.';}
+    catch{
+      const area=document.createElement('textarea');area.value=a.reply;
+      area.style.cssText='position:fixed;opacity:0';document.body.appendChild(area);area.select();
+      const ok=document.execCommand('copy');area.remove();
+      status.textContent=ok?'Đã sao chép. Hãy kiểm tra trước khi gửi.':'Không sao chép tự động được. Hãy chọn nội dung thủ công.';
     }
   }
   overlay.addEventListener('click',e=>{
-    if(e.target===overlay||e.target.closest('[data-quick-close]')){close();return}
+    if(e.target===overlay||e.target.closest('[data-quick-close]')){close();return;}
     const suggestion=e.target.closest('[data-quick-query]');
-    if(suggestion){input.value=suggestion.dataset.quickQuery;chooseFilter('all');input.focus();return}
-    const selected=e.target.closest('[data-quick-filter]');if(selected){chooseFilter(selected.dataset.quickFilter);return}
-    if(e.target.closest('[data-show-more]')){docLimit+=12;render();return}
-    const action=e.target.closest('[data-copy-answer]');if(action){copy(action.dataset.copyAnswer);return}
-    const link=e.target.closest('[data-quick-route]');if(link)go(link.dataset.quickRoute);
+    if(suggestion){input.value=suggestion.dataset.quickQuery;chooseFilter('all');input.focus();return;}
+    const f=e.target.closest('[data-quick-filter]');
+    if(f){chooseFilter(f.dataset.quickFilter);return;}
+    if(e.target.closest('[data-show-more]')){limit+=14;render();return;}
+    const c=e.target.closest('[data-copy-answer]');
+    if(c){void copy(c.dataset.copyAnswer);return;}
+    const link=e.target.closest('[data-quick-route]');
+    if(link)go(link.dataset.quickRoute);
   });
-  input.addEventListener('input',()=>{docLimit=12;render()});
+  input.addEventListener('input',()=>{limit=14;render();});
   input.addEventListener('keydown',e=>{
+    if(e.key==='ArrowDown'){const first=results.querySelector('[data-quick-route],[data-copy-answer]');if(first){e.preventDefault();first.focus();}return;}
     if(e.key==='Enter'&&!e.isComposing){
-      const first=results.querySelector('.quick-search-answer details');
-      if(first){e.preventDefault();first.open=true;first.querySelector('summary')?.focus();}
-      else{const source=results.querySelector('[data-quick-route]');if(source){e.preventDefault();source.focus();}}
+      const first=results.querySelector('[data-quick-route]');
+      if(first){e.preventDefault();go(first.dataset.quickRoute);return;}
+      const draft=results.querySelector('.quick-search-answer details');
+      if(draft){e.preventDefault();draft.open=true;draft.querySelector('summary')?.focus();}
     }
   });
   overlay.addEventListener('keydown',e=>{
     if(e.key!=='Tab')return;
-    const focusables=[...overlay.querySelectorAll('button:not([disabled]),input:not([disabled]),a[href],summary')]
+    const links=[...overlay.querySelectorAll('button:not([disabled]),input:not([disabled]),a[href],summary')]
       .filter(el=>!el.closest('[hidden]')&&(!el.closest('details:not([open])')||el.tagName==='SUMMARY')&&el.offsetParent!==null);
-    if(!focusables.length)return;
-    if(e.shiftKey&&document.activeElement===focusables[0]){e.preventDefault();focusables.at(-1).focus()}
-    else if(!e.shiftKey&&document.activeElement===focusables.at(-1)){e.preventDefault();focusables[0].focus()}
+    if(!links.length)return;
+    if(e.shiftKey&&document.activeElement===links[0]){e.preventDefault();links.at(-1).focus();}
+    else if(!e.shiftKey&&document.activeElement===links.at(-1)){e.preventDefault();links[0].focus();}
   });
   document.addEventListener('keydown',e=>{
-    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();open();return}
-    if(e.key==='Escape'&&shown){e.preventDefault();close()}
+    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();open();return;}
+    if(e.key==='Escape'&&shown){e.preventDefault();close();}
   },true);
   document.querySelectorAll('[data-quick-search-open]').forEach(b=>b.addEventListener('click',()=>open()));
   window.COLORA_QUICK_SEARCH={open,close};
