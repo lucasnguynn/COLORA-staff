@@ -1,6 +1,6 @@
-/* Public SOP guide only. Do not add actual budgets, suppliers, contracts, bank details or customer records. */
+/* Public proposed operational guidance only. Do not add private business records. */
 window.COLORA_OPERATIONS = {
-  "version": "2026-11-03-practical-v2",
+  "version": "2026-11-03-action-first-v3",
   "status": "DRAFT_FOR_FOUNDER_APPROVAL",
   "notice": "Quy trình tham khảo, chờ COLORA phê duyệt hạn mức chi và người có quyền ký.",
   "security": "Báo giá, hợp đồng và thông tin đối tác thực tế chỉ lưu trong Drive / Sheets có phân quyền.",
@@ -80,7 +80,17 @@ window.COLORA_OPERATIONS = {
         "Email / văn bản duyệt",
         "Bảng theo dõi ngân sách"
       ],
-      "decision": "Chưa có phê duyệt thì chưa mua."
+      "decision": "Chưa có phê duyệt thì chưa mua.",
+      "approver": "Trưởng bộ phận và Finance kiểm tra; người có thẩm quyền duyệt",
+      "action": {
+        "type": "template",
+        "id": "exception",
+        "label": "Sao chép mẫu xin duyệt"
+      },
+      "next": [
+        "purchase-intake"
+      ],
+      "status": "draft"
     },
     {
       "id": "purchase-intake",
@@ -119,7 +129,18 @@ window.COLORA_OPERATIONS = {
         "Báo giá và liên hệ nhà cung cấp",
         "Bảng Google Sheets"
       ],
-      "decision": "Chỉ chuyển sang chọn nhà cung cấp khi đã có thông tin đủ để so sánh."
+      "decision": "Chỉ chuyển sang chọn nhà cung cấp khi đã có thông tin đủ để so sánh.",
+      "approver": "Trưởng bộ phận xác nhận nhu cầu và ngân sách",
+      "action": {
+        "type": "template",
+        "id": "purchase",
+        "label": "Sao chép yêu cầu mua"
+      },
+      "next": [
+        "supplier-screening",
+        "supplier-comparison"
+      ],
+      "status": "draft"
     },
     {
       "id": "supplier-screening",
@@ -154,7 +175,17 @@ window.COLORA_OPERATIONS = {
         "Thông tin đối tác đã xác minh",
         "Mẫu / phản hồi kiểm tra"
       ],
-      "decision": "Thông tin quan trọng còn mâu thuẫn thì hỏi lại trước khi ký hoặc đặt cọc."
+      "decision": "Thông tin quan trọng còn mâu thuẫn thì hỏi lại trước khi ký hoặc đặt cọc.",
+      "approver": "Trưởng bộ phận; Product/QC hoặc Finance khi liên quan",
+      "action": {
+        "type": "route",
+        "id": "supplier-comparison",
+        "label": "Tới bước so sánh"
+      },
+      "next": [
+        "supplier-comparison"
+      ],
+      "status": "draft"
     },
     {
       "id": "supplier-comparison",
@@ -189,7 +220,17 @@ window.COLORA_OPERATIONS = {
         "Báo giá gốc",
         "Xác nhận lựa chọn"
       ],
-      "decision": "Nhân viên tự đánh giá và đề xuất. Người có quyền duyệt mới chốt việc mua."
+      "decision": "Nhân viên tự đánh giá và đề xuất. Người có quyền duyệt mới chốt việc mua.",
+      "approver": "Trưởng bộ phận hoặc người được ủy quyền",
+      "action": {
+        "type": "download",
+        "id": "compare",
+        "label": "Tải bảng so sánh trống"
+      },
+      "next": [
+        "negotiation"
+      ],
+      "status": "draft"
     },
     {
       "id": "negotiation",
@@ -225,7 +266,17 @@ window.COLORA_OPERATIONS = {
         "Email xác nhận",
         "Việc cần theo dõi"
       ],
-      "decision": "Không tự hứa điều khoản vượt quyền được giao."
+      "decision": "Không tự hứa điều khoản vượt quyền được giao.",
+      "approver": "Trưởng bộ phận duyệt trước khi cam kết điều khoản",
+      "action": {
+        "type": "template",
+        "id": "meeting",
+        "label": "Sao chép email xác nhận"
+      },
+      "next": [
+        "contract-po"
+      ],
+      "status": "draft"
     },
     {
       "id": "contract-po",
@@ -264,7 +315,17 @@ window.COLORA_OPERATIONS = {
         "Hợp đồng / PO bản đã ký",
         "Lịch thanh toán - bàn giao"
       ],
-      "decision": "Chưa có bản cuối được duyệt thì chưa ký, chưa cọc."
+      "decision": "Chưa có bản cuối được duyệt thì chưa ký, chưa cọc.",
+      "approver": "Người có quyền ký theo phân quyền của COLORA",
+      "action": {
+        "type": "download",
+        "id": "tracker",
+        "label": "Tải bảng theo dõi"
+      },
+      "next": [
+        "receiving-qc"
+      ],
+      "status": "draft"
     },
     {
       "id": "receiving-qc",
@@ -298,7 +359,17 @@ window.COLORA_OPERATIONS = {
         "Biên bản giao nhận / nghiệm thu",
         "Ảnh và danh sách lỗi nếu có"
       ],
-      "decision": "Chỉ nghiệm thu phần thực sự đạt."
+      "decision": "Chỉ nghiệm thu phần thực sự đạt.",
+      "approver": "Người phụ trách QC / nghiệm thu",
+      "action": {
+        "type": "download",
+        "id": "tracker",
+        "label": "Tải bảng theo dõi"
+      },
+      "next": [
+        "payment-close"
+      ],
+      "status": "draft"
     },
     {
       "id": "media-agency-selection",
@@ -337,7 +408,17 @@ window.COLORA_OPERATIONS = {
         "Proposal / báo giá",
         "Email xác nhận chọn agency"
       ],
-      "decision": "Chưa duyệt ngân sách và phạm vi thì chưa thuê."
+      "decision": "Chưa duyệt ngân sách và phạm vi thì chưa thuê.",
+      "approver": "Trưởng bộ phận và người duyệt ngân sách",
+      "action": {
+        "type": "template",
+        "id": "agency",
+        "label": "Sao chép brief agency"
+      },
+      "next": [
+        "media-agency-execution"
+      ],
+      "status": "draft"
     },
     {
       "id": "media-agency-execution",
@@ -377,7 +458,18 @@ window.COLORA_OPERATIONS = {
         "File nhận bàn giao",
         "Email duyệt và nghiệm thu"
       ],
-      "decision": "Theo dõi theo đầu việc và deadline, không cần báo cáo dài nếu không có vấn đề."
+      "decision": "Theo dõi theo đầu việc và deadline, không cần báo cáo dài nếu không có vấn đề.",
+      "approver": "Marketing / Brand duyệt đầu ra và thay đổi scope",
+      "action": {
+        "type": "download",
+        "id": "tracker",
+        "label": "Tải bảng theo dõi"
+      },
+      "next": [
+        "agency-revision",
+        "campaign-release"
+      ],
+      "status": "draft"
     },
     {
       "id": "campaign-release",
@@ -412,7 +504,17 @@ window.COLORA_OPERATIONS = {
         "Xác nhận duyệt",
         "Link sau đăng"
       ],
-      "decision": "Có thay đổi giá, chính sách hoặc tuyên bố sản phẩm thì phải duyệt lại."
+      "decision": "Có thay đổi giá, chính sách hoặc tuyên bố sản phẩm thì phải duyệt lại.",
+      "approver": "Brand / Product / người duyệt nội dung liên quan",
+      "action": {
+        "type": "template",
+        "id": "approval",
+        "label": "Sao chép yêu cầu duyệt"
+      },
+      "next": [
+        "media-agency-execution"
+      ],
+      "status": "draft"
     },
     {
       "id": "payment-close",
@@ -447,7 +549,17 @@ window.COLORA_OPERATIONS = {
         "Hóa đơn / nghiệm thu",
         "Sheet theo dõi"
       ],
-      "decision": "Thiếu hồ sơ hoặc thông tin nhận tiền bất thường thì hỏi Finance trước khi trả."
+      "decision": "Thiếu hồ sơ hoặc thông tin nhận tiền bất thường thì hỏi Finance trước khi trả.",
+      "approver": "Finance kiểm tra, người có thẩm quyền duyệt chi",
+      "action": {
+        "type": "download",
+        "id": "tracker",
+        "label": "Tải bảng theo dõi"
+      },
+      "next": [
+        "handover-project"
+      ],
+      "status": "draft"
     },
     {
       "id": "information-security",
@@ -481,7 +593,15 @@ window.COLORA_OPERATIONS = {
         "Bằng chứng sự cố lưu riêng",
         "Xác nhận đã xử lý"
       ],
-      "decision": "Không tự xóa bằng chứng hoặc xử lý sự cố tài chính một mình."
+      "decision": "Không tự xóa bằng chứng hoặc xử lý sự cố tài chính một mình.",
+      "approver": "Người quản lý / phụ trách an toàn thông tin",
+      "action": {
+        "type": "template",
+        "id": "incident",
+        "label": "Sao chép mẫu báo sự cố"
+      },
+      "next": [],
+      "status": "draft"
     },
     {
       "id": "handover-project",
@@ -515,7 +635,407 @@ window.COLORA_OPERATIONS = {
         "Bảng bàn giao ngắn",
         "Danh sách việc chưa xong"
       ],
-      "decision": "Việc có người nhận và hạn rõ ràng mới coi là đã bàn giao."
+      "decision": "Việc có người nhận và hạn rõ ràng mới coi là đã bàn giao.",
+      "approver": "Trưởng bộ phận và người nhận việc",
+      "action": {
+        "type": "template",
+        "id": "handover",
+        "label": "Sao chép mẫu bàn giao"
+      },
+      "next": [],
+      "status": "draft"
+    },
+    {
+      "id": "design-cad-request",
+      "group": "Sản phẩm & QC",
+      "title": "Khi cần thiết kế hoặc chỉnh mẫu CAD",
+      "trigger": "Cần triển khai một ý tưởng thiết kế mới hoặc thay đổi mẫu đã có.",
+      "owner": "Designer - Product Lead - Người phụ trách CAD",
+      "steps": [
+        {
+          "action": "Ghi rõ mẫu cần làm, ảnh minh họa, đá dự kiến, kích thước và điểm cần giữ nguyên.",
+          "evidence": ""
+        },
+        {
+          "action": "Gửi một brief duy nhất và đường dẫn đúng phiên bản cho người phụ trách CAD.",
+          "evidence": ""
+        },
+        {
+          "action": "Chốt thời hạn và người phản hồi, tránh nhiều người gửi yêu cầu khác nhau.",
+          "evidence": ""
+        },
+        {
+          "action": "Kiểm tra bản CAD được trả về theo brief trước khi đồng ý làm sample.",
+          "evidence": ""
+        }
+      ],
+      "redFlags": [
+        "Không thay yêu cầu sau khi CAD đã dựng mà không ghi lại phiên bản.",
+        "Không xác nhận sản xuất chỉ qua một ảnh render chưa đủ góc nhìn."
+      ],
+      "records": [
+        "Brief có phiên bản",
+        "CAD và phản hồi theo phiên bản"
+      ],
+      "decision": "Chưa có thiết kế được người phụ trách duyệt thì chưa sản xuất sample.",
+      "keywords": [
+        "thiết kế",
+        "bản vẽ",
+        "3D",
+        "mẫu mới",
+        "cad"
+      ],
+      "approver": "Product Lead duyệt brief và mẫu",
+      "action": {
+        "type": "template",
+        "id": "design",
+        "label": "Sao chép brief thiết kế"
+      },
+      "next": [
+        "cad-review"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "cad-review",
+      "group": "Sản phẩm & QC",
+      "title": "Khi CAD không đúng bản thiết kế",
+      "trigger": "Bản CAD hoặc render khác mẫu gốc, kích thước hay tỷ lệ chưa ổn.",
+      "owner": "Designer - Product Lead - Người phụ trách CAD",
+      "steps": [
+        {
+          "action": "Mở bản gốc và CAD mới cạnh nhau, xác định chính xác vị trí khác nhau.",
+          "evidence": ""
+        },
+        {
+          "action": "Đánh dấu trực tiếp trên ảnh hoặc file, viết một danh sách sửa ngắn cho từng vị trí.",
+          "evidence": ""
+        },
+        {
+          "action": "Gửi phản hồi tập trung qua kênh công ty và yêu cầu xác nhận phiên bản CAD tiếp theo.",
+          "evidence": ""
+        },
+        {
+          "action": "Kiểm tra đủ góc nhìn cần thiết và xin duyệt trước khi chuyển qua sample.",
+          "evidence": ""
+        }
+      ],
+      "redFlags": [
+        "Không góp ý rải rác qua nhiều cuộc chat khiến xưởng sửa sai phiên bản.",
+        "Không đổi thông số thiết kế mà không đối chiếu khả năng sản xuất."
+      ],
+      "records": [
+        "Ảnh đánh dấu thay đổi",
+        "Link CAD phiên bản mới",
+        "Xác nhận duyệt bản sửa"
+      ],
+      "decision": "Dừng làm sample nếu bản CAD còn điểm chưa chốt.",
+      "keywords": [
+        "cad",
+        "render",
+        "không giống",
+        "sửa CAD",
+        "3d"
+      ],
+      "approver": "Product Lead duyệt bản sửa CAD",
+      "action": {
+        "type": "template",
+        "id": "cad",
+        "label": "Sao chép phản hồi CAD"
+      },
+      "next": [
+        "sample-revision"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "sample-revision",
+      "group": "Sản phẩm & QC",
+      "title": "Khi sample không đạt",
+      "trigger": "Mẫu thực tế khác bản CAD duyệt, chất lượng hoặc trải nghiệm đeo chưa đạt.",
+      "owner": "Designer - Product/QC - Xưởng",
+      "steps": [
+        {
+          "action": "Chụp ảnh các vị trí lỗi, ghi rõ khác ở đâu và mẫu tham chiếu nào đang áp dụng.",
+          "evidence": ""
+        },
+        {
+          "action": "Phân biệt lỗi cần sửa ngay với điều chỉnh thẩm mỹ có thể cân nhắc.",
+          "evidence": ""
+        },
+        {
+          "action": "Gửi một yêu cầu sửa có người phụ trách và thời hạn nhận mẫu lại.",
+          "evidence": ""
+        },
+        {
+          "action": "Kiểm tra mẫu sửa trước khi duyệt sản xuất lô tiếp theo.",
+          "evidence": ""
+        }
+      ],
+      "redFlags": [
+        "Không nhận sample lỗi chỉ vì lịch ra mắt gấp.",
+        "Không làm lại mẫu mà bỏ qua nguyên nhân sai lệch so với CAD."
+      ],
+      "records": [
+        "Ảnh sample lỗi",
+        "Yêu cầu sửa",
+        "Bản sample đã được duyệt"
+      ],
+      "decision": "Sample chưa được xác nhận đạt thì chưa triển khai sản xuất hàng loạt.",
+      "keywords": [
+        "sample",
+        "mẫu thử",
+        "không đạt",
+        "QC",
+        "xưởng"
+      ],
+      "approver": "Product/QC duyệt sample sửa",
+      "action": {
+        "type": "template",
+        "id": "sample",
+        "label": "Sao chép yêu cầu sửa sample"
+      },
+      "next": [
+        "qc-sku-release"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "qc-sku-release",
+      "group": "Sản phẩm & QC",
+      "title": "Khi chuẩn bị đưa SKU vào bán",
+      "trigger": "Sản phẩm đã qua sample nhưng cần xác nhận thực tế trước khi đăng bán.",
+      "owner": "Product/QC - E-commerce - Client Care",
+      "steps": [
+        {
+          "action": "Xác nhận mẫu và sản phẩm thực tế đúng thiết kế, chất liệu, kích thước và mức hoàn thiện đã duyệt.",
+          "evidence": ""
+        },
+        {
+          "action": "Đối chiếu thông tin đá, cách gọi chất liệu, ảnh thật, giá và tồn kho với hồ sơ được phép công bố.",
+          "evidence": ""
+        },
+        {
+          "action": "Kiểm tra hướng dẫn chăm sóc, thông tin kích cỡ và chính sách khách hàng có thể tra cứu.",
+          "evidence": ""
+        },
+        {
+          "action": "Chỉ chuyển SKU sang trạng thái sẵn sàng đăng khi bộ phận liên quan xác nhận.",
+          "evidence": ""
+        }
+      ],
+      "redFlags": [
+        "Không tự gọi đá tự nhiên là chưa xử lý khi chưa có chứng cứ.",
+        "Không lấy hình mẫu của nhãn khác làm ảnh sản phẩm COLORA."
+      ],
+      "records": [
+        "Kết quả QC",
+        "Thông tin SKU đã duyệt",
+        "Link media/giá được công bố"
+      ],
+      "decision": "Có thông tin sản phẩm chưa được kiểm chứng thì chưa đăng bán.",
+      "keywords": [
+        "SKU",
+        "ra mắt",
+        "sản phẩm",
+        "nghiệm thu",
+        "đá",
+        "bán hàng"
+      ],
+      "approver": "Product/QC, Brand và người phụ trách bán hàng",
+      "action": {
+        "type": "download",
+        "id": "tracker",
+        "label": "Tải bảng theo dõi"
+      },
+      "next": [
+        "campaign-release"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "supplier-delay",
+      "group": "Mua hàng",
+      "title": "Khi nhà cung cấp giao chậm",
+      "trigger": "Hàng, mẫu hoặc dịch vụ có nguy cơ trễ so với thời hạn đã xác nhận.",
+      "owner": "Người đặt hàng - Trưởng bộ phận - Supplier",
+      "steps": [
+        {
+          "action": "Xác nhận ngày giao mới, nguyên nhân và phần công việc thực tế đã hoàn thành qua email.",
+          "evidence": ""
+        },
+        {
+          "action": "Đối chiếu tác động tới sản xuất, chiến dịch hoặc khách hàng và thông báo bộ phận liên quan.",
+          "evidence": ""
+        },
+        {
+          "action": "Đề xuất phương án: giao một phần, đổi lịch, tìm phương án thay thế hoặc xử lý theo hợp đồng.",
+          "evidence": ""
+        },
+        {
+          "action": "Gửi yêu cầu xác nhận phương án đã được duyệt và theo dõi tới khi nhận đủ.",
+          "evidence": ""
+        }
+      ],
+      "redFlags": [
+        "Không hứa ngày giao mới cho khách khi supplier chưa xác nhận.",
+        "Không trả thêm tiền vì trì hoãn mà chưa có phê duyệt."
+      ],
+      "records": [
+        "Email về lịch giao mới",
+        "Bảng theo dõi",
+        "Quyết định xử lý"
+      ],
+      "decision": "Nếu ảnh hưởng cam kết với khách hoặc ngân sách thì chuyển cấp quản lý trước khi hứa hẹn.",
+      "keywords": [
+        "giao trễ",
+        "giao chậm",
+        "nhà cung cấp",
+        "delay",
+        "không giao"
+      ],
+      "approver": "Trưởng bộ phận duyệt thay đổi cam kết nếu cần",
+      "action": {
+        "type": "template",
+        "id": "delay",
+        "label": "Sao chép email nhắc tiến độ"
+      },
+      "next": [
+        "receiving-qc"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "agency-revision",
+      "group": "Media & Marketing",
+      "title": "Khi agency giao sai brief",
+      "trigger": "Ảnh, video hoặc nội dung agency bàn giao chưa đúng yêu cầu đã thống nhất.",
+      "owner": "Marketing Project Owner - Agency Account Lead - Brand reviewer",
+      "steps": [
+        {
+          "action": "Đối chiếu file mới với brief và bản đã được duyệt, chọn đúng những điểm cần sửa.",
+          "evidence": ""
+        },
+        {
+          "action": "Gửi một danh sách chỉnh sửa có dẫn link hoặc timestamp cụ thể.",
+          "evidence": ""
+        },
+        {
+          "action": "Kiểm tra số vòng sửa và deadline theo thỏa thuận; mọi chi phí phát sinh phải xin duyệt trước.",
+          "evidence": ""
+        },
+        {
+          "action": "Yêu cầu agency xác nhận lịch trả bản mới và kiểm tra lại trước khi nghiệm thu.",
+          "evidence": ""
+        }
+      ],
+      "redFlags": [
+        "Không duyệt qua chat riêng nếu phiên bản cuối chưa được lưu.",
+        "Không chấp nhận phát sinh phí sau khi agency đã tự thực hiện."
+      ],
+      "records": [
+        "Bản brief được duyệt",
+        "Danh sách chỉnh sửa",
+        "File phiên bản cuối"
+      ],
+      "decision": "Chỉ nghiệm thu asset đạt scope và quyền sử dụng đã thỏa thuận.",
+      "keywords": [
+        "agency",
+        "sửa video",
+        "sai brief",
+        "chỉnh ảnh",
+        "file sai"
+      ],
+      "approver": "Marketing/Brand nghiệm thu bản mới",
+      "action": {
+        "type": "template",
+        "id": "agencyRevision",
+        "label": "Sao chép phản hồi agency"
+      },
+      "next": [
+        "media-agency-execution",
+        "campaign-release"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "website-publish",
+      "group": "Digital",
+      "title": "Khi cần cập nhật website Haravan",
+      "trigger": "Cần sửa nội dung, bố cục, hình ảnh hoặc tính năng website bán hàng.",
+      "owner": "E-commerce / Website Owner - Brand - Người phê duyệt nội dung",
+      "steps": [
+        {
+          "action": "Làm việc trên bản theme sao chép hoặc môi trường thử nghiệm, ghi lại nội dung cần sửa.",
+          "evidence": ""
+        },
+        {
+          "action": "Kiểm tra bản desktop và điện thoại, link, form, hình sản phẩm và chức năng mua hàng.",
+          "evidence": ""
+        },
+        {
+          "action": "Đối chiếu chính sách, thông tin SKU, giá và hình được phép đăng với người phụ trách.",
+          "evidence": ""
+        },
+        {
+          "action": "Được duyệt rồi mới publish; sau publish kiểm tra lại trang thực tế và lưu cách rollback.",
+          "evidence": ""
+        }
+      ],
+      "redFlags": [
+        "Không sửa thẳng theme live khi chưa có bản dự phòng và thử nghiệm.",
+        "Không publish giá hoặc thông tin sản phẩm chưa được duyệt."
+      ],
+      "records": [
+        "Link bản thử",
+        "Ảnh QA mobile/desktop",
+        "Xác nhận publish"
+      ],
+      "decision": "Nếu live có lỗi, ưu tiên rollback bản ổn định và báo người phụ trách.",
+      "keywords": [
+        "Haravan",
+        "website",
+        "publish",
+        "theme",
+        "liquid",
+        "mobile"
+      ],
+      "approver": "Website Owner và người duyệt nội dung/giá",
+      "action": {
+        "type": "template",
+        "id": "webQa",
+        "label": "Sao chép checklist QA"
+      },
+      "next": [
+        "campaign-release"
+      ],
+      "status": "draft"
+    }
+  ],
+  "entryPoints": [
+    {
+      "title": "Cần mua hàng",
+      "id": "purchase-intake"
+    },
+    {
+      "title": "Chi vượt ngân sách",
+      "id": "budget-overrun"
+    },
+    {
+      "title": "CAD cần chỉnh sửa",
+      "id": "cad-review"
+    },
+    {
+      "title": "Sample chưa đạt",
+      "id": "sample-revision"
+    },
+    {
+      "title": "Agency giao sai brief",
+      "id": "agency-revision"
+    },
+    {
+      "title": "Duyệt trước khi đăng",
+      "id": "campaign-release"
     }
   ]
 };
