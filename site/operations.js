@@ -101,6 +101,16 @@ window.COLORA_OPS_PLAYBOOK=(()=>{
     document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
     const msg=document.getElementById('operations-status');if(msg)msg.textContent='Đã tạo CSV mẫu trống cho 5 nhà cung cấp. Nhập vào Google Sheets được phân quyền và kiểm tra công thức, định dạng số theo locale.';
   }
+  function downloadTracker(){
+    const cols=['Request ID','Department','Owner','Project','Stage','Budget gate (PASS/HOLD)','Suppliers screened','Written quotes','Shortlist','Decision reference','Contract / PO ref','Agreement version','Delivery / QC status','Invoice status','Amount status (private sheet ref only)','Issue / risk','Action owner','Next action','Next due date','Last updated','Evidence folder link','Closeout status'];
+    let csv='\ufeff'+csvRow(cols);
+    for(let i=0;i<15;i++)csv+=csvRow(Array(cols.length).fill(''));
+    const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));
+    const a=document.createElement('a');a.href=url;a.download='COLORA_Procurement_Tracking_TEMPLATE.csv';
+    document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    const msg=document.getElementById('operations-status');
+    if(msg)msg.textContent='Đã tạo tracker trống. Lưu trong Google Sheets có phân quyền, gán owner, deadline và link chứng cứ cho từng yêu cầu.';
+  }
   function header(){
     return '<div class="ops-hero"><div class="ops-kicker">COLORA / OPERATIONS & GOVERNANCE</div>'+
       '<h1>Work with <em>clarity.</em></h1><p>Hướng dẫn công việc từ đề nghị chi phí, lựa chọn nhà cung cấp, đàm phán đến nghiệm thu, truyền thông và bàn giao.</p>'+
@@ -133,7 +143,7 @@ window.COLORA_OPS_PLAYBOOK=(()=>{
   }
   function compare(){
     return '<section class="ops-panel" id="operations-compare"><div class="ops-kicker">TOOLS / GOOGLE SHEETS</div>'+
-      '<div class="ops-panel-heading"><div><h2>Mẫu so sánh 5 nhà cung cấp</h2><p>Tải CSV trống, nhập vào Google Sheets riêng có phân quyền, lưu báo giá gốc và có reviewer độc lập.</p></div>'+btn('Tải CSV mẫu','data-ops-download')+'</div>'+
+      '<div class="ops-panel-heading"><div><h2>Mẫu so sánh 5 nhà cung cấp</h2><p>Tải CSV trống, nhập vào Google Sheets riêng có phân quyền, lưu báo giá gốc và có reviewer độc lập.</p></div><div class="ops-download-actions">'+btn('Tải bảng so sánh 5 nhà cung cấp','data-ops-download')+btn('Tải bảng theo dõi tiến độ','data-ops-tracker')+'</div></div>'+
       '<div class="ops-table-wrap"><table class="ops-score-table"><thead><tr><th>Tiêu chí</th><th>Trọng số</th><th>Cách đánh giá</th></tr></thead><tbody>'+
       D.rubric.map(r=>'<tr><td>'+e(r.title)+'</td><td>'+r.weight+'/100</td><td>Cho 1-5 điểm dựa trên bằng chứng thực</td></tr>').join('')+
       '<tr class="ops-table-total"><td>Tổng</td><td>100/100</td><td>Điểm là tài liệu hỗ trợ, không thay thế phê duyệt</td></tr></tbody></table></div>'+
@@ -192,13 +202,14 @@ window.COLORA_OPS_PLAYBOOK=(()=>{
     ev.target.setSelectionRange(pos,pos);
   });
   root.addEventListener('click',async ev=>{
-    const a=ev.target.closest('[data-ops-filter],[data-ops-open],[data-ops-back],[data-ops-download],[data-ops-copy],[data-ops-go-compare]');
+    const a=ev.target.closest('[data-ops-filter],[data-ops-open],[data-ops-back],[data-ops-download],[data-ops-tracker],[data-ops-copy],[data-ops-go-compare]');
     if(!a)return;
     if(a.hasAttribute('data-ops-filter')){group=a.dataset.opsFilter;open();return;}
     if(a.hasAttribute('data-ops-open')){location.hash='operations/'+a.dataset.opsOpen;return;}
     if(a.hasAttribute('data-ops-back')){location.hash='operations';return;}
     if(a.hasAttribute('data-ops-go-compare')){location.hash='operations';requestAnimationFrame(()=>root.querySelector('#operations-compare')?.scrollIntoView({block:'start'}));return;}
     if(a.hasAttribute('data-ops-download')){download();return;}
+    if(a.hasAttribute('data-ops-tracker')){downloadTracker();return;}
     const t=templates[a.dataset.opsCopy];
     if(t){
       const msg=root.querySelector('#operations-status');
