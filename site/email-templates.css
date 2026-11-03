@@ -1,5 +1,5 @@
 
-/* COLORA Email Templates — editorial, accessible, browser-only. */
+/* COLORA Email Templates - editorial, accessible, browser-only. */
 .email-templates{max-width:1320px;margin-inline:auto}
 .email-templates h1{font:500 clamp(46px,6vw,75px)/1.04 "Cormorant Garamond",Georgia,serif;letter-spacing:-.025em;color:var(--navy);margin:10px 0 14px}
 .email-templates h1 em{font-weight:400;color:var(--gold)}
