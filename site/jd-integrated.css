@@ -1,4 +1,4 @@
-/* JD integrated view — single COLORA Staff design language.
+/* JD integrated view - single COLORA Staff design language.
    Only present inside the independently encrypted Senior workspace. */
 #jd-workspace-controls[hidden]{display:none!important}
 #jd-workspace-controls{margin:0 0 16px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:17px 0 15px;color:var(--navy);font-family:"Open Sans",Arial,sans-serif}
