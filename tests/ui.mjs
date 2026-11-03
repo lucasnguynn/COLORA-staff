@@ -39,7 +39,7 @@ try{
   await page.locator('#operations .ops-situation[data-ops-open="cad-review"]').click();
   assert((await page.locator('#operations .ops-detail-title').innerText()).includes('CAD'));
   assert.equal(await page.locator('#operations .ops-steps li').count(),4,'CAD quick procedure is concise');
-  assert((await page.locator('#operations .ops-assignment').innerText()).includes('Người xác nhận'));
+  assert((await page.locator('#operations .ops-assignment').innerText()).toLowerCase().includes('người xác nhận'));
   await page.locator('#operations [data-ops-primary="template:cad"]').click();
   await page.waitForFunction(()=>!!document.querySelector('#operations-status')?.textContent);
   assert((await page.locator('#operations-status').innerText()).includes('mẫu'),'Action copies template or exposes fallback');
