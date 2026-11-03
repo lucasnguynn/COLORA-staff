@@ -50,7 +50,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 }
 
 
-/* V4 unified content canvas — no nested website cards. */
+/* V4 unified content canvas - no nested website cards. */
 #module.module{display:block!important;height:auto!important;min-height:0!important}
 #module.module[hidden]{display:none!important}
 #module .module-heading{margin-bottom:25px;align-items:end}
