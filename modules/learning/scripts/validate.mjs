@@ -26,8 +26,18 @@ for(const q of portfolio.questions){
  assert(q.q.length>8&&q.options.length===4&&new Set(q.options).size===4);
  assert(Number.isInteger(q.correct)&&q.correct>=0&&q.correct<4&&q.why.length>14);
 }
+assert(portfolio.valueGuide?.criteria?.length===9,'Missing 100 point rubric');
+assert.equal(portfolio.valueGuide.criteria.reduce((sum,c)=>sum+c.weight,0),100,'Rubric must total 100');
+assert.equal(portfolio.valueGuide.criteria.slice(0,4).reduce((sum,c)=>sum+c.weight,0),40,'Color must have 40 points');
+assert.equal(Object.keys(portfolio.valueGuide.gems).length,9,'Color guide needs nine gemstone profiles');
+assert.equal(new Set(portfolio.valueGuide.criteria.map(c=>c.id)).size,9,'Duplicate rubric criterion');
+for(const gem of portfolio.gems){
+ const entry=portfolio.valueGuide.gems[gem.id];
+ assert(entry?.high&&entry?.mid&&entry?.lower&&entry?.nuance&&entry?.sourcing,'Missing value tiers for '+gem.id);
+ assert(entry.source.startsWith('https://www.gia.edu/'),'Missing official source '+gem.id);
+}
 assert(!/[\u2013\u2014]/.test(JSON.stringify(portfolio)),'Only plain hyphens permitted in gemstone curriculum');
-console.log('PASS gemstone supplement: 6 criteria, 9 profiles and 24 self-review questions; V10.2 exam unchanged');
+console.log('PASS gemstone supplement: 9 profiles, 24 self-review questions and 100-point color value rubric; V10.2 exam unchanged');
 
 assert.equal(base.length,206);
 assert.equal(gem.length,53);

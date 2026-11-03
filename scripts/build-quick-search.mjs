@@ -41,6 +41,19 @@ export function makeSearchIndex(root){
     portfolio.criteria.map(c=>c.title+' '+c.detail+' '+c.remember).join(' '),
     'learning/portfolio',4);
 
+  const colorGuide=portfolio.valueGuide;
+  for(const gem of portfolio.gems){
+    const x=colorGuide.gems[gem.id];
+    put('gem-value-'+gem.id,'Giá trị màu đá',gem.name+' - Màu nào giá trị cao / thấp?',
+      'Thường cao hơn: '+x.high+' Trung bình: '+x.mid+' Thường thấp hơn: '+x.lower,
+      [gem.name,'màu sắc','giá trị cao thấp','tiêu chuẩn tuyển chọn','hue tone saturation',x.high,x.mid,x.lower,x.nuance,x.sourcing].join(' '),
+      'learning/gem-value',5);
+  }
+  put('gem-value-rubric','Thang tuyển chọn COLORA','Thang tuyển chọn đá màu 100 điểm',
+    'Màu sắc 40 điểm; độ trong 15; giác cắt 15; độ an toàn 10; minh bạch hồ sơ 15; phù hợp thiết kế 5. Đề xuất nội bộ, không phải chuẩn GIA.',
+    ['hue tone saturation evenness grading màu giá trị tuyển chọn QC',...colorGuide.criteria.map(c=>c.title+' '+c.instruction)].join(' '),
+    'learning/gem-value',5);
+
   const care=readGlobal('modules/client-care/content.js','COLORA_DATA');
   for(const a of care.lessons||[])put('care-lesson-'+a.id,'Client Care',a.title,a.summary,
     (a.sections||[]).map(s=>s.h+' '+s.p).join(' '),'client-care/learn',3);

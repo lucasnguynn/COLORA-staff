@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-03",
+  "version": "2026-11-03-color-value-v1",
   "status": "Đào tạo tham khảo, không phải hồ sơ SKU đã duyệt",
   "title": "Vì sao COLORA chọn chín dòng đá màu?",
   "memory": "Độ bền - Màu sắc - Câu chuyện - Giá cả - Thiết kế - Chất lượng",
@@ -427,5 +427,202 @@
       "why": "Cần chăm sóc dựa trên đúng đá và cấu trúc thành phẩm"
     }
   ],
-  "disclaimer": "Kiến thức tham khảo và định hướng thương hiệu. Không suy ra tồn kho, nguồn gốc, treatment, chứng thư, giá bán hoặc chính sách của bất kỳ SKU cụ thể nào. Mẫu trả lời phải đối chiếu hồ sơ được duyệt."
+  "disclaimer": "Kiến thức tham khảo và định hướng thương hiệu. Không suy ra tồn kho, nguồn gốc, treatment, chứng thư, giá bán hoặc chính sách của bất kỳ SKU cụ thể nào. Mẫu trả lời phải đối chiếu hồ sơ được duyệt.",
+  "valueGuide": {
+    "title": "Giá trị màu sắc & tiêu chuẩn tuyển chọn đá màu",
+    "version": "COLORA EDUCATION / PROPOSED v1.0",
+    "scope": "Chín dòng đá chủ đạo - đào tạo và sàng lọc nội bộ, chưa phải chính sách QC/SKU được phê duyệt.",
+    "note": "Đây là khung tham khảo do COLORA đề xuất, không phải thang điểm GIA hay công thức định giá thị trường. Chỉ so sánh hai viên cùng loại/giống, kích thước tương đương, đã đối chiếu nguồn gốc và tình trạng xử lý. Điểm số không suy ra mức giá bằng tiền.",
+    "colorBasics": [
+      {
+        "term": "Hue / Sắc màu",
+        "description": "Sắc chủ đạo và sắc phụ. Đánh giá theo từng giống đá, không dùng một chuẩn 'xanh nhất/đỏ nhất' cho tất cả."
+      },
+      {
+        "term": "Tone / Độ sáng tối",
+        "description": "Tông quá nhạt có thể giảm độ đậm màu; quá tối dễ mất phản quang. Mức tối ưu thay đổi theo khoáng vật."
+      },
+      {
+        "term": "Saturation / Độ bão hòa",
+        "description": "Cường độ màu và độ sạch của màu, cân bằng với độ sáng. Không mặc định càng đậm tối càng quý."
+      },
+      {
+        "term": "Evenness / Độ đều màu",
+        "description": "Vùng màu thấy rõ thường giảm sự hài hòa, trừ khi thiết kế chủ đích sử dụng đá đa sắc hoặc đổi màu."
+      }
+    ],
+    "requirements": [
+      "Chỉ chấm điểm khi đã xác định đúng khoáng vật/giống đá tự nhiên và ghi nhận chứng từ phù hợp. Chưa rõ: tạm dừng phê duyệt.",
+      "Tình trạng xử lý phải được xác minh/ghi nhận minh bạch. Natural KHÔNG đồng nghĩa untreated. Không cho điểm cộng tự động chỉ vì chưa xử lý.",
+      "Nếu có nứt ảnh hưởng độ bền, chấu không an toàn, cát khai rủi ro cao so với thiết kế: chuyển QC và không phê duyệt dù điểm cao.",
+      "Đối chiếu trực tiếp dưới ánh sáng trung tính, ánh sáng sử dụng thực tế và ảnh chuẩn; màu hiển thị trên màn hình chỉ minh họa.",
+      "Đánh giá viên đá trong kích thước, giác cắt, setting và ngân sách thực tế. Giá bán/giá nhập phải được kiểm chứng riêng."
+    ],
+    "bands": [
+      {
+        "min": 85,
+        "max": 100,
+        "name": "A - Ưu tiên xem xét",
+        "meaning": "Hợp thẩm mỹ và yêu cầu sàng lọc ban đầu; vẫn cần QC, hồ sơ và phê duyệt mua hàng."
+      },
+      {
+        "min": 70,
+        "max": 84,
+        "name": "B - Cân nhắc",
+        "meaning": "Có thể phù hợp dòng daily wear hoặc một thiết kế cụ thể; ghi nhược điểm để so sánh."
+      },
+      {
+        "min": 55,
+        "max": 69,
+        "name": "C - Cần đối chiếu",
+        "meaning": "Không mặc định loại bỏ: xem lại mục đích thiết kế, giá nhập và các điểm thiếu."
+      },
+      {
+        "min": 0,
+        "max": 54,
+        "name": "D - Không ưu tiên",
+        "meaning": "Thường nên tìm phương án khác; không dùng làm tuyên bố đá giả hoặc đá kém chuẩn quốc tế."
+      }
+    ],
+    "criteria": [
+      {
+        "id": "hue",
+        "title": "Sắc chủ đạo / Hue",
+        "weight": 15,
+        "instruction": "0: sắc không phù hợp dòng đá; 3: phù hợp mức thương mại; 5: sát tông màu mong muốn của giống đá."
+      },
+      {
+        "id": "tone",
+        "title": "Độ sáng - tối / Tone",
+        "weight": 10,
+        "instruction": "0: gần như đen/nhợt; 3: có thể thấy màu rõ; 5: độ sáng tối tối ưu trong đúng giống đá."
+      },
+      {
+        "id": "saturation",
+        "title": "Độ bão hòa / Saturation",
+        "weight": 10,
+        "instruction": "0: xám/nâu nặng, kém tươi; 3: màu rõ; 5: sống động nhưng vẫn giữ ánh sáng."
+      },
+      {
+        "id": "evenness",
+        "title": "Độ đều màu / Evenness",
+        "weight": 5,
+        "instruction": "0: phân vùng gây mất thẩm mỹ; 3: có vùng nhẹ; 5: đều màu hoặc phân vùng có chủ đích thiết kế."
+      },
+      {
+        "id": "clarity",
+        "title": "Độ trong và bao thể",
+        "weight": 15,
+        "instruction": "Chấm theo chuẩn kỳ vọng riêng: ruby/emerald có thể chấp nhận bao thể hơn aquamarine/citrine; ưu tiên độ bền."
+      },
+      {
+        "id": "cut",
+        "title": "Giác cắt, độ sáng, độ cân",
+        "weight": 15,
+        "instruction": "Xem phản quang, lỗ cửa sổ (windowing), vùng tối (extinction), độ cân và tỉ lệ."
+      },
+      {
+        "id": "durability",
+        "title": "Độ an toàn khi đeo",
+        "weight": 10,
+        "instruction": "Nguy cơ nứt, cát khai, mẻ, khe nứt đến mép, khả năng giữ chấu/setting. Vấn đề nghiêm trọng = dừng QC."
+      },
+      {
+        "id": "documentation",
+        "title": "Hồ sơ & minh bạch xử lý",
+        "weight": 15,
+        "instruction": "Chấm mức hoàn chỉnh của tài liệu xác minh và ghi nhận treatment, không thưởng điểm chỉ vì untreated."
+      },
+      {
+        "id": "design",
+        "title": "Phù hợp COLORA / Thiết kế",
+        "weight": 5,
+        "instruction": "Thẩm mỹ gemstone-first, tỷ lệ cân xứng với mẫu, độ thấp thoải mái, sử dụng hàng ngày."
+      }
+    ],
+    "provenance": [
+      {
+        "label": "GIA - Value factors of colored gemstones",
+        "url": "https://www.gia.edu/gia-news-research/value-factors-design-cut-quality-colored-gemstone-value-factors"
+      },
+      {
+        "label": "GIA - Why colored stones are not assigned universal grades",
+        "url": "https://www.gia.edu/FAQ/gia-faq-analysis-gradinggrading-report-colored-stone"
+      }
+    ],
+    "gems": {
+      "ruby": {
+        "high": "Đỏ thuần, rực sáng đến đỏ hơi phớt tím; tông trung bình đến trung bình tối, bão hòa cao.",
+        "mid": "Đỏ hơi hồng/đỏ phớt tím hoặc cam nhẹ; ánh sáng và tính đồng nhất vẫn tốt.",
+        "lower": "Đỏ ngả cam/nâu rõ, quá nhạt hoặc quá tối khiến viên thiếu sức sống.",
+        "nuance": "Ruby quá nhạt có thể được phân loại là Pink Sapphire tùy phòng giám định và hệ thống thương mại. Không dùng 'pigeon blood' khi thiếu xác nhận.",
+        "sourcing": "Phải phân biệt xử lý nhiệt với lấp thủy tinh/chất khác; kiểm tra nứt và bao thể.",
+        "source": "https://www.gia.edu/ruby/buyers-guide"
+      },
+      "sapphire": {
+        "high": "Xanh lam mượt đến xanh lam hơi tím, tông trung bình - trung bình tối, bão hòa mạnh đến sống động.",
+        "mid": "Xanh lam tươi nhưng bão hòa vừa hoặc hơi nhạt, vẫn phản sáng và đồng đều.",
+        "lower": "Xanh xám, quá nhạt, quá đen/tối hoặc chia vùng màu rõ làm giảm hấp dẫn trong nhóm sapphire xanh.",
+        "nuance": "Padparadscha hồng cam và Sapphire fancy cần so sánh trong nhóm riêng; không xếp mọi màu Sapphire theo thang xanh lam.",
+        "sourcing": "Kiểm tra xử lý nhiệt, khuếch tán, nguồn gốc được công bố và các vùng màu.",
+        "source": "https://www.gia.edu/sapphire/buyers-guide"
+      },
+      "garnet": {
+        "high": "Tùy giống: Tsavorite/Demantoid xanh lục rực; Spessartine cam tươi; Rhodolite tím đỏ rực.",
+        "mid": "Đỏ rượu vang, tím đỏ hoặc cam đẹp, sắc độ rõ và đủ sáng trong đúng giống Garnet.",
+        "lower": "Trong cùng giống, màu ngả nâu nhiều, đỏ đen ít phản sáng hoặc bão hòa kém.",
+        "nuance": "Garnet là cả nhóm khoáng vật: Demantoid, Tsavorite, Spessartine và Almandine không thể xếp giá chỉ bằng màu. Xác định giống trước.",
+        "sourcing": "Yêu cầu tên giống, độ trong và nguy cơ bao thể; tránh áp dụng cùng tiêu chí eye-clean cho mọi Garnet.",
+        "source": "https://www.gia.edu/garnet-quality-factor"
+      },
+      "topaz": {
+        "high": "Đỏ, đỏ cam và hồng hiếm; sắc đỏ cam đặc trưng của một số viên được gọi Imperial Topaz.",
+        "mid": "Vàng cam, vàng sáng hoặc hồng đẹp, có độ trong và phản quang tốt.",
+        "lower": "Topaz không màu hoặc xanh lam xử lý phổ biến thường có giá thị trường thấp hơn nhóm đỏ/hồng/Imperial cùng điều kiện.",
+        "nuance": "'Imperial' không có ranh giới màu thống nhất; tuyệt đối không tự gắn tên thương mại này khi chưa xác minh. Xanh đậm không tự suy ra giá cao.",
+        "sourcing": "Kiểm tra chiếu xạ/nhiệt, phủ màu và cát khai rõ của Topaz khi thiết kế nhẫn.",
+        "source": "https://www.gia.edu/topaz-quality-factor"
+      },
+      "aquamarine": {
+        "high": "Xanh lam trung bình đến đậm, hơi ánh lục rất nhẹ, cường độ màu vừa - mạnh, trong và sáng.",
+        "mid": "Xanh nước biển nhẹ đến vừa, sắc tương đối đều, tinh khiết và dễ phối trang sức.",
+        "lower": "Xanh quá nhạt gần không màu, ngả lục quá rõ hoặc chia vùng màu gây thiếu nhất quán.",
+        "nuance": "Tông xanh pastel có giá trị thẩm mỹ riêng cho COLORA dù thường thấp hơn sắc xanh bão hòa sâu trên thị trường.",
+        "sourcing": "Aquamarine được kỳ vọng khá trong; kiểm tra các khe nứt, bao thể lỏng và tình trạng gia nhiệt.",
+        "source": "https://www.gia.edu/aquamarine-quality-factor"
+      },
+      "citrine": {
+        "high": "Vàng bão hòa đến cam đỏ, sáng và rõ màu, ít hoặc không bị ám nâu.",
+        "mid": "Vàng mật ong, vàng cam sáng và đều màu, không bao thể nhìn thấy.",
+        "lower": "Quá nhạt, nâu xỉn, chia vùng màu gây mất cân đối hoặc bao thể nhìn thấy rõ.",
+        "nuance": "Thị trường cũng ưa tông cam nâu ấm; 'kém giá trị tương đối' không có nghĩa màu đó không đẹp hoặc không phù hợp thiết kế.",
+        "sourcing": "Citrine rất thường có dạng được gia nhiệt từ Amethyst; không mặc định untreated.",
+        "source": "https://www.gia.edu/citrine/buyers-guide"
+      },
+      "peridot": {
+        "high": "Xanh lục tươi, bão hòa cao, ít sắc vàng hoặc nâu, đủ trong và phản sáng.",
+        "mid": "Xanh lục vàng đặc trưng, sáng và dễ nhận diện, không ám nâu đáng kể.",
+        "lower": "Ngả nâu, ngả vàng nhiều hoặc sắc nhạt, kém trong và ít sức sống.",
+        "nuance": "Đá xanh lục thuần hiếm; điều kiện tông màu và kích thước làm thay đổi mức đánh giá.",
+        "sourcing": "Kiểm tra cạnh mẻ, bao thể gây nứt, cân nhắc độ bền khi đeo hàng ngày.",
+        "source": "https://www.gia.edu/peridot-quality-factor"
+      },
+      "spinel": {
+        "high": "Đỏ rực, xanh cobalt đậm sáng, hồng sống động hoặc cam rực.",
+        "mid": "Hồng vừa, đỏ nhẹ, xanh tím rõ hoặc tím lilac đẹp, phản sáng khá.",
+        "lower": "Tím lavender rất nhạt, xám nhiều, xanh xám hoặc tối quá khiến viên giảm độ trong sáng.",
+        "nuance": "Spinel lavender thường dễ tiếp cận về giá nhưng không mặc định là đá chất lượng kém. Xanh cobalt phải có cơ sở chuyên môn.",
+        "sourcing": "Phân biệt Spinel tự nhiên/synthetic; tránh nhầm Spinel đỏ với Ruby.",
+        "source": "https://www.gia.edu/spinel-quality-factor"
+      },
+      "tourmaline": {
+        "high": "Nhóm mang đồng kiểu Paraíba: xanh lam - xanh lục neon; Rubellite đỏ hồng rực; Tourmaline xanh lục sáng cao cấp.",
+        "mid": "Hồng, xanh lam hoặc xanh lục rõ màu, đủ tươi, có phản sáng đồng đều.",
+        "lower": "Xanh olive ngả nâu hoặc quá tối gần đen, kém phản sáng; nhiều viên phổ thông bão hòa thấp.",
+        "nuance": "Paraíba là nhóm cần xác định tính chất/nguyên tố và tên thương mại chính xác; không thể suy từ màu xanh neon. Tourmaline đa sắc chủ đích là ngoại lệ cho độ đều màu.",
+        "sourcing": "Xác minh nhóm Tourmaline, quá trình xử lý, màu từng chiều và vùng tối do đa sắc.",
+        "source": "https://www.gia.edu/tourmaline-quality-factor"
+      }
+    }
+  }
 }
