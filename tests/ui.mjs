@@ -44,12 +44,17 @@ try{
   assert.equal(await page.locator('#operations .ops-steps li').count(),6);
   assert((await page.locator('#operations .ops-risk').innerText()).includes('Chia nhỏ'));
   await page.locator('#operations [data-ops-back]').first().click();
+  await page.locator('#operations .ops-score-table tbody tr').first().waitFor({state:'visible'});
   assert.equal(await page.locator('#operations .ops-score-table tbody tr').count(),8,'Rubric is seven criteria plus total');
   assert.equal(await page.evaluate(()=>window.COLORA_OPS_PLAYBOOK?.templateColumns),26);
   const dlPromise=page.waitForEvent('download');
   await page.locator('#operations [data-ops-download]').click();
   const dl=await dlPromise;
   assert(dl.suggestedFilename().includes('Supplier_Comparison_5_Vendors'),'Blank five-vendor template download');
+  const trackerPromise=page.waitForEvent('download');
+  await page.locator('#operations [data-ops-tracker]').click();
+  const tracker=await trackerPromise;
+  assert(tracker.suggestedFilename().includes('Procurement_Tracking_TEMPLATE'),'Procurement follow-up tracker download');
   await page.setViewportSize({width:390,height:844});
   const opsWidths=await page.evaluate(()=>[document.documentElement.scrollWidth,innerWidth]);
   assert(opsWidths[0]<=opsWidths[1]+2,'Operations mobile overflow: '+opsWidths);
