@@ -33,6 +33,9 @@ jobs:
           node --check scripts/build-account-release.mjs
           node --check account-auth/account-login.js
           node --check site/app.js
+          node --check site/operations-data.js
+          node --check site/operations.js
+          node tests/operations.mjs
           node --check site/module-host.js
           node --check site/jd-workspace.js
           node --check tests/live-password-check.mjs
