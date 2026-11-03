@@ -27,6 +27,12 @@ export function makeSearchIndex(root){
     [a.category,...(a.tags||[]),...(a.sections||[]).flatMap(s=>[s.title,...(s.body||[]),...(s.points||[])])].join(' '),
     'library/'+encodeURIComponent(a.id),2);
 
+  const operations=readGlobal('site/operations-data.js','COLORA_OPERATIONS');
+  for(const p of operations.procedures)put('operations-'+p.id,'Operations Playbook',p.title,
+    p.trigger+' - Dự thảo chờ phê duyệt nội bộ.',
+    [p.group,p.owner,p.decision,...p.steps.map(x=>x.action+' '+x.evidence),...p.redFlags,...p.records].join(' '),
+    'operations/'+p.id,5);
+
   const lessons=readJson('modules/learning/data/lessons.json');
   for(const a of lessons)put('learning-'+a.id,'Learning Studio',a.title,a.subtitle,
     [a.learning_objective,...(a.points||[])].join(' '),

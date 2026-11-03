@@ -119,7 +119,7 @@
     "steps": "Ưu tiên hướng dẫn đã duyệt của đúng sản phẩm. Chưa xác nhận cấu hình thì chỉ khuyên xử lý nhẹ bằng khăn mềm sạch khô và xin ý kiến kỹ thuật khi cần vệ sinh sâu.",
     "reply": "Chào bạn, cách chăm sóc còn tùy viên đá và lớp hoàn thiện của mẫu. Để tránh ảnh hưởng sản phẩm, bạn có thể lau nhẹ bằng khăn mềm sạch khô. Mình sẽ kiểm tra hướng dẫn dành riêng cho mẫu này nếu bạn muốn vệ sinh sâu.",
     "warning": "Không khuyên siêu âm, hơi nước, ngâm hóa chất cho mọi sản phẩm.",
-    "route": "library/care",
+    "route": "library/care-guide",
     "urgent": false
   },
   {
@@ -249,7 +249,7 @@
     input.value='';results.replaceChildren();lastFocus?.focus?.();
   }
   function go(route){
-    if(!/^(?:library|learning|client-care|brand-guide|email-templates)(?:\/[a-z0-9/_-]+)?$/.test(route))return;
+    if(!/^(?:library|learning|client-care|brand-guide|email-templates|operations)(?:\/[a-z0-9/_-]+)?$/.test(route))return;
     close();const dest='#'+route;
     if(location.hash===dest)window.dispatchEvent(new Event('hashchange'));
     else location.hash=route;

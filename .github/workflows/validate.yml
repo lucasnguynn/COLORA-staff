@@ -21,6 +21,9 @@ jobs:
           node --check scripts/security-audit.mjs
           node --check scripts/build-quick-search.mjs
           node --check site/quick-search.js
+          node --check site/operations-data.js
+          node --check site/operations.js
+          node tests/operations.mjs
           node --check tests/quick-search-index.mjs
           node tests/quick-search-index.mjs
           node --check site/app.js

@@ -9,7 +9,7 @@
   // Role is part of the encrypted shell, not an access-control flag by
   // itself. Only Senior-encrypted HTML includes the actual bundled JD app.
   const isSenior=document.body.dataset.staffRole==='senior';
-  const labels = {home:'Staff Workspace',library:'Resource Library','brand-guide':'Brand & Packaging',learning:'Learning Studio','client-care':'Client Care Academy',qr:'QR Generator',signature:'Email Signature','email-templates':'Email Templates','mail-setup':'Cài đặt Email',jd:'JD Library'};
+  const labels = {home:'Staff Workspace',library:'Resource Library',operations:'Operations Playbook','brand-guide':'Brand & Packaging',learning:'Learning Studio','client-care':'Client Care Academy',qr:'QR Generator',signature:'Email Signature','email-templates':'Email Templates','mail-setup':'Cài đặt Email',jd:'JD Library'};
   const $$ = s => [...document.querySelectorAll(s)];
   const $ = id => document.getElementById(id);
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -37,7 +37,7 @@
     window.COLORA_JD_WORKSPACE?.dispose();
     $('jd-workspace-controls').hidden=true;
     $('module').dataset.activeModule=isModuleName(view)?view:'';
-    ['dashboard','library-view','brand-guide','module','signature-tool','email-templates','mail-guide'].forEach(id=>$(id).hidden=true);
+    ['dashboard','library-view','operations','brand-guide','module','signature-tool','email-templates','mail-guide'].forEach(id=>$(id).hidden=true);
     const isModule=Object.prototype.hasOwnProperty.call(modules,view);
     if (isModule) {
       const data=modules[view];
@@ -109,7 +109,7 @@
       frame.removeAttribute('srcdoc');
       frame.removeAttribute('src');
       $('module-status').hidden=true;
-      $(view==='home'?'dashboard':view==='library'?'library-view':view==='brand-guide'?'brand-guide':view==='mail-setup'?'mail-guide':view==='email-templates'?'email-templates':'signature-tool').hidden=false;
+      $(view==='home'?'dashboard':view==='library'?'library-view':view==='operations'?'operations':view==='brand-guide'?'brand-guide':view==='mail-setup'?'mail-guide':view==='email-templates'?'email-templates':'signature-tool').hidden=false;
     }
     document.body.classList.remove('module-immersive');
     $('module-expand').setAttribute('aria-pressed','false');
@@ -120,7 +120,7 @@
     document.title=labels[view]+' | COLORA Staff';
     window.scrollTo({top:0,behavior:'instant'});
   }
-  function applyRoute(){const route=decodeURIComponent(location.hash.slice(1)||'home');const [view,...parts]=route.split('/');const detail=parts.join('/');navigate(view,detail);if(view==='library'&&typeof window.COLORA_LIBRARY_OPEN==='function')window.COLORA_LIBRARY_OPEN(detail||'');if(view==='brand-guide'&&['identity-logo','identity-pattern','identity-moodboard','identity-packaging'].includes(detail))requestAnimationFrame(()=>document.getElementById(detail)?.scrollIntoView({block:'start'}));if(view==='mail-setup'&&typeof window.COLORA_MAIL_GUIDE_SHOW==='function')window.COLORA_MAIL_GUIDE_SHOW(detail||'outlook');}
+  function applyRoute(){const route=decodeURIComponent(location.hash.slice(1)||'home');const [view,...parts]=route.split('/');const detail=parts.join('/');navigate(view,detail);if(view==='library'&&typeof window.COLORA_LIBRARY_OPEN==='function')window.COLORA_LIBRARY_OPEN(detail||'');if(view==='operations'&&typeof window.COLORA_OPS_PLAYBOOK?.open==='function')window.COLORA_OPS_PLAYBOOK.open(detail||'');if(view==='brand-guide'&&['identity-logo','identity-pattern','identity-moodboard','identity-packaging'].includes(detail))requestAnimationFrame(()=>document.getElementById(detail)?.scrollIntoView({block:'start'}));if(view==='mail-setup'&&typeof window.COLORA_MAIL_GUIDE_SHOW==='function')window.COLORA_MAIL_GUIDE_SHOW(detail||'outlook');}
   // An explicit switch-account action clears only the Staff remember-me
   // credentials, so a remembered Staff session cannot trap Senior users.
   const switchAccount=$('switch-account');
