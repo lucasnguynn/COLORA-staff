@@ -5,117 +5,87 @@ window.COLORA_OPS_PLAYBOOK=(()=>{
   const root=document.getElementById('operations-root');
   if(!D||!root)return {open:()=>{}};
   const e=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'' :'&#39;'}[c]));
-  const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').toLowerCase().trim();
-  const roles=[
-    ['Requester','Mô tả nhu cầu, spec, lý do và hồ sơ đề nghị. Không tự tạo cam kết.'],
-    ['Department Lead','Chứng minh giá trị, duyệt phạm vi đề xuất và ưu tiên trong budget.'],
-    ['Finance','Đối soát ngân sách, tổng chi phí, đối tác, tài khoản ngân hàng, hóa đơn và cash forecast.'],
-    ['Product / QC / Brand','Xác nhận chuẩn kỹ thuật, hồ sơ đá/SKU, quyền media và điều kiện nghiệm thu.'],
-    ['CEO / Authorized approver','Quyết định ngoại lệ, chi vượt và hợp đồng theo ma trận phân quyền đã ký duyệt.']
-  ];
+  const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/đ/g,'d').trim();
   const templates={
-    purchase:{title:'Purchase Request - Nội dung cần điền',text:[
-      'REQUEST ID: [Mã yêu cầu trong Drive bảo mật]',
-      'DEPARTMENT / OWNER: [Phòng ban / người phụ trách]',
-      'PURPOSE AND BUSINESS IMPACT: [Mục đích và lý do cần mua]',
-      'SPEC / QUANTITY / ACCEPTANCE: [Tiêu chuẩn, số lượng, nghiệm thu]',
-      'BUDGET LINE / REMAINING: [Chỉ lưu trong Sheet phân quyền]',
-      'TARGET DELIVERY / RISK: [Mốc và rủi ro]',
-      'FIVE SUPPLIERS SEARCH PLAN: [Cách tìm 5 nhà cung cấp]',
-      'QUOTATION REGISTER LINK: [Đường dẫn Drive phân quyền]',
-      'REQUEST FOR APPROVAL: [Chưa tạo PO trước khi được duyệt]'
+    purchase:{title:'Yêu cầu mua hàng',text:[
+      'Cần mua: [Tên hàng / dịch vụ]',
+      'Số lượng / yêu cầu: [...]',
+      'Hạn cần: [...]',
+      'Ngân sách dự kiến: [Ghi trong Sheet nội bộ]',
+      'Người phụ trách: [...]',
+      'Lý do cần mua: [...]'
     ].join('\n')},
-    rfq:{title:'RFQ email - Yêu cầu báo giá thống nhất',text:[
-      'Subject: COLORA - RFQ [Reference] - [Category]',
+    rfq:{title:'Email xin báo giá',text:[
+      'Subject: COLORA - Yêu cầu báo giá [Hạng mục]',
       'Chào anh/chị,',
-      'COLORA đang tham khảo báo giá cho [hạng mục] theo yêu cầu kỹ thuật đính kèm.',
-      'Vui lòng phản hồi: báo giá, số lượng/MOQ, thời gian, VAT, phí vận chuyển,',
-      'thanh toán, thời hạn hiệu lực, quy trình đổi lỗi, chứng từ và mẫu khi cần.',
-      'Đề nghị gửi báo giá bằng email doanh nghiệp từ người được ủy quyền.',
-      'Hạn nhận báo giá: [ngày và giờ]. Phản hồi làm rõ sẽ được xác nhận qua email.',
-      'Trân trọng,',
-      '[Người phụ trách] | COLORA'
+      'Bên mình cần báo giá cho [hạng mục], số lượng [số lượng].',
+      'Nhờ anh/chị gửi giá, thời gian giao, phí khác nếu có, điều kiện thanh toán và cách xử lý hàng lỗi.',
+      'Mong nhận báo giá qua email trước [ngày].',
+      'Cảm ơn anh/chị.'
     ].join('\n')},
-    exception:{title:'Budget Exception - Mẫu xin phê duyệt',text:[
-      'SUBJECT: COLORA - Budget Exception Request - [Reference]',
-      'Dự toán đã duyệt: [lưu trong Finance Sheet phân quyền]',
-      'Đã chi / đã cam kết / còn lại: [đối soát riêng]',
-      'Yêu cầu mới / phần vượt: [số liệu trong file phân quyền]',
-      'Lý do và mức độ khẩn cấp: ...',
-      'Phương án 1 - giảm scope / hoãn lịch: ...',
-      'Phương án 2 - đàm phán / vendor khác: ...',
-      'Tác động dòng tiền và deadline: ...',
-      'Xác nhận từ Department Lead: ...',
-      'Rà soát Finance: ...',
-      'Người có quyền quyết định và phạm vi phê duyệt: ...',
-      'Không cam kết hoặc đặt cọc trước khi duyệt.'
+    exception:{title:'Xin duyệt vượt ngân sách',text:[
+      'Subject: COLORA - Xin duyệt chi vượt ngân sách [Hạng mục]',
+      'Ngân sách còn lại: [...]',
+      'Khoản cần chi: [...]',
+      'Số tiền vượt: [...]',
+      'Lý do: [...]',
+      'Phương án khác đã xem xét: [...]',
+      'Đề nghị phê duyệt: [...]'
     ].join('\n')},
-    agency:{title:'Media Agency Brief - Thông tin tối thiểu',text:[
-      'PROJECT / OWNER / DATE: ...',
-      'GOAL: [Awareness / product education / launch / conversion]',
-      'AUDIENCE / INSIGHT: ...',
-      'COLORA BRAND DNA: gemstone-first, quiet luxury, hands as hero',
-      'SCOPE: [Video / macro photos / editing / media buying / reporting]',
-      'DELIVERABLES & SPECS: [Số lượng, ratio, raw/master, định dạng]',
-      'TIMELINE / APPROVAL ROUNDS: ...',
-      'BUDGET CAP: [Chỉ chia sẻ qua Drive/email được phân quyền]',
-      'AGENCY SERVICE FEE VS MEDIA SPEND: [Tách riêng]',
-      'KPI / ATTRIBUTION / REPORT CADENCE: ...',
-      'IP / LICENSE / TALENT RELEASE / MUSIC / STOCK: ...',
-      'ACCOUNT OWNERSHIP / ACCESS / DATA HANDLING: ...',
-      'CHANGE REQUEST / OFFBOARDING / ACCEPTANCE: ...'
+    agency:{title:'Brief media agency',text:[
+      'Dự án / mục tiêu: [...]',
+      'Sản phẩm và thông điệp: [...]',
+      'Cần bàn giao: [Số ảnh / video / nội dung]',
+      'Phong cách và ảnh tham khảo: [...]',
+      'Deadline: [...]',
+      'Ngân sách: [Trao đổi qua kênh được phân quyền]',
+      'Phí agency và ngân sách quảng cáo: [Tách riêng]',
+      'File gốc / quyền sử dụng / số vòng chỉnh sửa: [...]',
+      'Người duyệt nội dung: [...]'
     ].join('\n')},
-    meeting:{title:'Negotiation recap - Mẫu email xác nhận',text:[
-      'Subject: COLORA - Meeting Recap - [Supplier] - [Reference]',
-      'Ngày họp / đại diện của hai bên: ...',
-      'Scope / báo giá version đang trao đổi: ...',
-      'Các điểm đã thống nhất về nguyên tắc: ...',
-      'Các điểm chưa thống nhất / đề xuất: ...',
-      'Ảnh hưởng đến giá, timeline, QC, IP hoặc payment: ...',
-      'Người phụ trách / hạn phản hồi: ...',
-      'Vui lòng xác nhận hoặc ghi rõ điểm cần sửa bằng email.',
-      'Lưu ý: recap không thay thế phụ lục hợp đồng có hiệu lực.'
+    meeting:{title:'Email tóm tắt sau đàm phán',text:[
+      'Subject: COLORA - Xác nhận nội dung trao đổi [Hạng mục]',
+      'Chào anh/chị,',
+      'Mình gửi lại các điểm đã trao đổi hôm nay:',
+      'Giá / phạm vi: [...]',
+      'Thời hạn: [...]',
+      'Thanh toán / bàn giao / xử lý lỗi: [...]',
+      'Các điểm còn cần xác nhận: [...]',
+      'Nhờ anh/chị phản hồi lại bằng email. Cảm ơn anh/chị.'
     ].join('\n')}
   };
   let group='all',query='',active=null;
   function btn(text,attrs=''){return '<button type="button" '+attrs+'>'+e(text)+'</button>'}
   function csvRow(values){return values.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')+'\r\n'}
   function getCsv(){
-    const cols=['Supplier code','Legal entity','Verified identity / email','Quote date','Currency','Unit price','Quantity','Subtotal','Freight','Nonrecoverable import/tax','Comparable landed cost','Payment terms','Lead days','Quote valid until',
-      ...D.rubric.map(r=>r.title+' (1-5)'),'Weighted score /100','Hard gates (PASS/HOLD)','Reviewer notes','Reviewed by','Approval reference'];
+    // A deliberately blank five-supplier grid. Staff decide which rows matter.
+    // No preset evaluation criteria, scores, weights, rankings or formulas.
+    const cols=['Nội dung tự chọn','Nhà cung cấp 1','Nhà cung cấp 2','Nhà cung cấp 3','Nhà cung cấp 4','Nhà cung cấp 5','Ghi chú'];
     let csv='\ufeff'+csvRow(cols);
-    for(let n=2;n<=6;n++){
-      const row=Array(cols.length).fill('');
-      row[0]='S'+(n-1);
-      row[7]='=IF(OR(F'+n+'="",G'+n+'=""),"",F'+n+'*G'+n+')';
-      row[10]='=IF(H'+n+'="","",SUM(H'+n+',I'+n+',J'+n+'))';
-      row[21]='=IF(COUNT(O'+n+':U'+n+')<7,"",ROUND(SUMPRODUCT(O'+n+':U'+n+',{25,20,15,15,10,10,5})/5,1))';
-      row[22]='HOLD';
-      csv+=csvRow(row);
-    }
+    for(let i=0;i<12;i++)csv+=csvRow(Array(cols.length).fill(''));
     return csv;
   }
   function download(){
     const url=URL.createObjectURL(new Blob([getCsv()],{type:'text/csv;charset=utf-8;'}));
-    const a=document.createElement('a');a.href=url;a.download='COLORA_Supplier_Comparison_5_Vendors_TEMPLATE.csv';
+    const a=document.createElement('a');a.href=url;a.download='COLORA_So_sanh_5_nha_cung_cap_MAU_TRONG.csv';
     document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
-    const msg=document.getElementById('operations-status');if(msg)msg.textContent='Đã tạo CSV mẫu trống cho 5 nhà cung cấp. Nhập vào Google Sheets được phân quyền và kiểm tra công thức, định dạng số theo locale.';
+    const msg=document.getElementById('operations-status');if(msg)msg.textContent='Đã tải bảng trống cho 5 nhà cung cấp. Tự thêm nội dung cần so sánh trong Google Sheets.';
   }
   function downloadTracker(){
-    const cols=['Request ID','Department','Owner','Project','Stage','Budget gate (PASS/HOLD)','Suppliers screened','Written quotes','Shortlist','Decision reference','Contract / PO ref','Agreement version','Delivery / QC status','Invoice status','Amount status (private sheet ref only)','Issue / risk','Action owner','Next action','Next due date','Last updated','Evidence folder link','Closeout status'];
+    const cols=['Mã yêu cầu','Bộ phận','Việc cần mua','Người phụ trách','Nhà cung cấp','Trạng thái','Việc tiếp theo','Hạn xử lý','Link hồ sơ','Ghi chú'];
     let csv='\ufeff'+csvRow(cols);
     for(let i=0;i<15;i++)csv+=csvRow(Array(cols.length).fill(''));
     const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));
-    const a=document.createElement('a');a.href=url;a.download='COLORA_Procurement_Tracking_TEMPLATE.csv';
+    const a=document.createElement('a');a.href=url;a.download='COLORA_Theo_doi_mua_hang_MAU_TRONG.csv';
     document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
     const msg=document.getElementById('operations-status');
-    if(msg)msg.textContent='Đã tạo tracker trống. Lưu trong Google Sheets có phân quyền, gán owner, deadline và link chứng cứ cho từng yêu cầu.';
+    if(msg)msg.textContent='Đã tải bảng theo dõi trống. Tạo bản sao trong Sheets công ty để cập nhật công việc.';
   }
   function header(){
-    return '<div class="ops-hero"><div class="ops-kicker">COLORA / OPERATIONS & GOVERNANCE</div>'+
-      '<h1>Work with <em>clarity.</em></h1><p>Hướng dẫn công việc từ đề nghị chi phí, lựa chọn nhà cung cấp, đàm phán đến nghiệm thu, truyền thông và bàn giao.</p>'+
-      '<div class="ops-hero-meta"><span>13 quy trình thực hành</span><span>5 nhà cung cấp tối thiểu</span><span>Dự thảo - chờ duyệt nội bộ</span></div></div>'+
-      '<p class="ops-important"><strong>Trạng thái:</strong> '+e(D.notice)+' '+e(D.security)+'</p>';
+    return '<div class="ops-hero"><div class="ops-kicker">COLORA / OPERATIONS</div>'+
+      '<h1>Work with <em>clarity.</em></h1><p>Chọn việc cần làm để xem các bước xử lý thực tế.</p>'+
+      '<div class="ops-hero-meta"><span>13 hướng dẫn công việc</span><span>Ngắn gọn, dễ áp dụng</span></div></div>'+
+      '<p class="ops-important"><strong>Lưu ý:</strong> '+e(D.notice)+' '+e(D.security)+'</p>';
   }
   function groups(){
     return ['all',...new Set(D.procedures.map(x=>x.group))];
@@ -136,51 +106,46 @@ window.COLORA_OPS_PLAYBOOK=(()=>{
         '<span>'+e(p.trigger)+'</span><span class="ops-card-action">Xem quy trình</span></button>').join('')+'</div>'+
       (filtered.length?'':'<p class="ops-empty">Không tìm thấy quy trình phù hợp. Thử từ khóa ngắn hơn.</p>');
   }
-  function workflow(){
-    return '<section class="ops-panel"><div class="ops-kicker">PURCHASE WORKFLOW</div><h2>Từ yêu cầu đến quyết toán</h2>'+
-      '<div class="ops-timeline">'+D.stages.map((x,i)=>'<span><small>'+String(i+1).padStart(2,'0')+'</small>'+e(x)+'</span>').join('')+'</div>'+
-      '<p class="ops-muted">Quy trình 5 nhà cung cấp là yêu cầu đề xuất của COLORA, không phải nghĩa vụ đấu thầu pháp lý áp dụng mặc định cho mọi doanh nghiệp.</p></section>';
-  }
   function compare(){
-    return '<section class="ops-panel" id="operations-compare"><div class="ops-kicker">TOOLS / GOOGLE SHEETS</div>'+
-      '<div class="ops-panel-heading"><div><h2>Mẫu so sánh 5 nhà cung cấp</h2><p>Tải CSV trống, nhập vào Google Sheets riêng có phân quyền, lưu báo giá gốc và có reviewer độc lập.</p></div><div class="ops-download-actions">'+btn('Tải bảng so sánh 5 nhà cung cấp','data-ops-download')+btn('Tải bảng theo dõi tiến độ','data-ops-tracker')+'</div></div>'+
-      '<div class="ops-table-wrap"><table class="ops-score-table"><thead><tr><th>Tiêu chí</th><th>Trọng số</th><th>Cách đánh giá</th></tr></thead><tbody>'+
-      D.rubric.map(r=>'<tr><td>'+e(r.title)+'</td><td>'+r.weight+'/100</td><td>Cho 1-5 điểm dựa trên bằng chứng thực</td></tr>').join('')+
-      '<tr class="ops-table-total"><td>Tổng</td><td>100/100</td><td>Điểm là tài liệu hỗ trợ, không thay thế phê duyệt</td></tr></tbody></table></div>'+
-      '<div class="ops-mini-grid"><div><strong>Công thức điểm tại V2</strong><code>=IF(COUNT(O2:U2)&lt;7,"",ROUND(SUMPRODUCT(O2:U2,{25,20,15,15,10,10,5})/5,1))</code><p>Nhập điểm 1-5 vào O-U, sao chép xuống các dòng; dấu phân cách công thức có thể khác theo locale Google Sheets.</p></div>'+
-      '<div><strong>Hard gates trước khi xếp hạng</strong><ol>'+D.gates.map(x=>'<li>'+e(x)+'</li>').join('')+'</ol><p>Với bất kỳ gate nào chưa đạt, ghi HOLD; không chọn chỉ vì điểm cao hoặc giá thấp.</p></div></div>'+
-      '<p class="ops-muted">Mẫu không chứa dữ liệu thật và không đồng bộ với Drive. Các số liệu, hợp đồng, tên vendor và thông tin thanh toán phải nằm trong Sheet được phân quyền.</p></section>';
+    return '<section class="ops-panel" id="operations-compare"><div class="ops-kicker">BIỂU MẪU / GOOGLE SHEETS</div>'+
+      '<div class="ops-panel-heading"><div><h2>Bảng so sánh nhà cung cấp</h2>'+
+      '<p>File hoàn toàn trống. Nhân viên tự chọn nội dung cần so sánh, tự nhận xét và đề xuất.</p></div></div>'+
+      '<div class="ops-download-actions">'+btn('Tải bảng so sánh 5 nhà cung cấp','data-ops-download')+
+      btn('Tải bảng theo dõi công việc','data-ops-tracker')+'</div>'+
+      '<p class="ops-muted">Tải CSV rồi mở bằng Google Sheets. Lưu báo giá gốc và dữ liệu thật trong Drive có phân quyền. Không có thang điểm, trọng số hoặc kết luận tự động.</p></section>';
   }
   function templatesView(){
-    return '<section class="ops-panel"><div class="ops-kicker">READY TO ADAPT</div><h2>Mẫu biểu và email</h2><div class="ops-template-grid">'+
-      Object.entries(templates).map(([id,t])=>'<article class="ops-template"><strong>'+e(t.title)+'</strong><pre>'+e(t.text)+'</pre>'+btn('Sao chép mẫu','data-ops-copy="'+e(id)+'"')+'</article>').join('')+'</div>'+
-      '<p class="ops-muted">Sử dụng bản sao trong Drive công ty. Không dán bản chứa tên nhà cung cấp hoặc ngân sách thực trở lại mã nguồn Staff.</p></section>';
-  }
-  function governance(){
-    return '<section class="ops-panel"><div class="ops-kicker">CONTROL FRAMEWORK</div><h2>Phân vai và nguyên tắc</h2>'+
-      '<div class="ops-role-grid">'+roles.map(([role,detail])=>'<div><strong>'+e(role)+'</strong><p>'+e(detail)+'</p></div>').join('')+'</div>'+
-      '<div class="ops-divider"></div><ol class="ops-principles">'+D.principles.map(x=>'<li>'+e(x)+'</li>').join('')+'</ol>'+
-      '<p class="ops-muted">Chưa có ma trận hạn mức chi VND, tên người duyệt và quyền ký được phê duyệt trong hệ thống này. CEO / Finance cần ban hành riêng trước khi coi quy trình là SOP bắt buộc.</p></section>';
+    return '<details class="ops-panel ops-collapsible"><summary>Mẫu email và đề nghị có thể sao chép</summary>'+
+      '<div class="ops-template-grid">'+Object.entries(templates).map(([id,t])=>
+        '<article class="ops-template"><strong>'+e(t.title)+'</strong><pre>'+e(t.text)+'</pre>'+
+        btn('Sao chép','data-ops-copy="'+e(id)+'"')+'</article>').join('')+'</div></details>';
   }
   function sources(){
-    return '<section class="ops-panel ops-source"><div class="ops-kicker">LEGAL REFERENCE</div><h2>Nguồn tham chiếu chính thức</h2>'+
+    return '<details class="ops-panel ops-collapsible"><summary>Nguồn tham khảo pháp lý</summary>'+
       '<div class="ops-sources">'+D.sources.map(x=>'<a target="_blank" rel="noopener noreferrer" href="'+e(x.url)+'"><strong>'+e(x.label)+'</strong><span>'+e(x.scope)+'</span></a>').join('')+'</div>'+
-      '<p class="ops-muted">Dẫn chiếu pháp luật phục vụ tra cứu. Nội dung hợp đồng, thuế, dữ liệu và quảng cáo cần được người phụ trách đối chiếu trường hợp cụ thể và văn bản hiện hành.</p></section>';
+      '<p class="ops-muted">Đối chiếu các văn bản hiện hành khi phát sinh vấn đề cụ thể.</p></details>';
   }
   function index(){
-    return header()+filterView()+workflow()+compare()+governance()+templatesView()+sources()+'<p id="operations-status" class="ops-feedback" role="status" aria-live="polite"></p>';
+    return header()+filterView()+compare()+templatesView()+sources()+
+      '<p id="operations-status" class="ops-feedback" role="status" aria-live="polite"></p>';
   }
   function detail(p){
-    return header()+'<div class="ops-back">'+btn('Quay về danh mục','data-ops-back')+'</div>'+
-      '<section class="ops-detail"><div class="ops-kicker">'+e(p.group)+' / PROCESS</div><h2>'+e(p.title)+'</h2>'+
+    return header()+'<div class="ops-back">'+btn('Quay lại danh sách','data-ops-back')+'</div>'+
+      '<section class="ops-detail"><div class="ops-kicker">'+e(p.group)+'</div><h2>'+e(p.title)+'</h2>'+
       '<p class="ops-lead">'+e(p.trigger)+'</p>'+
-      '<div class="ops-owner"><strong>Người tham gia</strong><span>'+e(p.owner)+'</span></div>'+
-      '<div class="ops-kicker">WORKFLOW / STEP BY STEP</div><ol class="ops-steps">'+p.steps.map((s,i)=>'<li>'+
-        '<span class="ops-step-no">'+String(i+1).padStart(2,'0')+'</span><div><strong>'+e(s.action)+'</strong><p><b>Minh chứng / đầu ra:</b> '+e(s.evidence)+'</p></div></li>').join('')+'</ol>'+
-      '<div class="ops-detail-grid"><div class="ops-risk"><div class="ops-kicker">STOP / ESCALATE</div><h3>Dấu hiệu cần dừng và báo cáo</h3><ul>'+p.redFlags.map(x=>'<li>'+e(x)+'</li>').join('')+'</ul></div>'+
-      '<div class="ops-records"><div class="ops-kicker">RECORDS & CONTROL</div><h3>Tài liệu cần lưu</h3><ul>'+p.records.map(x=>'<li>'+e(x)+'</li>').join('')+'</ul><p><strong>Điều kiện quyết định:</strong> '+e(p.decision)+'</p></div></div></section>'+
-      '<div class="ops-next">'+btn('Quay về toàn bộ quy trình','data-ops-back')+
-      (['supplier-comparison','supplier-screening','purchase-intake','negotiation'].includes(p.id)?btn('Xem mẫu Sheets','data-ops-go-compare'):'')+'</div>'+
+      '<div class="ops-owner"><strong>Ai phụ trách:</strong><span>'+e(p.owner)+'</span></div>'+
+      '<div class="ops-kicker">CÁC BƯỚC THỰC HIỆN</div>'+
+      '<ol class="ops-steps">'+p.steps.map((step,i)=>'<li>'+
+        '<span class="ops-step-no">'+String(i+1).padStart(2,'0')+'</span>'+
+        '<div><strong>'+e(step.action)+'</strong></div></li>').join('')+'</ol>'+
+      '<div class="ops-detail-grid"><div class="ops-risk"><h3>Cần lưu ý</h3><ul>'+
+      p.redFlags.map(x=>'<li>'+e(x)+'</li>').join('')+'</ul></div>'+
+      '<div class="ops-records"><h3>Cần lưu lại</h3><ul>'+
+      p.records.map(x=>'<li>'+e(x)+'</li>').join('')+'</ul>'+
+      '<p><strong>Trước khi tiếp tục:</strong> '+e(p.decision)+'</p></div></div></section>'+
+      '<div class="ops-next">'+btn('Quay lại danh sách','data-ops-back')+
+      (['supplier-comparison','supplier-screening','purchase-intake','negotiation'].includes(p.id)?
+        btn('Tải mẫu so sánh','data-ops-go-compare'):'')+'</div>'+
       '<p id="operations-status" class="ops-feedback" role="status" aria-live="polite"></p>';
   }
   function open(id=''){
@@ -218,5 +183,5 @@ window.COLORA_OPS_PLAYBOOK=(()=>{
     }
   });
   open();
-  return {open,version:D.version,templateColumns:26};
+  return {open,version:D.version,templateColumns:7};
 })();

@@ -1,3 +1,12 @@
+## Operations Playbook - practical version
+
+- Staff and Senior have 13 short procedures for purchasing, budget exceptions, vendor communication, media agency coordination and operational handovers.
+- The supplier comparison download is intentionally a blank CSV: staff define the rows they want to compare, with five supplier columns and a notes column. It contains no preset criteria, scores, weights, formulas or automated rankings.
+- The purchase-tracking CSV has only core ownership, status, due date, evidence-link and next-action fields.
+- Optional copyable email templates and official reference sources are collapsed by default, to keep the main page readable on mobile.
+- Buying should consider at least five suppliers unless the department approves a documented exception. Over-budget commitments require the appropriate approval. Email summaries preserve key supplier negotiations.
+- These are training/reference SOP drafts, not proof of approved company signing authority. Never add private quotations, bank details, customer information or budget records to static public frontend files.
+
 ## Illustrated Brand & Packaging guide — November 2026
 
 The Staff and Senior encrypted workspaces include a **Brand & Packaging** navigation section with illustrations of the official COLORA logo, seven brand colors, typography, original facet SVG files, moodboard principles and a packaging reference board.

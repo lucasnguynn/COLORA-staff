@@ -114,3 +114,29 @@
  #operations .ops-risk,#operations .ops-records{padding:17px}
 }
 @media(prefers-reduced-motion:reduce){#operations button{transition:none!important}}
+
+/* Practical playbook: templates and legal notes stay optional and out of the way. */
+#operations .ops-collapsible{padding:18px 0;margin-top:8px}
+#operations .ops-collapsible>summary{cursor:pointer;list-style:none;display:block;position:relative;padding:9px 28px 9px 0;font:600 15px/1.5 "Open Sans",Arial,sans-serif;color:#002451}
+#operations .ops-collapsible>summary::-webkit-details-marker{display:none}
+#operations .ops-collapsible>summary::after{content:"+";position:absolute;right:3px;top:7px;font:400 21px/1.4 "Open Sans",Arial,sans-serif}
+#operations .ops-collapsible[open]>summary::after{content:"-"}
+#operations .ops-collapsible>summary:focus-visible{outline:3px solid #b08a5b;outline-offset:3px}
+#operations .ops-collapsible .ops-template-grid,#operations .ops-collapsible .ops-sources{margin:15px 0 8px}
+#operations .ops-panel-heading{margin-bottom:16px}
+#operations .ops-download-actions{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+#operations .ops-download-actions button{background:#002451;color:white;border:1px solid #002451;min-height:46px;padding:12px 16px;font:700 11px "Open Sans",Arial,sans-serif}
+#operations .ops-download-actions button+button{background:transparent;color:#002451;border-color:#c5b49f}
+#operations .ops-hero-meta{margin-top:19px}
+#operations .ops-steps{grid-template-columns:1fr;gap:8px}
+#operations .ops-steps li{padding:14px 17px;align-items:baseline}
+#operations .ops-steps strong{font-weight:600;font-size:13px}
+#operations .ops-detail-grid{margin-top:14px}
+#operations .ops-detail-grid h3{font-size:25px}
+#operations .ops-risk,#operations .ops-records{background:#f9f4eb;padding:18px}
+@media(max-width:760px){
+ #operations .ops-download-actions{flex-direction:column;align-items:stretch}
+ #operations .ops-download-actions button{width:100%}
+ #operations .ops-steps{grid-template-columns:1fr}
+ #operations .ops-collapsible{padding:14px 0}
+}
