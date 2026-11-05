@@ -4,7 +4,7 @@
 
 ## Staff roles
 
-The owner-approved roster contains **3 Staff and 2 Senior**. Keep the real employee email list and their passwords in the protected GitHub environment secret; never commit the roster to this public repository.
+The existing protected roster contains **3 Staff and 2 Senior**. A sixth **Staff** account can be added using a separate protected environment secret; the original five-person roster remains unchanged. Never commit any real employee credentials or password-bearing JSON to this public repository.
 
 Each approved email/password pair decrypts its own HTML envelope. Staff envelopes contain only the ordinary Staff Workspace, while Senior envelopes also contain JD Library. Each employee must use a **different** password. Passwords are independent of their BKNS mailbox passwords.
 
@@ -34,6 +34,18 @@ This system cannot verify mailbox ownership, provide MFA, rate-limit offline att
 
 5. After the workflow reports **Success**, open https://staff.colora.vn/ in a private browser and test all five accounts, logout and Senior JD Library. If it fails, read the workflow error. For invalid passwords, the build reports **Account #1–#5** with a reason but never prints the email or password.
 
+## Adding a sixth Staff account (without replacing the five existing credentials)
+
+This optional path was added to avoid re-entering the existing five-person secret. It does **not** require changing the original `COLORA_ACCOUNT_CREDENTIALS_JSON`.
+
+1. In **GitHub → COLORA-staff → Settings → Environments → github-pages → Environment secrets**, create `COLORA_ADDITIONAL_STAFF_CREDENTIALS_JSON` as one **JSON object** (not an array) with the exact keys `email`, `password`, `role`. Set `role` to `staff`. Enter the sixth person's company address and unique password **only in the GitHub secret editor**, never in a commit, PR, or issue.
+2. Existing `COLORA_ACCOUNT_CREDENTIALS_JSON` remains unchanged at five members. The build combines the original five and the additional Staff member inside the protected runner, validates all six, generates encrypted account envelopes, and publishes no plaintext roster.
+3. Run **Actions → Deploy COLORA individual encrypted accounts (opt-in) → Run workflow** on `main`. The production workflow and post-deployment login checks both use the optional secret. Confirm that all six accounts can sign in and only the two Senior members have JD access.
+4. If the optional secret is not present, the portal continues to build and deploy the **existing five users**, so source changes alone do not activate a new account. If the optional secret is malformed or duplicates an existing employee email/password, the build fails safely without publishing a partial roster.
+5. To revoke the additional member, delete the **optional** environment secret and redeploy. Previously downloaded encrypted data cannot be remotely erased.
+
+**Security:** This is a static offline-decryptable login. Avoid passwords based on staff names or email addresses. Prefer a unique randomly generated password of at least 16 characters and share it only via a secure channel.
+
 ## Remember this browser for 30 days (opt-in)
 
 The login now includes an unchecked **“Ghi nhớ đăng nhập trên thiết bị này trong 30 ngày”** option. On a trusted personal laptop, select it the first time you enter your individual email/password. Subsequent visits from the same browser profile normally open the Staff Workspace automatically without re-entering credentials.
@@ -46,7 +58,7 @@ The login now includes an unchecked **“Ghi nhớ đăng nhập trên thiết b
 
 ## Replacing a password or revoking an employee
 
-To change any password, replace only that member's `password` in `COLORA_ACCOUNT_CREDENTIALS_JSON`, update the whole GitHub Secret, and rerun the encrypted account workflow. The current build requires **exactly five** members; changing headcount requires a code update. Rebuilt ciphertext blocks decryption of the *newly deployed* site with old credentials, but previously downloaded encrypted documents cannot be remotely erased.
+To change any password, replace only that member's `password` in `COLORA_ACCOUNT_CREDENTIALS_JSON`, update the whole GitHub Secret, and rerun the encrypted account workflow. The base secret must continue to contain **exactly five** members; the sixth Staff member has its own separate protected secret. Rebuilt ciphertext blocks decryption of the *newly deployed* site with old credentials, but previously downloaded encrypted documents cannot be remotely erased.
 
 ## Rollback
 
