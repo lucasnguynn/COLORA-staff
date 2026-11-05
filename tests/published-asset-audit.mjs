@@ -52,10 +52,10 @@ assert(/^[a-f0-9]{40}$/.test(release.commit)||release.commit==='local-unversione
   'Public release version must be a commit SHA or explicit local fixture');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'account-entries.json'),'utf8'));
 assert.equal(manifest.version,1);
-assert.equal(manifest.entries.length,5);
-assert.equal(new Set(manifest.entries.map(e=>e.id)).size,5);
+assert([5,6].includes(manifest.entries.length),'Only five or six encrypted accounts allowed');
+assert.equal(new Set(manifest.entries.map(e=>e.id)).size,manifest.entries.length);
 const files=fs.readdirSync(path.join(root,'account-files'));
-assert.equal(files.length,5,'Exactly five encrypted envelopes allowed');
+assert.equal(files.length,manifest.entries.length,'Encrypted envelope count must match manifest');
 for(const e of manifest.entries){
  assert(/^[a-f0-9]{32}$/.test(e.id));
  assert(files.includes(e.id+'.json'),'Missing encrypted member file');
@@ -63,4 +63,4 @@ for(const e of manifest.entries){
  assert.equal(Buffer.from(sealed.iv,'base64').length,12,'Invalid GCM IV');
  assert(Buffer.from(sealed.ciphertext,'base64').length>120,'Empty encrypted document');
 }
-console.log('PASS: Public release file allowlist, five encrypted records, and no exposed Staff/Senior HTML.');
+console.log('PASS: Public release allowlist, '+manifest.entries.length+' encrypted records, and no exposed Staff/Senior HTML.');

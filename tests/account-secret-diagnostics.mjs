@@ -10,7 +10,7 @@ const accounts=[
  {email:'synthetic-5@colora.vn',password:'A_LONG_STRONG_SYNTHETIC_PASSWORD_005',role:'senior'}
 ];
 const result=spawnSync(process.execPath,['scripts/build-account-release.mjs'],{
- encoding:'utf8',env:{...process.env,COLORA_ACCOUNT_CREDENTIALS_JSON:JSON.stringify(accounts)}
+ encoding:'utf8',env:{...process.env,COLORA_ACCOUNT_CREDENTIALS_JSON:JSON.stringify(accounts),COLORA_ADDITIONAL_STAFF_CREDENTIALS_JSON:''}
 });
 assert.notEqual(result.status,0,'Unsafe credentials must fail closed');
 assert.match(result.stderr,/Account #2: password must contain at least 8 characters/);

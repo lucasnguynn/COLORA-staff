@@ -33,6 +33,8 @@ jobs:
           node --check site/jd-workspace.js
           node --check account-auth/account-login.js
           node --check scripts/build-account-release.mjs
+          node --check scripts/account-roster.mjs
+          node tests/account-roster.mjs
           node --check tests/account-release.mjs
           node --check tests/static-login.mjs
           node --check tests/remember-deploy-stability.mjs
@@ -118,6 +120,18 @@ jobs:
           rm -rf account-release
       - name: Test desktop, mobile and embedded tools
         run: node tests/ui.mjs
+      - name: Verify optional sixth Staff account with disposable credentials
+        env:
+          COLORA_ACCOUNT_CREDENTIALS_JSON: '[{"email":"ci-staff-one@colora.vn","password":"Ci000001","role":"staff"},{"email":"ci-staff-two@colora.vn","password":"Ci000002","role":"staff"},{"email":"ci-staff-three@colora.vn","password":"Ci000003","role":"staff"},{"email":"ci-senior-one@colora.vn","password":"Ci000004","role":"senior"},{"email":"ci-senior-two@colora.vn","password":"Ci000005","role":"senior"}]'
+          COLORA_ADDITIONAL_STAFF_CREDENTIALS_JSON: '{"email":"ci-staff-added@colora.vn","password":"Synthetic-Test-Secret-006","role":"staff"}'
+          COLORA_PREVIOUS_ACCOUNT_MANIFEST_PATH: /tmp/colora-prev-entries.json
+        run: |
+          node scripts/build-account-release.mjs
+          node tests/account-release.mjs
+          node tests/published-asset-audit.mjs
+          node -e 'const fs=require("node:fs");const old=JSON.parse(fs.readFileSync("/tmp/colora-prev-entries.json"));const current=JSON.parse(fs.readFileSync("account-release/public/account-entries.json"));if(current.entries.length!==6||old.entries.some((e,i)=>e.id!==current.entries[i].id||e.salt!==current.entries[i].salt))process.exit(1);console.log("PASS: previous five account IDs and salts preserved when sixth Staff is added")'
+          node tests/static-login.mjs
+          rm -rf account-release
       - name: Save QA screenshots
         if: always()
         uses: actions/upload-artifact@v4

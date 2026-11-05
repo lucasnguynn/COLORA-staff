@@ -1,17 +1,20 @@
-/* Test all 5 independently encrypted records, fail closed for wrong email,
+/* Test all five/six independently encrypted records, fail closed for wrong email,
  * wrong password and mismatched role. Only test credentials live in CI env.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import {pbkdf2Sync,createDecipheriv} from 'node:crypto';
+import {readAccountRoster} from '../scripts/account-roster.mjs';
 const pub=path.resolve('account-release/public');
 const html=fs.readFileSync(path.join(pub,'index.html'),'utf8');
 const script=fs.readFileSync(path.join(pub,'account-login.js'),'utf8');
 const records=JSON.parse(fs.readFileSync(path.join(pub,'account-entries.json'),'utf8'));
-const users=JSON.parse(process.env.COLORA_ACCOUNT_CREDENTIALS_JSON||'null');
-assert(Array.isArray(users)&&users.length===5,'Exactly 5 test credentials');
-assert.equal(records.version,1);assert.equal(records.entries.length,5);
+const users=readAccountRoster();
+assert([5,6].includes(users.length),'Only five or six protected credentials are allowed');
+assert.equal(records.version,1);assert.equal(records.entries.length,users.length);
+assert(script.includes('![5,6].includes(manifest.entries.length)'),
+  'Client login must accept all five/six encrypted manifest entries');
 assert(html.includes('id="staff-email"')&&html.includes('id="staff-password"'));
 assert(html.includes('id="remember-device"')&&html.includes('type="checkbox"'),'Remember must be explicit opt-in');
 assert(!html.includes('id="remember-device" type="checkbox" checked'),'Remember must default to off');
@@ -32,7 +35,7 @@ const all=[];
 function scan(dir,base=''){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name),r=base+e.name;if(e.isDirectory())scan(p,r+'/');else all.push(r);}}
 scan(pub);
 assert.deepEqual(all.filter(x=>x.endsWith('.html')),['index.html']);
-assert.equal(all.filter(x=>x.startsWith('account-files/')&&x.endsWith('.json')).length,5);
+assert.equal(all.filter(x=>x.startsWith('account-files/')&&x.endsWith('.json')).length,users.length);
 function decrypt(email,password){
  for(const e of records.entries){
   const salt=Buffer.from(e.salt,'base64'),kdf=pbkdf2Sync(Buffer.from(JSON.stringify([email,password])),salt,600000,48,'sha256');
@@ -58,5 +61,5 @@ for(const u of users){
  assert(!html.includes(email)&&!script.includes(email)&&!JSON.stringify(records).includes(email),'Email address exposed publicly');
  assert(!all.some(file=>file.includes(email)),'Employee email in public file name');
 }
-assert.equal(staff,3);assert.equal(senior,2);
-console.log('PASS: Each individual email+password decrypts its role, wrong pairs rejected, Senior JD isolated, no public plaintext or named email roster.');
+assert.equal(staff,users.length-2);assert.equal(senior,2);
+console.log('PASS: '+users.length+' email+password pairs decrypt correct roles; wrong pairs rejected; no plaintext account roster.');

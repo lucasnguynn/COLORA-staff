@@ -1,21 +1,22 @@
-/* Build a no-provider, five-user encrypted login on GitHub Pages.
+/* Build a no-provider, five/six-user encrypted login on GitHub Pages.
  * Use only in a trusted Actions environment with secret
- * COLORA_ACCOUNT_CREDENTIALS_JSON. Never print, upload, or commit it.
+ * COLORA_ACCOUNT_CREDENTIALS_JSON plus an optional separate Staff secret.
+ * Never print, upload, or commit either credential.
  *
  * Source: plaintext `dist` from scripts/build.mjs, only inside the
- * trusted runner. Published: public account gateway and five encrypted blobs.
+ * trusted runner. Published: public account gateway and encrypted blobs.
  * Staff HTML contains NO Senior JD. Do not confuse static encryption with
  * server-verifiable identity, email ownership or revocable sessions.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import {randomBytes,pbkdf2Sync,createCipheriv,timingSafeEqual} from 'node:crypto';
+import {readAccountRoster} from './account-roster.mjs';
 const cwd=process.cwd(),dist=path.join(cwd,'dist');
 const output=path.join(cwd,'account-release'),pub=path.join(output,'public');
 const source=path.join(cwd,'account-auth');
-let users;
-try{users=JSON.parse(process.env.COLORA_ACCOUNT_CREDENTIALS_JSON||'null')}catch{}
-if(!Array.isArray(users)||users.length!==5)throw Error('Exactly five private employee credentials are required');
+const users=readAccountRoster();
+const expectedStaff=users.length-2;
 // Report ALL problems together without ever printing account emails, secrets,
 // password lengths, password content, or other personally identifying data.
 let tally={staff:0,senior:0},emails=new Set(),passwords=new Set(),issues=[];
@@ -39,7 +40,8 @@ for(const [index,member] of users.entries()){
   issues.push('Account #'+number+': role must be staff or senior');
  }else tally[role]++;
 }
-if(tally.staff!==3||tally.senior!==2)issues.push('Roles must contain exactly 3 staff and 2 senior accounts');
+if(tally.staff!==expectedStaff||tally.senior!==2)
+ issues.push('Roles must contain exactly '+expectedStaff+' staff and 2 senior accounts');
 if(issues.length)throw Error('Account configuration failed (no secrets displayed):\n- '+issues.join('\n- '));
 const roleDocuments={
   staff:fs.readFileSync(path.join(dist,'index.html')),
@@ -68,11 +70,11 @@ try{
    });
    if(response.ok)old=await response.json();
  }
- if(old?.version===1 && Array.isArray(old.entries) && old.entries.length===5){
+ if(old?.version===1 && Array.isArray(old.entries) && (old.entries.length===5||old.entries.length===6)){
    const entries=old.entries.filter(e=>typeof e?.id==='string'&&/^[a-f0-9]{32}$/.test(e.id) &&
      typeof e.salt==='string'&&Buffer.from(e.salt,'base64').length===16 &&
      typeof e.verifier==='string'&&Buffer.from(e.verifier,'base64').length===16);
-   if(entries.length===5 && new Set(entries.map(e=>e.id)).size===5)oldEntries=entries;
+   if(entries.length===old.entries.length && new Set(entries.map(e=>e.id)).size===entries.length)oldEntries=entries;
  }
 }catch{
  // A transient Pages/network failure must not block deploying the portal.
@@ -173,4 +175,4 @@ for(const member of users){
   if(fs.readFileSync(path.join(pub,file),'utf8').includes(member.email))throw Error('Employee email leaked to public artifact');
  }
 }
-console.log('PASS: five separately encrypted, opaque employee envelopes generated; three Staff, two Senior. No plaintext role HTML is published.');
+console.log('PASS: '+users.length+' separately encrypted, opaque employee envelopes generated; '+expectedStaff+' Staff, two Senior. No plaintext role HTML is published.');

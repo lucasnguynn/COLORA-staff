@@ -62,9 +62,10 @@ jobs:
         env:
           COLORA_JD_SCOPED_STORAGE: 'true'
         run: node scripts/build.mjs
-      - name: Encrypt five independent email-password envelopes
+      - name: Encrypt protected individual email-password envelopes
         env:
           COLORA_ACCOUNT_CREDENTIALS_JSON: ${{ secrets.COLORA_ACCOUNT_CREDENTIALS_JSON }}
+          COLORA_ADDITIONAL_STAFF_CREDENTIALS_JSON: ${{ secrets.COLORA_ADDITIONAL_STAFF_CREDENTIALS_JSON }}
           # Only the five public opaque salt/verifier/ID records are fetched.
           # Reuse each record only when the owner-supplied email+password still
           # matches; new ciphertext always gets a fresh random AES-GCM IV.
@@ -73,12 +74,14 @@ jobs:
       - name: Assert correct role decryption and no private plaintext exposure
         env:
           COLORA_ACCOUNT_CREDENTIALS_JSON: ${{ secrets.COLORA_ACCOUNT_CREDENTIALS_JSON }}
+          COLORA_ADDITIONAL_STAFF_CREDENTIALS_JSON: ${{ secrets.COLORA_ADDITIONAL_STAFF_CREDENTIALS_JSON }}
         run: node tests/account-release.mjs
       - name: Install browser for real encrypted five-user login tests
         run: npx playwright install chromium
       - name: Verify employee-specific login and Staff JD denial
         env:
           COLORA_ACCOUNT_CREDENTIALS_JSON: ${{ secrets.COLORA_ACCOUNT_CREDENTIALS_JSON }}
+          COLORA_ADDITIONAL_STAFF_CREDENTIALS_JSON: ${{ secrets.COLORA_ADDITIONAL_STAFF_CREDENTIALS_JSON }}
         run: node tests/static-login.mjs
       - name: Validate desktop, mobile and embedded Staff/JD tools before publishing
         run: node tests/ui.mjs
@@ -108,6 +111,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Publish encrypted five-person login, never plaintext
+      - name: Publish encrypted Staff and Senior accounts, never plaintext
         id: deployment
         uses: actions/deploy-pages@v4
