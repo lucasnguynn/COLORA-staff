@@ -49,7 +49,7 @@ const safe=render(welcome,'Chào <img src=x onerror=alert(1)> & "mọi người"
 assert(safe.includes('&lt;img')&&!safe.includes('<img'),'Editable content must escape HTML');
 assert(safe.includes('&amp;'),'Ampersands must escape');
 
-assert(htmlShell.includes('id="email-template-preview" sandbox=""'),
+assert(/id="email-template-preview"[^>]*sandbox=""/.test(htmlShell),
   'Preview must have a sandboxed iframe');
 assert(htmlShell.includes('id="email-template-copy-rich"'),
   'Designed email must be copyable in rich format');
