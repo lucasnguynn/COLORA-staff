@@ -1,4 +1,4 @@
-/* COLORA static five-person cryptographic login, no backend.
+/* COLORA static encrypted Staff/Senior login for five or six people, no backend.
  * Opt-in local persistence stores an AES-GCM CryptoKey in IndexedDB (not a
  * plaintext password, email, exported key, browser cookie or localStorage).
  * A stored device key itself grants access to content while valid. Only use
@@ -65,7 +65,7 @@
     const response=await fetch('/account-entries.json',{cache:'no-store',credentials:'omit'});
     if(!response.ok)throw Error('Entries unavailable');
     const manifest=await response.json();
-    if(manifest.version!==1||!Array.isArray(manifest.entries)||manifest.entries.length!==5)
+    if(manifest.version!==1||!Array.isArray(manifest.entries)||![5,6].includes(manifest.entries.length))
       throw Error('Invalid entries');
     for(const entry of manifest.entries)if(!validEntryId(entry.id))throw Error('Invalid record ID');
     return manifest;
