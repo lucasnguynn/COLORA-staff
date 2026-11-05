@@ -236,13 +236,16 @@
     const kicker=escapeHTML(detail.kicker),subtitle=escapeHTML(detail.subtitle);
     const footer=template.group==='clients'?'A personal note from our team':'Internal communication · For our team';
     const logoTop=EMAIL_LOGO(194,50),logoBottom=EMAIL_LOGO(143,37);
+    // Optical inset: the approved PNG has transparent side bearing before the C.
+    // Shift the slogan by the same amount in both header and footer.
+    const LOGO_TAGLINE_OFFSET='6px';
     return '<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>COLORA · Email</title></head>'+
       '<body style="margin:0;padding:0;background:#EEE7DA">'+
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;background:#EEE7DA"><tr><td align="center" style="padding:28px 12px">'+
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:100%;max-width:600px;border-collapse:collapse;background:#F4EDE1">'+
       '<tr><td style="background:#002451;height:9px;line-height:9px;font-size:1px">&nbsp;</td></tr>'+
       '<tr><td style="background:#F4EDE1;padding:31px 42px 27px">'+logoTop+
-      '<div style="margin-top:13px;font-family:Arial,Helvetica,sans-serif;font-size:9px;letter-spacing:2.8px;font-weight:bold;color:#9B7953">COLOR YOUR AURA</div></td></tr>'+
+      '<div style="margin-top:13px;margin-left:'+LOGO_TAGLINE_OFFSET+';font-family:Arial,Helvetica,sans-serif;font-size:9px;letter-spacing:2.8px;font-weight:bold;color:#9B7953">COLOR YOUR AURA</div></td></tr>'+
       '<tr><td style="padding:'+(milestone?'31px 42px 18px':'15px 42px 8px')+'"><div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:bold;letter-spacing:2.5px;color:#9C774A">'+kicker+'</div>'+
       '<h1 style="margin:15px 0 0;font-family:Georgia,Times New Roman,serif;font-weight:normal;font-size:'+(milestone?'42px':'30px')+';line-height:1.09;letter-spacing:-.5px;color:#002451">'+heading+'</h1>'+
       '<div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#706F6B;margin-top:16px">'+subtitle+'</div></td></tr>'+
@@ -250,7 +253,7 @@
       '<tr><td style="padding:28px 42px 15px">'+paras+'</td></tr>'+
       '<tr><td style="padding:2px 42px 42px"><div style="height:1px;background:#CFBFA9;font-size:1px;line-height:1px">&nbsp;</div>'+
       '<div style="margin-top:23px">'+logoBottom+'</div>'+
-      '<div style="margin-top:9px;font-family:Arial,Helvetica,sans-serif;font-size:9px;line-height:1.6;letter-spacing:1.6px;color:#947B5B">COLOR YOUR AURA</div></td></tr>'+
+      '<div style="margin-top:9px;margin-left:'+LOGO_TAGLINE_OFFSET+';font-family:Arial,Helvetica,sans-serif;font-size:9px;line-height:1.6;letter-spacing:1.6px;color:#947B5B">COLOR YOUR AURA</div></td></tr>'+
       '</table><div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:1.6;color:#867B6C;margin-top:18px">'+footer+'</div>'+
       '</td></tr></table></body></html>';
   }
