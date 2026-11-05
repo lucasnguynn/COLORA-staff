@@ -94,8 +94,11 @@ jobs:
           test ! -e account-release/public/apps/jd/index.html
           test ! -e account-release/public/senior-gateway.json
       - uses: actions/configure-pages@v5
+      # Use a per-attempt artifact name so rerunning a successful build cannot
+      # leave duplicate github-pages artifacts and block the deploy action.
       - uses: actions/upload-pages-artifact@v4
         with:
+          name: github-pages-${{ github.run_attempt }}
           path: account-release/public
   deploy:
     needs: build
@@ -114,3 +117,5 @@ jobs:
       - name: Publish encrypted Staff and Senior accounts, never plaintext
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
