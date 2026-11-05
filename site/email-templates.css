@@ -39,3 +39,27 @@
 
 .email-template-editor-head #email-template-reset{border:1px solid #cbbda9;background:transparent;color:var(--navy);padding:10px 13px;min-height:42px;cursor:pointer;font:600 11px "Open Sans",Arial,sans-serif;white-space:nowrap}
 .email-template-editor-head #email-template-reset:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+
+/* COLORA editorial email edition — premium preview, not an email app. */
+.email-template-designed{margin-top:22px;border-top:1px solid #ded3c3;padding-top:22px;min-width:0}
+.email-template-designed[hidden]{display:none!important}
+.email-template-designed-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:16px}
+.email-template-designed-head span{font:700 9px/1.5 "Open Sans",Arial,sans-serif;letter-spacing:.16em;color:#9c774a}
+.email-template-editor .email-template-designed-head h3{font:500 29px/1.2 "Cormorant Garamond",Georgia,serif;color:var(--navy);margin:5px 0 0}
+.email-template-designed-head p{margin:0;max-width:215px;font:400 11px/1.7 "Open Sans",Arial,sans-serif;color:#60718a}
+.email-template-preview-shell{background:#e7ded1;padding:15px;border:1px solid #ded3c3;max-width:100%;min-width:0;overflow:hidden}
+#email-template-preview{display:block;min-height:530px;width:100%;border:0;background:#eee7da}
+.email-template-design-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.email-template-design-actions button{padding:12px 16px;min-height:44px;border-radius:0;cursor:pointer;font:600 11px "Open Sans",Arial,sans-serif}
+.email-template-design-actions .main-action{background:var(--navy);border:1px solid var(--navy);color:#fff}
+.email-template-design-actions .secondary-action{background:transparent;border:1px solid #cbbda9;color:var(--navy)}
+.email-template-design-help{font:400 11px/1.8 "Open Sans",Arial,sans-serif;color:#60718a;margin:13px 0 0}
+.email-template-design-actions button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media(max-width:640px){
+  .email-template-designed-head{display:block}
+  .email-template-designed-head p{max-width:none;margin-top:8px}
+  .email-template-preview-shell{padding:7px}
+  #email-template-preview{min-height:480px}
+  .email-template-design-actions button{flex:1 1 100%}
+}
