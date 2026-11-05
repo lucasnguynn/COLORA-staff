@@ -40,6 +40,8 @@ for(const id of ['welcome','onboarding','announcement','role-change','recognitio
   assert(!output.includes('>COLORA</div>'),'No font-rendered imitation of the logo');
   assert(output.includes('#F4EDE1')&&output.includes('#002451'),id+' uses brand palette');
   assert(output.includes('width="600"'),id+' is table-based for email clients');
+  assert.equal((output.match(/margin-left:6px/g)||[]).length,2,
+    id+' must align the header and footer slogans to the logo C');
 }
 // Every email, not only milestone templates, has a matching logo-bearing HTML version.
 for(const t of templates){
