@@ -3,12 +3,13 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import {chromium} from 'playwright';
+import {readAccountRoster} from '../scripts/account-roster.mjs';
 import jsQR from 'jsqr';
 import {PNG} from 'pngjs';
 
 const root=path.resolve('account-release/public');
-const users=JSON.parse(process.env.COLORA_ACCOUNT_CREDENTIALS_JSON||'null');
-if(!Array.isArray(users)||users.length!==5)throw Error('Missing disposable five-account test roster');
+const users=readAccountRoster();
+if(![5,6].includes(users.length))throw Error('Missing disposable Staff account test roster');
 const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.svg':'image/svg+xml'};
 const server=http.createServer((req,res)=>{
  const clean=new URL(req.url,'http://127.0.0.1').pathname;
@@ -502,6 +503,26 @@ try{
   await context.close();
   console.log('PASS: Separate Senior JD browser namespaces; legacy backup and explicit migration preserve originals.');
  }
+ // Additional Staff member (when configured) must sign in without Senior/JD access.
+ if(users.length===6){
+   const member=users[5];
+   const extraContext=await browser.newContext(),extraPage=await extraContext.newPage();
+   try{
+     await extraPage.goto(base+'/',{waitUntil:'domcontentloaded'});
+     await extraPage.locator('#staff-email').fill(member.email);
+     await extraPage.locator('#staff-password').fill(member.password);
+     await extraPage.locator('#signin-submit').click();
+     await extraPage.locator('#workspace:not([hidden])').waitFor({state:'visible',timeout:60000});
+     const extraFrame=extraPage.frameLocator('#workspace-frame');
+     await extraFrame.locator('body[data-staff-role="staff"][data-staff-ready="true"]')
+       .waitFor({state:'attached',timeout:20000});
+     assert.equal(await extraFrame.locator('[data-view="jd"]').count(),0,
+       'Additional Staff member must never see Senior JD');
+     await extraPage.locator('#workspace-signout').click();
+     await extraPage.locator('#signin-form').waitFor({state:'visible',timeout:10000});
+     console.log('PASS: additional Staff account login, role isolation, and logout.');
+   }finally{await extraContext.close();}
+ }
  // Wrong corporate address with an otherwise valid employee password.
  const u=users[0],context=await browser.newContext(),page=await context.newPage();
  await page.goto(base+'/',{waitUntil:'domcontentloaded'});
@@ -511,5 +532,5 @@ try{
  await page.locator('#signin-submit:not([disabled])').waitFor({state:'attached',timeout:60000});
  assert.equal(await page.locator('#workspace').isVisible(),false,'Wrong email must not enter');
  await context.close();
- console.log('PASS: Five-account gateway: Staff/Senior tools, 30-day opt-in CryptoKey IndexedDB persistence, same-browser re-open, multi-tab auto-resume, logout revocation and incorrect email.');
+ console.log('PASS: '+users.length+'-account gateway: Staff/Senior tools, 30-day device access, logout and incorrect email.');
 } finally {await browser.close();await new Promise(resolve=>server.close(resolve));}
