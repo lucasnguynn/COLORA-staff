@@ -379,12 +379,12 @@
         <section id="email-templates" class="email-templates view" hidden aria-labelledby="email-templates-heading">
           <div class="eyebrow">COLORA / COMMUNICATION LIBRARY</div>
           <h1 id="email-templates-heading">Email <em>Templates</em></h1>
-          <p class="template-lede">Những lời nhắn dành cho khách hàng và đội ngũ COLORA - đủ rõ ràng để bắt đầu, đủ linh hoạt để cá nhân hóa theo từng câu chuyện. Chọn mẫu, điều chỉnh thông tin và sao chép vào ứng dụng email của bạn.</p>
+          <p class="template-lede">Chọn đúng lời để gửi: gần gũi khi trao đổi cùng team, chỉn chu khi gửi khách hàng và trang trọng vừa đủ cho những cột mốc quan trọng. Bạn có thể chỉnh nội dung, xem trước mẫu thiết kế rồi sao chép sang ứng dụng email.</p>
           <div class="email-template-filters" id="email-template-filters" role="group" aria-label="Lọc mẫu email">
             <button type="button" data-template-filter="all">Tất cả</button>
             <button type="button" data-template-filter="clients">Khách hàng</button>
             <button type="button" data-template-filter="internal">Nội bộ</button>
-            <button type="button" data-template-filter="people">Nhân sự · Senior</button>
+            <button type="button" data-template-filter="people">Senior → Staff</button>
           </div>
           <div class="email-template-grid">
             <aside class="email-template-directory" aria-label="Chọn mẫu email">
@@ -403,6 +403,20 @@
               <input id="email-template-subject" type="text" autocomplete="off" spellcheck="true" maxlength="220">
               <label for="email-template-body">Nội dung email · có thể chỉnh sửa</label>
               <textarea id="email-template-body" rows="18" spellcheck="true" aria-describedby="email-template-privacy"></textarea>
+              <section class="email-template-designed" id="email-template-designed" hidden aria-label="Bản xem trước email thiết kế COLORA">
+                <div class="email-template-designed-head">
+                  <div><span>COLORA / EDITORIAL EMAIL</span><h3>Bản email có thiết kế</h3></div>
+                  <p>Chỉnh sửa nội dung ở trên, bản xem trước sẽ cập nhật theo.</p>
+                </div>
+                <div class="email-template-preview-shell">
+                  <iframe id="email-template-preview" title="Xem trước email thiết kế COLORA" sandbox="" loading="lazy"></iframe>
+                </div>
+                <div class="email-template-design-actions">
+                  <button type="button" class="main-action" id="email-template-copy-rich">Sao chép bản thiết kế</button>
+                  <button type="button" class="secondary-action" id="email-template-download-html">Tải HTML</button>
+                </div>
+                <p class="email-template-design-help">Dán bản thiết kế vào phần soạn thư ở Gmail hoặc Outlook. Một số ứng dụng có thể thay đổi font và khoảng cách; luôn gửi thử cho chính mình trước khi gửi chính thức. File HTML dùng để xem hoặc lưu mẫu, không tự gửi email.</p>
+              </section>
               <div class="email-template-actions">
                 <button type="button" class="main-action" id="email-template-copy-body">Sao chép nội dung</button>
                 <button type="button" class="secondary-action" id="email-template-copy-subject">Sao chép tiêu đề</button>
