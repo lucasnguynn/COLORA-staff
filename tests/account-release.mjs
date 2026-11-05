@@ -13,6 +13,8 @@ const records=JSON.parse(fs.readFileSync(path.join(pub,'account-entries.json'),'
 const users=readAccountRoster();
 assert([5,6].includes(users.length),'Only five or six protected credentials are allowed');
 assert.equal(records.version,1);assert.equal(records.entries.length,users.length);
+assert(script.includes('![5,6].includes(manifest.entries.length)'),
+  'Client login must accept all five/six encrypted manifest entries');
 assert(html.includes('id="staff-email"')&&html.includes('id="staff-password"'));
 assert(html.includes('id="remember-device"')&&html.includes('type="checkbox"'),'Remember must be explicit opt-in');
 assert(!html.includes('id="remember-device" type="checkbox" checked'),'Remember must default to off');
