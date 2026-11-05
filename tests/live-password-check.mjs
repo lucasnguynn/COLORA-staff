@@ -1,15 +1,15 @@
 import {chromium} from 'playwright';
+import {readAccountRoster} from '../scripts/account-roster.mjs';
 
-// Post-deployment smoke test for the CURRENT five-user static AES-GCM gateway.
+// Post-deployment smoke test for the protected five/six-user AES-GCM gateway.
 // Only runs after a successful production Pages deployment, or by explicit
 // workflow_dispatch. Neither credentials nor personal data are logged.
 const base='https://staff.colora.vn';
-let users;
-try{users=JSON.parse(process.env.COLORA_ACCOUNT_CREDENTIALS_JSON||'null')}catch{}
-if(!Array.isArray(users)||users.length!==5||
-   users.filter(u=>u.role==='staff').length!==3||
+const users=readAccountRoster();
+if(![5,6].includes(users.length)||
+   users.filter(u=>u.role==='staff').length!==users.length-2||
    users.filter(u=>u.role==='senior').length!==2){
-  throw Error('The protected five-account production roster is unavailable.');
+  throw Error('The protected Staff account roster is unavailable or invalid.');
 }
 // Check every configured account rather than only one representative of each
 // role. Never put employee addresses or secrets in log messages.
