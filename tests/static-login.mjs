@@ -84,15 +84,24 @@ try{
   await wrapper.locator('.nav-btn[data-view="email-templates"]').click();
   await wrapper.locator('#email-templates:not([hidden])').waitFor({state:'visible'});
   const emails=wrapper.locator('#email-templates');
-  assert.equal(await emails.locator('.email-template-option').count(),role==='senior'?10:7,
+  assert.equal(await emails.locator('.email-template-option').count(),role==='senior'?15:7,
     'Unexpected number of permitted templates for '+role);
   assert.equal(await emails.locator('[data-template-filter="people"]').isVisible(),role==='senior');
   if(role==='senior'){
     const welcome=await emails.locator('#email-template-body').inputValue();
-    assert(welcome.includes('Chào mừng bạn gia nhập COLORA!'));
-    assert(welcome.includes('COLORA Tổng'));
-    assert(welcome.includes('Mật khẩu: [Được cấp riêng qua kênh bảo mật]'));
+    assert(welcome.includes('Chào mừng bạn đến với COLORA!'));
+    assert(welcome.includes('COLORA Shared Drive'));
+    assert(welcome.includes('Mật khẩu được cấp riêng qua kênh bảo mật'));
+    assert(!welcome.includes('Mật khẩu: ['),'Do not include a password field in Welcome');
     assert.equal(await emails.locator('#email-template-security').isVisible(),true);
+    assert.equal(await emails.locator('#email-template-designed').isVisible(),true);
+    assert.equal(await emails.locator('#email-template-copy-rich').isVisible(),true);
+    const richPreview=await emails.locator('#email-template-preview').getAttribute('srcdoc');
+    assert(richPreview.includes('#F4EDE1')&&richPreview.includes('COLORA - COLOR YOUR AURA'));
+    await emails.locator('#email-template-body').fill('Chào <b>COLORA team</b>');
+    const escapedPreview=await emails.locator('#email-template-preview').getAttribute('srcdoc');
+    assert(escapedPreview.includes('&lt;b&gt;'),'Preview content must escape HTML');
+    await emails.locator('#email-template-reset').click();
   }else{
     assert.equal(await emails.locator('.email-template-option').filter({hasText:'Chào mừng thành viên mới'}).count(),0);
   }
