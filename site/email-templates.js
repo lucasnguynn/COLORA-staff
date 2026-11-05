@@ -94,6 +94,108 @@
   }
 ];
 
+
+  /* COLORA EMAIL EDITION V2: warm Senior → Staff and branded milestones. */
+  const EDITS={
+  "welcome": {
+    "subject": "[Tên nhân viên] ơi, chào mừng bạn đến với COLORA!",
+    "body": "Chào [Tên nhân viên],\n\nVậy là chúng mình chính thức cùng một đội rồi. Chào mừng bạn đến với COLORA!\n\nMỗi người mang đến một góc nhìn và một sắc màu riêng. Tụi mình rất vui vì từ hôm nay, hành trình ấy có thêm bạn.\n\nĐể ngày đầu nhẹ nhàng hơn, mình gửi bạn vài điểm bắt đầu nhé:\n\n01 · Email công ty\nĐịa chỉ: [Email @colora.vn]\nĐăng nhập: [Đường dẫn Webmail]\nMật khẩu được cấp riêng qua kênh bảo mật, không gửi trong email này.\n\n02 · Staff Workspace\nTruy cập: https://staff.colora.vn/\nĐăng nhập bằng email công ty và mật khẩu Workspace được cấp riêng. Đây là nơi bạn có thể tìm kiến thức thương hiệu, tài liệu và các công cụ hỗ trợ công việc.\n\n03 · COLORA Shared Drive\nTài liệu chung: https://drive.google.com/drive/u/2/folders/1WDzDVYKZ8tb1X8vVSJ5soXrKK_lZlEhs\nQuyền truy cập được cấp theo phạm vi công việc.\n\nNgười đồng hành: [Tên người phụ trách]\nĐiều cần chuẩn bị: [Nếu có]\n\nCó gì chưa rõ, cứ hỏi nhé. Không ai cần thuộc lòng cả Staff Workspace ngay trong ngày đầu đâu.\n\nRất vui được làm việc cùng bạn. Chào mừng bạn đến với COLORA!\n\nThân mến,\n[Tên người gửi]\nCOLORA - COLOR YOUR AURA",
+    "design": {
+      "kicker": "A NEW FACET BEGINS",
+      "heading": "A new chapter,\ntogether.",
+      "subtitle": "Chào mừng bạn đến với COLORA"
+    }
+  },
+  "onboarding": {
+    "subject": "[Tên nhân viên] ơi, mình hẹn gặp nhau ngày [Ngày] nhé!",
+    "body": "Chào [Tên nhân viên],\n\nChào mừng bạn lần nữa nhé! Mình gửi lịch buổi làm quen đầu tiên để bạn dễ sắp xếp.\n\nThời gian: [Ngày, giờ]\nĐịa điểm hoặc link họp: [Địa điểm/Đường dẫn]\nNgười đồng hành: [Tên người phụ trách]\nMình sẽ cùng nhau đi qua: COLORA, công việc của bạn, các công cụ cần dùng và những điều bạn đang thắc mắc.\n\nBạn không cần chuẩn bị gì cầu kỳ, chỉ cần [Điều cần chuẩn bị, nếu có]. Nếu lịch chưa tiện, cứ trả lời email để mình đổi giờ nhé.\n\nHẹn gặp bạn!\n[Tên người gửi]",
+    "design": {
+      "kicker": "YOUR FIRST DAYS",
+      "heading": "See you soon.",
+      "subtitle": "Một buổi làm quen, thật thoải mái."
+    }
+  },
+  "access": {
+    "subject": "[Tên nhân viên] ơi, quyền truy cập của bạn đã sẵn sàng",
+    "body": "Chào [Tên nhân viên],\n\nMình vừa cập nhật quyền truy cập của bạn. Bạn mở thử tài nguyên dưới đây xem vào được chưa nhé.\n\nTài nguyên: [Tên thư mục/công cụ]\nĐường dẫn: [Link truy cập]\nPhạm vi sử dụng: [Mô tả ngắn]\n\nNếu gặp lỗi hoặc thiếu quyền, cứ trả lời email này và gửi tên tài nguyên đang vướng. Mình sẽ kiểm tra cùng bạn.\n\nMột lưu ý nhỏ: tài liệu nội bộ chỉ dùng đúng phạm vi công việc; mình không chia sẻ tài khoản hoặc chuyển tiếp quyền truy cập cho người khác nhé.\n\nCảm ơn bạn!\n[Tên người gửi]"
+  },
+  "review": {
+    "subject": "[Tên đồng nghiệp] ơi, xem giúp mình [Hạng mục] nhé",
+    "body": "Chào [Tên đồng nghiệp],\n\nMình gửi bạn bản [Tài liệu/Hạng mục], nhờ bạn xem giúp một lượt trước khi chốt nhé.\n\nLink: [Đường dẫn]\nCần xem kỹ: [Các điểm cần xác nhận]\nMong nhận phản hồi trước: [Ngày/giờ]\n\nNếu thấy chỗ nào chưa ổn, cứ comment thẳng vào file. Mình thích sửa sớm hơn là cùng nhau chữa cháy phút 89 😄\n\nCảm ơn bạn nhiều!\n[Tên người gửi]"
+  },
+  "update": {
+    "subject": "Một chút cập nhật về [Dự án/Hạng mục] - [Ngày]",
+    "body": "Chào mọi người,\n\nMình gửi cả nhà bản cập nhật ngắn về [Dự án/Hạng mục] để cùng nắm một nhịp nhé.\n\nĐã xong:\n- [Kết quả đã được xác nhận]\n\nĐang làm:\n- [Công việc tiếp theo]\n\nCần mọi người hỗ trợ:\n- [Vấn đề hoặc quyết định cần gỡ, nếu có]\n\nMốc tiếp theo: [Ngày/giờ]\n\nCó gì cần bổ sung hoặc chưa hợp lý, cứ reply ngay trong mail này. Mình tổng hợp lại để cả team đỡ phải đi tìm tin nhắn ở khắp nơi.\n\nCảm ơn mọi người!\n[Tên người gửi]"
+  },
+  "media": {
+    "subject": "Mình gửi bạn bộ media [Chiến dịch/Hạng mục] nhé",
+    "body": "Chào [Tên đồng nghiệp],\n\nBộ tài nguyên cho [Chiến dịch/Hạng mục] sẵn sàng rồi, mình để mọi thứ ở đây nhé:\n\nThư mục: [Link]\nPhiên bản: [Ngày hoặc mã bản]\nPhạm vi đã duyệt: [Kênh/Thời gian/Mục đích]\nCần để ý: [Ảnh sản phẩm COLORA, quyền sử dụng, định dạng hoặc lưu ý khác]\n\nNhờ bạn kiểm tra quyền truy cập và bản đã duyệt trước khi sử dụng. Nếu cần thêm kích thước hoặc format, cứ báo mình.\n\nCảm ơn bạn!\n[Tên người gửi]"
+  }
+};
+  TEMPLATES.forEach(t=>{if(EDITS[t.id])Object.assign(t,EDITS[t.id]);});
+  TEMPLATES.push(...[
+  {
+    "id": "deadline",
+    "audience": "senior",
+    "group": "people",
+    "title": "Nhắc deadline thật nhẹ",
+    "note": "Công việc · Senior → Staff",
+    "subject": "[Tên nhân viên] ơi, mình nhắc nhẹ việc [Tên công việc] nhé",
+    "body": "[Tên nhân viên] ơi,\n\nMình nhắn một chiếc reminder nhỏ cho [Tên công việc] nhé. Deadline sắp đến rồi, nên mình muốn kiểm tra xem bạn có cần gỡ vướng gì không.\n\nViệc cần hoàn thành: [Tên công việc]\nHạn dự kiến: [Ngày/giờ]\nKết quả bàn giao: [Link/Đầu ra]\n\nNếu mọi thứ đúng tiến độ thì tuyệt. Còn nếu có vấn đề, cứ báo sớm để mình cùng xử lý — đừng để deadline xuất hiện như plot twist nhé 😄\n\nCảm ơn bạn!\n[Tên người gửi]"
+  },
+  {
+    "id": "announcement",
+    "audience": "senior",
+    "group": "people",
+    "title": "Thông báo nội bộ quan trọng",
+    "note": "Thông báo chính thức · Senior → Staff",
+    "subject": "COLORA | Thông báo về [Nội dung] - áp dụng từ [Ngày]",
+    "body": "Chào mọi người,\n\nMình gửi cả team một thông báo quan trọng liên quan đến [Chủ đề]. Mọi người dành ít phút đọc kỹ để chúng ta cùng thực hiện thống nhất nhé.\n\nNội dung thay đổi: [Mô tả cụ thể đã được phê duyệt]\nÁp dụng từ: [Ngày/giờ]\nĐối tượng áp dụng: [Bộ phận/Nhân sự]\nViệc cần thực hiện: [Các bước cụ thể]\nTài liệu tham khảo: [Đường dẫn, nếu có]\nNgười hỗ trợ: [Tên/Email]\n\nCó gì chưa rõ hoặc có tình huống thực tế cần trao đổi, mọi người cứ phản hồi trực tiếp. Mình muốn cả team hiểu rõ trước khi áp dụng, chứ không phải tự đoán.\n\nCảm ơn mọi người đã phối hợp!\n[Tên người gửi]\n[Chức danh]\nCOLORA - COLOR YOUR AURA",
+    "design": {
+      "kicker": "OFFICIAL INTERNAL NOTE",
+      "heading": "Moving forward,\ntogether.",
+      "subtitle": "Một cập nhật dành cho đội ngũ COLORA"
+    }
+  },
+  {
+    "id": "role-change",
+    "audience": "senior",
+    "group": "people",
+    "title": "Ghi nhận / thay đổi vai trò",
+    "note": "Nhân sự quan trọng · Senior → Staff",
+    "subject": "COLORA | Chúc mừng [Tên nhân viên] với chặng đường mới",
+    "body": "Chào [Tên nhân viên],\n\nMình có một tin vui muốn gửi đến bạn.\n\nTừ [Ngày hiệu lực], bạn sẽ đảm nhận vai trò [Vai trò mới] tại COLORA, theo quyết định đã được phê duyệt.\n\nĐiều mình trân trọng là [Đóng góp cụ thể của nhân viên]. Cảm ơn bạn vì cách bạn đã làm việc và trưởng thành cùng đội ngũ.\n\nVai trò mới: [Chức danh]\nNgày hiệu lực: [Ngày]\nNgười đồng hành: [Tên]\nBước tiếp theo: [Bàn giao/Trao đổi đã được phê duyệt]\n\nChặng mới chắc chắn có thêm những điều để học, và tụi mình sẽ cùng nhau đi qua. Chúc mừng bạn nhé!\n\nThân mến,\n[Tên người gửi]\n[Chức danh]\nCOLORA",
+    "design": {
+      "kicker": "A NEW MILESTONE",
+      "heading": "Here's to your\nnext chapter.",
+      "subtitle": "Một lời chúc mừng, một hành trình mới."
+    }
+  },
+  {
+    "id": "recognition",
+    "audience": "senior",
+    "group": "people",
+    "title": "Thư cảm ơn & ghi nhận",
+    "note": "Ghi nhận · Senior → Staff",
+    "subject": "[Tên nhân viên] ơi, cảm ơn bạn vì [Đóng góp]",
+    "body": "Chào [Tên nhân viên],\n\nMình muốn dành riêng email này để nói lời cảm ơn bạn.\n\n[Đóng góp cụ thể của nhân viên] đã giúp [Tác động thực tế]. Có thể giữa lịch làm việc bận rộn, những cố gắng như vậy dễ bị lướt qua, nhưng mình và team có nhìn thấy đấy.\n\nMong bạn biết rằng sự chỉn chu và tinh thần đồng hành của bạn rất có ý nghĩa với COLORA.\n\nCảm ơn bạn nhé. Cứ tiếp tục mang sắc màu riêng của mình vào những việc chúng ta làm cùng nhau.\n\nThân mến,\n[Tên người gửi]\nCOLORA",
+    "design": {
+      "kicker": "WITH APPRECIATION",
+      "heading": "The little things\nmean a lot.",
+      "subtitle": "Một lời cảm ơn dành riêng cho bạn."
+    }
+  },
+  {
+    "id": "check-in",
+    "audience": "senior",
+    "group": "people",
+    "title": "Hẹn trò chuyện 1:1",
+    "note": "Đồng hành · Senior → Staff",
+    "subject": "[Tên nhân viên] ơi, mình hẹn trò chuyện một chút nhé",
+    "body": "[Tên nhân viên] ơi,\n\nDạo này công việc của bạn thế nào rồi? Mình muốn hẹn bạn một buổi trò chuyện ngắn để nghe xem phần nào đang thuận lợi, phần nào đang làm bạn vướng và mình có thể hỗ trợ gì.\n\nThời gian đề xuất: [Ngày/giờ]\nHình thức: [Trực tiếp/Online]\nThời lượng: [Số phút]\n\nBạn không cần chuẩn bị báo cáo đâu, cứ chia sẻ thoải mái nhé. Nếu giờ này chưa tiện, mình đổi lịch được.\n\nHẹn bạn!\n[Tên người gửi]"
+  }
+]);
+
   const doc=document, $=id=>doc.getElementById(id);
   const list=$('email-template-list');
   const subject=$('email-template-subject');
@@ -104,6 +206,47 @@
   const status=$('email-template-status');
   const search=$('email-template-search');
   let chosen='',filter='all';
+  const designedBox=$('email-template-designed');
+  const designedFrame=$('email-template-preview');
+  const escapeHTML=value=>String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const chosenTemplate=()=>visible.find(t=>t.id===chosen);
+  function designHTML(template,body){
+    if(!template.design)return '';
+    const detail=template.design;
+    const paras=String(body).replace(/\r\n?/g,'\n').split(/\n{2,}/).map(chunk=>{
+      const lines=chunk.split('\n').map(line=>{
+        const safe=escapeHTML(line);
+        const match=safe.match(/^([^:]{2,48}:)(\s*)(.*)$/);
+        return match?'<strong style="font-weight:600;color:#002451">'+match[1]+'</strong>'+match[2]+match[3]:safe;
+      }).join('<br>');
+      return '<p style="margin:0 0 19px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.85;color:#3C4D61">'+lines+'</p>';
+    }).join('');
+    const heading=escapeHTML(detail.heading).replace(/\n/g,'<br>');
+    const kicker=escapeHTML(detail.kicker), subtitle=escapeHTML(detail.subtitle);
+    return '<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>COLORA · Internal Email</title></head>'+
+      '<body style="margin:0;padding:0;background:#EEE7DA">'+
+      '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;background:#EEE7DA"><tr><td align="center" style="padding:28px 12px">'+
+      '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:100%;max-width:600px;border-collapse:collapse;background:#F4EDE1">'+
+      '<tr><td style="background:#002451;padding:30px 42px 28px"><div style="font-family:Georgia,serif;font-size:34px;line-height:1;letter-spacing:4px;color:#F4EDE1">COLORA</div>'+
+      '<div style="margin-top:13px;font-family:Arial,sans-serif;font-size:9px;letter-spacing:3px;font-weight:bold;color:#D9C6AB">COLOR YOUR AURA</div></td></tr>'+
+      '<tr><td style="padding:38px 42px 18px"><div style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:2.5px;color:#9C774A">'+kicker+'</div>'+
+      '<h1 style="margin:16px 0 0;font-family:Georgia,Times New Roman,serif;font-weight:normal;font-size:42px;line-height:1.08;letter-spacing:-1px;color:#002451">'+heading+'</h1>'+
+      '<div style="font-family:Arial,sans-serif;font-size:13px;line-height:1.6;color:#706F6B;margin-top:18px">'+subtitle+'</div></td></tr>'+
+      '<tr><td style="padding:8px 42px 4px"><div style="height:1px;background:#CFBFA9;font-size:1px;line-height:1px">&nbsp;</div></td></tr>'+
+      '<tr><td style="padding:28px 42px 15px">'+paras+'</td></tr>'+
+      '<tr><td style="padding:2px 42px 43px"><div style="height:1px;background:#CFBFA9;font-size:1px;line-height:1px">&nbsp;</div>'+
+      '<div style="margin-top:23px;font-family:Georgia,serif;font-size:19px;letter-spacing:2px;color:#002451">COLORA</div>'+
+      '<div style="margin-top:6px;font-family:Arial,sans-serif;font-size:10px;line-height:1.6;letter-spacing:1px;color:#947B5B">COLORA - COLOR YOUR AURA</div></td></tr>'+
+      '</table><div style="font-family:Arial,sans-serif;font-size:10px;line-height:1.6;color:#867B6C;margin-top:18px">For COLORA team · Internal communication</div>'+
+      '</td></tr></table></body></html>';
+  }
+  function refreshDesigned(){
+    const t=chosenTemplate();
+    const hasDesign=!!(t&&t.design);
+    designedBox.hidden=!hasDesign;
+    if(hasDesign)designedFrame.srcdoc=designHTML(t,message.value);
+    else designedFrame.removeAttribute('srcdoc');
+  }
   function notify(text){status.textContent=text;}
   function matches(t){
     const query=search.value.trim().toLocaleLowerCase('vi-VN');
@@ -119,7 +262,8 @@
     $('email-template-current').textContent=t.note;
     $('email-template-title').textContent=t.title;
     $('email-template-security').hidden=t.id!=='welcome';
-    notify('Điền các phần [ ] trước khi gửi. Nội dung chỉ nằm trong trang đang mở.');
+    notify('Thay các thông tin [ ] trước khi gửi. Bản nháp chỉ nằm trong trình duyệt.');
+    refreshDesigned();
     render();
   }
   function render(){
@@ -171,8 +315,34 @@
   $('email-template-copy-subject').addEventListener('click',()=>copy(subject.value));
   $('email-template-copy-body').addEventListener('click',()=>copy(message.value));
   $('email-template-copy-all').addEventListener('click',()=>copy('Tiêu đề: '+subject.value+'\n\n'+message.value));
+
+  $('email-template-copy-rich').addEventListener('click',async()=>{
+    const t=chosenTemplate();if(!t||!t.design)return;
+    if(typeof ClipboardItem==='undefined'||!navigator.clipboard?.write){
+      notify('Trình duyệt chưa hỗ trợ sao chép email có định dạng. Hãy dùng nút Tải HTML hoặc sao chép bản chữ.');return;
+    }
+    const html=designHTML(t,message.value);
+    try{
+      await navigator.clipboard.write([new ClipboardItem({
+        'text/html':new Blob([html],{type:'text/html'}),
+        'text/plain':new Blob([message.value],{type:'text/plain'})
+      })]);
+      notify('Đã sao chép bản thiết kế. Dán vào nội dung Gmail/Outlook rồi kiểm tra hiển thị trước khi gửi.');
+    }catch{
+      notify('Không thể sao chép email có định dạng. Thử Tải HTML hoặc dùng bản văn bản.');
+    }
+  });
+  $('email-template-download-html').addEventListener('click',()=>{
+    const t=chosenTemplate();if(!t||!t.design)return;
+    const file=new Blob([designHTML(t,message.value)],{type:'text/html;charset=utf-8'});
+    const url=URL.createObjectURL(file),a=doc.createElement('a');
+    a.href=url;a.download='colora-'+t.id+'-email.html';
+    doc.body.append(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),2500);
+    notify('Đã tạo bản HTML. Kiểm tra các mục [ ] và nội dung trước khi sử dụng.');
+  });
   for(const field of [subject,message])
-    field.addEventListener('input',()=>notify('Đang chỉnh bản nháp. Nội dung không được lưu hoặc gửi lên máy chủ.'));
+    field.addEventListener('input',()=>{notify('Đang chỉnh bản nháp. Nội dung không được lưu hoặc gửi lên máy chủ.');refreshDesigned();});
   select(visible[0]?.id);
   window.COLORA_EMAIL_TEMPLATES={count:visible.length,select};
 
