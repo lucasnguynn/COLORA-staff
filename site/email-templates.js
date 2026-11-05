@@ -210,39 +210,54 @@
   const designedFrame=$('email-template-preview');
   const escapeHTML=value=>String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const chosenTemplate=()=>visible.find(t=>t.id===chosen);
+  /* Public, existing COLORA wordmark. Email clients require an absolute HTTPS image URL.
+   * Do not embed data: images: major mail apps strip them.
+   * This asset is published by the same GitHub Pages build as the Staff Workspace. */
+  const EMAIL_LOGO_URL='https://staff.colora.vn/apps/qr/assets/colora-lettermark.png';
+  const EMAIL_LOGO=(width,height)=>'<img src="'+EMAIL_LOGO_URL+
+    '" width="'+width+'" height="'+height+
+    '" alt="COLORA" style="display:block;width:'+width+'px;height:auto;max-width:100%;border:0;outline:none;text-decoration:none" border="0">';
   function designHTML(template,body){
-    if(!template.design)return '';
-    const detail=template.design;
+    const milestone=!!template.design;
+    const detail=template.design||{
+      kicker:template.group==='clients'?'A NOTE, JUST FOR YOU':'FROM OUR TEAM',
+      heading:template.group==='clients'?'A little note,\nfor you.':'A note,\nfrom the team.',
+      subtitle:template.group==='clients'?'Một lời nhắn gửi đến bạn.':'Cùng nhau giữ mọi việc rõ ràng và nhẹ nhàng.'
+    };
     const paras=String(body).replace(/\r\n?/g,'\n').split(/\n{2,}/).map(chunk=>{
       const lines=chunk.split('\n').map(line=>{
         const safe=escapeHTML(line);
         const match=safe.match(/^([^:]{2,48}:)(\s*)(.*)$/);
         return match?'<strong style="font-weight:600;color:#002451">'+match[1]+'</strong>'+match[2]+match[3]:safe;
       }).join('<br>');
-      return '<p style="margin:0 0 19px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.85;color:#3C4D61">'+lines+'</p>';
+      return '<p style="margin:0 0 19px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.85;color:#3C4D61;overflow-wrap:break-word">'+lines+'</p>';
     }).join('');
     const heading=escapeHTML(detail.heading).replace(/\n/g,'<br>');
-    const kicker=escapeHTML(detail.kicker), subtitle=escapeHTML(detail.subtitle);
-    return '<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>COLORA · Internal Email</title></head>'+
+    const kicker=escapeHTML(detail.kicker),subtitle=escapeHTML(detail.subtitle);
+    const footer=template.group==='clients'?'A personal note from our team':'Internal communication · For our team';
+    const logoTop=EMAIL_LOGO(194,50),logoBottom=EMAIL_LOGO(143,37);
+    return '<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>COLORA · Email</title></head>'+
       '<body style="margin:0;padding:0;background:#EEE7DA">'+
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;background:#EEE7DA"><tr><td align="center" style="padding:28px 12px">'+
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:100%;max-width:600px;border-collapse:collapse;background:#F4EDE1">'+
-      '<tr><td style="background:#002451;padding:30px 42px 28px"><div style="font-family:Georgia,serif;font-size:34px;line-height:1;letter-spacing:4px;color:#F4EDE1">COLORA</div>'+
-      '<div style="margin-top:13px;font-family:Arial,sans-serif;font-size:9px;letter-spacing:3px;font-weight:bold;color:#D9C6AB">COLOR YOUR AURA</div></td></tr>'+
-      '<tr><td style="padding:38px 42px 18px"><div style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:2.5px;color:#9C774A">'+kicker+'</div>'+
-      '<h1 style="margin:16px 0 0;font-family:Georgia,Times New Roman,serif;font-weight:normal;font-size:42px;line-height:1.08;letter-spacing:-1px;color:#002451">'+heading+'</h1>'+
-      '<div style="font-family:Arial,sans-serif;font-size:13px;line-height:1.6;color:#706F6B;margin-top:18px">'+subtitle+'</div></td></tr>'+
+      '<tr><td style="background:#002451;height:9px;line-height:9px;font-size:1px">&nbsp;</td></tr>'+
+      '<tr><td style="background:#F4EDE1;padding:31px 42px 27px">'+logoTop+
+      '<div style="margin-top:13px;font-family:Arial,Helvetica,sans-serif;font-size:9px;letter-spacing:2.8px;font-weight:bold;color:#9B7953">COLOR YOUR AURA</div></td></tr>'+
+      '<tr><td style="padding:'+(milestone?'31px 42px 18px':'15px 42px 8px')+'"><div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:bold;letter-spacing:2.5px;color:#9C774A">'+kicker+'</div>'+
+      '<h1 style="margin:15px 0 0;font-family:Georgia,Times New Roman,serif;font-weight:normal;font-size:'+(milestone?'42px':'30px')+';line-height:1.09;letter-spacing:-.5px;color:#002451">'+heading+'</h1>'+
+      '<div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#706F6B;margin-top:16px">'+subtitle+'</div></td></tr>'+
       '<tr><td style="padding:8px 42px 4px"><div style="height:1px;background:#CFBFA9;font-size:1px;line-height:1px">&nbsp;</div></td></tr>'+
       '<tr><td style="padding:28px 42px 15px">'+paras+'</td></tr>'+
-      '<tr><td style="padding:2px 42px 43px"><div style="height:1px;background:#CFBFA9;font-size:1px;line-height:1px">&nbsp;</div>'+
-      '<div style="margin-top:23px;font-family:Georgia,serif;font-size:19px;letter-spacing:2px;color:#002451">COLORA</div>'+
-      '<div style="margin-top:6px;font-family:Arial,sans-serif;font-size:10px;line-height:1.6;letter-spacing:1px;color:#947B5B">COLORA - COLOR YOUR AURA</div></td></tr>'+
-      '</table><div style="font-family:Arial,sans-serif;font-size:10px;line-height:1.6;color:#867B6C;margin-top:18px">For COLORA team · Internal communication</div>'+
+      '<tr><td style="padding:2px 42px 42px"><div style="height:1px;background:#CFBFA9;font-size:1px;line-height:1px">&nbsp;</div>'+
+      '<div style="margin-top:23px">'+logoBottom+'</div>'+
+      '<div style="margin-top:9px;font-family:Arial,Helvetica,sans-serif;font-size:9px;line-height:1.6;letter-spacing:1.6px;color:#947B5B">COLOR YOUR AURA</div></td></tr>'+
+      '</table><div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:1.6;color:#867B6C;margin-top:18px">'+footer+'</div>'+
       '</td></tr></table></body></html>';
   }
+
   function refreshDesigned(){
     const t=chosenTemplate();
-    const hasDesign=!!(t&&t.design);
+    const hasDesign=!!t;
     designedBox.hidden=!hasDesign;
     if(hasDesign)designedFrame.srcdoc=designHTML(t,message.value);
     else designedFrame.removeAttribute('srcdoc');
@@ -317,7 +332,7 @@
   $('email-template-copy-all').addEventListener('click',()=>copy('Tiêu đề: '+subject.value+'\n\n'+message.value));
 
   $('email-template-copy-rich').addEventListener('click',async()=>{
-    const t=chosenTemplate();if(!t||!t.design)return;
+    const t=chosenTemplate();if(!t)return;
     if(typeof ClipboardItem==='undefined'||!navigator.clipboard?.write){
       notify('Trình duyệt chưa hỗ trợ sao chép email có định dạng. Hãy dùng nút Tải HTML hoặc sao chép bản chữ.');return;
     }
@@ -333,7 +348,7 @@
     }
   });
   $('email-template-download-html').addEventListener('click',()=>{
-    const t=chosenTemplate();if(!t||!t.design)return;
+    const t=chosenTemplate();if(!t)return;
     const file=new Blob([designHTML(t,message.value)],{type:'text/html;charset=utf-8'});
     const url=URL.createObjectURL(file),a=doc.createElement('a');
     a.href=url;a.download='colora-'+t.id+'-email.html';
