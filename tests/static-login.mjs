@@ -97,7 +97,9 @@ try{
     assert.equal(await emails.locator('#email-template-designed').isVisible(),true);
     assert.equal(await emails.locator('#email-template-copy-rich').isVisible(),true);
     const richPreview=await emails.locator('#email-template-preview').getAttribute('srcdoc');
-    assert(richPreview.includes('#F4EDE1')&&richPreview.includes('COLORA - COLOR YOUR AURA'));
+    assert(richPreview.includes('#F4EDE1')&&richPreview.includes('COLOR YOUR AURA'));
+    assert.equal((richPreview.match(/<img /g)||[]).length,2,'Welcome uses official header/footer logos');
+    assert(richPreview.includes('https://staff.colora.vn/apps/qr/assets/colora-lettermark.png'));
     await emails.locator('#email-template-body').fill('Chào <b>COLORA team</b>');
     const escapedPreview=await emails.locator('#email-template-preview').getAttribute('srcdoc');
     assert(escapedPreview.includes('&lt;b&gt;'),'Preview content must escape HTML');
@@ -108,6 +110,9 @@ try{
   await emails.locator('[data-template-filter="clients"]').click();
   assert.equal(await emails.locator('.email-template-option').count(),4);
   await emails.locator('.email-template-option').first().click();
+  assert.equal(await emails.locator('#email-template-designed').isVisible(),true,'Client template also supports HTML logo');
+  const clientPreview=await emails.locator('#email-template-preview').getAttribute('srcdoc');
+  assert(clientPreview.includes('colora-lettermark.png'),'Client template should show a real logo');
   await emails.locator('#email-template-subject').fill('COLORA | Test');
   await emails.locator('#email-template-reset').click();
   assert.notEqual(await emails.locator('#email-template-subject').inputValue(),'COLORA | Test');
