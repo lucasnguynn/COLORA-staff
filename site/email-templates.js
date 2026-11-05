@@ -206,6 +206,47 @@
   const status=$('email-template-status');
   const search=$('email-template-search');
   let chosen='',filter='all';
+  const designedBox=$('email-template-designed');
+  const designedFrame=$('email-template-preview');
+  const escapeHTML=value=>String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const chosenTemplate=()=>visible.find(t=>t.id===chosen);
+  function designHTML(template,body){
+    if(!template.design)return '';
+    const detail=template.design;
+    const paras=String(body).replace(/\r\n?/g,'\n').split(/\n{2,}/).map(chunk=>{
+      const lines=chunk.split('\n').map(line=>{
+        const safe=escapeHTML(line);
+        const match=safe.match(/^([^:]{2,48}:)(\s*)(.*)$/);
+        return match?'<strong style="font-weight:600;color:#002451">'+match[1]+'</strong>'+match[2]+match[3]:safe;
+      }).join('<br>');
+      return '<p style="margin:0 0 19px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.85;color:#3C4D61">'+lines+'</p>';
+    }).join('');
+    const heading=escapeHTML(detail.heading).replace(/\n/g,'<br>');
+    const kicker=escapeHTML(detail.kicker), subtitle=escapeHTML(detail.subtitle);
+    return '<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>COLORA · Internal Email</title></head>'+
+      '<body style="margin:0;padding:0;background:#EEE7DA">'+
+      '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;background:#EEE7DA"><tr><td align="center" style="padding:28px 12px">'+
+      '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:100%;max-width:600px;border-collapse:collapse;background:#F4EDE1">'+
+      '<tr><td style="background:#002451;padding:30px 42px 28px"><div style="font-family:Georgia,serif;font-size:34px;line-height:1;letter-spacing:4px;color:#F4EDE1">COLORA</div>'+
+      '<div style="margin-top:13px;font-family:Arial,sans-serif;font-size:9px;letter-spacing:3px;font-weight:bold;color:#D9C6AB">COLOR YOUR AURA</div></td></tr>'+
+      '<tr><td style="padding:38px 42px 18px"><div style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:2.5px;color:#9C774A">'+kicker+'</div>'+
+      '<h1 style="margin:16px 0 0;font-family:Georgia,Times New Roman,serif;font-weight:normal;font-size:42px;line-height:1.08;letter-spacing:-1px;color:#002451">'+heading+'</h1>'+
+      '<div style="font-family:Arial,sans-serif;font-size:13px;line-height:1.6;color:#706F6B;margin-top:18px">'+subtitle+'</div></td></tr>'+
+      '<tr><td style="padding:8px 42px 4px"><div style="height:1px;background:#CFBFA9;font-size:1px;line-height:1px">&nbsp;</div></td></tr>'+
+      '<tr><td style="padding:28px 42px 15px">'+paras+'</td></tr>'+
+      '<tr><td style="padding:2px 42px 43px"><div style="height:1px;background:#CFBFA9;font-size:1px;line-height:1px">&nbsp;</div>'+
+      '<div style="margin-top:23px;font-family:Georgia,serif;font-size:19px;letter-spacing:2px;color:#002451">COLORA</div>'+
+      '<div style="margin-top:6px;font-family:Arial,sans-serif;font-size:10px;line-height:1.6;letter-spacing:1px;color:#947B5B">COLORA - COLOR YOUR AURA</div></td></tr>'+
+      '</table><div style="font-family:Arial,sans-serif;font-size:10px;line-height:1.6;color:#867B6C;margin-top:18px">For COLORA team · Internal communication</div>'+
+      '</td></tr></table></body></html>';
+  }
+  function refreshDesigned(){
+    const t=chosenTemplate();
+    const hasDesign=!!(t&&t.design);
+    designedBox.hidden=!hasDesign;
+    if(hasDesign)designedFrame.srcdoc=designHTML(t,message.value);
+    else designedFrame.removeAttribute('srcdoc');
+  }
   function notify(text){status.textContent=text;}
   function matches(t){
     const query=search.value.trim().toLocaleLowerCase('vi-VN');
@@ -221,7 +262,8 @@
     $('email-template-current').textContent=t.note;
     $('email-template-title').textContent=t.title;
     $('email-template-security').hidden=t.id!=='welcome';
-    notify('Điền các phần [ ] trước khi gửi. Nội dung chỉ nằm trong trang đang mở.');
+    notify('Thay các thông tin [ ] trước khi gửi. Bản nháp chỉ nằm trong trình duyệt.');
+    refreshDesigned();
     render();
   }
   function render(){
@@ -273,8 +315,34 @@
   $('email-template-copy-subject').addEventListener('click',()=>copy(subject.value));
   $('email-template-copy-body').addEventListener('click',()=>copy(message.value));
   $('email-template-copy-all').addEventListener('click',()=>copy('Tiêu đề: '+subject.value+'\n\n'+message.value));
+
+  $('email-template-copy-rich').addEventListener('click',async()=>{
+    const t=chosenTemplate();if(!t||!t.design)return;
+    if(typeof ClipboardItem==='undefined'||!navigator.clipboard?.write){
+      notify('Trình duyệt chưa hỗ trợ sao chép email có định dạng. Hãy dùng nút Tải HTML hoặc sao chép bản chữ.');return;
+    }
+    const html=designHTML(t,message.value);
+    try{
+      await navigator.clipboard.write([new ClipboardItem({
+        'text/html':new Blob([html],{type:'text/html'}),
+        'text/plain':new Blob([message.value],{type:'text/plain'})
+      })]);
+      notify('Đã sao chép bản thiết kế. Dán vào nội dung Gmail/Outlook rồi kiểm tra hiển thị trước khi gửi.');
+    }catch{
+      notify('Không thể sao chép email có định dạng. Thử Tải HTML hoặc dùng bản văn bản.');
+    }
+  });
+  $('email-template-download-html').addEventListener('click',()=>{
+    const t=chosenTemplate();if(!t||!t.design)return;
+    const file=new Blob([designHTML(t,message.value)],{type:'text/html;charset=utf-8'});
+    const url=URL.createObjectURL(file),a=doc.createElement('a');
+    a.href=url;a.download='colora-'+t.id+'-email.html';
+    doc.body.append(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),2500);
+    notify('Đã tạo bản HTML. Kiểm tra các mục [ ] và nội dung trước khi sử dụng.');
+  });
   for(const field of [subject,message])
-    field.addEventListener('input',()=>notify('Đang chỉnh bản nháp. Nội dung không được lưu hoặc gửi lên máy chủ.'));
+    field.addEventListener('input',()=>{notify('Đang chỉnh bản nháp. Nội dung không được lưu hoặc gửi lên máy chủ.');refreshDesigned();});
   select(visible[0]?.id);
   window.COLORA_EMAIL_TEMPLATES={count:visible.length,select};
 
