@@ -28,6 +28,8 @@ jobs:
           node tests/quick-search-index.mjs
           node --check site/app.js
           node --check site/mail-guide.js
+          node --check site/email-templates.js
+          node tests/email-edition.mjs
           node --check site/jd-workspace.js
           node --check account-auth/account-login.js
           node --check scripts/build-account-release.mjs
