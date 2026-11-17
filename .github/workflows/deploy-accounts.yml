@@ -11,7 +11,7 @@ concurrency:
 jobs:
   build:
     if: vars.STAFF_AUTH_MODE == 'static-accounts'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Secrets are available ONLY in this build job. No Pages deployment
     # privileges or OIDC token are granted while decrypting source material.
     permissions:
@@ -102,7 +102,7 @@ jobs:
           path: account-release/public
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: vars.STAFF_AUTH_MODE == 'static-accounts'
     # Only this isolated job can publish the already-verified Pages artifact.
     # It never checks out code or has employee/JD secrets in its environment.

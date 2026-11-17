@@ -16,7 +16,7 @@ jobs:
     # Explicit rollback only. A missing/incorrect auth mode MUST NOT
     # silently deploy the obsolete shared-password login.
     if: vars.STAFF_AUTH_MODE == 'legacy' && github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # github-pages secrets stored in Settings > Environments can only be
     # read by a job that explicitly references this environment.
     environment:
@@ -83,7 +83,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Inspect Pages configuration before deployment
         env:
