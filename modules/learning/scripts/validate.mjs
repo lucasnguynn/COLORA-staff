@@ -39,6 +39,27 @@ for(const gem of portfolio.gems){
 assert(!/[\u2013\u2014]/.test(JSON.stringify(portfolio)),'Only plain hyphens permitted in gemstone curriculum');
 console.log('PASS gemstone supplement: 9 profiles, 24 self-review questions and 100-point color value rubric; V10.2 exam unchanged');
 
+const treatment=read('gem-treatments.json');
+assert.equal(treatment.schema,1);
+assert.equal(treatment.methods.length,12,'Treatment handbook needs 12 common methods');
+assert.equal(treatment.stoneProfiles.length,9,'Treatment handbook needs 9 COLORA stone profiles');
+assert.deepEqual(new Set(treatment.stoneProfiles.map(g=>g.id)),new Set(nine));
+assert.equal(treatment.quiz.length,12,'Treatment practice needs 12 questions');
+assert.equal(treatment.scenarios.length,6,'Customer treatment FAQ must contain six real-world cases');
+assert.equal(new Set(treatment.methods.map(m=>m.id)).size,12);
+assert.equal(new Set(treatment.quiz.map(q=>q.id)).size,12);
+for(const m of treatment.methods){
+ assert(m.title&&m.what&&m.price&&m.effect&&m.memory&&m.source.startsWith('https://www.gia.edu/'),'Incomplete method '+m.id);
+ assert(['not-allowed','allowed-conditional'].includes(m.status),'Unknown COLORA policy for '+m.id);
+}
+assert.deepEqual(treatment.methods.filter(m=>m.status==='allowed-conditional').map(m=>m.id),['heat'],'Only heat can be accepted conditionally');
+for(const q of treatment.quiz)assert(q.q.length>25&&q.options.length===4&&new Set(q.options).size===4&&Number.isInteger(q.correct)&&q.correct>=0&&q.correct<4&&q.why.length>15);
+assert(treatment.policy.allowed.includes('sapphire')&&treatment.policy.allowed.includes('ruby'));
+assert(!/(\u2013|\u2014)/.test(JSON.stringify(treatment)),'Avoid long dash punctuation in COLORA treatment material');
+assert(!treatment.priceRules.some(x=>/\d+%/.test(x)),'No fabricated uniform treatment-price premiums');
+execFileSync('node',['--check',new URL('../treatments.js',import.meta.url).pathname],{stdio:'pipe'});
+console.log('PASS treatment guide: 12 methods, 9 gem profiles, six counseling cases, 12 self-review questions. V10.2 exam remains unchanged.');
+
 assert.equal(base.length,206);
 assert.equal(gem.length,53);
 assert.equal(care.length,32);
