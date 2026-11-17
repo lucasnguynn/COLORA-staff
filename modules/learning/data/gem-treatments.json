@@ -1,0 +1,515 @@
+{
+  "schema": 1,
+  "version": "2026-11-17-treatment-value-v1",
+  "title": "Xử lý đá quý và tác động đến giá trị",
+  "subtitle": "Bài 14D - Từ cách xử lý đến cách đọc giá và tư vấn trung thực",
+  "scope": "Học phần tự học, chưa phải kết quả giám định, bảng định giá hay phê duyệt SKU",
+  "policy": {
+    "allowed": "COLORA chỉ sử dụng đá hình thành trong tự nhiên. Chấp nhận đá không xử lý, và chỉ có thể chấp nhận xử lý nhiệt thông thường đối với một số sapphire hoặc ruby khi được xác minh, duyệt theo SKU và công bố trung thực.",
+    "notAllowed": "Không chấp nhận đá tổng hợp, đá mô phỏng hay các xử lý ngoài phạm vi trên: khuếch tán màu, lấp thủy tinh, tẩm dầu/nhựa, nhuộm, chiếu xạ, phủ màu, ngâm tẩm, HPHT... Không được coi 'đá tự nhiên' là đủ điều kiện COLORA.",
+    "evidence": "Cần tối thiểu tên đá, natural/synthetic, tình trạng xử lý do nguồn cung khai báo và hồ sơ QC tương ứng. Khi trạng thái chưa xác minh, ghi 'chưa xác minh' và chuyển người duyệt; không tự nhận 'untreated'. Với giá trị cao/khả năng nghi vấn, yêu cầu giám định độc lập phù hợp.",
+    "nuance": "'No indications of heating' nghĩa là phòng giám định không phát hiện dấu hiệu xử lý nhiệt theo phép thử và phạm vi hiện tại; không phải lời bảo đảm tuyệt đối viên đá chưa từng chịu nhiệt."
+  },
+  "mnemonic": [
+    {
+      "short": "GỐC",
+      "title": "Nguồn gốc",
+      "detail": "Đá tự nhiên, đá tổng hợp hay vật liệu mô phỏng? Đây là ba nhóm khác nhau."
+    },
+    {
+      "short": "CÁCH",
+      "title": "Cách xử lý",
+      "detail": "Nhiệt thông thường, khuếch tán, lấp nứt hay phủ/nhuộm? Cùng là đá tự nhiên nhưng giá trị khác."
+    },
+    {
+      "short": "GIÁ",
+      "title": "Giá trị",
+      "detail": "So cùng loại đá, chất lượng màu, độ trong, giác cắt, kích thước, độ bền, chứng thư và xuất xứ."
+    },
+    {
+      "short": "CHỨNG",
+      "title": "Chứng cứ",
+      "detail": "Không suy trạng thái xử lý chỉ từ ảnh/màu; kiểm tra tài liệu theo viên hoặc lô."
+    }
+  ],
+  "priceRules": [
+    "Không có bảng % cộng/trừ cố định theo phương pháp xử lý áp dụng cho mọi chủng loại, màu hoặc kích thước đá.",
+    "Đối với ruby/sapphire chất lượng cao so sánh tương đương, viên được xác nhận 'không có dấu hiệu nhiệt' có thể mang premium; đá nhiệt thông thường vẫn là đá tự nhiên và được thị trường chấp nhận.",
+    "Với ruby/sapphire, khuếch tán màu hoặc lấp thủy tinh thường có giá thấp hơn đá chỉ xử lý nhiệt cùng nhóm chất lượng. Riêng tỷ lệ chênh cần định giá bằng cặp mẫu có thể so sánh.",
+    "Một viên không xử lý nhưng màu kém, cắt xấu hoặc nứt nhiều không đương nhiên đắt hơn viên xử lý nhiệt đẹp hơn; không so giá bằng một yếu tố.",
+    "Với peridot hoặc garnet, việc gắn nhãn 'unheated' không tự tạo premium vì xử lý nhiệt không phải thực hành phổ biến. Với aquamarine, citrine, topaz, tourmaline, cách xử lý và mức độ chấp nhận tùy chủng loại.",
+    "Độ bền, nguy cơ phai màu, khả năng sửa/đánh bóng, độ tin cậy tài liệu và yêu cầu công bố đều có thể tác động đến giá thị trường."
+  ],
+  "comparison": {
+    "title": "Thứ tự tham khảo riêng cho ruby và sapphire",
+    "note": "Chỉ là xu hướng thị trường khi so những viên tương đương về màu, độ trong, giác cắt, kích thước, nguồn gốc và chứng cứ. Không phải bảng xếp hạng giá tuyệt đối cho mọi viên.",
+    "steps": [
+      {
+        "name": "Natural - không có dấu hiệu nhiệt",
+        "note": "Có thể có premium khi chất lượng cao và được phòng giám định độc lập xác nhận",
+        "color": "navy"
+      },
+      {
+        "name": "Natural - xử lý nhiệt thông thường",
+        "note": "Được chấp nhận rộng rãi; COLORA có thể sử dụng với hồ sơ xác minh và duyệt SKU",
+        "color": "gold"
+      },
+      {
+        "name": "Natural - khuếch tán / lấp nứt",
+        "note": "Thông thường giá thấp hơn nhóm chỉ xử lý nhiệt; không thuộc chính sách COLORA",
+        "color": "muted"
+      }
+    ]
+  },
+  "methods": [
+    {
+      "id": "heat",
+      "title": "Xử lý nhiệt thông thường",
+      "term": "Conventional heat treatment",
+      "what": "Gia nhiệt nhằm làm thay đổi màu, giảm sắc phụ hoặc cải thiện độ trong nhờ biến đổi bao thể tự nhiên.",
+      "examples": "Sapphire, ruby; ngoài chính sách COLORA còn gặp ở aquamarine, citrine và một số tourmaline.",
+      "effect": "Thường bền trong điều kiện đeo bình thường đối với ruby/sapphire xử lý đúng cách; vẫn cần đánh giá độ dai của từng viên.",
+      "price": "Sapphire/ruby đẹp không nhiệt có xác nhận có thể đắt hơn viên nhiệt tương đương; nhiệt thường không làm viên đá mất tính tự nhiên.",
+      "status": "allowed-conditional",
+      "memory": "Nhiệt không biến natural thành synthetic",
+      "source": "https://www.gia.edu/sapphire/buyers-guide"
+    },
+    {
+      "id": "flux",
+      "title": "Gia nhiệt kèm chất trợ dung / hàn lành nứt",
+      "term": "Flux-assisted healing / residue",
+      "what": "Dùng nhiệt và chất trợ dung, có thể làm khe nứt hàn lành hoặc để lại vật chất lạ trong vết nứt/khoang.",
+      "examples": "Một số ruby và sapphire nhiệt độ cao.",
+      "effect": "Tình trạng vết nứt và vật chất lạ cần xem báo cáo chuyên môn, không đánh đồng với nhiệt thông thường.",
+      "price": "Không thể dùng thứ tự giá chỉ dựa chữ 'heated'; mức dư chất và kiểu xử lý có thể ảnh hưởng mạnh đến giá và khả năng sử dụng.",
+      "status": "not-allowed",
+      "memory": "Có nhiệt không có nghĩa chỉ xử lý nhiệt",
+      "source": "https://www.gia.edu/gem-treatment"
+    },
+    {
+      "id": "diffusion",
+      "title": "Khuếch tán nguyên tố tạo màu",
+      "term": "Lattice diffusion (Ti, Be, Co, Ni...)",
+      "what": "Kết hợp nhiệt với nguyên tố từ ngoài khuếch tán vào tinh thể để tạo/đổi màu; không giống chỉ làm thay đổi bao thể sẵn có.",
+      "examples": "Sapphire xử lý Be/Ti; spinel khuếch tán Co/Ni.",
+      "effect": "Màu khuếch tán nông có thể biến mất khi mài sửa; độ sâu màu tùy quy trình.",
+      "price": "GIA ghi sapphire khuếch tán nói chung có giá thấp hơn sapphire chỉ xử lý nhiệt hoặc không xử lý có thể so sánh.",
+      "status": "not-allowed",
+      "memory": "Thêm nguyên tố từ ngoài = không phải 'chỉ nhiệt'",
+      "source": "https://www.gia.edu/sapphire/buyers-guide"
+    },
+    {
+      "id": "glass",
+      "title": "Lấp khe nứt bằng thủy tinh",
+      "term": "Glass / lead-glass filling",
+      "what": "Đưa thủy tinh vào khe nứt hoặc khoang để che khuyết tật, tăng độ trong biểu kiến.",
+      "examples": "Ruby, đôi khi sapphire.",
+      "effect": "Chất lấp có thể bị hóa chất, nhiệt hay chăm sóc sai làm hư; không phải độ trong nguyên bản.",
+      "price": "Ruby lấp thủy tinh thường thấp giá hơn ruby chỉ xử lý nhiệt; không dùng khi tư vấn giá ruby tự nhiên thông thường.",
+      "status": "not-allowed",
+      "memory": "Đẹp hơn nhờ chất lấp không phải đá tự lành",
+      "source": "https://www.gia.edu/FAQ/gia-faq-heat-treatment-ruby"
+    },
+    {
+      "id": "oil",
+      "title": "Tẩm dầu hoặc nhựa vào khe nứt",
+      "term": "Oiling / resin filling",
+      "what": "Dầu hoặc polymer lấp khe nứt lộ ra bề mặt để làm vết nứt bớt thấy.",
+      "examples": "Emerald là trường hợp điển hình; đôi khi các loại đá trong suốt khác.",
+      "effect": "Chất lấp có thể suy giảm, bị hóa chất hoặc nhiệt tác động và cần chăm sóc đặc biệt.",
+      "price": "Mức độ tăng cường độ trong là một yếu tố định giá emerald; không gán một tỷ lệ giảm chung.",
+      "status": "not-allowed",
+      "memory": "Trong hơn là nhờ dầu/nhựa, không phải độ trong gốc",
+      "source": "https://www.gia.edu/gem-treatment"
+    },
+    {
+      "id": "irradiation",
+      "title": "Chiếu xạ tạo màu",
+      "term": "Irradiation",
+      "what": "Dùng nguồn bức xạ có kiểm soát để tạo/đổi tâm màu, đôi khi tiếp tục gia nhiệt.",
+      "examples": "Blue topaz phổ thông, một số tourmaline hồng và sapphire màu.",
+      "effect": "Một số màu xử lý có thể phai do ánh sáng hoặc nhiệt, tùy loại và quy trình.",
+      "price": "Topaz xanh xử lý phổ biến không thể mặc nhiên có giá như đá xanh tự nhiên hiếm; không suy mức premium chung cho mọi loại.",
+      "status": "not-allowed",
+      "memory": "Chiếu xạ không phải đá tổng hợp, nhưng là xử lý ngoài chính sách",
+      "source": "https://www.gia.edu/gem-treatment"
+    },
+    {
+      "id": "dye",
+      "title": "Nhuộm màu",
+      "term": "Dyeing",
+      "what": "Đưa chất màu vào lỗ rỗng/khe nứt để thay đổi hoặc tăng màu.",
+      "examples": "Chalcedony, quartz, turquoise, lapis lazuli; có thể gặp trên vật liệu khác.",
+      "effect": "Màu/chất nhuộm có thể nhạy với hóa chất, ánh sáng và vệ sinh.",
+      "price": "Màu do nhuộm không được định giá như màu tự nhiên tương đương; mức giảm tùy chất lượng và thị trường.",
+      "status": "not-allowed",
+      "memory": "Màu ngấm từ ngoài khác màu đá hình thành",
+      "source": "https://www.gia.edu/gem-treatment"
+    },
+    {
+      "id": "coating",
+      "title": "Phủ màng / lớp màu bề mặt",
+      "term": "Surface coating",
+      "what": "Lớp vật liệu mỏng trên bề mặt tạo màu hoặc hiệu ứng quang học.",
+      "examples": "Topaz phủ màu, quartz, một số đá trang trí.",
+      "effect": "Lớp phủ có thể trầy, mòn hoặc bong; đánh bóng lại có thể thay đổi màu.",
+      "price": "Không thể áp giá đá màu tự nhiên đồng chất cho hiệu ứng chỉ có ở lớp phủ.",
+      "status": "not-allowed",
+      "memory": "Màu nằm trên bề mặt có thể bị mài mất",
+      "source": "https://www.gia.edu/gem-treatment"
+    },
+    {
+      "id": "impregnation",
+      "title": "Ngâm tẩm / ổn định bằng polymer",
+      "term": "Impregnation / stabilization",
+      "what": "Thấm sáp hoặc nhựa vào cấu trúc xốp để tăng kết dính, bóng hoặc độ bền.",
+      "examples": "Turquoise, vật liệu có cấu trúc xốp.",
+      "effect": "Độ bền có thể được cải thiện nhưng phụ thuộc lượng và loại chất đưa vào.",
+      "price": "Giá khác với mẫu tự nhiên không ngâm tẩm chất lượng tương ứng; cần công bố chứ không có một công thức %.",
+      "status": "not-allowed",
+      "memory": "Tăng độ bền bằng chất ngoài phải khai báo",
+      "source": "https://www.gia.edu/gem-treatment"
+    },
+    {
+      "id": "bleach",
+      "title": "Tẩy màu / tẩy trắng",
+      "term": "Bleaching",
+      "what": "Dùng hóa chất để làm sáng hoặc loại bớt màu không mong muốn, đôi khi đi cùng nhuộm hay ngâm tẩm.",
+      "examples": "Ngọc trai và một số vật liệu hữu cơ, jadeite; không phải xử lý tiêu biểu cho sapphire/ruby.",
+      "effect": "Độ ổn định tùy vật liệu; nếu có xử lý kết hợp phải ghi nhận toàn bộ.",
+      "price": "Không có premium mặc định; phụ thuộc vật liệu, mức độ xử lý và công bố.",
+      "status": "not-allowed",
+      "memory": "Tẩy trắng không đồng nghĩa màu nguyên bản",
+      "source": "https://www.gia.edu/gem-treatment"
+    },
+    {
+      "id": "hpht",
+      "title": "Áp suất cao và nhiệt độ cao",
+      "term": "HPHT",
+      "what": "Tác động áp suất và nhiệt rất cao lên một số loại kim cương để cải thiện hoặc đổi màu.",
+      "examples": "Kim cương thiên nhiên và kim cương nuôi cấy.",
+      "effect": "Có thể tạo biến đổi màu tương đối bền; là dạng xử lý khác gia nhiệt thông thường cho sapphire/ruby.",
+      "price": "Kim cương HPHT phải định danh và công bố đúng, giá phụ thuộc loại kim cương và đặc tính thực tế.",
+      "status": "not-allowed",
+      "memory": "HPHT không phải ngoại lệ 'cho phép nhiệt' của COLORA",
+      "source": "https://www.gia.edu/gem-treatment"
+    },
+    {
+      "id": "laser",
+      "title": "Khoan laser / hỗ trợ xử lý độ trong",
+      "term": "Laser drilling",
+      "what": "Tạo đường khoan rất nhỏ nhằm tiếp cận bao thể hoặc vết nứt, thường áp dụng với kim cương.",
+      "examples": "Kim cương.",
+      "effect": "Thay đổi đá vĩnh viễn; khác đánh bóng/giác cắt thông thường.",
+      "price": "Ảnh hưởng tới định giá và cần công bố xử lý; không dùng nhầm với giác cắt.",
+      "status": "not-allowed",
+      "memory": "Khoan xử lý khác với cắt giác",
+      "source": "https://www.gia.edu/FAQ/gia-faq-analysis-grading-treatment-test"
+    }
+  ],
+  "stoneProfiles": [
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "common": "Nhiệt; hàn nứt có trợ dung; thủy tinh chì; khuếch tán",
+      "price": "No indications of heating có chứng nhận có thể premium; nhiệt thông thường là nền so sánh chấp nhận; glass-filled/diffused thường thấp hơn.",
+      "colora": "Chỉ tự nhiên, không xử lý hoặc chỉ nhiệt thông thường đã xác minh. Không glass/flux filling/diffusion.",
+      "verify": "Yêu cầu báo cáo xử lý, phân biệt 'heated' với 'heated with residues' và 'glass-filled'.",
+      "source": "https://www.gia.edu/ruby/buyers-guide"
+    },
+    {
+      "id": "sapphire",
+      "name": "Sapphire",
+      "common": "Nhiệt; khuếch tán Be/Ti; chiếu xạ; lấp khe nứt",
+      "price": "No indications of heat có chứng nhận có thể premium ở phân khúc chất lượng cao; lattice diffusion thường thấp hơn heat-only.",
+      "colora": "Chỉ tự nhiên, không xử lý hoặc chỉ nhiệt thông thường đã xác minh. Không diffusion/irradiation/filling.",
+      "verify": "Kiểm tra ghi chú xử lý; màu rất đẹp không phải bằng chứng untreated.",
+      "source": "https://www.gia.edu/sapphire/buyers-guide"
+    },
+    {
+      "id": "spinel",
+      "name": "Spinel",
+      "common": "Thông thường không xử lý; đã ghi nhận cobalt/nickel diffusion",
+      "price": "Giá ưu tiên màu tự nhiên, cỡ, độ trong và nguồn gốc; spinel khuếch tán không được coi là spinel màu nguyên bản.",
+      "colora": "Chỉ tự nhiên và không xử lý; nếu nghi khuếch tán phải giám định.",
+      "verify": "Đá spinel xanh rực đặc biệt cần xem khả năng cobalt/nickel diffusion.",
+      "source": "https://www.gia.edu/gia-news-press/gia-researchers-identify-new-spinel-treatment"
+    },
+    {
+      "id": "garnet",
+      "name": "Garnet",
+      "common": "Đa số không xử lý; có ghi nhận lấp khe nứt hiếm gặp",
+      "price": "Không tự tạo premium bằng chữ 'unheated'. Giá khác nhau rất lớn theo nhóm garnet, màu, độ trong, cỡ và rarity.",
+      "colora": "Chỉ tự nhiên, không xử lý; phải ghi rõ giống garnet.",
+      "verify": "Không quy mọi garnet về garnet đỏ; kiểm tra fracture filling nếu có dấu hiệu.",
+      "source": "https://www.gia.edu/garnet-care-cleaning"
+    },
+    {
+      "id": "topaz",
+      "name": "Topaz",
+      "common": "Chiếu xạ và nhiệt tạo blue topaz; một số màu phủ bề mặt",
+      "price": "Blue topaz xử lý phổ biến khác với topaz tự nhiên màu hiếm; không lấy màu xanh làm căn cứ premium tự nhiên.",
+      "colora": "Chỉ tự nhiên, không xử lý; loại topaz xử lý xanh phổ thông không phù hợp chính sách.",
+      "verify": "Hỏi rõ natural color hay irradiation + heat, coating; đánh giá cát khai.",
+      "source": "https://www.gia.edu/gem-treatment"
+    },
+    {
+      "id": "aquamarine",
+      "name": "Aquamarine",
+      "common": "Gia nhiệt để giảm sắc xanh lục; đôi khi lấp khe",
+      "price": "Gia nhiệt phổ biến và được chấp nhận trong ngành, nhưng không có một premium untreated chung; màu, độ trong và cỡ vẫn chi phối.",
+      "colora": "Chỉ tự nhiên, không xử lý vì ngoại lệ nhiệt COLORA chỉ áp dụng sapphire/ruby.",
+      "verify": "Không mặc nhiên kết luận untreated khi màu xanh lam đẹp; cần khai báo nhà cung cấp.",
+      "source": "https://www.gia.edu/gem-treatment"
+    },
+    {
+      "id": "citrine",
+      "name": "Citrine",
+      "common": "Phần lớn citrine thương mại là quartz đã gia nhiệt, thường từ amethyst",
+      "price": "Citrine không nhiệt có thể hiếm hơn nhưng không đủ căn cứ gán mức chênh giá cố định; so màu và giác cắt.",
+      "colora": "Chỉ citrine tự nhiên không xử lý nếu xác minh đủ; phải cảnh giác vì hàng nhiệt phổ biến.",
+      "verify": "Không dùng 'citrine tự nhiên' để lấp trạng thái xử lý; nên yêu cầu xác nhận cụ thể.",
+      "source": "https://www.gia.edu/citrine/buyers-guide"
+    },
+    {
+      "id": "peridot",
+      "name": "Peridot",
+      "common": "Hiếm xử lý; có thể có lấp khe",
+      "price": "GIA nói không biết phương pháp gia nhiệt nhằm cải thiện peridot; quảng bá 'unheated' như giá trị độc đáo là gây hiểu lầm.",
+      "colora": "Chỉ tự nhiên, không xử lý; kiểm tra khe nứt và lấp chất.",
+      "verify": "Đánh giá màu xanh, giác cắt, kích thước và tình trạng nứt thay vì nhấn 'không nhiệt'.",
+      "source": "https://www.gia.edu/peridot/buyers-guide"
+    },
+    {
+      "id": "tourmaline",
+      "name": "Tourmaline",
+      "common": "Một số màu được nhiệt hoặc chiếu xạ, đôi khi khó phát hiện",
+      "price": "Không có mức premium untreated thống nhất; sắc màu, độ bão hòa, giống và nguồn gốc có thể chi phối.",
+      "colora": "Chỉ tự nhiên, không xử lý; phải thận trọng vì vài xử lý khó nhận diện bằng giám định thông thường.",
+      "verify": "Hỏi nhà cung cấp về xử lý; với các màu nhạy cảm, cân nhắc xác minh phòng lab.",
+      "source": "https://www.gia.edu/gems-gemology/summer-2024-micro-features-tourmaline"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "C1",
+      "ask": "Đá đã xử lý nhiệt còn là đá tự nhiên không?",
+      "reply": "Có. Ruby hoặc sapphire hình thành trong tự nhiên vẫn là đá tự nhiên sau khi gia nhiệt. Điều quan trọng là phải nói rõ tình trạng xử lý của mẫu và chỉ tư vấn theo hồ sơ đã được COLORA xác minh.",
+      "rule": "NATURAL KHÁC UNTREATED"
+    },
+    {
+      "id": "C2",
+      "ask": "Sapphire không nhiệt có luôn đắt hơn sapphire nhiệt không?",
+      "reply": "Không phải luôn luôn. Nếu các yếu tố chất lượng tương đương và có chứng nhận phù hợp, sapphire chất lượng cao không có dấu hiệu nhiệt có thể hiếm và giá cao hơn. Màu, độ trong, giác cắt, kích thước và chứng thư vẫn phải được so sánh.",
+      "rule": "KHÔNG GÁN PHẦN TRĂM CHUNG"
+    },
+    {
+      "id": "C3",
+      "ask": "Sapphire khuếch tán cũng qua lò nhiệt, tại sao COLORA không dùng?",
+      "reply": "Vì khuếch tán đưa nguyên tố tạo màu từ ngoài vào tinh thể. Đây không phải chỉ gia nhiệt thông thường. COLORA chỉ xem xét sapphire/ruby tự nhiên không xử lý hoặc xử lý nhiệt thông thường có hồ sơ phù hợp.",
+      "rule": "PHÂN BIỆT CƠ CHẾ"
+    },
+    {
+      "id": "C4",
+      "ask": "Ruby lấp thủy tinh nhìn đẹp thì sao giá rẻ hơn?",
+      "reply": "Phần độ trong nhìn thấy có thể được cải thiện bằng thủy tinh lấp khe nứt. Giá và yêu cầu chăm sóc khác ruby chỉ xử lý nhiệt. COLORA không sử dụng loại xử lý này.",
+      "rule": "ĐẸP HƠN KHÔNG ĐỒNG NGHĨA CHẤT LƯỢNG GỐC"
+    },
+    {
+      "id": "C5",
+      "ask": "Shop có thể ghi 100% đá không xử lý để khách an tâm không?",
+      "reply": "Không. Chính sách của COLORA cho phép một số ruby/sapphire xử lý nhiệt. Với mỗi SKU, nhân viên phải dùng đúng thông tin được duyệt, không suy rộng toàn bộ danh mục.",
+      "rule": "KHÔNG CAM KẾT VƯỢT HỒ SƠ"
+    },
+    {
+      "id": "C6",
+      "ask": "Nếu không có chứng thư, nhân viên có thể tự nhìn màu để xác nhận không nhiệt không?",
+      "reply": "Không. Màu và ảnh không đủ xác định tình trạng xử lý. Hãy kiểm tra công bố nguồn cung, hồ sơ QC và chuyển người phụ trách giám định khi cần; nếu chưa rõ, nói chưa xác minh.",
+      "rule": "KHÔNG TỰ GIÁM ĐỊNH"
+    }
+  ],
+  "quiz": [
+    {
+      "id": "TR-01",
+      "q": "Sapphire tự nhiên đã xử lý nhiệt thông thường có còn là đá tự nhiên?",
+      "options": [
+        "Không, trở thành đá tổng hợp",
+        "Có, nguồn gốc hình thành vẫn là tự nhiên",
+        "Chỉ khi màu xanh đậm",
+        "Chỉ khi không có bao thể"
+      ],
+      "correct": 1,
+      "why": "Nguồn gốc natural và trạng thái treatment là hai thuộc tính khác nhau."
+    },
+    {
+      "id": "TR-02",
+      "q": "Điểm khác cơ bản của khuếch tán so với nhiệt thông thường trên sapphire?",
+      "options": [
+        "Không có gì khác nhau",
+        "Khuếch tán đưa nguyên tố từ ngoài vào tinh thể để tạo/đổi màu",
+        "Khuếch tán chỉ làm viên đá sạch hơn",
+        "Nhiệt luôn làm viên đá thành synthetic"
+      ],
+      "correct": 1,
+      "why": "Lattice diffusion có sự tham gia của nguyên tố tạo màu từ bên ngoài."
+    },
+    {
+      "id": "TR-03",
+      "q": "Điều nào đúng nhất về giá ruby không có dấu hiệu nhiệt?",
+      "options": [
+        "Mọi viên đều đắt hơn mọi ruby nhiệt",
+        "Premium có thể xuất hiện với chất lượng cao và so sánh tương đương, cần chứng cứ",
+        "Luôn tăng chính xác 50%",
+        "Không ai trả thêm tiền cho ruby không nhiệt"
+      ],
+      "correct": 1,
+      "why": "GIA xác nhận premium do độ hiếm, nhưng không đưa tỷ lệ chung cho mọi viên."
+    },
+    {
+      "id": "TR-04",
+      "q": "Ruby lấp thủy tinh chì có thuộc loại đá COLORA chấp nhận?",
+      "options": [
+        "Có, vì viên gốc tự nhiên",
+        "Có, miễn trông trong hơn",
+        "Không, ngoài phạm vi chỉ nhiệt thông thường",
+        "Có, nếu đã giảm giá"
+      ],
+      "correct": 2,
+      "why": "Natural không đủ; fracture filling không thuộc chính sách COLORA."
+    },
+    {
+      "id": "TR-05",
+      "q": "Dòng đá nào được GIA lưu ý không nên quảng bá 'unheated' như một premium đặc biệt?",
+      "options": [
+        "Ruby",
+        "Sapphire",
+        "Peridot",
+        "Citrine"
+      ],
+      "correct": 2,
+      "why": "GIA không biết thực hành gia nhiệt cải thiện peridot; nhấn điều này dễ gây hiểu lầm."
+    },
+    {
+      "id": "TR-06",
+      "q": "Một lô citrine được nhà cung cấp gọi là 'natural citrine' đã đủ xác nhận untreated chưa?",
+      "options": [
+        "Rồi, natural = untreated",
+        "Chưa, phải hỏi riêng tình trạng xử lý; citrine nhiệt phổ biến",
+        "Rồi, nếu màu vàng",
+        "Rồi, nếu viên nhỏ hơn 1 ct"
+      ],
+      "correct": 1,
+      "why": "Citrine phần lớn có thể là quartz gia nhiệt dù viên gốc hình thành tự nhiên."
+    },
+    {
+      "id": "TR-07",
+      "q": "Giá thấp hơn của sapphire khuếch tán so với sapphire chỉ nhiệt được hiểu thế nào?",
+      "options": [
+        "Xu hướng khi so chất lượng tương đương, không phải công thức % cố định",
+        "Mọi viên khuếch tán luôn giá bằng 0",
+        "Luôn chính xác giảm 20%",
+        "Giá chỉ dựa vào xử lý"
+      ],
+      "correct": 0,
+      "why": "Giá còn phụ thuộc chất lượng, kích thước, xuất xứ, tình trạng giám định."
+    },
+    {
+      "id": "TR-08",
+      "q": "Với aquamarine, COLORA có chấp nhận xử lý nhiệt theo chính sách hiện tại?",
+      "options": [
+        "Có vì ngành thường cho phép",
+        "Không, ngoại lệ nhiệt chỉ dành cho một số ruby/sapphire",
+        "Có nếu viên xanh đậm",
+        "Có miễn không khai báo"
+      ],
+      "correct": 1,
+      "why": "Phạm vi chấp thuận của COLORA hẹp hơn thực hành chung của thị trường."
+    },
+    {
+      "id": "TR-09",
+      "q": "Một viên spinel xanh rực được quảng cáo 'màu tự nhiên', lựa chọn chuyên môn tốt nhất?",
+      "options": [
+        "Tin ảnh và đăng ngay",
+        "Đối chiếu công bố, xem khả năng cobalt/nickel diffusion và giám định khi cần",
+        "Giá cao chắc chắn là untreated",
+        "Chỉ kiểm tra độ cứng Mohs"
+      ],
+      "correct": 1,
+      "why": "GIA đã ghi nhận spinel khuếch tán cobalt/nickel."
+    },
+    {
+      "id": "TR-10",
+      "q": "Khách hỏi 'Sao sapphire này đắt hơn?' - câu nào tư vấn đúng?",
+      "options": [
+        "Chỉ do không xử lý",
+        "Xem cùng màu, độ trong, giác cắt, kích thước, xử lý, chứng thư và nguồn gốc",
+        "Do tất cả sapphire đều tăng giá 30% mỗi năm",
+        "Đá càng xanh càng đắt không cần kiểm chứng"
+      ],
+      "correct": 1,
+      "why": "Treatment là một yếu tố trong nhiều yếu tố định giá."
+    },
+    {
+      "id": "TR-11",
+      "q": "Nếu hồ sơ SKU chỉ ghi 'natural ruby' mà không ghi tình trạng xử lý?",
+      "options": [
+        "Tự suy ra untreated",
+        "Đưa vào website là 'không qua xử lý'",
+        "Ghi chưa xác minh, hỏi bộ phận phụ trách trước khi công bố",
+        "Ghi '100% bảo đảm không xử lý'"
+      ],
+      "correct": 2,
+      "why": "Nghĩa vụ công bố chính xác phải dựa trên bằng chứng, không suy diễn."
+    },
+    {
+      "id": "TR-12",
+      "q": "'No indications of heating' trên báo cáo đá có nghĩa nào chính xác hơn?",
+      "options": [
+        "Phòng lab không phát hiện dấu hiệu gia nhiệt trong phạm vi kiểm định",
+        "Bảo đảm toán học rằng đá chưa từng nóng lên",
+        "Không cần xem những mục khác của báo cáo",
+        "Đá luôn có xuất xứ Myanmar"
+      ],
+      "correct": 0,
+      "why": "Đây là kết luận giám định theo phương pháp và phạm vi kiểm tra hiện có."
+    }
+  ],
+  "sources": [
+    {
+      "title": "GIA - An Introduction to Gem Treatments",
+      "url": "https://www.gia.edu/gem-treatment"
+    },
+    {
+      "title": "GIA - Sapphire Buying Guide",
+      "url": "https://www.gia.edu/sapphire/buyers-guide"
+    },
+    {
+      "title": "GIA - Ruby heat treatment and value",
+      "url": "https://www.gia.edu/FAQ/gia-faq-heat-treatment-ruby"
+    },
+    {
+      "title": "GIA - Citrine Buying Guide",
+      "url": "https://www.gia.edu/citrine/buyers-guide"
+    },
+    {
+      "title": "GIA - Peridot Buying Guide",
+      "url": "https://www.gia.edu/peridot/buyers-guide"
+    },
+    {
+      "title": "GIA - Garnet Care & Cleaning",
+      "url": "https://www.gia.edu/garnet-care-cleaning"
+    },
+    {
+      "title": "GIA - Tourmaline treatment research",
+      "url": "https://www.gia.edu/gems-gemology/summer-2024-micro-features-tourmaline"
+    },
+    {
+      "title": "GIA - Nickel diffusion in spinel",
+      "url": "https://www.gia.edu/gia-news-press/gia-researchers-identify-new-spinel-treatment"
+    },
+    {
+      "title": "CIBJO - Gemstone Blue Book disclosure",
+      "url": "https://cibjo.org/wp-content/uploads/2022/08/CIBJO-Gemstone-Blue-Book-2020-12-01.pdf"
+    }
+  ]
+}
