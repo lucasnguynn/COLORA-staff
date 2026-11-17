@@ -122,3 +122,63 @@
 .gem-value-cta p{font-size:12px;line-height:1.8}
 @media(max-width:950px){.gem-value-score-layout{grid-template-columns:1fr}.gem-value-tiers{grid-template-columns:1fr}}
 @media(max-width:640px){.gem-value-basics{grid-template-columns:1fr}.gem-value-header{flex-wrap:wrap}.gem-value-score-row{grid-template-columns:minmax(0,1fr) 98px}.gem-value-score-row label{grid-column:1/-1}.gem-value-max{text-align:left}.gem-value-score-form,.gem-value-score-aside{padding:17px}.gem-value-tiers article{padding:13px}}
+
+
+/* Bài 14D | COLORA treatment training */
+.treat-intro{border-left:3px solid #b08a5b;margin-top:22px}
+.treat-section-head{margin:34px 0 17px}
+.treat-section-head .eyebrow{display:block;margin-bottom:8px}
+.treat-section-head .h2{margin:6px 0 8px}
+.treat-section-head p{max-width:780px;line-height:1.7;color:#43536a}
+.treat-memory-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0 25px}
+.treat-memory-card{background:#fcf9f3;border:1px solid #e1d5c2;border-radius:14px;padding:20px 15px;min-width:0}
+.treat-memory-card>span{font-family:"Cormorant Garamond",serif;font-weight:600;letter-spacing:.06em;font-size:30px;color:#a37b50}
+.treat-memory-card h3{font-family:"Cormorant Garamond",serif;font-size:22px;color:#002451;margin:9px 0 6px}
+.treat-memory-card p{line-height:1.68;font-size:13px;color:#40526d;margin:0}
+.treat-panel{border-radius:16px;padding:24px;background:#faf5eb;border:1px solid #ded1bf;margin:21px 0}
+.treat-panel .h2{margin:6px 0 11px}
+.treat-panel p{line-height:1.75;color:#324761}
+.treat-panel p:last-child{margin-bottom:0}
+.treat-filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.treat-filter{border:1px solid #c8b8a1;border-radius:100px;background:transparent;color:#002451;font-family:inherit;font-size:12px;font-weight:600;padding:10px 15px;cursor:pointer;min-height:40px}
+.treat-filter.active,.treat-filter[aria-pressed="true"]{background:#002451;color:#fff;border-color:#002451}
+.treat-method-list{display:grid;gap:10px}
+.treat-method,.treat-stone,.treat-case{border-radius:13px;background:#fff;border:1px solid #e3dbce;overflow:hidden}
+.treat-method[hidden]{display:none!important}
+.treat-method>summary,.treat-stone>summary,.treat-case>summary{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:17px 20px;cursor:pointer;list-style:none;color:#002451}
+.treat-method>summary::-webkit-details-marker,.treat-stone>summary::-webkit-details-marker,.treat-case>summary::-webkit-details-marker{display:none}
+.treat-method>summary:focus-visible,.treat-stone>summary:focus-visible,.treat-case>summary:focus-visible,.treat-filter:focus-visible{outline:3px solid #b08a5b;outline-offset:2px}
+.treat-method[open],.treat-stone[open],.treat-case[open]{border-color:#b9a58a;box-shadow:0 8px 28px rgba(0,36,81,.045)}
+.treat-method-title{display:flex;flex-direction:column;gap:5px;min-width:0}
+.treat-method-title b{font-size:15px;line-height:1.4}
+.treat-method-title small{font-size:12px;font-weight:400;color:#697385;line-height:1.35}
+.treat-policy{display:inline-block;border-radius:100px;padding:6px 10px;font-size:11px;white-space:nowrap;flex-shrink:0;font-weight:700}
+.treat-policy-conditional{background:#f2e7d3;color:#664a24}
+.treat-policy-no{background:#f0f1f3;color:#535d6c}
+.treat-method-inner,.treat-stone>div,.treat-case>div{border-top:1px solid #eee8de;padding:17px 20px 21px}
+.treat-method-inner p,.treat-stone p,.treat-case p{margin:0 0 12px;color:#33465b;line-height:1.7;font-size:13px}
+.treat-method-inner a,.treat-stone a,.treat-references a{font-size:12px;color:#002451;text-decoration:underline;text-underline-offset:3px}
+.treat-memory-line{display:inline-block;border-radius:7px;background:#f3ece0;padding:8px 12px;color:#6d4c29;font-size:12px;font-weight:600;margin:2px 0 13px}
+.treat-price-panel{background:#f8f3e9}
+.treat-price-track{margin-top:18px;display:grid;gap:9px}
+.treat-price-stage{display:flex;align-items:flex-start;gap:15px;background:#fff;border:1px solid #e4d6c2;padding:15px;border-radius:11px}
+.treat-price-index{font-family:"Cormorant Garamond",serif;font-size:28px;min-width:34px;color:#a78253;line-height:1}
+.treat-price-stage strong{color:#002451;font-size:14px}
+.treat-price-stage p{font-size:12px;margin:7px 0 0!important}
+.treat-rule-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.treat-rule{display:flex;align-items:flex-start;gap:13px;padding:17px;border-radius:11px;background:#fff;border:1px solid #eee5d9}
+.treat-rule span{color:#b08a5b;font-weight:700;font-size:13px}
+.treat-rule p{font-size:13px;line-height:1.7;margin:0;color:#33465b}
+.treat-stone-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.treat-stone>summary span{font-size:12px;color:#607084}
+.treat-case-list{display:grid;gap:9px}
+.treat-case>summary{justify-content:flex-start;font-weight:600;font-size:14px;line-height:1.5}
+.treat-case-label{font-size:11px;color:#b08a5b;min-width:30px}
+.treat-quiz-cta{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.treat-quiz-cta .h2{margin-top:5px}
+.treat-quiz-cta button{white-space:nowrap}
+.treat-references{margin:22px 0;border-top:1px solid #d8cbb8;border-bottom:1px solid #d8cbb8;padding:15px 4px}
+.treat-references>summary{font-size:13px;font-weight:600;cursor:pointer;color:#002451}
+.treat-references li{font-size:13px;line-height:1.7;margin:7px 0}
+@media(max-width:850px){.treat-memory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.treat-rule-list{grid-template-columns:1fr}}
+@media(max-width:600px){.treat-section-head{margin:28px 0 13px}.treat-memory-card{padding:15px 12px}.treat-memory-card>span{font-size:25px}.treat-memory-card h3{font-size:20px}.treat-panel{padding:17px}.treat-method>summary,.treat-stone>summary,.treat-case>summary{padding:15px 12px}.treat-method-inner,.treat-stone>div,.treat-case>div{padding:14px 12px}.treat-policy{font-size:10px;padding:6px}.treat-method-title b{font-size:13px}.treat-stone-grid{grid-template-columns:1fr}.treat-quiz-cta{flex-direction:column;align-items:flex-start}.treat-quiz-cta button{white-space:normal}.treat-price-stage{padding:12px}.treat-filter{font-size:11px;padding:9px 10px}}
