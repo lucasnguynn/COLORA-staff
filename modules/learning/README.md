@@ -84,3 +84,11 @@ Mở `http://localhost:8080`. GitHub Actions chạy kiểm tra dữ liệu và J
 - [Báo cáo V10.2 Verified Knowledge & Applied Competency](docs/V10_2_IMPLEMENTATION.md).
 
 **Bản public vẫn là môi trường tự học, không xác nhận năng lực nhân sự chính thức.**
+
+## Bài 14D: Xử lý đá quý và ảnh hưởng đến giá (17/11/2026)
+
+- Bổ sung 12 phương thức xử lý, bối cảnh độ bền/giá trị, so sánh riêng ruby/sapphire theo chất lượng tương đương và ghi chú không có tỷ lệ premium cố định.
+- Có bảng tra cứu chín dòng đá, sáu tình huống tư vấn và 12 câu tự luyện với phản hồi tức thời.
+- Chính sách chốt: chỉ đá tự nhiên; chấp nhận không xử lý và riêng một số sapphire/ruby chỉ xử lý nhiệt thông thường khi có bằng chứng, duyệt theo SKU. Không gộp khuếch tán, trợ dung, lấp nứt với nhiệt thông thường.
+- Không thay đổi 303 câu hỏi V10.2, ngân hàng 48 câu thi hoặc kết quả tự học đã lưu.
+- Nguồn và quy tắc công bố: [Gem Treatments & Value Guide](docs/GEM_TREATMENTS_PRICE_GUIDE.md); dữ liệu học máy đọc [gem-treatments.json](data/gem-treatments.json).
